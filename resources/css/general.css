@@ -1,0 +1,53 @@
+body {
+    background-color: white;
+    font-family: "Open Sans",Roboto,sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #424141;
+}
+
+body h1 {
+    color: #0156a3;
+    font-weight: normal;
+    margin: 30px 0 0;
+    font-family: "Open Sans",Roboto,sans-serif;
+    width: 100%;
+    margin-bottom: 30px;
+    text-align: center;
+}
+body h2 {
+    color: #0156a3;
+    margin: 5px 0;
+    font-size: 24px;
+    font-weight: normal;
+    font-family: "Open Sans",Roboto,sans-serif;
+}
+p {
+    margin: 0 0 12px;
+    font-family: "Open Sans",Roboto,sans-serif;
+    font-size: 16px;
+}
+.navbar {
+    border-radius: 0px;
+}
+.privacy-container {
+    margin-top:10px;
+}
+section:not(.non-menu) ul {
+    clear: both;
+    margin-bottom: 10px;
+    padding-top: 0;
+    margin-top: 0;
+    padding-left: 40px;
+}
+section:not(.non-menu) ul li {
+    line-height: 1.7;
+    list-style: disc;
+}
+.footer-wraper {
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    background: #fff;
+}

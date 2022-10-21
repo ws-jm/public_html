@@ -1,0 +1,482 @@
+<!-- JS Files -->
+
+<script src="/resources/js/home.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer"
+/>
+
+<link rel="stylesheet" href="resources/css/monitor-gui.css" type="text/css" />
+<link rel="stylesheet" href="resources/css/monitor-ui.css" type="text/css" />
+
+
+<!-- header area -->
+<div class="brand-logo">
+    <!--     <img src="/resources/idm-service/resources/images/IDM-logo-400.png" alt=""> -->
+    <img src="/resources/idm-service/resources/images/SARUS-logo-400.png" alt="Sarus Logo">
+
+</div>
+
+<div class='HelpMessageRepo1 HelpMessage nondisp'>
+    <div class="content">
+        You can filter results using words and/or phrases (in double quotes).
+        <br> Filters are not case sensitive and apply to the <i>Symbol</i>, <i>Category</i> and
+        <i>Description</i> columns only.
+        <br> Double quotes must be preceded by the escape "<b>\</b>" character.
+        <br> Words or phrases can be excluded with a preceding "<b>-</b>" minus sign.
+        <br><br> For example, a search using: "Crude Oil" -Brent
+        <br> Returns series containing the phrase "Crude oil" but <span class="underline">not</span> the word "Brent".
+    </div>
+</div>
+
+<div id='reportCreatorGridMenu' class="nondisp">
+    <ul>
+        <li><img height='15px' width='15px' src='resources/css/icons/add_16.png'> Add to list</li>
+        <li type='separator'></li>
+        <li><img height='15px' width='15px' src='resources/css/icons/copy.png'> Copy</li>
+    </ul>
+</div>
+
+<div id='reportCreatorTreeMenu' class="nondisp">
+    <ul>
+        <li id="cmOpenAll">
+            <img height='15px' width='15px' src='resources/css/icons/closed.gif'> Open All
+        </li>
+        <li id="cmCloseAll">
+            <img height='15px' width='15px' src='resources/css/icons/open.gif'> Close All
+        </li>
+        <!-- <li type='separator'></li> -->
+    </ul>
+</div>
+
+<div id='seriesListTreeMenu' class="nondisp">
+    <ul>
+        <li id="slPaste">
+            <img height='15px' width='15px' src='resources/css/icons/paste_16.png'> Paste
+        </li>
+        <li type='separator'></li>
+        <li id="slProperties">
+            <img height='15px' width='15px' src='resources/images/series-prop.png'> Series Properties
+        </li>
+        <li id="slRemove">
+            <img height='15px' width='15px' src='resources/images/del_series.png'> Remove
+        </li>
+        <!-- <li type='separator'></li> -->
+    </ul>
+</div>
+
+<div id='batesListPopup'  class="batesListPopup" title="Select Columns to Display">
+    <div id="batesListPan"></div>
+    <div class="bottomDialog bottomDialog-div popupFooter">
+        <div id='selAllBates' class="sr-floatl">&nbsp;Select all columns</div>
+        <div id="btnSelectBates" class="btnSelectBates" >OK</div>
+        <input type="hidden" id="sel_tID" name="sel_tID" />
+    </div>
+</div>
+
+<div id="reportBackups" style="display:none">
+    <div>
+        <div id='report-container' class="deftoolbarbutton" >
+            <input id="btnReportCreate" title="Create New Report" type="button" value="New" style="border-radius:1px;">
+            <input id="btnReportEdit" title="Edit Report Properties" type="button" value="Properties" style="border-radius:1px;">
+            <input id="btnReportCopy" title="Duplicate Selected Report" type="button" value="Clone" style="border-radius:1px;">
+            <input id="btnReportRemove" title="Delete Selected Report" type="button" value="Delete" style="border-radius:1px;">
+            <input id="refreshReport" title="Refresh Report List" type="button" value="">
+        </div>
+        <div id="reportGrid" class="reportGrid" >
+        </div>
+        <div id='report-buttons' class="popupFooter">
+            <span class="report-buttons-span" >Select a report from the list above and click
+                <br />the 'Load' button to open it in a new tab</span>
+            <table class="report-buttons-table" >
+                <tr>
+                    <td class="report-buttons-load" style="padding-right: 10px;"><input id="btnLoadReport" type="button" value="Load"></td>
+                    <td class="report-buttons-cancel" style="padding-right: 10px;"><input id="btnCancelModal" type="button" value="Cancel"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="reportCreator" class="nondisp">
+    <div>
+        <div id="reportCreatorSplitter">
+            <div class="splitter-panel" id="leftSplitterPanel1">
+                <div class="leftSplitterPanel1-div" >
+                    <span id="leftPanTitle" class="leftPanTitle" >My Folders</span>
+                    <img id="leftPanIcon" class="leftPanIcon" src="resources/jqwidgets/styles/images/metro-icon-left.png"  />
+                </div>
+                <div class="jqx-hideborder jqx-hidescrollbars" class="sr-mt-5">
+                    <div class="jqx-hideborder" id='jstreeRepoCreator' style="margin-left:-20px"></div>
+                </div>
+            </div>
+            <div class="splitter-panel">
+                <div id="reportCreatorRightSplitter">
+                    <div class="jqx-hideborder jqx-hidescrollbars">
+                        <div id='repoCreatorgrid-container' style="border-top: 1px solid silver;">
+                            <table class="toolbar-table-reportCreator deftoolbarbutton" id="toolbar-table-reportCreator" style="margin:0">
+                                <tr>
+                                    <td style="padding-left: 5px;">Filter:&nbsp;</td>
+                                    <td><input id="searchReportCreatorBox"></td>
+                                    <td>
+                                        <div title="Apply the Filter" id="searchReportCreatorBtn" style="border-radius:1px; margin-left:3px"></div>
+                                        <!-- <button id="searchReportCreatorBtn" style="line-height: 20px; border-radius:1px">
+                                            <img id="activegrid-img" src="resources/css/icons/search.png" title="Apply the Filter" style="margin:0px 2px 2px 2px; border:0">
+                                        </button> -->
+                                    </td>
+                                    <td>
+                                        <div title="Filter Help" id="helpIconRepoCreator" class="helpIcon"></div>
+                                    </td>
+                                </tr>
+                                <tr style="margin-left:10px;">
+                                    <td id="repoCreatorgrid-buttons"></td>
+                                    <td><input id="btnAutosizeRepoCreator" title="Autosize Columns" style="margin-right:4px; border-radius:1px"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="jqx-hideborder" id='repoCreatorgrid' style="width:100%; height:1000px; font-family: Calibri;"></div>
+                    </div>
+                    <div class="jqx-hideborder jqx-hidescrollbars" id="bottomSplitterPanel1" style="margin:0 6px 0 6px">
+                        <div class="jqx-hideborder" id='jstreeSeriesList' style="overflow:auto; width:calc(100% - 32px); height:calc(100%); max-height:calc(100%); margin-left:-25px; padding: 1px; float: left;"></div>
+                        <div class="jqx-hideborder" id="seriesButtonPan" style="float:left; width:50px; height:100%; border-left: 2px solid #ddd !important; padding-left:8px; background-color:#efefef">
+                            <div style="height:32px; margin-top:13px"><input id="upArrow" style="float:left; background-color: rgb(237, 237, 237) !important; border-radius:4px; box-shadow:0px 0 1px rgb(0 0 0 / 25%);" /></div>
+                            <div style="height:32px; margin-top:6px"><input id="downArrow" style="float:left; background-color: rgb(237, 237, 237) !important; border-radius:4px; box-shadow:0px 0 1px rgb(0 0 0 / 25%);" /></div>
+                            <div style="height:32px; margin-top:52px"><input id="deleteBtn" style="float:left; background-color: rgb(237, 237, 237) !important; border-radius:4px; box-shadow:0px 0 1px rgb(0 0 0 / 25%);" /></div>
+                            <div style="height:32px; margin-top:6px"><input id="propertiesBtn" style="float:left; background-color: rgb(237, 237, 237) !important; border-radius:4px; box-shadow:0px 0 1px rgb(0 0 0 / 25%);" /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id='reportCreator-buttons' style="margin-top: 12px; padding-right: 3px" class="popupFooter">
+            <table style="margin-bottom:0px; width:auto; float:right; height:40px;">
+                <tr>
+                    <td style="padding-right:10px; vertical-align:top"><input id="btnSaveReportCreator" type="button" value="OK" style="box-shadow:0px 0 1px rgb(0 0 0 / 25%);"></td>
+                    <td style="padding-right:10px; vertical-align:top"><input id="btnCancelReportCreator" type="button" value="Cancel" style="box-shadow:0px 0 1px rgb(0 0 0 / 25%);"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="loginPopup" style="min-width:365px; display:none;">
+    <div>
+        <div id='login-container' style="width:85%; margin:auto">
+            <table style="margin-bottom: 18px;">
+                <tr>
+                    <td align="center" style="min-width:300px; color: #666!important;">
+                        Your login has timed out. Please login again.<br><br><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="line-height:30px; padding-bottom:10px">
+                        User Reference No:
+                        <font color="red">*</font><br>
+                        <input id="re_referenceNumber"><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="line-height:30px; padding-bottom:10px">
+                        User Name:
+                        <font color="red">*</font><br>
+                        <input id="re_username"><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="line-height:30px; padding-bottom:10px">
+                        Password:
+                        <font color="red">*</font><br>
+                        <input type="password" id="re_password" style="padding:0"><br>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id='login-buttons'>
+            <table style="margin-bottom:0px; width: 100%; float:right; height:52px;">
+                <tr>
+                    <td style="min-width: 200px;">
+                        <span style="line-height:25px; margin-left:28px; color:#666">Token Life</span><br>
+                        <div id='liveTime' style="margin-left:28px; float:left"></div>
+                        <span id='liveTimeLabel' style="line-height:25px; display:none">&nbsp;Hour</span>
+                    </td>
+                    <td style="padding-top:7px; padding-right:10px; vertical-align:top; width:40px;"><button type="button" class="btn" id="btnLoadLogin" style="margin:0">Login</button></td>
+                    <td style="padding-top:7px; padding-right:10px; vertical-align:top; width:40px;"><input id="btnCancelLogin" type="button" value="Cancel"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- <div id="addReportWindow" title="Create Favorites Report" style="display:none">
+    <div>
+        Report name: <input type="text" id="reportName" name="reportName"><br></br>
+        <input type="checkbox" id="reportPadlock" name="reportPadlock"> Protected
+    </div>
+</div> -->
+
+<div id="editReportWindow" class="editReportWindow" title="Report Properties" >
+    <div id="singleReport">
+        Report name for ID <span id="oldReportID"></span>:
+        <div id="oldReportName"></div><br></br>
+        New report name for ID <span id="newReportID"></span>: <input type="text" id="newReportName" name="newReportName">
+    </div>
+    <div id="multipleReport">
+        <div id="oldReportName">You have selected <span id="rowsReportLength"></span> series.</div><br> You can only change the Protected property on multiple reports.
+    </div>
+    <div id='newReportPadlock'>&nbsp;Locked</div>
+</div>
+
+<ul class="nav-menu">
+    <div class="close-btn">
+        <span></span>
+        <span></span>
+    </div>
+    <li class="nav-item"><a class="nav-link headerMenu active" href="/" id="menu0" role="/">Home</a></li>
+    <li class="nav-item dropdown-btn dropdown-btn1"><a class="nav-link">Solutions <i class="fas fa-caret-down"></i></a>
+        <ul class="dropdown-item ">
+            <li class="nav-item">
+                <a class="nav-link headerMenu" href="/samples" id="menu1" role="/samples"><img src="/resources/css/icons/analytics.png" alt=""> Market Data Analytics</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link headerMenu" href="/m-api" id="menu2" role="/m-api"><img src="/resources/css/icons/R-16.png"> Monitor+ API</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link headerMenu" href="/xlerate" id="menu3" role="/xlerate"><img src="/resources/css/icons/xlerate20x16.png" alt=""> XLerate for Excel</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item dropdown-btn dropdown-btn2"><a class="nav-link">Documents <i class="fas fa-caret-down"></i></a>
+        <ul class="dropdown-item">
+            <li class="nav-item">
+                <a class="nav-link headerMenu" href="/r-package" id="menu4" role="/r-package"><img src="/resources/css/icons/R-24.png" alt="">Using the 'R' Package</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link headerMenu" href="/python-api" id="menu5" role="/python-api"><img src="/resources/css/icons/Python16.png" alt="">Using the Python Package</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link headerMenu" href="/api-docs" id="menu6" role="/api-docs"><img src="/resources/css/icons/APIDocs16.png" alt="">API Documentation
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="nav-item"><a class="nav-link headerMenu" href="/contact-us" id="menu7" role="/contact-us">Contact</a>
+    </li>
+    <li class="nav-item register non-login"><a class="nav-link headerMenu" href="/registration" id="menu8" role="/registration">Register</a></li>
+    <li class="nav-item login non-login"><a class="nav-link headerMenu" href="/login" id="menu9" role="/login">Login</a>
+    </li>
+    <li class="dropdown-btn profile home-menu">
+        <a class="nav-link"><img src="/resources/css/fonts/man.png" alt=""> <span id="login_name"></span> <i class="fas fa-caret-down"></i> </a>
+        <ul class="dropdown-item">
+            <li>
+                <a href="/profile" class="headerMenu" id="menu10" role="/profile"><img src="/resources/css/icons/MyAccount16.png" alt=""> My Account</a>
+            </li>
+            <li>
+                <a href="/profilemain?tab=favorites" class="headerMenu" id="menu11" role="/profilemain?tab=favorites"><img src="/resources/css/icons/Favorites16.png" alt=""> My Favorites
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" class="headerMenu" id="report_list"><img src="/resources/css/icons/Sheet16.png" alt=""> My WebXL Reports</a>
+            </li>
+            <li>
+                <a id="logout" href="javascript:void(0)"><img src="/resources/css/icons/Logout.png" alt=""> logout</a>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<div class="bar">
+    <span class="bar1"></span>
+    <span class="bar2"></span>
+    <span class="bar3"></span>
+</div>
+
+<script>
+    $(document).ready(function() {
+
+        var elements = $(".headerMenu");
+        var url = window.location.pathname;
+
+        /*elements.each(function (index) {
+            exp_url = url.split("/");
+            if (exp_url[1] == "") {
+                if (index == 0) {
+                    $("#menu" + index).attr("href", "#");
+                }
+                else {
+                    $("#menu" + index).attr("href", $("#menu" + index).attr("role"));
+                }
+            }
+            else {
+                if (index == 0) {
+                    $("#menu" + index).attr("href", $("#menu" + index).attr("role"));
+                }
+                else {
+                    if (url === $("#menu" + index).attr("role")) {
+                        $("#menu" + index).attr("href", "#");
+                    }
+                    else {
+                        if($("#menu" + index).attr("role") != '/profile' && $("#menu" + index).attr("role") != '/profilemain?tab=favorites'){
+                            $("#menu" + index).attr("href", $("#menu" + index).attr("role"));
+                        }
+                    }
+                }
+            }
+        });*/
+
+        $('.dropdown-btn1').click(function(e) {
+            e.stopPropagation();
+            if ($(this).children('.dropdown-item').hasClass('dropdown-item-shown') == true) {
+                $(this).children('.dropdown-item').removeClass('dropdown-item-shown')
+            } else($(this).children('.dropdown-item').addClass('dropdown-item-shown'))
+            $('.dropdown-btn2').children('.dropdown-item').removeClass('dropdown-item-shown')
+            $('.dropdown-btn3').children('.dropdown-item').removeClass('dropdown-item-shown')
+
+        });
+        $('.dropdown-btn2').click(function(e) {
+            e.stopPropagation();
+            if ($(this).children('.dropdown-item').hasClass('dropdown-item-shown') == true) {
+                $(this).children('.dropdown-item').removeClass('dropdown-item-shown')
+            } else($(this).children('.dropdown-item').addClass('dropdown-item-shown'))
+            $('.dropdown-btn1').children('.dropdown-item').removeClass('dropdown-item-shown');
+            $('.dropdown-btn3').children('.dropdown-item').removeClass('dropdown-item-shown');
+        });
+
+        $('.profile').click(function(e) {
+            e.stopPropagation();
+            if ($(this).children('.dropdown-item').hasClass('dropdown-item-shown') == true) {
+                $(this).children('.dropdown-item').removeClass('dropdown-item-shown')
+            } else($(this).children('.dropdown-item').addClass('dropdown-item-shown'))
+            $('.dropdown-btn1').children('.dropdown-item').removeClass('dropdown-item-shown');
+            $('.dropdown-btn2').children('.dropdown-item').removeClass('dropdown-item-shown')
+            $('.dropdown-btn3').children('.dropdown-item').removeClass('dropdown-item-shown');
+        });
+
+        $(document).on('click', function(e) {
+            if ($(e.target).is(".dropdown-btn") == false && $('.dropdown-item').hasClass(
+                    'dropdown-item-shown')) {
+                console.log("button clicked");
+                $('.dropdown-item').removeClass('dropdown-item-shown');
+
+            }
+        });
+
+        $('.navbar .bar').click(function() {
+            $('.nav-menu').addClass('nav-menu-shown')
+            if ($('.footer-menu').hasClass('nav-menu-shown')) {
+                $('.footer-menu').removeClass('nav-menu-shown')
+            }
+        });
+
+
+        $('.navbar .close-btn').click(function() {
+            $('.nav-menu').removeClass('nav-menu-shown')
+        });
+
+
+        $(window).resize(function() {
+            if ($('.nav-menu').hasClass('nav-menu-shown')) {
+                $('.nav-menu').removeClass('nav-menu-shown')
+            }
+
+        });
+
+        let lastScrollTop = 0;
+        $(window).scroll(function(event) {
+            let st = $(this).scrollTop();
+
+            if (st > lastScrollTop && lastScrollTop >= 0) {
+                $('.navbar').css({
+                    top: '-110px'
+                });
+                $('.dropdown-item').removeClass('dropdown-item-shown');
+                $('.nav-menu').removeClass('nav-menu-shown');
+                $('.marquee-wrapper').css({
+                    visibility: 'hidden',
+                    opacity: '0'
+
+                });
+
+            } else if (st < lastScrollTop) {
+                $('.navbar').css({
+                    top: '0'
+                })
+
+                $('.marquee-wrapper').css({
+                    visibility: 'visible',
+                    opacity: 1
+                })
+
+            }
+            lastScrollTop = st;
+        });
+    });
+
+    function loadScript(src) {
+        var scriptElem = document.createElement('script');
+        scriptElem.setAttribute('src', src);
+        scriptElem.setAttribute('type', 'text/javascript');
+        document.getElementsByTagName('head')[0].appendChild(scriptElem);
+    }
+
+    if (location.pathname !== '/login' &&
+        location.pathname !== '/' &&
+        location.pathname !== '/contact-us' &&
+        location.pathname !== '/r-package' &&
+        location.pathname !== '/python-api' &&
+        location.pathname !== '/api-docs' &&
+        location.pathname !== '/samples' &&
+        location.pathname !== '/m-api' &&
+        location.pathname !== '/xlerate' &&
+        location.pathname !== '/databases' &&
+        location.pathname !== '/faq' &&
+        location.pathname !== '/terms-and-conditions' &&
+        location.pathname !== '/work-with-us' &&
+        location.pathname !== '/privacy-policy' &&
+        location.pathname !== '/fair-use-policy' &&
+        location.pathname !== '/cookie-policy') {
+        setTimeout("loadScript('resources/js/reportCreator.js');", 100);
+    }
+
+    function go_url(url, page_type = "private") {
+        var path = window.location.pathname;
+        if (path !== url) {
+            if ((getSession() == undefined || getSession() == "") && page_type == "private") {
+                openLoginPopup();
+            } else {
+                if (path == "/report_viewer") {
+                    dialogWindow("The report will be lost if you continue.<br>Open the request in a new tab?", "query", "confirm", "Monitor+", () => {
+                        var jsonObj = request_editor.get();
+                        // var jsonObj1 = getJsonTree(notes_editor);
+                        // var jsonObj2 = getJsonTree(user_editor);
+
+                        if (JSON.stringify(jsonObj) != JSON.stringify(requestParameters)) {
+                            edit_flag = true;
+                        }
+
+                        if (edit_flag == true) {
+                            dialogWindow("The report may have been changed.<br/>If you load a new report you my lose these changes.<br>Do you want continue?", "query", "confirm", "Monitor+", () => {
+                                window.open(url, '_blank');
+                            }, () => {
+                                window.open(url, '_self');
+                            }, null, {
+                                Ok: "Yes",
+                                Cancel: "No",
+                                Destroy: "Cancel"
+                            });
+                        } else {
+                            window.open(url, '_blank');
+                        }
+                    }, () => {
+                        window.open(url, '_self');
+                        //                    }, null, { Ok: "Yes", Cancel: "No" });
+                    }, null, {
+                        Ok: "Yes",
+                        Cancel: "No",
+                        Destroy: "Cancel"
+                    });
+                } else {
+                    window.open(url, '_self');
+                }
+            }
+        }
+    }
+</script>

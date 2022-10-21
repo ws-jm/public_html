@@ -1,0 +1,1060 @@
+<div>
+	<div class="doc-sec-container" id="documentor_seccontainer">
+		<div class="doc-sectionwrap" id="deletedfavorites_wrap">
+			<div class="documentor-section  section-623" id="deletedfavorites1"
+				data-section-id="623">
+				<h3 class="doc-sec-title"> <span class="doc-sec-count"
+						style="display:inline-block">5.5.</span><span
+						class="title-text">&nbsp;&nbsp;GetDeletedFavorites</span>
+				</h3>
+				<div class="doc-sec-content">
+					<h2><b><span style="color: #339966;"><span
+									style="color: #008000;">GET
+								</span></span></b><b>and </b><b><span
+								style="color: #339966;"><span
+									style="color: #008000;">POST</span>
+							</span></b><b>GetDeletedFavorites </b>
+					</h2>
+					<p><strong>Usage:</strong>&nbsp;&nbsp;Return a list of datasets that have
+						been removed
+						from your ‘favorites’ list.</p>
+					<div class="api-article-main-example">
+						<p> </p>
+						<h4><b style="color: RGB(54, 96,146);"><span
+									style="color: #008000;">GET</span> Sample
+								Request:</b>
+						</h4>
+						<pre><span class="spanColor">GET</span> https://[server]/GetDeletedFavorites?SessionToken=YOUR_SESSION_TOKEN&amp;DateFormat=YYYY-MM-DD</pre>
+					</div>
+					<div class="api-article-table">
+						<div class="api-article-main-example">
+						
+						<h4><b style="color: RGB(54, 96,146);"><span
+										style="color: #008000;">POST</span>
+									Sample Request:</b></h4>												
+							
+							<pre>POST https://[server]/GetDeletedFavorites?SessionToken=YOUR_SESSION_TOKEN
+	
+							{
+								"SessionToken=YOUR_SESSION_TOKEN",
+								"DateFormat":"YYYY-MM-DD"
+							}
+							</pre>
+							<p> </p>
+							<blockquote>
+								<p><strong>Tip:</strong></p>
+								<p>If you wish to permanently erase a series from
+									the
+									deleted favorites list use the GET
+									or POST EraseDeletedFavorites command.<br>
+									It has the same request parameters (session
+									token and Series object) as the endpoint
+									<em>AddFavorites</em>.<br>
+									Please refer to the <em>AddFavorites
+									</em>documentation for details<em>.<br>
+									</em>
+								</p>
+							</blockquote>
+						</div>
+						<br>
+																<br>
+							<h3>Request Parameters</h3>
+						<table width="689">
+							<tbody>
+								<tr>
+									<td style="text-align: left;">
+										<strong>Parameter</strong>
+									</td>
+									<td style="text-align: left;">
+										<strong>Type</strong>
+									</td>
+									<td style="text-align: left;">
+										<strong>Description</strong>
+									</td>
+								</tr>
+								<tr>
+									<td>SessionToken</td>
+									<td>String</td>
+									<td>Session token from
+										the <em>GetSessionToken</em> endpoint.
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+															<br>
+							<h3>Optional Request Parameters</h3>
+					<table class="table table-bordered" style="height: 92px;"
+						width="830">
+						<thead>
+							<tr>
+								<th style="text-align: left;">Parameter</th>
+								<th style="text-align: center;">Type</th>
+								<th style="text-align: center;">Default</th>
+								<th style="text-align: left;">Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><span style="color: #808080;"> DateFormat</span>
+								</td>
+								<td style="text-align: left;"><span
+										style="color: #808080;">String</span></td>
+								<td style="text-align: center;"><span
+										style="color: #808080;">“YYYY-MM-DD”</span>
+								</td>
+								<td><span style="color: #808080;">The date format to
+										use
+										in the request and result.<br>
+										See the ‘<em>DateFormat Parameter</em>‘
+										section
+										below for details.</span></td>
+							</tr>
+						</tbody>
+					</table>
+					<p> </p>
+					<div class="api-article-table">
+						<h3 style="padding-left: 30px;">DateFormat Parameter</h3>
+					</div>
+					<p style="padding-left: 30px;">You can control the format of
+						dates
+						that are used in the request and returned in the result.</p>
+					<p style="padding-left: 30px;">If used, the date separator is
+						the
+						character between the day, month and year values and can be
+						one
+						of 4 characters:</p>
+					<p style="padding-left: 60px;">“<strong>–</strong>“<strong>
+							– hyphen or dash</strong><br>
+						“/” – forward slash<br>
+						“.” – dot or full stop<br>
+						” ” – space</p>
+					<div class="api-article-table">
+						<div class="api-article-table">
+							<div class="api-article-table">
+								<div class="api-article-table">
+									<div class="api-article-table"
+										style="padding-left: 0px;">
+										<table class="table table-bordered"
+											style="margin-left: 60px;">
+											<thead>
+												<tr>
+													<th style="text-align: left;">
+														Format
+													</th>
+													<th style="text-align: left;">
+														Result
+														Dates</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td><strong> “YYYY-MM-DD”
+														</strong>
+													</td>
+													<td>Formatted as 2018-01-22.
+														(default).</td>
+												</tr>
+												<tr>
+													<td> “YYYY-DD-MM”</td>
+													<td>Formatted as 2018-22-01.
+													</td>
+												</tr>
+												<tr>
+													<td> “YYYYMMDD”</td>
+													<td>Formatted as 20180122.</td>
+												</tr>
+												<tr>
+													<td> “YYYYDDMM”</td>
+													<td>Formatted as 20182201.</td>
+												</tr>
+												<tr>
+													<td> “MM-DD-YYYY”</td>
+													<td>Formatted as 01-22-2018.
+													</td>
+												</tr>
+												<tr>
+													<td> “DD-MM-YYYY”</td>
+													<td>Formatted as 22-01-2018.
+													</td>
+												</tr>
+												<tr>
+													<td> “EXCEL”</td>
+													<td>Formatted as numbers
+														where 1/1/1976 = 27760.</td>
+												</tr>
+												<tr>
+													<td> “JULIAN”</td>
+													<td>Formatted as the number of
+														days
+														since ’12h Jan 1, 4713 BC’.
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="api-article-table">
+									<div class="api-article-table"
+										style="padding-left: 60px;">
+										<div class="api-article-table">
+											<div class="api-article-table">
+												<div class="api-article-table">
+
+													<div class="api-article-table">
+														<div
+															class="api-article-table">
+															<div
+																class="api-article-table">
+
+																<div
+																	class="api-article-table single-notes notes-indent">
+																	<div>Note</div>
+																	<p>In the examples above we use the	“-” date separator character. You can replace
+																	this character with any of the other three separators
+																	characters.  If you require 2 character years, replace “YYYY” with “YY” in the formats above.
+																	</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<p> </p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<p> </p>
+					<div class="api-article-table">
+						<div class="api-article-table">
+							<div class="api-article-table">
+								<br>
+								<h3>Response Parameters</h3>
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<th style="text-align: right;"></th>
+											<th style="text-align: left;">
+												<strong>Parameter</strong>
+											</th>
+											<th style="text-align: left;">Type</th>
+											<th style="text-align: center;">
+												Mandatory
+											</th>
+											<th style="text-align: left;">
+												<strong>Description</strong>
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td style="text-align: right;"><span
+													style="color: #000000;">1</span>
+											</td>
+											<td><span
+													style="color: #000000;">ServerDateTime</span>
+											</td>
+											<td><span
+													style="color: #000000;">String</span>
+											</td>
+											<td style="text-align: center;"><span
+													style="color: #000000;">Yes</span>
+											</td>
+											<td><span style="color: #000000;">The
+													server
+													UTC date and time as an ISO 8601
+													string.</span></td>
+										</tr>
+										<tr>
+											<td style="text-align: right;"><span
+													style="color: #000000;">2</span>
+											</td>
+											<td><span
+													style="color: #000000;">TimeStamp</span>
+											</td>
+											<td><span
+													style="color: #000000;">Float</span>
+											</td>
+											<td style="text-align: center;"><span
+													style="color: #000000;">Yes</span>
+											</td>
+											<td><span style="color: #000000;">Server
+													date and time as a Julian
+													date.</span></td>
+										</tr>
+										<tr>
+											<td style="text-align: right;"><span
+													style="color: #000000;">3</span>
+											</td>
+											<td><span
+													style="color: #000000;">ExecutionTime</span>
+											</td>
+											<td><span
+													style="color: #000000;">Float</span>
+											</td>
+											<td style="text-align: center;"><span
+													style="color: #000000;">Yes</span>
+											</td>
+											<td><span style="color: #000000;">The
+													number
+													of milliseconds taken to process
+													the
+													request.</span></td>
+										</tr>
+										<tr>
+											<td style="text-align: right;"><span
+													style="color: #808080;">4</span>
+											</td>
+											<td><span
+													style="color: #808080;">Result</span>
+											</td>
+											<td><span
+													style="color: #808080;">[Object]</span>
+											</td>
+											<td style="text-align: center;"><span
+													style="color: #808080;">No*</span>
+											</td>
+											<td><span style="color: #808080;">If the
+													request is a success,
+													a <em>Result</em> object is
+													returned.</span><br>
+												<span style="color: #808080;">See
+													the ‘<em>Result</em>‘
+													table below for details.</span>
+											</td>
+										</tr>
+										<tr>
+											<td style="text-align: right;">5</td>
+											<td style="text-align: left;">Errors
+											</td>
+											<td style="text-align: left;">[Object]
+											</td>
+											<td style="text-align: center;">No*</td>
+											<td style="text-align: left;"><span
+													style="color: #808080;">If the
+													request fails, an
+													'<em>Errors</em>'
+													object is returned.<br>
+													See the
+													‘<em>Errors Object</em>‘
+													table below for details.</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+
+								<div class="single-notes notes-indent">
+									<div> Note</div>
+									<p>A successful API response will return a
+										'<em>Result</em>' object with the requested
+										payload
+										<strong>or</strong> an '<em>Errors</em>'
+										object
+										detailing the issue that caused the error.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<h3></h3>
+					<h3>Result Object</h3>
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th>Parameter</th>
+								<th>Type</th>
+								<th style="text-align: left;">Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Datasets</td>
+								<td>[Object]</td>
+								<td>The datasets returned. <span
+										style="font-family: inherit; font-size: inherit;">See
+										the </span><em
+										style="font-family: inherit; font-size: inherit;">Datasets</em><span
+										style="font-family: inherit; font-size: inherit;">
+										object below</span></td>
+							</tr>
+						</tbody>
+					</table>
+					<p> </p>
+					<h3 style="padding-left: 30px;">Datasets Object</h3>
+					<table style="margin-left: 30px; height: 722px;" width="1433">
+						<tbody style="padding-left: 30px;">
+							<tr style="padding-left: 30px;">
+								<td style="text-align: right;"></td>
+								<td><b>Parameter</b></td>
+								<td><strong>Type</strong></td>
+								<td style="text-align: center;">
+									<strong>Mandatory</strong>
+								</td>
+								<td><strong>Description</strong></td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #000000;">1</span></td>
+								<td><span style="color: #000000;">Datasource</span>
+								</td>
+								<td><span style="color: #000000;">String</span></td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes</span></td>
+								<td><span style="color: #000000;">The datasource
+										ID.</span></td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #808080;">2</span></td>
+								<td><span
+										style="color: #808080;">DataCategory</span>
+								</td>
+								<td><span style="color: #808080;">String</span></td>
+								<td style="text-align: center;"><span
+										style="color: #808080;">No</span></td>
+								<td><span style="color: #808080;">If true, this is a
+										CategoryDS datasource
+										(result <em>ISCategoryDS</em> is set to
+										true) and the <em>DataCategory</em> result
+										will contain the data category name.</span>
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #000000;">3</span></td>
+								<td><span style="color: #000000;">Symbol</span></td>
+								<td><span style="color: #000000;">String</span></td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes</span></td>
+								<td><span style="color: #000000;">The dataset ID
+										(market
+										identifier, symbol, ID or code).</span></td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #000000;">4</span></td>
+								<td><span style="color: #000000;">Name</span></td>
+								<td><span style="color: #000000;">String</span></td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes</span></td>
+								<td><span style="color: #000000;">Text describing
+										the
+										dataset.</span></td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #808080;">5</span></td>
+								<td><span style="color: #808080;">Description</span>
+								</td>
+								<td><span style="color: #808080;">String</span></td>
+								<td style="text-align: center;"><span
+										style="color: #808080;">No*</span></td>
+								<td><span style="color: #808080;">If available,
+										additional data describing the
+										dataset.</span>
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #000000;">6</span></td>
+								<td><span style="color: #000000;">Frequency</span>
+								</td>
+								<td><span style="color: #000000;">String</span></td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes<strong>*</strong></span>
+								</td>
+								<td><span style="color: #000000;">The frequency (
+										day,
+										week etc.) in which the data is
+										reported.</span>
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #000000;">7</span></td>
+								<td><span style="color: #000000;">Currency</span>
+								</td>
+								<td><span style="color: #000000;">String</span></td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes<strong>*</strong></span>
+								</td>
+								<td><span style="color: #000000;">The currency a
+										unit
+										the dataset is reported in as an ISO three
+										character currency code.</span></td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #000000;">8</span></td>
+								<td><span style="color: #000000;">Unit</span></td>
+								<td><span style="color: #000000;">String</span></td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes<strong>*</strong></span>
+								</td>
+								<td><span style="color: #000000;">The unit a dataset
+										it
+										reported ( MT, BBL, GALL etc).</span></td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #000000;">9</span></td>
+								<td><span style="color: #000000;">Decimals</span>
+								</td>
+								<td><span style="color: #000000;">Integer</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes<strong>*</strong></span>
+								</td>
+								<td><span style="color: #000000;">The recommended
+										number
+										of decimal places to use when displaying the
+										dataset values.</span></td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #000000;"> 10</span></td>
+								<td><span style="color: #000000;">Bates</span></td>
+								<td><span style="color: #000000;">Array</span></td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes<strong>*</strong></span>
+								</td>
+								<td><span style="color: #000000;">An array of price
+										data
+										column ‘bate’ names e.g: “Bid”,”Ask”,
+										“High”,”Low”.</span></td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #000000;">11</span></td>
+								<td><span style="color: #000000;">Bateindex</span>
+								</td>
+								<td><span style="color: #000000;">Array</span></td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes<strong>*</strong></span>
+								</td>
+								<td><span style="color: #000000;">An array of price
+										data
+										column numbers that correspond to the bates
+										array above e.g: “BateIndex”: [ 0, 1,
+										2 ].</span></td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #000000;">12</span></td>
+								<td><span style="color: #000000;">StartDate</span>
+								</td>
+								<td><span style="color: #000000;">String</span></td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes<strong>*</strong></span>
+								</td>
+								<td><span style="color: #000000;">The first date
+										available for values in “YYYY-MM-DD”
+										format.</span></td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #000000;">13</span></td>
+								<td><span style="color: #000000;">EndDate</span>
+								</td>
+								<td><span style="color: #000000;">String</span></td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes<strong>*</strong></span>
+								</td>
+								<td><span style="color: #000000;">The most recent
+										date
+										available for values in “YYYY-MM-DD”
+										format.</span></td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #000000;">14</span></td>
+								<td><span style="color: #000000;">Values</span></td>
+								<td><span style="color: #000000;">Integer</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes<strong>*</strong></span>
+								</td>
+								<td><span style="color: #000000;">Total number of
+										value/price records in the dataset.</span>
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #000000;">15</span></td>
+								<td><span style="color: #000000;">Corrections</span>
+								</td>
+								<td><span style="color: #000000;">Integer</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes<strong>*</strong></span>
+								</td>
+								<td><span style="color: #000000;">The number of
+										value/price corrections available for the
+										dataset.</span></td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #000000;">16</span></td>
+								<td><span style="color: #000000;">Premium</span>
+								</td>
+								<td><span style="color: #000000;">Boolean</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes<strong>*</strong></span>
+								</td>
+								<td><span style="color: #000000;">If true, this is a
+										premium subscription datasource that is not
+										included gratis as part of a service.</span>
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #000000;">17</span></td>
+								<td><span style="color: #000000;">Favorite</span>
+								</td>
+								<td><span style="color: #000000;">Boolean</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes<strong>*</strong></span>
+								</td>
+								<td><span style="color: #000000;">If true, this
+										dataset
+										in the users favorite datasets
+										list.</span></td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #000000;">18</span></td>
+								<td><span
+										style="color: #000000;">IsCategoryDS</span>
+								</td>
+								<td><span style="color: #000000;">String</span></td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes<strong>*</strong></span>
+								</td>
+								<td><span style="color: #000000;">If true the
+										datasource
+										is a CategoryDS datasource. A CategoryDS
+										is a datasource whose datasets are grouped
+										in
+										data categories. The user must be authorised
+										to
+										access individual data categories. See
+										“CategoryDS datasources” note
+										above.</span>
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #808080;">19</span></td>
+								<td><span
+										style="color: #808080;">Subscription</span>
+								</td>
+								<td><span style="color: #808080;">String</span></td>
+								<td style="text-align: center;"><span
+										style="color: #808080;">No<strong>*</strong></span>
+								</td>
+								<td><span style="color: #808080;">The
+										<em>Subscription</em> parameter is only
+										returned
+										when the request parameter
+										<em>ReturnAccess </em>is set to
+										true.</span><br>
+									<span style="color: #808080;">It returns the
+										type of
+										datasource access available with the current
+										subscription.</span><br>
+									<span style="color: #808080;">There are 4
+										options:
+										“None”, “Active”, “Inactive” and
+										“Simulated”.</span><br>
+									<span style="color: #808080;">Please note that
+										the
+										option “Simulated” means that the values are
+										fictional and <u>are generated for
+											demonstration
+											purposes only</u>.</span>
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #808080;">20</span></td>
+								<td><span style="color: #808080;">Additional</span>
+								</td>
+								<td><span style="color: #808080;">[Object]</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #808080;">No*</span></td>
+								<td><span style="color: #808080;"> The
+										<em>Additional</em> object allows more
+										dataset specific information to be provided
+										as
+										additional JSON parameters.</span><br>
+									<span style="color: #808080;">Please refer to
+										the
+										datasource documentation and the raw
+										JSON from
+										the <em>Additional</em> object for
+										more information.</span><br>
+									<span style="color: #808080;">An example of
+										conversion factors in
+										the <em>Additional</em> object is:</span>
+									<p></p>
+									<div>
+										<div>
+											<div>
+												<div><span style="color: #808080;">
+														“Additional”: {</span>
+												</div>
+											</div>
+										</div>
+										<div><span style="color: #808080;">
+												“Conversions”: [</span>
+										</div>
+										<div><span style="color: #808080;"> {</span>
+										</div>
+										<div><span style="color: #808080;">
+												“ConvertTo”: “BBL”,</span>
+										</div>
+										<div><span style="color: #808080;">
+												“ConvertOperator”: “/”,</span>
+										</div>
+										<div><span style="color: #808080;">
+												“ConvertValue”: “7.45”</span>
+										</div>
+										<div><span style="color: #808080;"> }</span>
+										</div>
+										<div><span style="color: #808080;"> ]</span>
+										</div>
+										<div><span
+												style="color: #808080; font-family: inherit; font-size: inherit;">}</span>
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #808080;">21</span></td>
+								<td><span style="color: #808080;">Icon</span></td>
+								<td><span style="color: #808080;"> String</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #808080;">No*</span></td>
+								<td><span style="color: #808080;">A link to a small
+										datasource logo image.</span></td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #808080;">22</span></td>
+								<td><span style="color: #808080;">Status</span></td>
+								<td style="text-align: left;"><span
+										style="color: #808080;">Integer</span></td>
+								<td style="text-align: center;"><span
+										style="color: #808080;">No*</span></td>
+								<td><span style="color: #808080;">A HTTP standard
+										result code for the dataset. It
+										returns 200 (success) if the dataset is
+										available. See the <em>Details </em>
+										parameter below.</span></td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #808080;">23</span></td>
+								<td><span style="color: #808080;">Details</span>
+								</td>
+								<td><span style="color: #808080;">String</span></td>
+								<td style="text-align: center;"><span
+										style="color: #808080;">No* </span></td>
+								<td><span style="color: #808080;">A description of
+										the <em>Status</em> parameter value
+										above.</span></td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #808080;">24</span></td>
+								<td>
+									<div>
+										<div><span
+												style="color: #808080;">DateTime</span>
+										</div>
+									</div>
+								</td>
+								<td><span style="color: #808080;">String</span></td>
+								<td style="text-align: center;"><span
+										style="color: #808080;">No* </span></td>
+								<td><span style="color: #808080;">The server UTC
+										date
+										and time (as an ISO 8601 string) the
+										dataset was deleted from the user
+										favorites list. </span></td>
+							</tr>
+						</tbody>
+					</table>
+
+					<div class="single-notes notes-indent"
+						style="margin-left: 48px;">
+						<div> Note</div>
+						<p>  The parameter may only be
+							present if <em>Status</em> is 200 – meaning
+							there was no error in the symbol request. If not
+							200, the dataset may not be available and you may get a
+							dataset result similar to:</p>
+					</div>
+					<div>
+						<div style="padding-left: 150px; margin-top: 25px;">
+							{</div>
+						<div style="padding-left: 150px;">
+							“Datasource”: “GCP”,
+						</div>
+						<div style="padding-left: 150px;">
+							“Symbol”: “AG_GBP”,
+						</div>
+						<div style="padding-left: 150px;">
+							“Status”: 404,
+						</div>
+						<div style="padding-left: 150px;">
+							“Details”: “Unknown datasource GCP”
+						</div>
+						<div style="padding-left: 150px;">
+							}</div>
+					</div>
+					<div class="api-article-table" style="padding-left: 150px;">
+						<div class="api-article-table" style="padding-left: 150px;">
+							<div class="api-article-table"
+								style="padding-left: 150px;">
+								<h3 style="padding-left: 180px;"></h3>
+							</div>
+						</div>
+					</div>
+					<p> </p>
+					<h3>Errors Object</h3>
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th style="text-align: right;"></th>
+								<th style="text-align: left;">
+									<strong>Parameter</strong>
+								</th>
+								<th style="text-align: left;">Type</th>
+								<th style="text-align: center;">Mandatory</th>
+								<th style="text-align: left;">
+									<strong>Description</strong>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #000000;">1</span></td>
+								<td><span style="color: #000000;">Status</span></td>
+								<td><span style="color: #000000;">Integer</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes</span></td>
+								<td><span style="color: #000000;">HTTP status
+										code.</span></td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #000000;">2</span></td>
+								<td style="text-align: left;"><span
+										style="color: #000000;">Detail</span></td>
+								<td style="text-align: left;"><span
+										style="color: #000000;">String</span></td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes</span></td>
+								<td style="text-align: left;"><span
+										style="color: #000000;">Description of the
+										status code above.</span></td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="api-article-table" style="padding-left: 30px;">
+					</div>
+					<div class="api-article-table" style="padding-left: 30px;">
+						<h4 style="padding-left: 30px;">Possible Status codes in the
+							'<em>Errors</em>' object
+						</h4>
+						<table class="table table-bordered"
+							style="margin-left: 30px;">
+							<thead style="padding-left: 30px;">
+								<tr style="padding-left: 30px;">
+									<th style="text-align: left;">Code</th>
+									<th style="text-align: left;">Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>400</td>
+									<td>The Datasource/Symbol is invalid.</td>
+								</tr>
+								<tr>
+									<td>401</td>
+									<td>Invalid session token</td>
+								</tr>
+								<tr>
+									<td>404</td>
+									<td>Datasource not found</td>
+								</tr>
+								<tr>
+									<td style="text-align: left;">406</td>
+									<td style="text-align: left;">Unacceptable row
+										count
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="single-notes notes-indent"
+						style="margin-left: 78px;">
+						<div>Note</div>
+						<p>This is not an
+							exhaustive list and additional error codes may be
+							returned. The <em>Errors </em>object <em>Detail</em>
+							field will return request specific error information.
+						</p>
+					</div>
+					<div class="api-article-table">
+						<h3></h3>
+						<h3>Possible HTTP response codes</h3>
+						<p style="line-height: 30px !important;"><span
+								class="spanColor">This endpoint returns 200 for
+								success. <br>
+								You can get HTTP client network errors or server
+								errors from any API request. You should
+								check with your network or IT colleagues in case the
+								issue is a local one. <br>
+								All server generated errors will return an
+								'<em>Errors</em>' object that will give specific
+								details
+								about the error. <br>
+								A full list of HTTP codes and their meanings is
+								available <a
+									href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">here</a>,</span>
+						</p>
+						<div class="api-article-table" style="padding-left: 60px;">
+							<div class="api-article-table"></div>
+						</div>
+					</div>
+					<div class="doc-sec-content">
+						<h3>Success and fail examples</h3>
+						<p> </p>
+						<h4><b style="color: RGB(54, 96,146);">Sample Request:</b>
+						</h4>
+						<div class="api-article-main-example">
+							<pre>GET https://[server]/GetDeletedFavorites?SessionToken=YOUR_SESSION_TOKEN&amp;DateFormat=YYYY-MM-DD
+	
+						</pre>
+						</div>
+						<div class="api-article-main-blockExample">
+							<h4></h4>
+							<h4><strong>Response body on success:</strong></h4>
+							<div>
+
+								<div id="GDF_Success"></div>
+
+							</div>
+						</div>
+					</div>
+					<h4></h4>
+					<h4><strong>Response body on fail:</strong></h4>
+					<div>
+
+						<div id="GDF_Fail"></div>
+					</div>
+					<p> </p>
+				</div>
+
+				<div class="last-date">
+					<div class="date">Last updated on May 7, 2021</div>
+				</div>
+				<br>
+			</div>
+	<div class="dis-block clearfix">
+		<a href="javascript:move_section('#removedatasetfromfavorites')" class="doc-prev"><i class="fas fa-chevron-circle-left"></i>Remove Dataset(s) from Favorites</a>
+		<a href="javascript:move_section('#erasedeletedfavorites')" class="doc-next">Erase deleted from Favorites <i class="fas fa-chevron-circle-right"></i></a>
+	</div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	
+
+	// **************Responses(Success and Fail)***************
+
+	// ***AUTHENTICATION***
+
+	// Get Deleted Favorites
+	var GDF_Success_Obj = {};
+	var jsonViewer_GDF_Success = new JSONViewer();
+	document.querySelector("#GDF_Success").appendChild(jsonViewer_GDF_Success.getContainer());
+
+
+	GDF_Success = JSON.stringify({
+		"ServerDateTime": "2021-04-29T09:43:15Z",
+		"TimeStamp": 2459333.9467,
+		"ExecutionTime": 0.182,
+		"Result": [
+			{
+				"Datasource": "ECBFX",
+				"Symbol": "EURNZD",
+				"Name": "ECB - Euro vs New Zealand Dollar",
+				"Description": "European Central Bank exchange rate for Euro vs New Zealand Dollar (EUR/NZD)",
+				"Frequency": "Day",
+				"Status": 200,
+				"Details": "OK",
+				"Subscription": "Active",
+				"DateTime": "2020-02-22 07:02:01"
+			},
+			{
+				"Datasource": "ECBFX",
+				"Symbol": "EURILS",
+				"Name": "ECB - Euro vs Israeli Shekel",
+				"Description": "European Central Bank exchange rate for Euro vs Israeli Shekel (EUR/ILS)",
+				"Frequency": "Day",
+				"Status": 200,
+				"Details": "OK",
+				"Subscription": "Active",
+				"DateTime": "2020-02-22 09:05:47"
+			}
+		]
+	}
+	);
+
+
+	var GDF_Fail_Obj = {};
+	var jsonViewer_GDF_Fail = new JSONViewer();
+	document.querySelector("#GDF_Fail").appendChild(jsonViewer_GDF_Fail.getContainer());
+
+	GDF_Fail = JSON.stringify({
+		"ServerDateTime": "2021-04-27T05:27:08Z",
+		"TimeStamp": 2459331.76884,
+		"ExecutionTime": 0.011,
+		"Errors": [
+			{
+				"Status": 404,
+				"Details": "Unknown session token"
+			}
+		]
+	}
+	);
+
+
+	var setJSON = function () {
+
+		GDF_Success_Obj = JSON.parse(GDF_Success);
+		GDF_Fail_Obj = JSON.parse(GDF_Fail);
+	}
+
+
+	setJSON();
+	jsonViewer_GDF_Success.showJSON(GDF_Success_Obj);
+	jsonViewer_GDF_Fail.showJSON(GDF_Fail_Obj);
+
+</script>

@@ -1,0 +1,141 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- footer area -->
+
+<nav class="footerbar">
+	<div class="bar">
+		<span class="bar1"></span>
+		<span class="bar2"></span>
+		<span class="bar3"></span>
+	</div>
+	<ul class="footer-menu">
+		<div class="close-btn">
+			<span></span>
+			<span></span>
+		</div>
+		<li><a href="./">Home</a></li>
+		<li><a href="/faq">FAQ </a></li>
+		<li><a href="/databases">Databases</a></li>
+		<li><a href="/terms-and-conditions">Terms</a></li>
+		<li><a href="/work-with-us">Work With Us</a></li>
+		<li class="dropdown-btn dropdown-btn3"><a>Our Policies<i class="fas fa-caret-right"></i> </a>
+			<ul class="dropdown-item">
+				<li><a href="/privacy-policy">Privacy</a></li>
+				<li><a href="/fair-use-policy">Fair Use</a></li>
+				<li><a href="/cookie-policy">Cookie</a></li>
+			</ul>
+		</li>
+		<li><a href="/contact-us">Contact</a></li>
+		<li><a class="hide-scroller-btn">Hide Exchange Scroller</a></li>
+		<li><a class="show-scroller-btn">Show Exchange Scroller</a></li>
+	</ul>
+</nav>
+<script>
+	$(document).ready(function () {
+		$('.dropdown-btn3').click(function (e) {
+			e.stopPropagation();
+			if ($(this).children('.dropdown-item').hasClass('dropdown-item-shown') == true) {
+				$(this).children('.dropdown-item').removeClass('dropdown-item-shown')
+			} else($(this).children('.dropdown-item').addClass('dropdown-item-shown'))
+			$('.dropdown-btn1').children('.dropdown-item').removeClass('dropdown-item-shown');
+			$('.dropdown-btn2').children('.dropdown-item').removeClass('dropdown-item-shown');
+		});
+
+
+		$('.footerbar .bar').click(function () {
+			$('.footer-menu').addClass('nav-menu-shown')
+			if ($('.nav-menu').hasClass('nav-menu-shown')) {
+				$('.nav-menu').removeClass('nav-menu-shown')
+			}
+		})
+		$('.footerbar .close-btn').click(function () {
+			$('.footer-menu').removeClass('nav-menu-shown')
+		})
+		$(window).resize(function () {
+
+			if ($('.footer-menu').hasClass('nav-menu-shown')) {
+				$('.footer-menu').removeClass('nav-menu-shown')
+			}
+			
+		});
+
+		let lastScrollTop = 0;
+		$(window).scroll(function (event) {
+			let st = $(this).scrollTop();
+			if (st > lastScrollTop) {
+				$('.footerbar').css({
+					bottom: '-55px'
+				});
+				$('.footer-menu').removeClass('nav-menu-shown');
+
+
+			} else {
+				$('.footerbar').css({
+					bottom: '0px'
+				});
+			}
+			lastScrollTop = st;
+
+		});
+
+		$('.hide-scroller-btn').click(function () {
+			$(this).toggle();
+			$('.footer-menu').removeClass('nav-menu-shown')
+			$('.show-scroller-btn').addClass('shown');
+			$('.marquee-wrapper').addClass('mrqhidden')
+		})
+		$('.show-scroller-btn').click(function () {
+			$(this).removeClass('shown');
+			$('.footer-menu').removeClass('nav-menu-shown')
+			$('.hide-scroller-btn').toggle();
+			$('.marquee-wrapper').css({
+				visibilty: 'visible',
+				opacity: '1'
+			})
+			$('.marquee-wrapper').removeClass('mrqhidden')
+		})
+
+	});
+
+	function go_url(url, page_type = "private"){
+		var path = window.location.pathname;
+        if (path !== url) {
+            if((getSession() == undefined || getSession() == "") && page_type == "private"){
+                openLoginPopup();
+            }
+            else{
+                if(path == "/report_viewer"){
+                    dialogWindow("The report will be lost if you continue.<br>Open the request in a new tab?", "query", "confirm", "Monitor+", () => {
+                        var jsonObj = request_editor.get();
+                        // var jsonObj1 = getJsonTree(notes_editor);
+                        // var jsonObj2 = getJsonTree(user_editor);
+
+                        var reportJson = getCookie('reportJson');
+						
+						if (JSON.stringify(jsonObj) != JSON.stringify(requestParameters) || (reportJson != undefined && reportJson != "")) {
+                            edit_flag = true;
+                        }
+						
+    
+                        if (edit_flag == true) {
+                            dialogWindow("The report may have been changed.<br/>If you load a new report you my lose these changes.<br>Do you want continue?", "query", "confirm", "Monitor+", () => {
+                                window.open(url, '_blank');
+                            }, () => {
+                                window.open(url, '_self');
+                            }, null, { Ok: "Yes", Cancel: "No", Destroy: "Cancel" });
+                        }
+                        else{
+                            window.open(url, '_blank');
+                        }
+                    }, () => {
+                        window.open(url, '_self');
+  //                  }, null, { Ok: "Yes", Cancel: "No" });
+                    }, null, { Ok: "Yes", Cancel: "No", Destroy: "Cancel" });
+                }
+                else{
+                    window.open(url, '_self');
+                }
+            }
+        }
+    }
+</script>

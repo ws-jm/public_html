@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --heading: #004b78;
+    --roboto: 'Roboto', sans-serif;
+    --open-sans: 'Open Sans', sans-serif;
+}
+
+
+/* common css area start*/
+p {
+    font-family: var(--open-sans);
+    margin-bottom: 20px;
+	margin-top: 10px;
+    padding-left: 30px;
+}
+
+body {
+    background: #E8E9EB;
+}
+
+.container {
+    background: #fff;
+    padding: 40px 15px;
+}
+
+.heading-2 {
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 18px;
+    color: #004B78;
+}
+
+.heading-2 i {
+    margin-right: 10px;
+}
+
+
+
+/* common css area end*/
+
+
+
+/* managing area start*/
+.managing-area h2 {
+    font-family: var(--roboto);
+    font-weight: 700;
+    font-size: 42px;
+    color: var(--heading);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.managing-area .bold {
+    font-weight: 600;
+}
+
+.managing-area img {
+    margin: 20px auto;
+    max-width: 700px;
+    width: 100%;
+    display: block;
+}
+
+.managing-area ul {
+    padding-left: 80px;
+}
+
+.managing-area ul li {
+    list-style: square;
+}
+
+.blue-bg-heading {
+    background: var(--heading);
+    color: #fff;
+    width: 100%;
+    padding: 10px 0px 10px 10px;
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-size: 28px;
+    margin-top: 6px;
+    margin-bottom: 20px;
+}
+
+.nav.nav-tabs {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+/* managing area end*/
+
+
+
+/* tab panel area start */
+
+.tab-wrapper .container {
+    padding: 0;
+    padding-top: 0px;
+
+}
+
+.tab-content img {
+    margin: 20px auto;
+    max-width: 700px;
+    width: 100%;
+    display: block;
+}
+
+.tab-wrapper .tab-content {
+    background: #f0f3f6;
+    padding: 40px 15px;
+
+}
+
+.tab-wrapper .nav.nav-tabs .nav-link {
+    font-size: 16px;
+    font-family: 'Poppins';
+    font-weight: 500;
+    text-align: center;
+    color: #1d1d1d;
+    padding: 10px 20px;
+}
+
+.tab-wrapper .nav-tabs {
+    border-bottom: 1px solid #aaaa;
+}
+
+.tab-wrapper .nav.nav-tabs .nav-link.active {
+    background-color: #f0f3f6;
+    color: var(--heading);
+    border: 1px solid #aaaa;
+    border-bottom: 1px solid #ffffff;
+    color: #004B78;
+
+}
+
+.tab-content .the-tree-panel {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    margin: 60px 0px;
+}
+
+.the-tree-panel .heading-2 {
+    background-color: var(--heading);
+    padding: 10px;
+    color: #fff;
+    margin-bottom: 22px;
+}
+.heading-2.the-tab-panel{
+    background-color: var(--heading);
+    padding: 10px;
+    color: #fff;
+    margin-bottom: 22px;
+}  
+.indent-area {
+    padding: 0px 100px;
+}
+
+.tab-content .the-tree-panel .col-md-8,
+.tab-content .the-tree-panel .col-md-4 {
+    padding: 0;
+}
+
+.tab-content .the-tree-panel img {
+    max-width: 390px;
+    display: block;
+    margin-left: auto;
+    margin-right: 60px;
+	margin-top: 0px;
+
+}
+
+.tab-content .the-tree-panel .middle-text {
+    width: 400px;
+    margin-right: auto;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.tab-content .tree-panel-notes {
+    margin: 0px 20px 70px;
+}
+
+.tree-panel-notes {
+    padding-left: 30px;
+}
+
+.tree-panel-notes ul li {
+    list-style: disc;
+}
+
+.tree-panel-notes ul {
+    padding-left: 35px;
+}
+
+/* tab panel area end */
+
+
+
+
+
+.get-in-touch-area .get-in-touch-btn {
+    background-color: #198754;
+    border-radius: 2px;
+    border: 0;
+    color: #fff;
+    position: relative;
+    padding: 10px 20px 10px 20px;
+    display: block;
+    font-size: 16px;
+    width: 185px;
+    font-weight: 600;
+    margin: auto;
+    margin-bottom: 30px;
+    border-radius: 6px;
+    transition: .4s ease;
+    box-shadow: 0px 5px 12px -1px #888888;
+}
+
+.get-in-touch-area .get-in-touch-btn i {
+    position: absolute;
+    top: 13px;
+    right: 10px;
+    opacity: 0;
+    transition: .4s ease;
+
+}
+
+.get-in-touch-area .get-in-touch-btn:hover i {
+    right: 25px;
+    opacity: 1;
+
+}
+
+.get-in-touch-area .get-in-touch-btn:hover {
+    padding-right: 40px;
+}
+
+
+.get-in-touch-area .get-in-touch-btn:active {
+    background-color: #3e8e41;
+    box-shadow: 0 1px 6px #666;
+    transform: translateY(2px);
+}
+
+.get-in-touch-area .get-in-touch-btn:focus {
+    outline: none;
+    border: none;
+}
+
+.get-in-touch-area a {
+    text-decoration: none;
+}
+
+.bottom-hr {
+    opacity: 1;
+    background: #198754;
+    height: 2px;
+    display: block;
+    max-width: 400px;
+    /* box-shadow: 0px 5px 3px #00000060; */
+    width: 100%;
+    margin: 30px auto;
+    border: none;
+}
+
+.tradmark-text {
+    color: rgb(54, 54, 54);
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+}
+
+
+
+
+
+/* responsivce area start */
+/* @media screen and (max-width:991px) {
+    .nav.nav-tabs {
+        justify-content: left;
+    }
+} */
+
+@media screen and (max-width:767px) {
+    .container {
+        padding: 40px 15px;
+    }
+
+    .tab-wrapper .nav.nav-tabs .nav-link {
+        padding: 10px 15px;
+    }
+
+    .tab-wrapper .nav.nav-tabs .nav-link {
+        font-size: 14px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .managing-area h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .tab-wrapper .container {
+        padding: 0;
+        padding-top: 50px;
+    }
+
+    .tab-wrapper .tab-content {
+        padding: 40px 15px;
+    }
+
+    .tab-content .the-tree-panel img {
+        width: 100%;
+        max-width: 300px;
+        margin: auto;
+    }
+
+    .need-information-text {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .need-information-container {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width:520px) {
+    .nav.nav-tabs {
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .tab-wrapper .nav.nav-tabs .nav-link {
+        width: 100vw;
+    }
+
+    .tab-wrapper .nav.nav-tabs .nav-link.active {
+        border-bottom: 1px solid #aaaa;
+    }
+}
+
+/* responsivce area end */

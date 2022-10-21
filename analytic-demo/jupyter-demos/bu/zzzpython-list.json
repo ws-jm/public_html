@@ -1,0 +1,61 @@
+[
+    {
+        "report_name": "Python demo product #1A", 
+        "filename": "analytic-demo/python-demos/python-test1.py", 
+        "description": "Py4 Lorem Ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium. <br> <br> <a href="https://www.w3schools.com">Visit W3Schools</a>
+",
+        "free_enabled": true
+    },
+    {
+        "report_name": "Python product2", 
+        "filename": "analytic-demo/python-demos/python-test1.py",
+        "description": "2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", 
+        "free_enabled": true
+    },
+    {
+        "report_name": "Python product3", 
+        "filename": "analytic-demo/python-demos/python-test1.py",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", 
+        "free_enabled": true
+    },
+    {
+        "report_name": "Python product4", 
+        "filename": "/analytic-demo/python-demos/python-test1.py", 
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", 
+        "free_enabled": true
+    },
+    {
+        "report_name": "Python product5", 
+        "filename": "analytic-demo/python-demos/simple-test1.py", 
+        "description": "5 Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", 
+        "free_enabled": false
+    },
+    {
+        "report_name": "Python product6", 
+        "filename": "", 
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", 
+        "free_enabled": true
+    },
+    {"report_name": "Python product7", "filename": "", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": false},
+    {"report_name": "Python product8", "filename": "", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": false},
+    {"report_name": "Python product9", "filename": "", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": false},
+    {"report_name": "Python product10", "filename": "", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": false},
+    {"report_name": "Python product11", "filename": "", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": false},
+    {"report_name": "Python product12", "filename": "", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": false},
+    {"report_name": "Python product13", "filename": "", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": false},
+    {"report_name": "Python product14", "filename": "", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": false},
+    {"report_name": "Python product15", "filename": "", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": false},
+    {"report_name": "Python product16", "filename": "", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": false},
+    {"report_name": "Python product17", "filename": "", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": false},
+    {"report_name": "Python product18", "filename": "", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": false},
+    {"report_name": "Python product19", "filename": "", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": false},
+    {"report_name": "Python product20", "filename": "", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": false},
+    {"report_name": "Python product21", "filename": "", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": false},
+    {"report_name": "Python product22", "filename": "", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": false},
+    {"report_name": "Python product23", "filename": "", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": false},
+    {"report_name": "Python product24", "filename": "", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": false},
+    {"report_name": "Python product25", "filename": "", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": false},
+    {"report_name": "Python product26", "filename": "", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": false},
+    {"report_name": "Python product27", "filename": "", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": false}
+]
+

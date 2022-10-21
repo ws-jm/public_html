@@ -1,0 +1,29 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: AccessToT7Data
+  description: XXXXXXX
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    name: Swagger API Team
+    email: apiteam@swagger.io
+    url: 'http://swagger.io'
+  license:
+    name: Apache 2.0
+    url: 'https://www.apache.org/licenses/LICENSE-2.0.html'
+host: api.developer.deutsche-boerse.com
+basePath: /prod/accesstot7data-1-0/1.0.0/graphql
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /graphql:
+    post:
+      description: Provides the GraphSQL Schema of this service. All GrahQL queries are sent to this URL via HTTP Post. To learn more about GraphQL, please refer to https://graphql.org/learn.
+      parameters: []
+      responses:
+        '200':
+          description: GraphQL Json Respnse

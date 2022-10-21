@@ -1,0 +1,28 @@
+[
+    {
+        "report_name": "R Product #1", 
+        "filename": "analytic-demo/r-demos/api.r", 
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", 
+        "free_enabled": true
+    },
+    {
+        "report_name": "R product #2", 
+        "filename": "analytic-demo/r-demos/idata.getma.r",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", 
+        "free_enabled": false
+    },
+    {
+        "report_name": "R product3", 
+        "filename": "", 
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", 
+        "free_enabled": true
+    },
+    {"report_name": "R product #4", "filename": "analytic-demo/r-demos/api.r", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": true},
+    {"report_name": "R product #5", "filename": "analytic-demo/r-demos/idata.getma.r", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": true},
+    {"report_name": "R product6", "filename": "", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": true},
+    {"report_name": "R product7", "filename": "", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": true},
+    {"report_name": "R product8", "filename": "", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": true},
+    {"report_name": "R product9", "filename": "", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": true},
+    {"report_name": "R product10", "filename": "", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": true},
+    {"report_name": "R product11", "filename": "", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": true}
+]

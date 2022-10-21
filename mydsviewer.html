@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <!-- Title -->
+    <title>database</title>
+
+    <!-- CSS Files -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,500i,600,600i,700,700i,800"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link href="resources/idm-service/resources/css/font-awesome.min.css" rel="stylesheet">
+    <link href="resources/idm-service/resources/css/bootstrap-navbar.css" rel="stylesheet">
+    <link href="resources/idm-service/resources/css/responsive.css" rel="stylesheet">
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
+    <link href="resources/jqwidgets/styles/jqx.base.css" rel="stylesheet">
+    <link href="resources/jqwidgets/styles/jqx.light.css" rel="stylesheet">
+    <link href="resources/idm-service/resources/css/main.css" rel="stylesheet">
+    <link href="resources/css/apprise.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="resources/series_icon.ico">
+    <link rel="stylesheet" href="dist/themes/default/style.min.css" />
+
+    <link rel="stylesheet" href="resources/css/slick.grid.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/slick.pager.css" type="text/css" />
+    <!-- <link rel="stylesheet" href="resources/css/SlickGridExamples.css" type="text/css" /> -->
+    <link rel="stylesheet" href="resources/css/slick.columnpicker.css" type="text/css" />
+
+    <link rel="stylesheet" href="resources/css/menu.css">
+    <link rel="stylesheet" href="resources/css/footer.css">
+    <link rel="stylesheet" href="resources/css/pre-loader.css">
+    <!--<link rel="stylesheet" href="resources/css/TestGrid.css">-->
+    <link href="resources/css/mydsviewer.css" rel="stylesheet">
+    <link rel="stylesheet" href="resources/css/monitor-gui.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/monitor-ui.css" type="text/css" />
+
+    <!-- JS Files -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="resources/idm-service/resources/js/jquery-1.12.3.js"></script>
+    <script src="resources/idm-service/resources/js/bootstrap.min.js"></script>
+    <script src="resources/idm-service/resources/js/bootstrap-dropdown.js"></script>
+    <script src="resources/js/apprise.js"></script>
+    <script src="resources/js/jquery-ui.js"></script>
+    <script src="dist/jstree.min.js"></script>
+    <script src="resources/js/clipboard.js"></script>
+    <script src="resources/jqwidgets/jqxcore.js"></script>
+    <script src="resources/jqwidgets/jqxdata.js"></script>
+    <script src="resources/jqwidgets/jqxpopover.js"></script>
+    <script src="resources/jqwidgets/jqxbuttons.js"></script>
+    <script src="resources/jqwidgets/jqxpanel.js"></script>
+    <script src="resources/jqwidgets/jqxscrollbar.js"></script>
+    <script src="resources/jqwidgets/jqxmenu.js"></script>
+    <script src="resources/jqwidgets/jqxlistbox.js"></script>
+    <script src="resources/jqwidgets/jqxcheckbox.js"></script>
+    <script src="resources/jqwidgets/jqxdropdownlist.js"></script>
+    <script src="resources/jqwidgets/jqxwindow.js"></script>
+    <script src="resources/jqwidgets/jqxinput.js"></script>
+    <script src="resources/jqwidgets/jqxtextarea.js"></script>
+    <script src="resources/jqwidgets/jqxtabs.js"></script>
+    <script src="resources/jqwidgets/jqxnumberinput.js"></script>
+    <script src="resources/jqwidgets/jqxnavigationbar.js"></script>
+    <script src="resources/jqwidgets/jqxdatatable.js"></script>
+    <script src="resources/jqwidgets/jqxloader.js"></script>
+    <script src="resources/jqwidgets/jqxdragdrop.js"></script>
+    <script src="resources/jqwidgets/jqxsplitter.js"></script>
+    <script src="resources/jqwidgets/jqxexpander.js"></script>
+    <script src="resources/jqwidgets/jqxtoolbar.js"></script>
+    <script src="resources/jqwidgets/jqxtooltip.js"></script>
+    <script src="resources/jqwidgets/jqxswitchbutton.js"></script>
+    <script src="resources/js/firebugx.js"></script>
+    <script src="resources/js/jquery-ui.min.js"></script>
+    <script src="resources/js/jquery.event.drag-2.3.0.js"></script>
+    <script src="resources/js/slick.core.js"></script>
+    <script src="resources/js/slick.formatters.js"></script>
+    <script src="resources/js/slick.editors.js"></script>
+    <script src="resources/js/slick.rowselectionmodel.js"></script>
+    <script src="resources/js/slick.grid.js"></script>
+    <script src="resources/js/slick.dataview.js"></script>
+    <script src="resources/js/slick.pager.js"></script>
+    <script src="resources/js/slick.columnpicker.js"></script>
+    <script src="resources/js/slick.resizer.js"></script>
+
+    <script src="resources/js/pre-loader.js" async></script>
+    <script src="dev/api/config/config.js"></script>
+    <script src="resources/js/messages.js"></script>
+    <script src="dev/api/authentication.js"></script>
+    <script src="dev/api/user_favorites.js"></script>
+    <script src="dev/api/utils/folders.js"></script>
+    <script src="dev/api/utils/utils.js"></script>
+    <script src="resources/js/top-menu.js"></script>
+
+    <script type="text/javascript" src="./json-viewer-master/src/json-viewer.js"></script>
+    <link rel="stylesheet" type="text/css" href="./json-viewer-master/src/json-viewer.css">
+
+    <style>
+        .main-content {
+            margin-top: 105px;
+        }
+
+        .jqx-fill-state-pressed-light {
+            background-color: white;
+            border-bottom-color: white;
+        }
+
+        .popup-overlay {
+            /*Hides pop-up when there is no "active" class*/
+            visibility: hidden;
+            position: absolute;
+            background: #ffffff;
+            border: 3px solid #666666;
+            width: 50%;
+            height: 50%;
+            left: 25%;
+            top: 25%;
+            z-index: 1000;
+        }
+
+        .popup-overlay.active {
+            /*displays pop-up when "active" class is present*/
+            visibility: visible;
+            text-align: center;
+        }
+
+        .popup-content {
+            /*Hides pop-up content when there is no "active" class */
+            height: 82%;
+            visibility: hidden;
+        }
+
+        .popup-content.active {
+            /*Shows pop-up content when "active" class is present */
+            visibility: visible;
+        }
+
+        button {
+            display: inline-block;
+            vertical-align: middle;
+            border-radius: 30px;
+            margin: 1rem;
+            font-size: 1rem;
+            color: #666666;
+            background: #ffffff;
+            border: 1px solid #666666;
+        }
+
+        button:hover {
+            border: 1px solid #666666;
+            background: #666666;
+            color: #ffffff;
+        }
+
+
+        .jstree-default .jstree-node,
+        .jstree-default .jstree-icon {
+            background-image: none;
+        }
+
+        .jstree-default .jstree-closed>.jstree-ocl {
+            background-position: 3px 3px;
+            background-image: url(resources/jqwidgets/styles/images/metro-icon-right.png);
+            width: 20px;
+        }
+
+        .jstree-default .jstree-open>.jstree-ocl {
+            background-position: 3px 3px;
+            background-image: url(resources/jqwidgets/styles/images/metro-icon-down.png);
+            width: 20px;
+        }
+
+        .jstree-default .jstree-leaf>.jstree-ocl {
+            width: 20px;
+        }
+
+        .jstree-default .jstree-node {
+            min-height: 30px;
+            line-height: 30px;
+        }
+
+        .jstree-default .jstree-node {
+            margin-left: 20px;
+        }
+
+        .jstree-default .jstree-clicked {
+            background: #356aa0;
+            color: #ffffff
+        }
+
+        a.hide-scroller-btn {
+            display: none !important;
+        }
+
+        #jqxgrid .cell-title {
+            line-height: 26px;
+        }
+
+        .slick-header-columns {
+            white-space: pre !important;
+            height: 30px;
+        }
+
+        .slick-header-column.ui-state-default {
+            height: 100%;
+            line-height: 22px;
+        }
+
+        .ui-widget-content a {
+            color: #337ab7;
+            cursor: pointer
+        }
+
+        .slick-cell.selected,
+        .slick-cell.selected a {
+            background-color: #356aa0;
+            color: white;
+        }
+
+        .cell-right {
+            text-align: right;
+            padding-right: 5px
+        }
+
+        .slick-header-column.right {
+            text-align: right;
+            padding-right: 5px
+        }
+
+
+
+        .slick-pane-header {
+            z-index: 10
+        }
+
+        .slick-header.ui-state-default {
+            width: 100%;
+            border-right: 0px;
+        }
+
+        @media screen and (max-width:992px) {
+            .main-content {
+                margin-top: 75px;
+            }
+        }
+
+        @media screen and (max-width:767px) {
+            .main-content {
+                margin-top: 60px;
+            }
+        }
+    </style>
+</head>
+
+<body class="default wait">
+
+    <!-- website pre-loader -->
+    <div class="loader-container">
+        <div class="loader-box">
+            <div class="loader-wrapper">
+                <span class="loader-circle"></span>
+                <span class="loader-circle"></span>
+                <span class="loader-circle"></span>
+                <span class="loader-circle"></span>
+                <span class="loader-circle"></span>
+                <span class="loader-circle"></span>
+            </div>
+        
+            <div class="loader-wrapper-2">
+                <span class="loader-circle"></span>
+                <span class="loader-circle"></span>
+                <span class="loader-circle"></span>
+                <span class="loader-circle"></span>
+
+        </div>
+        
+        <div class="loader-wrapper-3">
+                <span class="loader-circle"></span>
+                <span class="loader-circle"></span>
+                <span class="loader-circle"></span>
+                <span class="loader-circle"></span>
+                <span class="loader-circle"></span>
+        </div>
+        
+            <div class="loader-wrapper-4">
+                <span class="loader-circle"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixpage">
+        <!-- <div class="js-component navbar navbar-default navbar-fixed-top" data-name="menu" data-ext="html"></div>
+
+			<script>
+				const components = document.querySelectorAll('.js-component')
+	
+				const loadComponent = async c => {
+					const { name, ext } = c.dataset
+					const response = await fetch(`${name}.${ext}`)
+					const html = await response.text()
+					c.innerHTML = html
+				}
+	
+				[...components].forEach(loadComponent)
+			</script> -->
+        <nav class="navbar navbar-default navbar-fixed-top" include-html="menu.html" id="menu_file"></nav>
+
+        <section class="main-content">
+
+            <div class="wrap relative wait">
+
+                <div id='jqxWidget' style="padding-bottom:15px;">
+                    <div id="title-panel">
+                        <div>
+                            <span id="database-title"><span id="database-name"></span></span>
+                        </div>
+                        <div>
+                            <span>Filter: </span>
+                            <input id="searchBox" type="text">
+                            <button id="searchBtn"><img src="resources/css/icons/search.png"></button>
+                            <div id="helpIcon2" class="helpIcon"></div>
+                        </div>
+                    </div>
+                    <div class='HelpMessage'>
+                        <div class="content">
+                            You can filter results using words and/or phrases (in double quotes).
+                            <br>
+                            Filters are not case sensitive and apply to the <i>Symbol</i>, <i>Category</i> and
+                            <i>Description</i> columns only.
+                            <br>
+                            Double quotes must be preceded by the escape "<b>\</b>" character.
+                            <br>
+                            Words or phrases can be excluded with a preceding "<b>-</b>" minus sign.
+                            <br><br>
+                            For example, a search using: "Crude Oil" -Brent
+                            <br>
+                            Returns series containing the phrase "Crude oil" but <span class="underline">not</span> the
+                            word "Brent".
+                        </div>
+                    </div>
+                    <div id="mainSplitter">
+                        <div class="splitter-panel">
+                            <div id='jqxTabs'>
+                                <ul style='margin-left: 20px; position: relative; top:1px'>
+                                    <li id="toggleCaptionTabTree">Category Tree</li>
+                                    <li id="toggleCaptionTab">Categories</li>
+                                </ul>
+                                <div>
+                                    <div id="jstreeCategoriesTree" style="height:100%; overflow: auto;"></div>
+                                    <div id='jqxCategoriesMenu'>
+                                        <ul>
+                                            <li>Open All</li>
+                                            <li>Close All</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div id="jstreeCategoriesList" style="height:100%; overflow: auto;"></div>
+                                </div>
+                            </div>
+                            <div id="userCategory">
+                                <input id="userCategoryCheckbox" type="checkbox"> Show My Categories
+                            </div>
+                        </div>
+                        <div class="splitter-panel" style="background-color: #f8f8f8;">
+                            <div id='table-container'>
+                                <table class="toolbar-table" id="table-container-toolbar">
+                                    <tr>
+                                        <td><input id="btnCopySeriesToFavorite" type="button"
+                                                value="Add to Favorites" /></td>
+                                        <td><input id="btnExportSeries" type="button" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input id="btnRefreshSeries" type="button" style="margin-right:7px; margin-left:0"/></td>
+                                        <td id="showEmptyBtn" style="height:35px; padding:0;"><input id="btnAutosize" type="button" style="margin-right:7px; margin-left:0"/></td>
+                                        <td><input id="btnHideAdditInfo" type="button" style="margin-right:7px; margin-left:0"/></td>
+                                        <td><input id="btnHideShowEmptyRecords" type="button" style="margin-right:7px; margin-left:0"/></td>
+                                        <td><input class="fullWidthPage" id="fullWidth1" style="margin-right:5px; margin-left:0"/></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div id="jqxgrid" style="width:100%;height:2500px; font-family: Calibri;"></div>
+                            <div id="pager" style="width:100%; border-top:1px solid #ddd"></div>
+                            <div id='jqxgridMenu'>
+                                <ul>
+                                    <li><img class="table-icon" src='/resources/css/icons/starAdd16.png'><span>Add to Favourites</span></li>
+                                    <li type='separator'></li>
+                                    <li><img class="table-icon" src='/resources/css/icons/star_delete.png'><span>Remove from Favourites</span></li>
+                                    <li type='separator'></li>
+                                    <li><img class="table-icon" src='/resources/css/icons/copy.png'><span>Copy</span>
+                                    </li>
+                                    <li type='separator'></li>
+                                    <li><img class="table-icon"
+                                            src='/resources/css/icons/filesave.png'><span>Export</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="categoryAddDialogWindow">
+                        <div id="categoryAdd">
+                            <table class='wTableDescription'>
+                                <tbody>
+                                    <tr>
+                                        <td align="right" width="50px;"><strong class="window-title">Database:</strong>
+                                        </td>
+                                        <td width="130px;"><span class='window-properties'>CRYPTO</span></td>
+                                        <td align="right" width="50px;"><strong class="window-title">Symbol:</strong>
+                                        </td>
+                                        <td><span class='window-properties' id="acSymbol"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right" id="windowTitle"><strong class="window-title">Series:</strong>
+                                        </td>
+                                        <td id="windowValue" colspan="3"><span class='window-properties'
+                                                id="acSeries"></span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div id="addCategory">
+                                <span>Add to User Category:</span>
+                                <div id="categoryDropdownList"></div>
+                            </div>
+
+                            <div class="wBottomControlsPanel">
+                                <input type="button" class="btn-success-red window-controls" value="CANCEL"
+                                    id="cancelCategoryButton">
+                                <input type="button" class="btn-success-green window-controls" value="ADD"
+                                    id="addCategoryButton">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="exportDialogWindow">
+                        <div id="exportDialog">
+                            <form id="formExportSeries" method="post">
+                                Export options:
+                                <div id="dialogForm">
+                                    <input type="radio" name="export_type" id="export-one" value="selected"
+                                        checked="checked"> <span id="exportSelectedRecordsText"></span><br>
+                                    <input type="radio" name="export_type" id="export-all" value="all"> Export all <span
+                                        id="num"></span> records in the table<br>
+                                </div>
+                            </form>
+
+                            <div id="exportDialofControlsPanel">
+                                <input type="button" class="btn-success-green window-controls" value="Export"
+                                    id="exportSeriesBtn">
+                                <input type="button" class="btn-success-red window-controls" value="Cancel"
+                                    id="cancelExportDialog">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="dialogWindow">
+                        <span id="dialogWindowContent"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="loadingData" class="jqx-rc-all jqx-rc-all-Arctic">
+            <div class="load-data jqx-rc-all jqx-rc-all-Arctic jqx-fill-state-normal jqx-fill-state-normal-Arctic">
+                <div class="load-content">
+                    <div class="jqx-grid-load"></div>
+                    <span>Requesting Data...</span>
+                </div>
+            </div>
+        </div>
+
+        <!--Creates the popup body-->
+        <div class="popup-overlay">
+            <!--Creates the popup content-->
+            <div class="popup-content">
+                <!--popup's close button-->
+            </div>
+            <button class="close">Close</button>
+        </div>
+
+        <div id="jqxWidget1" style="display:none">
+            <div style="float: left;">
+                <div>
+                    <input type="button" value="Open" id="showWindowButton" />
+                    <input type="button" value="Close" id="hideWindowButton" style="margin-left: 5px" />
+                </div>
+                <div style="margin-top: 10px;">
+                    <div id="resizeCheckBox">
+                        Resizable
+                    </div>
+                    <div id="dragCheckBox">
+                        Enable drag
+                    </div>
+                </div>
+            </div>
+            <div style="width: 100%; height: 650px; margin-top: 50px;" id="mainDemoContainer">
+                <div id="window" style="display:none">
+                    <div id="windowHeader">
+                        <span>
+                            &nbsp;
+                        </span>
+                    </div>
+                    <div style="overflow: hidden;" id="windowContent">
+                        <div id="tab">
+                            <ul style="margin-left: 30px;">
+                                <li>Object Data</li>
+                                <!-- <li>User Access</li> -->
+                                <!-- <li>End Game</li>
+									<li>Twilight</li>
+									<li>Unstoppable</li>
+									<li>Priest</li> -->
+                            </ul>
+                            <div id="content1">
+                            </div>
+                            <div>
+                            </div>
+                            <div>
+                            </div>
+                            <div>
+                            </div>
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer area -->
+
+        <div include-html="footer.html" id="footer_file"></div>
+
+
+        <!-- <div include-html="footer.html" id="footer_file"></div> -->
+        <script>
+            const footer_components = document.querySelectorAll('.footer-component')
+
+            const loadComponentFooter = async c => {
+                const {
+                    name,
+                    ext
+                } = c.dataset
+                const response = await fetch(`${name}.${ext}`)
+                const html = await response.text()
+                c.innerHTML = html
+            }
+
+            [...footer_components].forEach(loadComponentFooter);
+        </script>
+
+    </div>
+
+    <script src="resources/js/include-html.js"></script>
+    <script src="resources/js/mydsviewer_slick.js"></script>
+</body>
+
+</html>
+
+<script>
+    var basicDemo = (function () {
+        //Adding event listeners
+        function _addEventListeners() {
+            $('#resizeCheckBox').on('change', function (event) {
+                if (event.args.checked) {
+                    $('#window').jqxWindow('resizable', true);
+                } else {
+                    $('#window').jqxWindow('resizable', false);
+                }
+            });
+            $('#dragCheckBox').on('change', function (event) {
+                if (event.args.checked) {
+                    $('#window').jqxWindow('draggable', true);
+                } else {
+                    $('#window').jqxWindow('draggable', false);
+                }
+            });
+        };
+        //Creating all page elements which are jqxWidgets
+        function _createElements() {
+            // $('#showWindowButton').jqxButton({ width: '70px' });
+            // $('#hideWindowButton').jqxButton({ width: '65px' });
+            $('#resizeCheckBox').jqxCheckBox({
+                width: '185px',
+                checked: true
+            });
+            $('#dragCheckBox').jqxCheckBox({
+                width: '185px',
+                checked: true
+            });
+        };
+        //Creating the demo window
+        function _createWindow() {
+            var jqxWidget = $('#jqxWidget');
+            var offset = jqxWidget.offset();
+            $('#window').jqxWindow({
+                position: {
+                    x: offset.left + 300,
+                    y: offset.top + 50
+                },
+                showCollapseButton: true,
+                maxHeight: 400,
+                maxWidth: 700,
+                minHeight: 200,
+                minWidth: 200,
+                height: 300,
+                width: 500,
+                initContent: function () {
+                    $('#tab').jqxTabs({
+                        height: '100%',
+                        width: '100%'
+                    });
+                    $('#window').jqxWindow('focus');
+                }
+            });
+        };
+        return {
+            config: {
+                dragArea: null
+            },
+            init: function () {
+                //Creating all jqxWindgets except the window
+                _createElements();
+                //Attaching event listeners
+                _addEventListeners();
+                //Adding jqxWindow
+                _createWindow();
+
+                $(".jqx-window-collapse-button-background").hide();
+            }
+        };
+    }());
+    $(document).ready(function () {
+        //Initializing the demo
+        basicDemo.init();
+        // $('#window').jqxWindow('close');
+
+        function resizeElements() {
+            if ($(window).width() < 767) {
+                $('#jqxWidget').css('height', (window.innerHeight - 103) + 'px');
+                console.log('less then 767')
+
+            }
+            if ($(window).width() < 442) {
+                $('#jqxWidget').css('height', (window.innerHeight - 136) + 'px');
+
+            }
+
+        }
+        $(window).resize(function () {
+            resizeElements()
+        });
+        resizeElements();
+    });
+
+    function JqxPopup(row, symbol) {
+
+        $("#windowHeader span").html('View Object: ' + symbol);
+
+        document.querySelector("#content1").innerHTML = "";
+        var ADDITIONAL_Success_Obj = {};
+        var jsonViewer_ADDITIONAL_Success = new JSONViewer();
+        document.querySelector("#content1").appendChild(jsonViewer_ADDITIONAL_Success.getContainer());
+
+        ADDITIONAL_Success_Obj = JSON.parse(getCookie('additionalJSON' + row));
+        jsonViewer_ADDITIONAL_Success.showJSON(ADDITIONAL_Success_Obj);
+
+        document.querySelector(".json-viewer").style = "background-color:white";
+
+        $('#window').jqxWindow('open');
+    }
+</script>

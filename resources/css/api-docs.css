@@ -1,0 +1,250 @@
+.fixpage {
+    height: auto;
+    min-height: 100%;
+    width: 100%;
+
+}
+
+.api-left-col {
+    position: fixed;
+    margin-top: 7px;
+    height: calc(100vh - 168px) !important;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 250px;
+    min-width: 250px;
+}
+
+.api-left-links {
+    width: 100%;
+    overflow-y: auto;
+}
+
+
+
+.Footer-wrap {
+    min-width: 100%;
+}
+
+
+.navbar {
+    position: sticky;
+    top: 0%;
+    left: 0%;
+    z-index: 200;
+}
+
+.row {
+    width: 1024px !important;
+    /*display: block;*/
+    display: inline-flex;
+}
+
+
+.main-content {
+    width: 100%;
+}
+
+
+
+
+@media screen and (max-width:1120px) {
+    .api-right-txt {
+
+        padding-right: 40px;
+
+
+    }
+
+    .api-left-col {
+        position: fixed;
+        margin-left: 0px;
+
+        height: min-content;
+
+    }
+
+
+
+    .fixpage {
+        padding-left: 0px;
+    }
+
+    .main-content {
+        width: 100%;
+        overflow-x: scroll;
+
+    }
+
+    .documentor-default .doc-search input {
+        width: 100%;
+    }
+
+    .table {
+        margin-left: 0px !important;
+    }
+
+
+    .api-article-table {
+        margin-left: 0px !important;
+    }
+
+
+    /* .full_screen{
+         display: none;
+     } */
+
+    .dis-block h1 {
+        position: relative;
+
+    }
+}
+
+
+
+
+#monitor_plus_tag {
+    width: 280px;
+    height: 56px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    user-select: none;
+}
+
+
+
+#right_section {
+    margin-top: 4px;
+    height: calc(100vh - 165px) !important;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+
+#left_section {
+    height: calc(100vh - 165px) !important;
+}
+
+
+.images-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.images-top :nth-child(1) {
+    width: 413px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.list-info {
+    margin-left: 30px;
+    margin-bottom: 10px;
+    color: #777;
+}
+
+.list-info li {
+    color: #777;
+}
+
+p {
+    font-family: Raleway, sans-serif;
+    color: #777;
+}
+
+.last-date {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 100%;
+    height: 80px;
+}
+
+.last-date .date {
+    color: #777;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.optional td {
+    color: #777;
+    background-color: white !important;
+}
+
+
+
+.fas:hover {
+    color: #0096DC;
+}
+
+.api-left-links {
+    padding-left: 20px;
+}
+
+
+.wrap {
+    padding: 0 15px 0 0;
+}
+
+.fa-chevron-circle-right,
+.fa-chevron-circle-left {
+    left: 5px;
+    font-size: 14px;
+    color: RGB(54, 96, 156);
+}
+
+
+.fa-chevron-circle-left {
+    left: -3px;
+}
+
+
+
+
+
+#mySidenav span {
+
+    position: fixed;
+    top: 330px;
+    cursor: pointer;
+    right: 0px;
+    transition: 0.3s;
+    padding: 5.5px;
+    padding-left: 21px;
+    text-decoration: none;
+    font-size: 12px;
+    color: white;
+    border-radius: 15px 0px 0px 15px;
+    background-color: RGB(54, 96, 146);
+    z-index: 100;
+    display: block;
+    width: 104px;
+    user-select: none;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+#mySidenav .minimize {
+    right: -84px;
+}
+
+
+#mySidenav .minimize:hover {
+    right: 0 !important;
+}
+
+
+
+.main_sections_right_img {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 25px;
+}

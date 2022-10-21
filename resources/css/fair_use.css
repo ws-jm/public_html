@@ -1,0 +1,14 @@
+body {
+    margin:0px;
+}
+nav {
+    border-radius: 0px;
+}
+.p-style {
+    text-align: center;
+}
+.doc-sec-content h1 {
+    font-size: 32px;
+    color: #0156a3 !important;
+    font-weight: normal;
+}

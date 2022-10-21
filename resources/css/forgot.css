@@ -1,0 +1,375 @@
+.footer-space
+{
+    overflow: auto;
+}
+
+@media screen and (max-width: 460px) and (min-width: 301px)
+{
+    #login-div
+    {
+        width: 100%;
+        margin-top: 30px !important;
+    }
+    .footer-space
+    {
+        padding-bottom: 300px;
+    }
+}	
+
+@media screen and (max-width: 1000px) and (min-width: 461px)
+{
+    .footer-space
+    {
+        padding-bottom: 200px;
+    }
+}
+
+@media screen and (max-width: 300px)
+{
+    #login-div
+    {
+        width: 100%;
+        margin-top: 30px !important;
+    }
+    .footer-space
+    {
+        padding-bottom: 500px;
+    }
+}
+
+html, body { 
+    margin:0; 
+    padding:0; 
+    height:100%; 
+}
+
+table, td, th {
+    padding: 0px;
+    border: none;
+}
+
+td {
+    padding-bottom: 30px;
+}
+
+.td-title {
+    text-align: right;
+    font-weight: bold;
+    padding-right: 15px;
+}
+
+.panel-body {
+    margin-top: 10px;
+    padding: 0px 15px;
+}
+
+.login-div{
+    width: 400px;
+    border: 1px solid #5082bf;
+    padding:0px;
+    border-radius: 5px;
+    background-color:white;
+    visibility:hidden;
+    margin: auto;
+    margin-top: 70px !important;
+    margin-bottom: 70px !important;
+}
+
+.logo-sub-title {
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+    font-size: 15px;
+    position: absolute;
+    top:0px;
+    right:10px;
+}
+
+.panel-title {
+    height:40px;
+    color:#ffffff;
+    margin-top:0px;
+    background: rgb(60,100,149);
+    padding: 5px 10px;
+    position: relative;
+}
+
+#forgote-login {
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+    font-size: 11;
+    color: rgb(69,119,160);
+    font-weight:normal;
+}
+
+.form-title {
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+    font-size: 11;
+    color: black;
+    font-weight: bold;
+    text-align: right;
+}
+
+.logo-title {
+    font-family: GoodTime;
+    font-size:22px;
+    margin:0px;
+    text-align:left;
+}
+
+.login-btn {
+    font-weight: bold;
+    font-size: 14px;
+    background-color: #3D8E62;
+}
+
+.alert-div {
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+    text-align: left;
+    margin-bottom: 30px;
+}
+.fixpage {
+    max-width: 1230px;
+    margin: 0 auto;
+    background: #fff;
+    position: relative;
+    margin-bottom: 30px;
+    height: 100%;
+}
+.navbar-default {
+    border: 0;
+}
+.btn-success-green {
+    background: #2D955B;
+    color: #ffffff;
+}
+.btn-success-green:hover,
+.btn-success-green:active {
+    background: #2D955B;
+    color: #ffffff;
+}
+#recoveryPassword {
+    width: calc(100% - 150px) !important;
+    margin-left: 30px;
+    margin-top: -5px;
+    float: left;
+}
+#btnRecoveryUserPassword {
+    margin-top: 10px;
+    margin-right: 20px;
+}
+#btnSaveUserPassword,
+#btnRecoveryUserPassword {
+    float: right;
+    height: 36px;
+    padding-top: 5px;
+}
+.main-content {
+    padding: 50px;
+    background-color: #f3f3f3;
+    position: absolute;
+    border: 1px solid #eee;
+    clear: both;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 48px;
+}
+.main-content > h1 {
+    float: left;
+    color: #333;
+    width: 190px;
+}
+#content {
+    clear: both;
+}
+#pages {
+    background: #fff;
+    position: absolute;
+    bottom: 55px;
+    top: 50px;
+    right: 200px;
+    left: 200px;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, .075);
+    border-radius: 6px;
+    text-align: left;
+    padding: 20px 40px;
+}
+.page .header img {
+    float: left;
+}
+.page .header h2 {
+    float: left;
+    margin: 10px 0 0 12px;
+}
+.page .content {
+    clear: both;
+    float: left;
+    width: 100%;
+}
+.secTitle {
+    border-bottom: 1px solid #e4e4e4;
+    padding-bottom: 6px;
+    font-weight: bold;
+    margin-top: 25px;
+}
+.secTitle .reference {
+    float: right;
+    margin-right: 50px;
+}
+.secContent {
+    margin: 12px 0 25px;
+}
+.secContent .p-row {
+    padding: 8px;
+}
+.secContent .p-row div {
+    width: 100px;
+    display: inline-table;
+}
+#tab2 .header img {
+    margin-top: 12px;
+    margin-bottom: 6px;
+}
+.sec-txt, .sec-form {
+    margin: 25px auto 0;
+    width: 600px;
+    font-size: 14px;
+}
+.sec-txt p {
+    padding: 10px 0;
+}
+.sec-form label {
+    float: left;
+}
+.page1 .sec-form {
+    margin-top: 60px;
+}
+#btnSaveUserPassword {
+    margin-top: 12px;
+    margin-right: -8px;
+}
+.form-control  {
+    margin-bottom: 12px;
+    border: 1px solid #d0d0d0;
+    width: 100% !important;
+    height: 35px !important;
+    margin-bottom: 12px !important;
+}
+.contact-qu {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    margin: auto;
+    text-align: center;
+    font-size: 11px;
+    width: 360px;
+}
+.contact-qu a {
+    text-decoration: underline;
+}
+#tab2 > .page2 {
+    display: none;
+}
+#tab2 h4 {
+    color: #333;
+    float: left;
+    clear: both;
+    margin: -15px 0 0 100px;
+}
+#tab2 .page2 h4 {
+    margin: -10px 0 0 80px;
+}
+.footer-wraper {
+    position: absolute;
+    width: 100%;
+    clear: both;
+    bottom: 0;
+}
+.navbar-default {
+    background-color: transparent;
+}
+@media ( min-width: 768px ) and ( max-width: 1200px ) {
+    #pages {
+        background: #fff;
+        position: absolute;
+        bottom: 23px;
+        top: 22px;
+        right: 27px;
+        left: 27px;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, .075);
+        border-radius: 6px;
+        text-align: left;
+        padding: 20px 40px;
+    }
+    .main-content {
+        top: -15px;
+    }
+}
+
+@media (max-width: 767px ) {
+    .clear-top {
+        margin-top: 90px !important;
+    }
+    .footer-wraper {
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+    }
+    .sec-txt {
+        margin: 0 auto 90px;
+        width: auto;
+        font-size: 14px;
+    }
+    .sec-form {
+        margin: 0 auto;
+        width: auto;
+        font-size: 14px;
+    }
+    #pages {
+        background: #fff;
+        position: unset;
+        bottom: 0;
+        top: 0;
+        right: 0;
+        left: 0;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 20px 40px;
+    }
+    .main-content {
+        padding: 0;
+        background-color: #fff;
+        position: initial;
+        border: 0;
+        clear: unset;
+        left: 0;
+        right: 0;
+        top: 25px;
+        bottom: 0;
+    }
+}
+@media (max-width: 480px ) {
+    .sec-form label {
+        float: none;
+        display: block;
+        text-align: center;
+    }
+    #recoveryPassword {
+        width: 100% !important;
+        margin-left: 0;
+        margin-top: 12px;
+        float: left;
+    }
+    #btnSaveUserPassword,
+    #btnRecoveryUserPassword {
+        float: none;
+        height: 36px;
+        padding-top: 5px;
+        width: 100%;
+    }
+    .contact-qu {
+        display: none;
+    }
+    .page1 .sec-form {
+        margin-top: -55px;
+    }
+}

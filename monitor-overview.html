@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Meta -->
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+		
+		<!-- Title -->
+		<title>Monitor+</title>
+
+		<!-- JS Files -->
+		<script src="resources/js/jquery-3.6.0.min.js"></script>
+		<script src="resources/js/include-html.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+
+		<script1 src="resources/js/jquery-1.12.3.js"></script1>
+		<script src="resources/js/bootstrap.min.js"></script>
+		<script src="resources/js/bootstrap-dropdown.js"></script>
+		<script src="dev/api/config/config.js"></script>
+        <script src="dev/api/authentication.js"></script>
+		<script src="resources/js/jquery.ihavecookies.min.js"></script>
+		<script src="resources/js/top-menu.js"></script>
+		<script src="resources/js/home.js"></script>
+		<script src="resources/js/messages.js"></script>
+
+		<!-- CSS Files -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,500i,600,600i,700,700i,800" rel="stylesheet">
+		<link href="resources/idm-service/resources/css/font-awesome.min.css" rel="stylesheet">
+		<link href="resources/idm-service/resources/css/bootstrap-navbar.css" rel="stylesheet">
+		<link href="resources/idm-service/resources/css/main.css" rel="stylesheet">
+		<link href="resources/idm-service/resources/css/responsive.css" rel="stylesheet">
+		<link href="resources/css/bootstrap-navbar.css" rel="stylesheet">
+		<link href="resources/css/main.css" rel="stylesheet">
+		<link href="resources/css/general.css" rel="stylesheet">
+		<link rel="icon" type="image/x-icon" href="resources/api_favicon.png">
+    </head>
+    <body>
+        <div class="fixpage">
+	        <nav include-html="menu.html" id="menu_file" class="navbar navbar-default navbar-fixed-top " ></nav>  
+
+			<div include-html="footer.html" id="footer_file"></div>
+			<div class="text-center footertxt">
+				<p class="sub-logo"> Copyright © 2018-2022 Sarus Systems Limited - Market Data Solutions </p>
+			</div>
+
+        </div>
+
+
+		<script>
+            const body=document.querySelector("body");
+            const navbar_default=document.querySelector(".navbar-default");
+            window.addEventListener("load",()=>{
+                body.style.background="#ececec";
+                
+            })
+        </script>
+    </body>
+</html>

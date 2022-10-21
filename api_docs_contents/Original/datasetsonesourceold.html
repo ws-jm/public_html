@@ -1,0 +1,1690 @@
+<div>
+	<div class="api-right-txt">
+		<h3 class="doc-sec-title"> <span class="doc-sec-count"
+				style="display:inline-block">4.1.</span><span
+				class="title-text">&nbsp;&nbsp;Get Datasets from one
+				Datasource</span>
+		</h3>
+		<div class="doc-sec-content">
+			<h2><b><span class="spanColor" style="color: #339966;">GET</span> and
+					<span style="color: #339966;"><span
+							style="color: #008000;">POST</span> </span>
+				</b>GetDatasets
+			</h2>
+			<p><strong>Description:</strong>&nbsp;&nbsp;Retrieve the metadata describing 
+				the datasets in
+				<strong>one</strong> datasource.
+			</p>
+			<div class="api-article-main-example">
+				<div class="api-article-table">
+					<div class="api-article-table">
+						<div class="api-article-main-example">
+						
+							<h4><b style="color: RGB(54, 96,146);"><span
+										style="color: #008000;">GET</span>
+									Sample Request:</b></h4>
+						</div>
+					</div>
+				</div>
+				<pre>
+				<span class="spanColor">GET</span> https://[server]/GetDatasets?SessionToken=YOUR_ACCESS_TOKEN&amp;Datasource=ECBFX&amp;Page=7&amp;Rows=2&amp;ShortRecord=false
+			</pre>
+			</div>
+			<div class="api-article-main-example">
+							<h4><b style="color: RGB(54, 96,146);"><span
+										style="color: #008000;">POST</span>
+									Sample Request:</b></h4>												
+			
+			
+				<pre>
+				https://[server]/GetDatasets?SessionToken=YOUR_SESSION_TOKEN
+				{
+					"SessionToken":"YOUR_SESSION_TOKEN",
+					"Datasource":"ECBFX",
+					"CaseSensitive":true,
+					"Rows":2,
+					"Page":7,
+					"ShortRecord":false,
+					"SortColumns":"Symbol,Description",
+					"Filter":"Dollar -Canadian",
+					"ValuesSince":"2018-01-01",
+					"ReturnAccess": true
+				}
+			</pre>
+			</div>
+			
+			<div class="api-article-table">
+				<div class="api-article-table">
+
+
+					<div class="api-article-main-example">
+						<div class="api-article-table">
+							<div class="api-article-table">
+								<div class="api-article-table">
+									<div class="single-notes notes-indent">
+										<div>CategoryDS datasources</div>
+										<ul>
+											<li>A CategoryDS is a datasource whose
+												datasets are grouped in data
+												categories. The user must be
+												authorised to access individual
+												data categories.</li>
+											<li>A CategoryDS is identified when
+												the result
+												parameter <em>IsCategoryDS</em>
+												is set to true.</li>
+											<li>The category name must be used in
+												all data requests to a CategoryDS
+												datasource.</li>
+											<li>In GET
+												requests <em>Datasource</em>,
+												<em>Datacategory</em> (in a
+												CategoryDS
+												datasource only) and <em>Symbol</em>
+												are
+												combined into one ‘Series’
+												string.<br>
+												e.g.
+												Symbols[]=Datasource/Datacategory/Symbol&amp;Symbols[]
+												= …
+											</li>	
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="api-article-table">
+						<h3></h3>
+					</div>
+					<div class="api-article-table">
+						<div class="api-article-table"></div>
+					</div>
+				</div>
+			</div>
+			<div class="api-article-table">
+				<div class="api-article-table">
+					<div class="api-article-table">
+						<div></div>
+						<div class="api-article-table">
+							<div class="api-article-table">
+								<div class="api-article-table">
+									<div class="api-article-table">
+										<div class="api-article-table">
+											<br>
+											<h4>Request Parameters</h4>
+										</div>
+									</div>
+								</div>
+							</div>
+							<table class="table table-bordered"
+								style="height: 70px;" width="877">
+								<thead>
+									<tr>
+										<th style="text-align: right;"></th>
+										<th style="text-align: left;">Parameter
+										</th>
+										<th style="text-align: left;">Type</th>
+										<th style="text-align: center;">
+											Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td style="text-align: right;">1</td>
+										<td style="text-align: left;">
+											SessionToken</td>
+										<td>String</td>
+										<td>A session token from
+											the <em>GetSessionToken</em> endpoint.
+										</td>
+									</tr>
+									<tr>
+										<td style="text-align: right;">2</td>
+										<td style="text-align: left;">Datasource
+										</td>
+										<td>String</td>
+										<td>The datasource ID.</td>
+									</tr>
+								</tbody>
+							</table>
+							<p> </p>
+
+							<h4>Optional Request parameters</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+			<table style="height: 652px;" width="1399">
+				<tbody>
+					<tr>
+						<td></td>
+						<td><b>Parameter</b></td>
+						<td><strong>Type</strong></td>
+						<td><strong>Default</strong></td>
+						<td><strong>Description</strong></td>
+					</tr>
+					<tr>
+						<td><span style="color: #999999;">3</span></td>
+						<td><span style="color: #999999;">Filter</span></td>
+						<td><span style="color: #999999;">String</span></td>
+						<td style="text-align: center;"></td>
+						<td><span style="color: #999999;">Return only datasets
+								containing specified words or
+								phrases.</span><br>
+							<span style="color: #999999;">See the
+								<em>Filters</em> section below for more information.</span>
+						</td>
+					</tr>
+					<tr>
+						<td><span style="color: #999999;">4</span></td>
+						<td><span style="color: #999999;">CaseSensitive</span>
+						</td>
+						<td><span style="color: #999999;">Boolean</span></td>
+						<td><span style="color: #999999;">false</span></td>
+						<td><span style="color: #999999;">If true,
+								the <em>Filter</em> parameter above
+								will be case sensitive.</span></td>
+					</tr>
+					<tr>
+						<td><span style="color: #999999;">5</span></td>
+						<td><span style="color: #999999;">SortOrder</span></td>
+						<td><span style="color: #999999;">String</span></td>
+						<td><span style="color: #999999;">“asc”</span></td>
+						<td><span style="color: #999999;">The result column sort
+								order. Values can be ‘<em>asc</em>‘ for
+								ascending or ‘<em>desc</em>‘ for
+								descending.</span></td>
+					</tr>
+					<tr>
+						<td><span style="color: #999999;">6</span></td>
+						<td><span style="color: #999999;">SortColumns</span>
+						</td>
+						<td><span style="color: #999999;">String</span></td>
+						<td><span style="color: #999999;">“Symbol”</span></td>
+						<td><span style="color: #999999;">The column names used
+								to sort the results. Valid column names
+								are: ‘<em>Symbol’</em>,
+								‘<em>DataCategory’ </em> or
+								‘<em>Description’</em>. Use a comma to
+								separate the column names e.g: <span
+									style="font-family: inherit; font-size: inherit;">“DataCategory,
+									Symbol, Name”. The
+									<em>DataCategory</em> parameter is
+									ignored for non CategoryDS
+									datasources.<br>
+									See the notes section above for information
+									about CategoryDS datasources.</span></span>
+						</td>
+					</tr>
+					<tr>
+						<td><span style="color: #999999;">7</span></td>
+						<td><span style="color: #999999;">IgnoreEmpty</span>
+						</td>
+						<td><span style="color: #999999;">Boolean</span></td>
+						<td><span style="color: #999999;">false</span></td>
+						<td><span style="color: #999999;">Ignore datasets that
+								contain no prices or values.</span></td>
+					</tr>
+					<tr>
+						<td><span style="color: #999999;">8</span></td>
+						<td><span style="color: #999999;">ShortRecord</span>
+						</td>
+						<td><span style="color: #999999;">Boolean</span></td>
+						<td><span style="color: #999999;">false</span></td>
+						<td><span style="color: #999999;">If true the result
+								does not contain the
+								<em>Description</em> parameter
+								and <em>Additional</em> object.</span>
+						</td>
+					</tr>
+					<tr>
+						<td><span style="color: #999999;">9</span></td>
+						<td><span style="color: #999999;">CategoryFilter</span>
+						</td>
+						<td><span style="color: #999999;">String</span></td>
+						<td></td>
+						<td><span style="color: #999999;">Applies to CategoryDS
+								datasources only.</span><br>
+							<span style="color: #999999;">The
+								<em>CategoryFilter</em> is a CSV string of
+								category names used to filter the results to
+								include only the datasets from data categories
+								named in the filter  e.g. AA, BB, CC.</span><br>
+							<span style="color: #999999;">See the <em>"CastegoryDS datasources"</em> notes section
+								above for more information about CategoryDS datasources.</span>
+						</td>
+					</tr>
+					
+					<tr>
+						<td><span style="color: #999999;">10</span></td>
+						<td><span style="color: #999999;">DatsetFilter</span>
+						</td>
+						<td><span style="color: #999999;">String</span></td>
+						<td></td>
+						<td><span style="color: #999999;">Allows you to filter results based on the avtual values in named datasets.</span><br>
+							<span style="color: #999999;">You can filter based on multiple dataset field/column names.
+								
+							<span style="color: #999999;">
+							See the <em>‘DatasetFilter'</em> section below for more information.</span>
+						</td>
+					</tr>
+					
+					
+					
+					<tr>
+						<td><span style="color: #999999;">11</span></td>
+						<td><span style="color: #999999;">Page</span></td>
+						<td><span style="color: #999999;">Integer</span></td>
+						<td><span style="color: #999999;">1</span></td>
+						<td><span style="color: #999999;">The requested page to display from from result (see rows below).</span></td>
+					</tr>
+					<tr>
+						<td><span style="color: #999999;">12</span></td>
+						<td><span style="color: #999999;">Rows</span></td>
+						<td><span style="color: #999999;">Integer</span></td>
+						<td><span style="color: #999999;">100</span></td>
+						<td><span style="color: #999999;">Number of results per page. Default is 100. Maximum is 5000.</span></td>
+					</tr>
+					<tr>
+						<td><span style="color: #999999;">13</span></td>
+						<td><span style="color: #999999;">ValuesSince</span>
+						</td>
+						<td><span style="color: #999999;">String</span></td>
+						<td><span style="color: #999999;">“Earliest”</span></td>
+						<td><span style="color: #999999;">Only return datasets
+								that have values after this date. Use the
+								word “Earliest” or a date in “YYYY-MM-DD”
+								format e.g:
+								“ValuesSince”:”2018-01-01″.</span></td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #999999;">14</span></td>
+						<td><span style="color: #999999;"> DateFormat</span>
+						</td>
+						<td style="text-align: left;"><span
+								style="color: #999999;">String</span></td>
+						<td style="text-align: center;"><span
+								style="color: #999999;">“YYYY-MM-DD”</span></td>
+						<td><span style="color: #999999;">The date format to use
+								in the request and result. See the
+								‘<em>DateFormat Parameter</em>‘ section below
+								for details.</span></td>
+					</tr>
+					<tr>
+						<td><span style="color: #999999;">15</span></td>
+						<td><span style="color: #999999;">ReturnAccess</span>
+						</td>
+						<td><span style="color: #999999;">Boolean</span></td>
+						<td><span style="color: #999999;">false</span></td>
+						<td><span style="color: #999999;">If true,
+								a <em>UserAccess</em>
+								object with information on each
+								dataset is returned.<br>
+								If the result
+								dataset parameter <em>Subscription </em> is
+								set to “None”, the <em>UserAccess</em> object is
+								<strong>not</strong> returned as no subscription
+								exists.In<span
+									style="font-family: inherit; font-size: inherit;">
+									a CategoryDS
+									datasource, the <em
+										style="font-family: inherit; font-size: inherit;">UserAccess</em>
+									object is located in
+									the <em>UserCategoryList</em> object
+									which is in the <em>DetailsDS</em>
+									object.<br>
+									In a non CategoryDS datasource, the
+									<em>UserAccess</em> object is located
+									in the
+									<em>Details</em> object.<br>
+									See the <em>‘UserAccess
+										Object’</em> table below for more
+									information.</span></span></td>
+					</tr>
+				</tbody>
+			</table>
+			<p> </p>
+			<h3></h3>
+			<h3 style="padding-left: 30px;">Filter</h3>
+			<p style="padding-left: 30px;">Filters are applies to the symbol and
+				Name columns only. They allow you to restrict the
+				result to those datasets that contain (or exclude) certain words
+				or phrases. Filters are not case sensitive. Phrases are always enclosed in double
+				quotes.  To use a double quote as part of a phrase
+				you need to prefix any literal double quote character ‘ ” ‘
+				with the escape character “\” . e.g:
+				\”Crude Oil\” will filter the results to contain the
+				phrase “Crude Oil”. <br>
+				You can exclude	datasets containing words and phrases by prefixing
+				the word or phrase with a minus ‘<strong>–</strong>‘
+				character e.g: -Crude or –
+				\”Crude Oil\”. <br><br>Double quotes, commas, minus and backslash characters must all be escaped  using the "\" prefix.<br>
+				You can use the CatgoryFilter and DatasetFilter filters in conjunction with the Filter command.</p>
+			<p style="padding-left: 30px;">Filter examples:</p>
+			<p style="padding-left: 60px;">“Filter”:” DOLLAR
+				YEN \”FOB U\” ” will show
+				datasets containing the words DOLLAR and
+				YEN and phrase “FOB U”<br>
+				“Filter”:” DOLLAR YEN -\”FOB U\” ” will
+				show datasets containing the word DOLLAR and
+				YEN but NOT containing the phrase “FOB U”</p>
+			<h3></h3>
+			<div class="api-article-table">
+				<div class="api-article-table">
+					<div class="api-article-table">
+						<div class="api-article-table">
+							<div class="api-article-table">
+								<div class="api-article-table">
+									<div class="api-article-main-example">
+										<div class="api-article-table">
+											<div class="api-article-table">
+												<div class="api-article-table">
+												<p style="padding-left: 30px;">
+													<blockquote
+														class="api-article-main-tip">
+														<p style="padding-left: 30px;">"Tip:</p>
+
+														<p
+															style="padding-left: 60px;">
+															You can use	the
+															<em>CaseSensitive</em>
+															parameter to enhance the <em>Filter</em> function.</p>
+													</blockquote>  
+													</p>
+
+												</div>
+												
+												<h3></h3>
+												<br>
+												<div class="api-article-table">
+																		<div class="api-article-table">
+																				<h3
+																					style="text-align: left; padding-left: 20px;">
+																					<span">Dataset Column Filter</span>
+																				</h3>
+																				<div
+																					class="api-article-table">
+																					<p
+																						style="padding-left: 30px;">
+																						<span
+																							style="color: #333333;">
+																							Sometimes you may need only datasets that have values before or after a date, 
+																							have a minimum number of values or are reported in a specific frequency.<br><br>
+																							The <em>“DatasetFilter” </em>filter allows you filter the values in named columns (dataset fields) based on their 
+																							content. Each filter has a column name (enclosed in square <strong>“[]” </strong>brackets), a comparison operator and a filter condition. <br><br>
+																							You can apply multiple dataset column filters in a single request by separating the column filters with a comma character.<br><br>
+																							To create a dataset column filter use the column name (as returned in the “Datasets 
+																							Object” in the “Dataset” and “User Favourite” endpoints).  Column names are not case
+																							sensitive but must be enclosed in square brackets. For example  <strong> [Name]</strong>  is
+																							used when selecting the “Name” column. <br>
+																							After selecting the column name,  select an operator that matches the column datatype (see the table below) and a filter condition  See the <em>“Filter Examples”</em> section below.<br><br
+																							
+																							
+																							<br>
+																							The columns used can only be of String, Boolean ,Dates and Integer types. This means that
+																							the array and object  type columns  <em>“Bates”, “Bateindex”, “UserAccess” </em> 
+																							and <em>“Additional” </em>
+																							cannot  be used in the DatasetFilter. <br><br>
+																							</span><br>
+																						
+																					</p>
+																				</div>
+																		</div>
+																		<div class="api-article-table">
+																			<table
+																				class="table table-bordered"
+																				style="margin-left: 60px;">
+																				<thead>
+																					<tr>
+																						<th><span
+																								style="color: #000000;">Type</span>
+																						</th>
+																						<th
+																							style="text-align: left;">
+																							<span
+																								style="color: #000000;">Operator</span>
+																						</th>
+																						<th><span
+																								style="color: #000000;"><strong>Description</strong></span>
+																						</th>
+																					</tr>
+																				</thead>
+																				<tbody>
+																					<tr>
+																						<td><span
+																								style="color: #333333;">String</span>
+																						</td>
+																						<td
+																							style="text-align: left;">
+																							<span
+																								style="color: #333333;">$<br>
+																								$+<br>
+																								S-
+																								</span>
+																						</td>
+																						<td><span
+																								style="color: #333333;">“$” means “contains” and uses the “CaseSensitive" parameter
+																								setting that is used in the request.<br>
+																								“$+” means the “contains” filter <strong>is</strong> case sensitive.<br> 
+																								“$-” means the “contains” filter is <strong>not</strong> case sensitive.<nr><br>
+																								String filters apply the “Simple Filter” rules (see above) to the values in the named
+																								column.<br><br>
+																								Spaces are optional and string values should not contained in double quotes as these are used to define phrases.  e.g. {Name]$“\”Crude Oil\” –Brent”.
+																								</span>
+																						</td>
+																					</tr>
+																					<tr>
+																						<td><span
+																								style="color: #333333;">Boolean</span>
+																						</td>
+																						<td
+																							style="text-align: left;">
+																							<span
+																								style="color: #333333;">=</span>
+																						</td>
+																						<td><span
+																								style="color: #333333;">Values can only be <strong>true</strong> or <strong>false</strong> with no quotes.</span>
+																						</td>
+																					</tr>
+																					
+																					<tr>
+																						<td><span
+																								style="color: #333333;">Date and Integer</span>
+																						</td>
+																						<td
+																							style="text-align: left;">
+																							<span
+																								style="color: #333333;">=<br>
+																								< <br>
+																								> <br>
+																								<> <br></span>
+																						</td>
+																						<td><span
+																								style="color: #333333;">
+																								"=" (equal to)<br>
+																								"<"  (less than}<br>
+																								">"  (greater than)<br>
+																								"<>" (not equal to)<br>
+																								<br>
+																								Dates and  integers do <stronf>not</strong> use  quotes.<br>
+																								e.g.<br>
+																								[End Date]>2020-12-21<br>
+																								[Values] >200<br>
+																								
+																								
+																								</span>
+																						</td>
+																					</tr>
+																					
+		
+																				</tbody>
+																			</table>
+																			
+														<div class="api-article-table" style="line-height: 24px;">
+	
+																					<h2><strong style="color:#3A648B;">Column Filter Examples</strong></h2>
+																					
+																					<p><strong>Filter 1</strong>.   Uses one column in the filter .<br>
+																					Description:  Filter the results so column “Name” contains the word  “Crude” but not 
+																					the word “Brent”.<br>
+																					
+																					<span style="color: rgb(26, 101, 187) ;font-weight: 600;">[Name]$CRUDE  –BRENT </span></p>    <br>
+																					
+																					<p><strong>Filter 2.</strong>  Uses two columns in the filter.<br>
+																					 Description:  As filter 1 above and the contents of the “Values” column are greater than 100.<br>
+																					 <span style="color: rgb(26, 101, 187);font-weight: 600;">Name]$CRUDE  –BRENT, [Values]> 100</span></p>
+																					 <br>
+																					 
+																					 <p><strong> Filter 3.</strong>  Using two columns with case sensitive and string phrase example.<br>
+																					 Description:  Filter the results so column “Name” contains the word  “CRUDE” but not 
+																					the <strong>phrase</strong> “Brent Oil”  (case sensitive) and the “EndDate” column contents are greater than “2021-12-17”.  A date columns uses the date format as defined in the JSON request. The default format is “YYYY-MM-DD”   Note the double quotes marking the phrase are "escaped".<br>
+																					<span style="color: rgb(26, 101, 187);font-weight: 600;">[Name]$”CRUDE –\"Brent Oil\", [Values]> 100, [EndDate]> “2021-12-17”</span></p>
+																					    <br><br>
+																					 																			
+																			</div>
+																			
+																			
+																		</div>
+															</div>												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												<p> </p>
+												<div class="api-article-table">
+													<h3></h3>
+													<h3 style="padding-left: 30px;">
+														DateFormat Parameter
+													</h3>
+												</div>
+												<p style="padding-left: 30px;">
+													You can control the format of dates that are used in
+													the request and returned in the result.</p>
+												<p style="padding-left: 30px;">
+													If used, the date separator is the character between the
+													day, month and year values and can be one of 4 characters:</p>
+												<p style="padding-left: 60px;">
+													“<strong>-” –
+														hyphen or
+														dash</strong><br>
+													“/” – forward
+													slash<br>
+													“.” – dot or
+													full stop<br>
+													” ” – space</p>
+												<div class="api-article-table">
+															<div class="api-article-table">
+																<div class="api-article-table"	style="padding-left: 0px;">
+																	<table
+																		class="table table-bordered"
+																		style="margin-left: 60px;">
+																		<thead>
+																			<tr>
+																				<th
+																					style="text-align: left;">
+																					Format
+																				</th>
+																				<th
+																					style="text-align: left;">
+																					Result
+																					Dates
+																				</th>
+																			</tr>
+																		</thead>
+																		<tbody>
+																			<tr>
+																				<td><strong>“YYYY-MM-DD”</strong>
+																				</td>
+																				<td>Formatted as 2018-01-22. (default).</td>
+																			</tr>
+																			<tr>
+																				<td> “YYYY-DD-MM”
+																				</td>
+																				 <td>Formatted as 2018-22-01. </td>
+																			</tr>
+																			<tr>
+																				<td> “YYYYMMDD”</td>
+																				<td>Formatted as 20180122.</td>
+																			</tr>
+																			<tr>
+																				<td> “YYYYDDMM”</td>
+																				<td>Formatted as 20182201.</td>
+																			</tr>
+																			<tr>
+																				<td> “MM-DD-YYYY”</td>
+																				<td>Formatted as 01-22-2018.
+																				</td>
+																			</tr>
+																			<tr>
+																				<td> “DD-MM-YYYY”</td>
+																				<td>Formatted as 22-01-2018.</td>
+																			</tr>
+																			<tr>
+																				<td> “EXCEL”
+																				</td>
+																				<td>Formatted as numbers where 1/1/1976 = 27760.</td>
+																			</tr>
+																			<tr>
+																				<td> “JULIAN”
+																				</td>
+																				<td>Formatted as the number of days since ’12h Jan 1, 4713 BC’.
+																				</td>
+																			</tr>
+																		</tbody>
+																	</table>
+																</div>
+															</div>
+															<div  class="api-article-table">
+																<div class="api-article-table"
+																	style="padding-left: 60px;">
+																	<div
+																		class="api-article-table">
+																		<div
+																			class="single-notes notes-indent">
+																			<div>
+																				Note
+																			</div>
+																			<p> In the examples above we use the “-” date separator character. You can
+																				replace this character with any of the other three separators characters.
+																				If you require 2 character years, replace “YYYY” with “YY” in the formats above.
+																			</p>
+																		</div>
+																	</div>
+																<p>	</p>
+																</div>
+															</div>
+														</div>
+											</div>
+										</div>
+									</div>
+									<p> </p>
+									<h3></h3>
+									<br>
+									<h1>Response Parameters</h1>
+									<table class="table table-bordered"
+										style="height: 206px;" width="765">
+										<thead>
+											<tr>
+												<th></th>
+												<th>Parameter</th>
+												<th>Type</th>
+												<th>Mandatory</th>
+												<th>Description</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td><span
+														style="color: #000000;">1</span>
+												</td>
+												<td><span
+														style="color: #000000;">ServerDateTime</span>
+												</td>
+												<td><span
+														style="color: #000000;">String</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">Yes</span>
+												</td>
+												<td><span
+														style="color: #000000;">The
+														server UTC date and time
+														as an ISO 8601
+														string.</span></td>
+											</tr>
+											<tr>
+												<td><span
+														style="color: #000000;">2</span>
+												</td>
+												<td><span
+														style="color: #000000;">TimeStamp</span>
+												</td>
+												<td><span
+														style="color: #000000;">Float</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">Yes</span>
+												</td>
+												<td><span
+														style="color: #000000;">The
+														server date and time as
+														a Julian date.</span>
+												</td>
+											</tr>
+											<tr>
+												<td><span
+														style="color: #000000;">3</span>
+												</td>
+												<td><span
+														style="color: #000000;">ExecutionTime</span>
+												</td>
+												<td><span
+														style="color: #000000;">Float</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">Yes</span>
+												</td>
+												<td><span
+														style="color: #000000;">The
+														number of milliseconds
+														to process the
+														request.</span></td>
+											</tr>
+											<tr>
+												<td><span
+														style="color: #808080;">4</span>
+												</td>
+												<td><span
+														style="color: #808080;">Result</span>
+												</td>
+												<td><span
+														style="color: #808080;">[Object]</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #808080;">No*</span>
+												</td>
+												<td><span style="color: #808080;">If the request is a success, a <em>Result</em> 	object is returned.</span><br>
+													<span style="color: #808080;">See the ‘<em>Result Object</em>‘ table below for details.</span>
+												</td>
+											</tr>
+											<tr>
+												<td><span
+														style="color: #808080;">5</span>
+												</td>
+												<td><span
+														style="color: #808080;">Errors</span>
+												</td>
+												<td><span
+														style="color: #808080;">[Object]</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #808080;">No*</span>
+												</td>
+												<td><span style="color: #808080;">If
+														the request fails, an
+														'<em>Errors</em>' object
+														is returned.</span><br>
+													<span
+														style="color: #808080;">See the ‘<em>Errors Object</em>‘ table below for  details.</span>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+
+						<div class="single-notes notes-indent">
+							<div>Note</div>
+							<p>A successful API response will return a '<em>Result</em>' object with the requested payload <strong>or</strong> an '<em>Errors</em>'
+							object detailing the issue that caused the error.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<h3 style="padding-left: 30px;"></h3>
+			<div class="api-article-table">
+				<br>
+				<h3>Result Object</h3>
+				<table class="table table-bordered" style="margin-left: 30px;">
+					<thead style="padding-left: 30px;">
+						<tr style="padding-left: 30px;">
+							<th></th>
+							<th>Parameter</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>Metadata</td>
+							<td>[Object]</td>
+							<td>The datasource summary data as described in the Metadata table below.</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Datasets</td>
+							<td>[Object]</td>
+							<td>The datasets returned. See the <em>Datasets</em> object below.</td>
+						</tr>
+					</tbody>
+				</table>
+				<h3></h3>
+				<h3 style="padding-left: 60px;">Metadata Object</h3>
+				<table class="table table-bordered" style="margin-left: 60px;">
+					<thead style="padding-left: 60px;">
+						<tr style="padding-left: 60px;">
+							<th></th>
+							<th>Parameter</th>
+							<th>Type</th>
+							<th style="text-align: center;">Mandatory</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><span style="color: #000000;">1</span></td>
+							<td><span style="color: #000000;">Datasets</span>
+							</td>
+							<td><span style="color: #000000;">Integer</span>
+							</td>
+							<td style="text-align: center;"><span
+									style="color: #000000;">Yes</span></td>
+							<td><span style="color: #000000;">The number of datasets in the datasource.</span></td>
+						</tr>
+						<tr>
+							<td><span style="color: #000000;">2</span></td>
+							<td><span style="color: #000000;">Filter</span></td>
+							<td><span style="color: #000000;">String</span></td>
+							<td style="text-align: center;"><span
+									style="color: #000000;">Yes</span></td>
+							<td><span style="color: #000000;">Any filters used to build the result. See the request <em>Filters</em> parameter for details.</span></td>
+						</tr>
+						<tr>
+							<td><span style="color: #808080;">3</span></td>
+							<td><span style="color: #808080;">CategoryFilter</span>
+							</td>
+							<td><span style="color: #808080;">String</span></td>
+							<td style="text-align: center;"><span
+									style="color: #808080;">No</span></td>
+							<td><span style="color: #808080;">Applies only to
+									CategoryDS datasources.</span><br>
+								<span style="color: #808080;"><span
+										style="color: #808080;">A CSV string of category names used to filter the results to include only the datasets
+										from these data categories.<br> 
+										This parameter <strong><u>is</u></strong> case sensitive.</span></span>
+							</td>
+						</tr>
+						<tr>
+							<td><span style="color: #000000;">4</span></td>
+							<td><span style="color: #000000;">SortOrder</span>
+							</td>
+							<td><span style="color: #000000;">String</span></td>
+							<td style="text-align: center;"><span
+									style="color: #000000;">Yes</span></td>
+							<td><span style="color: #000000;">The result sort
+									order based on <em>SortColumns</em>
+									property. Values can be ‘asc’ or
+									‘desc’ (see request).</span></td>
+						</tr>
+						<tr>
+							<td><span style="color: #000000;">5</span></td>
+							<td>
+								<div>
+									<div><span
+											style="color: #000000;">SortColumns</span>
+									</div>
+								</div>
+							</td>
+							<td><span style="color: #000000;">String</span></td>
+							<td style="text-align: center;"><span
+									style="color: #000000;">Yes</span></td>
+							<td><span style="color: #000000;">The column names
+									used to sort results by. Valid column
+									names are: <em>Symbol</em>,
+									<em>CategoryName</em>, <em>Name</em>
+									and <em>Description</em>. Use a
+									comma to separate column names
+									e.g: <span
+										style="font-family: inherit; font-size: inherit;">“Symbol,Description”.</span></span>
+							</td>
+						</tr>
+						<tr>
+							<td><span style="color: #000000;">6</span></td>
+							<td><span style="color: #000000;">CaseSensitive</span>
+							</td>
+							<td><span style="color: #000000;">Boolean</span>
+							</td>
+							<td style="text-align: center;"><span
+									style="color: #000000;">Yes</span></td>
+							<td><span style="color: #000000;">If true then
+									case-sensitive is applied to the filter (see
+									request).</span></td>
+						</tr>
+						<tr>
+							<td><span style="color: #000000;">7</span></td>
+							<td><span style="color: #000000;">Page</span></td>
+							<td><span style="color: #000000;">Integer</span>
+							</td>
+							<td style="text-align: center;"><span
+									style="color: #000000;">Yes</span></td>
+							<td><span style="color: #000000;">The page number
+									returned in the result (see
+									request).</span></td>
+						</tr>
+						<tr>
+							<td><span style="color: #000000;">8</span></td>
+							<td><span style="color: #000000;">PageCount</span>
+							</td>
+							<td><span style="color: #000000;">Integer</span>
+							</td>
+							<td style="text-align: center;"><span
+									style="color: #000000;">Yes</span></td>
+							<td><span style="color: #000000;">Total number of
+									possible pages in result based on available
+									datasets and
+									the <em>rows </em> value
+									below.</span></td>
+						</tr>
+						<tr>
+							<td><span style="color: #000000;">9</span></td>
+							<td><span style="color: #000000;">Rows</span></td>
+							<td><span style="color: #000000;">Integer</span>
+							</td>
+							<td style="text-align: center;"><span
+									style="color: #000000;">Yes</span></td>
+							<td><span style="color: #000000;">The number of rows
+									per page in the result (see
+									request).</span></td>
+						</tr>
+						<tr>
+							<td><span style="color: #000000;">10</span></td>
+							<td><span style="color: #000000;">ShortRecord</span>
+							</td>
+							<td><span style="color: #000000;">Boolean</span>
+							</td>
+							<td style="text-align: center;"><span
+									style="color: #000000;">Yes</span></td>
+							<td><span style="color: #000000;">If true, the
+									result does not contain the
+									<em>Description</em> parameter
+									and <em>Additional</em> object.</span>
+							</td>
+						</tr>
+						<tr>
+							<td><span style="color: #808080;">11</span></td>
+							<td><span style="color: #808080;">ValuesSince</span>
+							</td>
+							<td><span style="color: #808080;">Date</span></td>
+							<td style="text-align: center;"><span
+									style="color: #808080;">No</span></td>
+							<td><span style="color: #808080;">Returns only
+									datasets that have values since this
+									requested date (see request).</span></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<h3></h3>
+			<h3 style="padding-left: 60px;">Datasets Object</h3>
+			<table style="margin-left: 60px; height: 722px;" width="1433">
+				<tbody style="padding-left: 60px;">
+					<tr style="padding-left: 60px;">
+						<td style="text-align: right;"></td>
+						<td><b>Parameter</b></td>
+						<td><strong>Type</strong></td>
+						<td style="text-align: center;">
+							<strong>Mandatory</strong>
+						</td>
+						<td><strong>Description</strong></td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #000000;">1</span></td>
+						<td><span style="color: #000000;">Datasource</span></td>
+						<td><span style="color: #000000;">String</span></td>
+						<td style="text-align: center;"><span
+								style="color: #000000;">Yes</span></td>
+						<td><span style="color: #000000;">The datasource
+								ID.</span></td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #808080;">2</span></td>
+						<td><span style="color: #808080;">DataCategory</span>
+						</td>
+						<td><span style="color: #808080;">String</span></td>
+						<td style="text-align: center;"><span
+								style="color: #808080;">No</span></td>
+						<td><span style="color: #808080;">If true, this is a
+								CategoryDS datasource
+								(result <em>ISCategoryDS</em> is set to
+								true) and the
+								<em>DataCategory</em> result will contain
+								the data category name.</span></td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #000000;">3</span></td>
+						<td><span style="color: #000000;">Symbol</span></td>
+						<td><span style="color: #000000;">String</span></td>
+						<td style="text-align: center;"><span
+								style="color: #000000;">Yes</span></td>
+						<td><span style="color: #000000;">The dataset ID (market
+								identifier, symbol, ID or code).</span></td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #000000;">4</span></td>
+						<td><span style="color: #000000;">Name</span></td>
+						<td><span style="color: #000000;">String</span></td>
+						<td style="text-align: center;"><span
+								style="color: #000000;">Yes</span></td>
+						<td><span style="color: #000000;">Text string describing
+								the dataset</span></td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #808080;">5</span></td>
+						<td>Description</td>
+						<td><span style="color: #808080;">String</span></td>
+						<td style="text-align: center;"><span
+								style="color: #808080;">No</span></td>
+						<td><span style="color: #808080;">If available,
+								additional data describing the dataset.</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: right;">6</td>
+						<td><span style="color: #000000;">Frequency</span></td>
+						<td><span style="color: #000000;">String</span></td>
+						<td style="text-align: center;"><span
+								style="color: #000000;">Yes</span></td>
+						<td><span style="color: #000000;">The frequency (day,
+								week etc.) in which the data is reported.</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #000000;">7</span></td>
+						<td><span style="color: #000000;">Currency</span></td>
+						<td><span style="color: #000000;">String</span></td>
+						<td style="text-align: center;"><span
+								style="color: #000000;">Yes</span></td>
+						<td><span style="color: #000000;">The currency a unit
+								the dataset is reported in as an ISO three
+								character currency code.</span></td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #000000;">8</span></td>
+						<td><span style="color: #000000;">Unit</span></td>
+						<td><span style="color: #000000;">String</span></td>
+						<td style="text-align: center;"><span
+								style="color: #000000;">Yes</span></td>
+						<td><span style="color: #000000;">The unit a dataset it
+								reported ( MT, BBL, GALL etc).</span></td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #000000;">9</span></td>
+						<td><span style="color: #000000;">Decimals</span></td>
+						<td><span style="color: #000000;">Integer</span></td>
+						<td style="text-align: center;"><span
+								style="color: #000000;">Yes</span></td>
+						<td><span style="color: #000000;">The recommended number
+								of decimal places to use when displaying the
+								dataset values.</span></td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #000000;"> 10</span></td>
+						<td><span style="color: #000000;">Bates</span></td>
+						<td><span style="color: #000000;">Array</span></td>
+						<td style="text-align: center;"><span
+								style="color: #000000;">Yes</span></td>
+						<td><span style="color: #000000;">An array of price data
+								column ‘bate’ names e.g: “Bid”,”Ask”,
+								“High”,”Low”.</span></td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #000000;">11</span></td>
+						<td><span style="color: #000000;">Bateindex</span></td>
+						<td><span style="color: #000000;">Array</span></td>
+						<td style="text-align: center;"><span
+								style="color: #000000;">Yes</span></td>
+						<td><span style="color: #000000;">An array of price data
+								column numbers that correspond to the bates
+								array above e.g: “BateIndex”: [ 0, 1,
+								2 ]</span></td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #000000;">12</span></td>
+						<td><span style="color: #000000;">StartDate</span></td>
+						<td><span style="color: #000000;">String</span></td>
+						<td style="text-align: center;"><span
+								style="color: #000000;">Yes</span></td>
+						<td><span style="color: #000000;">The first available
+								date in the dataset with a value.</span></td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #000000;">13</span></td>
+						<td><span style="color: #000000;">EndDate</span></td>
+						<td><span style="color: #000000;">String</span></td>
+						<td style="text-align: center;"><span
+								style="color: #000000;">Yes</span></td>
+						<td><span style="color: #000000;">The most recent
+								date available in the dataset with a
+								value.</span></td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #000000;">14</span></td>
+						<td><span style="color: #000000;">Values</span></td>
+						<td><span style="color: #000000;">Integer</span></td>
+						<td style="text-align: center;"><span
+								style="color: #000000;">Yes</span></td>
+						<td><span style="color: #000000;">Total number of
+								value/price records in the dataset.</span></td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #000000;">15</span></td>
+						<td><span style="color: #000000;">Corrections</span>
+						</td>
+						<td><span style="color: #000000;">Integer</span></td>
+						<td style="text-align: center;"><span
+								style="color: #000000;">Yes</span></td>
+						<td><span style="color: #000000;">The number of
+								value/price corrections available for the
+								dataset.</span></td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #000000;">16</span></td>
+						<td><span style="color: #000000;">Premium</span></td>
+						<td><span style="color: #000000;">Boolean</span></td>
+						<td style="text-align: center;"><span
+								style="color: #000000;">Yes</span></td>
+						<td><span style="color: #000000;">If true, this is a
+								premium subscription datasource that is not
+								included gratis as part of a service.</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #000000;">17</span></td>
+						<td><span style="color: #000000;">Favorite</span></td>
+						<td><span style="color: #000000;">Boolean</span></td>
+						<td style="text-align: center;"><span
+								style="color: #000000;">Yes</span></td>
+						<td><span style="color: #000000;">Is this dataset in the
+								users favorite datasets list?</span></td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #000000;">18</span></td>
+						<td><span style="color: #000000;">IsCategoryDS</span>
+						</td>
+						<td><span style="color: #000000;">String</span></td>
+						<td style="text-align: center;"><span
+								style="color: #000000;">Yes</span></td>
+						<td><span style="color: #000000;">If true the datasource
+								is a CategoryDS datasource. A CategoryDS
+								is a datasource whose datasets are grouped in
+								data categories. The user must be authorised to
+								access individual data categories. See
+								“CategoryDS datasources” note above.</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #000000;">19</span></td>
+						<td><span style="color: #000000;">Subscription</span>
+						</td>
+						<td><span style="color: #000000;">String</span></td>
+						<td style="text-align: center;"><span
+								style="color: #000000;">Yes</span></td>
+						<td><span style="color: #000000;">The
+								<em>Subscription</em> parameter is only returned
+								when the request parameter
+								<em>ReturnAccess </em>is set to true.<br>
+								It returns the type of datasource access
+								available with the current subscription.<br>
+								There are 4 options: “None”, “Active”,
+								“Inactive” and “Simulated”.</span><br>
+							<span style="color: #000000;">Please note that the
+								option “Simulated” means that the values are
+								fictional and <u>are generated for demonstration
+									purposes only</u>.</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #808080;">20</span></td>
+						<td><span style="color: #808080;">UserAccess</span></td>
+						<td><span style="color: #808080;">[Object]</span></td>
+						<td style="text-align: center;"><span
+								style="color: #808080;">No</span></td>
+						<td><span style="color: #808080;">If
+								<em>Subscription</em> equals
+								“None” the <em>UserAccess</em> object
+								will <strong>not</strong> be returned in the
+								result.<br>
+								<span
+									style="font-family: inherit; font-size: inherit;">If
+									requested, the </span><em
+									style="font-family: inherit; font-size: inherit;">UserAccess</em><span
+									style="font-family: inherit; font-size: inherit;">
+									object returns details of the access allowed
+									with the current subscription.</span><br>
+							</span><span style="color: #808080;">See the “User
+								Access Object” table below for details.</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #808080;">21</span></td>
+						<td><span style="color: #808080;">Additional</span></td>
+						<td><span style="color: #808080;">[Object]</span></td>
+						<td style="text-align: center;"><span
+								style="color: #808080;">No</span></td>
+						<td><span style="color: #808080;">The
+								<em>Additional</em> object allows more
+								dataset specific information to be provided as
+								additional JSON parameters.</span><br>
+							<span style="color: #808080;">Please refer to any
+								individual datasource documentation and the
+								JSON returned from
+								the <em>Additional</em> object for
+								more information.</span><br>
+							<span style="color: #808080;">An example of
+								conversion factors in
+								the <em>Additional</em> object is:<br>
+							</span>
+							<p></p>
+							<div>
+								<div>
+									<div>
+										<div><span style="color: #808080;">
+												“Additional”: {</span>
+										</div>
+									</div>
+								</div>
+								<div><span style="color: #808080;"> “Conversions”:
+										[</span>
+								</div>
+								<div><span style="color: #808080;"> {</span>
+								</div>
+								<div><span style="color: #808080;"> “ConvertTo”:
+										“BBL”,</span>
+								</div>
+								<div><span style="color: #808080;">
+										“ConvertOperator”: “/”,</span>
+								</div>
+								<div><span style="color: #808080;"> “ConvertValue”:
+										“7.45”</span>
+								</div>
+								<div><span style="color: #808080;"> }</span>
+								</div>
+								<div><span style="color: #808080;"> ]</span>
+								</div>
+								<div><span
+										style="color: #808080; font-family: inherit; font-size: inherit;">}</span>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div style="text-align: center;"></div>
+			<div class="api-article-table">
+				<div class="api-article-table" style="padding-left: 30px;">
+					<h3></h3>
+					<div class="api-article-table">
+											<div class="api-article-table">
+													<h3
+														style="text-align: left; padding-left: 60px;">
+														<span
+															style="color: #000000;">UserAccess Object</span>
+													</h3>
+													<div
+														class="api-article-table">
+														<p
+															style="padding-left: 60px;">
+															<span
+																style="color: #333333;">If
+																the user has (or had) a subscription to the datasource (or data category),
+																 the <em>UserAccess</em> object reports on the range allowed for the dataset
+																  with the current subscription.</span><br>
+															<span style="color: #333333;">The  <em>Starts</em> and <em>Ends</em>parameters
+															 show the date range that the user can access.<br> </span>
+														</p>
+															</div>
+											</div>
+											<div class="api-article-table">
+												<table
+													class="table table-bordered"
+													style="margin-left: 60px;">
+													<thead>
+														<tr>
+															<th><span
+																	style="color: #000000;">Parameter</span>
+															</th>
+															<th
+																style="text-align: left;">
+																<span
+																	style="color: #000000;">Type</span>
+															</th>
+															<th><span
+																	style="color: #000000;"><strong>Description</strong></span>
+															</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td><span
+																	style="color: #333333;">Starts</span>
+															</td>
+															<td
+																style="text-align: left;">
+																<span
+																	style="color: #333333;">String</span>
+															</td>
+															<td><span
+																	style="color: #333333;">Date
+																	of
+																	the
+																	earliest
+																	available
+																	data
+																	for
+																	the
+																	current
+																	subscription.</span>
+															</td>
+														</tr>
+														<tr>
+															<td><span
+																	style="color: #333333;">Ends</span>
+															</td>
+															<td
+																style="text-align: left;">
+																<span
+																	style="color: #333333;">String</span>
+															</td>
+															<td><span
+																	style="color: #333333;">Date
+																	of
+																	the
+																	latest
+																	available
+																	data
+																	for
+																	the
+																	current
+																	subscription.</span>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+								</div>
+								<div>
+									<div class="single-notes notes-indent"
+										style="margin-left: 78px;">
+										<div>Notes</div>
+											<p>
+											<ul>
+											<li>There may be a greater range available in
+											the datasource than the user has permission to access.</li>
+																															
+												<li><span style="color: #000000;">The
+												</span><em
+													style="color: #000000;">UserAccess</em><span
+													style="color: #000000;"> object
+													is present only if request parameter
+												</span><em
+													style="color: #000000;">ReturnAccess
+												</em><span
+													style="color: #000000;">is set
+													to true
+													and </span><em
+													style="color: #000000;">Subscription</em><span
+													style="color: #000000;"> is not
+													equal to “None”.</span></li>
+												
+												<li>The request
+													parameter <em>DateFormat
+													</em>controls
+													the format of the result in the
+													<em>Starts</em> and
+													<em>Ends</em> parameters.</li>
+												
+												</ul>
+										</p>
+									</div>
+					</div>
+					<div class="api-article-table" style="padding-left: 30px;">
+						<div class="api-article-table" style="padding-left: 30px;">
+							<div style="padding-left: 30px;">
+								<div class="api-article-table"
+									style="padding-left: 30px;"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<h3></h3>
+			</div>
+			<div class="api-article-table">
+				<h3 style="padding-left: 30px;">Errors Object</h3>
+				<table class="table table-bordered" style="margin-left: 30px;">
+					<thead style="padding-left: 30px;">
+						<tr style="padding-left: 30px;">
+							<th></th>
+							<th><b>Parameter</b></th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>Status</td>
+							<td>Integer</td>
+							<td>HTTP status code.</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Detail</td>
+							<td>String</td>
+							<td>Description of the status code error.</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="api-article-table" style="padding-left: 30px;">
+				<h4 style="padding-left: 60px;">Possible Status codes in the
+					'<em>Errors</em>' object
+				</h4>
+				<table class="table table-bordered" style="margin-left: 60px;">
+					<thead style="padding-left: 60px;">
+						<tr style="padding-left: 60px;">
+							<th>Code</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>400</td>
+							<td>Datasource field is empty or too many rows
+								requested (500 maximum).</td>
+						</tr>
+						<tr>
+							<td>401</td>
+							<td>Invalid access token.</td>
+						</tr>
+						<tr>
+							<td>402</td>
+							<td>Unauthorized.</td>
+						</tr>
+						<tr>
+							<td>403</td>
+							<td>Premium subscription required.</td>
+						</tr>
+						<tr>
+							<td>404</td>
+							<td>Unknown datasource or symbol.</td>
+						</tr>
+						<tr>
+							<td>410</td>
+							<td>Session Token expired.</td>
+						</tr>
+						<tr>
+							<td>413</td>
+							<td>Payload too large.</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="single-notes notes-indent" style="margin-left: 108px;">
+				<div>Note</div>
+				<p>
+					This is not an exhaustive list and additional
+					error codes and descriptions may be returned. The
+					<em>Errors </em>object<em> Detail</em> field will return request
+					specific error information.
+				</p>
+
+			</div>
+			<h3 style="padding-left: 60px;"></h3>
+			<h3>Possible HTTP response codes</h3>
+			<p style="line-height:30px !important ;"><span class="spanColor">This
+					endpoint returns 200 for
+					success. <br>
+					You can get HTTP client network errors or server
+					errors from any API request. You should check
+					with your network or IT colleagues in case the issue is a
+					local one. <br>
+					All server generated errors will return an '<em>Errors</em>'
+					object that will give specific details about the error. <br>
+					A full list of HTTP codes and their meanings is available <a
+						href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">here</a>,</span>
+			</p>
+			<h2 style="padding-left: 30px;"></h2>
+			<h2>Success and fail examples</h2>
+			<p>The sample requests and token using a dummy token for display
+				purposes.</p>
+			<h4><b style="color: RGB(54, 96,146);">Sample Request:</b></h4>
+			<div class="api-article-main-example">
+				<pre>GET https://[server]/GetDatasets?SessionToken=YOUR_SESSION_TOKEN&amp;Datasource=ECBFX&amp;Page=1&amp;Rows=2&amp;ShortRecord=false</pre>
+				<div class="api-article-main-blockExample">
+					<h4></h4>
+					<h4><strong>Response body on success:</strong></h4>
+
+
+					<div id="GDOD_Success"></div>
+				</div>
+			</div>
+			<div class="api-article-main-example">
+				<div class="api-article-main-blockExample">
+					<div class="api-article-main-blockExample">
+						<h4><strong><br>
+								Response body on fail:</strong></h4>
+
+						<div id="GDOD_Fail"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="last-date">
+			<div class="date">Last updated on June 3, 2021
+			</div>
+		</div>
+		<br>
+	</div>
+	
+	<div class="dis-block clearfix">
+		<a href="javascript:move_section('#datasets')" class="doc-prev"><i class="fas fa-chevron-circle-left"></i>Datasets</a>
+		<a href="javascript:move_section('#datasetsmultiplesources')" class="doc-next">Get Datasets from multiple Datasources <i class="fas fa-chevron-circle-right"></i></a>
+	</div>
+</div>
+
+
+<script>
+	
+
+	// **************Responses(Success and Fail)***************
+
+	// ***AUTHENTICATION***
+
+	//  ***DATASETS***
+	// Get Dataset from one datasource metadata
+	var GDOD_Success_Obj = {};
+	var jsonViewer_GDOD_Success = new JSONViewer();
+	document.querySelector("#GDOD_Success").appendChild(jsonViewer_GDOD_Success.getContainer());
+
+
+	GDOD_Success = JSON.stringify({
+
+		"ServerDateTime": "2021-04-29T07:47:40Z",
+		"TimeStamp": 2459333.86644,
+		"ExecutionTime": 0.176,
+		"Result": {
+			"Metadata": {
+				"Datasets": 5,
+				"Filter": "Dollar -Canadian",
+				"CategoryFilter": "*",
+				"SortOrder": "asc",
+				"SortColumns": "Symbol,Description",
+				"CaseSensitive": true,
+				"Page": 1,
+				"PagesCount": 3,
+				"Rows": 2,
+				"ShortRecord": false
+			},
+			"Datasets": [
+				{
+					"Symbol": "EURAUD",
+					"Datasource": "ECBFX",
+					"Name": "ECB - Euro vs Australian Dollar",
+					"Description": `European Central Bank exchange rate
+for Euro vs Australian Dollar (EUR/AUD)`,
+					"Frequency": "Day",
+					"Currency": "EUR",
+					"Unit": "N/A",
+					"Decimals": 2,
+					"Bates": ["Close"],
+					"BateIndex": [0],
+					"StartDate": "1999-01-04",
+					"EndDate": "2021-04-28",
+					"Values": 5733,
+					"Corrections": 0,
+					"Premium": false,
+					"Favorite": true,
+					"Additional": `European Central Bank exchange rate
+for Euro vs Australian Dollar (EUR/AUD)`,
+					"IsCategoryDS": false,
+					"Subscription": "Active",
+					"UserAccess": { "Starts": "1966-01-01", "Ends": "2023-10-31" }
+				},
+				{
+					"Symbol": "EURHKD",
+					"Datasource": "ECBFX",
+					"Name": "ECB - Euro vs Hong Kong Dollar",
+					"Description": `European Central Bank exchange rate
+for Euro vs Hong Kong Dollar (EUR/HKD)`,
+					"Frequency": "Day",
+					"Currency": "EUR",
+					"Unit": "N/A",
+					"Decimals": 2,
+					"Bates": ["Close"],
+					"BateIndex": [0],
+					"StartDate": "1999-01-04",
+					"EndDate": "2021-04-28",
+					"Values": 5729,
+					"Corrections": 0,
+					"Premium": false,
+					"Favorite": false,
+					"Additional": `European Central Bank exchange rate
+for Euro vs Hong Kong Dollar (EUR/HKD)`,
+					"IsCategoryDS": false,
+					"Subscription": "Active",
+					"UserAccess": { "Starts": "1966-01-01", "Ends": "2023-10-31" }
+				}
+			]
+		}
+	}
+
+	);
+
+
+
+	var GDOD_Fail_Obj = {};
+	var jsonViewer_GDOD_Fail = new JSONViewer();
+	document.querySelector("#GDOD_Fail").appendChild(jsonViewer_GDOD_Fail.getContainer());
+
+	GDOD_Fail = JSON.stringify({
+		"ServerDateTime": "2017-11-30T19:38:15Z",
+		"TimeStamp": 2458088.3182292,
+		"ExecutionTime": 0.000,
+		"Errors": [
+			{
+				"Status": 401,
+				"Details": "Invalid Token",
+			}
+		]
+	}
+	);
+
+
+	var setJSON = function () {
+
+		GDOD_Success_Obj = JSON.parse(GDOD_Success);
+		GDOD_Fail_Obj = JSON.parse(GDOD_Fail);
+	}
+
+
+	setJSON();
+	jsonViewer_GDOD_Success.showJSON(GDOD_Success_Obj);
+	jsonViewer_GDOD_Fail.showJSON(GDOD_Fail_Obj);
+
+</script>

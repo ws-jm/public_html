@@ -1,0 +1,137 @@
+#chart, #subchart {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+#top-chart,
+#top-subchart {
+    height: calc(calc(100% - 95px) * 0.7);
+}
+#bottom-chart,
+#bottom-subchart {
+    border-top: 5px solid #ddd;
+    height: calc(calc(100% - 95px) * 0.3);
+}
+#zoom-chart,
+#zoom-subchart {
+    border-top: 1px solid #ddd;
+    height: 45px;
+    position: relative;
+    margin-left: 70px;
+    width: calc(100% - 95px);
+}
+#legend-chart,
+#legend-subchart {
+    height: 50px;
+    border-top: 1px solid #ddd;
+    text-align: center;
+    margin: auto;
+    position: relative;
+}
+#legend-chart .uplot,
+#legend-subchart .uplot {
+    margin: 0 auto;
+    padding: 5px 0 15px;
+    text-align: center;
+    left: 0;
+}
+.zoom-panel,
+.zoom-subpanel {
+    position: absolute !important;
+    height: 100%;
+    width: 10%;
+    background: rgba(0, 0, 0, 0.08);
+    z-index: 99999;
+    left: 90%;
+}
+.zoom-panel:hover,
+.zoom-subpanel:hover {
+    cursor: move;
+}
+.zoom-panel::before,
+.zoom-panel::after,
+.zoom-subpanel::before,
+.zoom-subpanel::after {
+    content: '';
+    position: absolute;
+    background-image: url(../images/slider.png);
+    height: 16px;
+    width: 9px;
+    top: calc( 50% - 8px );
+}
+.zoom-panel::after,
+.zoom-subpanel::after {
+    right: -3px;
+}
+.zoom-panel::before,
+.zoom-subpanel::before {
+    left: -3px;
+}
+.uplot .legend.inline {
+    display: inline;
+}
+#jqxgridMenuChart {
+    display: none;
+}
+.toggle-button {
+    float: right;
+}
+.jqx-menu li {
+    line-height: 1.3!important;
+    font-family: Calibri;
+    font-style: normal;
+    font-size: 14px;
+}
+.chart-missing,
+.chart-candlestick {
+    display: none;
+}
+.uplot {
+    position: absolute;
+}
+.uplot .legend .off > * {
+    opacity: 1;
+}
+.uplot .legend .series td {
+    background-color: unset !important;
+}
+/*
+.jqx-tabs-content-element {
+    height: calc(100vh - 250px);
+}*/
+.uplot .legend {
+    font-size: 12px;
+    color: #000 !important;
+    font-weight: 400;
+}
+.uplot .legend tr.series > td {
+    font-size: 12px;
+    padding-top: 4px;
+    color: #000 !important;
+    font-weight: 400;
+}
+.uplot .legend .series th {
+    cursor: pointer;
+    font-size: 12px;
+    color: #000 !important;
+    font-weight: 400;
+    text-transform: none !important;
+}
+.uplot .legend .series > * {
+    padding: 1px 4px;
+}
+.smallChart {
+    opacity: 0;
+}
+
+.uplot .legend .ident {
+    width: 1em;
+    height: 1em;
+    margin-right: 4px;
+    border: 2px solid transparent;
+}
+
+.uplot .legend * {
+    display: inline-block !important;
+}

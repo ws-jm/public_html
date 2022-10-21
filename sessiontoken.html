@@ -1,0 +1,419 @@
+<div>
+	<div class="api-right-txt">
+		<h3 class="doc-sec-title">
+			<span class="title-text" style="display:inline-block">2.1. &nbsp;&nbsp;
+				Get a new Session Token.</span>
+		</h3>
+		<h2>
+			<b>
+				<span class="spanColor" style="color: #339966;">GET</span>
+				GetSessionToken
+			</b>
+		</h2>
+		<p><strong>Description:</strong>&nbsp;&nbsp;Use your API key to return a
+			session token
+			that is required to access all market data from the API.</p>
+		<p><strong>Usage:</strong>&nbsp;&nbsp;This is usually the first API request
+			made as
+			a session token is required for almost all API requests.
+		</p>
+		<p> </p>
+		<div class="api-article-main-example">
+			<br>
+			<h4><b style="color: RGB(54, 96,146);"><span style="color: #008000;">GET</span>
+					Sample Request:</b></h4>
+
+			<pre>GET https://[server]/GetSessionToken?APIKey=YOUR_API_KEY&Minutes=30</pre>
+		</div>
+
+		<p></p>
+		<p></p>
+		<br>
+		<div class="api-article-table">
+
+			<h4>Request Parameters</h4>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Parameter</th>
+						<th>Type</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="optional">
+						<td>APIKey</td>
+						<td>String</td>
+						<td>Your private API key.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<p> </p>
+		<p> </p>		
+		<div class="api-article-table">
+			<h4>Optional Request Parameters</h4>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Parameter</th>
+						<th>Type</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="optional">
+						<td>Minutes</td>
+						<td>Integer</td>
+						<td>The number of minutes life a session token has (Default is 30. Minimum is 1. Maximum is 1440 or one day (24 x 60 minutes). 
+						 The token life is reset with each valid API command made (that uses the session token) and can be manually reset to full life with the RenewSessionToken API command.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<br>
+		<p> </p>
+		<p> </p>
+		<br>
+		<div class="api-article-table">
+			<h3>Response Parameters</h3>
+			<table class="table table-bordered" style="height: 206px;" width="765">
+				<thead>
+					<tr>
+						<th></th>
+						<th>Parameter</th>
+						<th>Type</th>
+						<th>Mandatory</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><span style="color: #000000;">1</span></td>
+						<td><span style="color: #000000;">ServerDateTime</span>
+						</td>
+						<td><span style="color: #000000;">String</span></td>
+						<td style="text-align: center;"><span style="color: #000000;"><strong>Yes</strong></span>
+						</td>
+						<td><span style="color: #000000;">The server UTC
+								date and time as an ISO 8601 string.</span>
+						</td>
+					</tr>
+					<tr>
+						<td><span style="color: #000000;">2</span></td>
+						<td><span style="color: #000000;">TimeStamp</span>
+						</td>
+						<td><span style="color: #000000;">Float</span></td>
+						<td style="text-align: center;"><span style="color: #000000;"><strong>Yes</strong></span>
+						</td>
+						<td><span style="color: #000000;">The server date
+								and time as a Julian date.</span></td>
+					</tr>
+					<tr>
+						<td><span style="color: #000000;">3</span></td>
+						<td><span style="color: #000000;">ExecutionTime</span>
+						</td>
+						<td><span style="color: #000000;">Float</span></td>
+						<td style="text-align: center;"><span style="color: #000000;"><strong>Yes</strong></span>
+						</td>
+						<td><span style="color: #000000;">The number of
+								milliseconds taken to process the
+								request.</span></td>
+					</tr>
+					<tr>
+						<td><span style="color: #808080;">4</span></td>
+						<td><span style="color: #808080;">Result</span></td>
+						<td><span style="color: #808080;">[Object]</span>
+						</td>
+						<td style="text-align: center;"><span style="color: #808080;">No*</span></td>
+						<td><span style="color: #808080;">If the request is
+								a success, a <em>Result</em>
+								object is returned.<br>
+								See the ‘<em>Result Object</em>‘ table
+								below for details.</span></td>
+					</tr>
+					<tr>
+						<td><span style="color: #808080;">5</span></td>
+						<td><span style="color: #808080;">Errors</span></td>
+						<td><span style="color: #808080;">[Object]</span>
+						</td>
+						<td style="text-align: center;"><span style="color: #808080;">No*</span></td>
+						<td><span style="color: #808080;">If the request
+								fails, an '<em>Errors</em>' object is
+								returned.<br>
+								See the
+								‘<em>Errors Object</em>‘ table
+								below for details.</span></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="single-notes notes-indent">
+				<div>Note</div>
+				<p>A successful API request will return a <em>Result</em>
+					object with the requested payload <strong>or</strong> an
+					'<em>Errors</em>' object detailing the issue that caused the
+					error.
+				</p>
+			</div>
+		</div>
+		<p> </p>
+		<blockquote class="api-article-main-tip">
+			<p>Tips:</p>
+			<ul>
+				<li>Your API key was emailed to you when you first
+					subscribed to the server. Login to the user web portal
+					site to view or update your API key.</li>
+				<li>You can request your API key be sent
+					via email using from your ‘My Account' panel
+					in the web portal. You can also change it using the
+					‘<em>RequestAPIKey</em>‘ API endpoint .</li>
+			</ul>
+		</blockquote>
+		<h3></h3>
+		<p> </p>
+
+		<div class="api-article-table">
+			<h3>Result Object</h3>
+			<table class="table table-bordered" style="height: 157px;" width="774">
+				<thead>
+					<tr>
+						<th></th>
+						<th>Parameter</th>
+						<th>Type</th>
+						<th>Mandatory</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="optional">
+						<td>1</td>
+						<td>LastActive</td>
+						<td>String</td>
+						<td style="text-align: center;">Yes</td>
+						<td>The date and time that the API key was last used
+							(as an ISO 8601 string).<br>
+							E.g. 2017-10-17T15:44:50Z.</td>
+					</tr>
+					<tr class="optional">
+						<td>2</td>
+						<td>SessionToken</td>
+						<td>String</td>
+						<td style="text-align: center;">Yes</td>
+						<td>A session token string. A session
+							token will automatically renew to full life when
+							used successfully in any valid API
+							request.</td>
+					</tr>
+					<tr class="optional">
+						<td>3</td>
+						<td>SimulatedAccess</td>
+						<td>Boolean</td>
+						<td style="text-align: center;">No</td>
+						<td>This optional parameter is returned only if true. If true this is not a ‘live’
+							account and the prices and values returned <strong>are
+							simulated and will change with each
+							request</strong>. These simulated values are intended for testing and <strong>must not</strong> be used in 
+							any work related activity  other than for testing the API.
+						</td>
+					</tr>
+					<tr class="optional">
+						<td>4</td>
+						<td>Remaining</td>
+						<td>Long</td>
+						<td style="text-align: center;">Yes</td>
+						<td>The remaining token life in milliseconds.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="api-article-table">
+			<h3></h3>
+			<h3>Errors Object</h3>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th></th>
+						<th>Parameter</th>
+						<th>Type</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="optional">
+						<td>1</td>
+						<td>Status</td>
+						<td>Integer</td>
+						<td>HTTP status code.</td>
+					</tr>
+					<tr class="optional">
+						<td>2</td>
+						<td>Detail</td>
+						<td>String</td>
+						<td>Description of the status code error.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="api-article-table"></div>
+
+		<div class="api-article-table">
+			<h3></h3>
+			<h3 style="padding-left: 30px;">Possible Status codes in
+				the '<em>Errors</em>' object</h3>
+			<div class="api-article-table" style="padding-left: 30px; ">
+				<table class="table table-bordered" style="height: 232px;">
+					<thead style="padding-left: 30px;">
+						<tr style="padding-left: 30px;">
+							<th>Code</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="optional">
+							<td style="text-align: center;">400</td>
+							<td>Missing argument(s): APIKey<br>
+								or<br>
+								Unknown argument: + the parameter name.</td>
+						</tr>
+						<tr class="optional">
+							<td style="text-align: center;">401</td>
+							<td>Invalid credentials. Check API key.</td>
+						</tr>
+						<tr class="optional">
+							<td style="text-align: center;">403</td>
+							<td>The user is inactive.</td>
+						</tr>
+						<tr class="optional">
+							<td style="text-align: center;">405</td>
+							<td>Method [request] not allowed.</td>
+						</tr>
+						<tr class="optional">
+							<td style="text-align: center;">500</td>
+							<td>Server may be down for maintenance.</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="api-article-table">
+			<div class="single-notes notes-indent" style="margin-left: 48px;">
+				<div>Note</div>
+				<p>This is not an exhaustive list and
+					additional error codes may be returned. The <em>Errors
+						Detail</em> field will return request specific error
+					information.</p>
+			</div>
+		</div>
+		<h3 style="padding-left: 30px;"></h3>
+		<h3>Possible HTTP response codes</h3>
+		<p style="line-height:30px !important ;"><span class="spanColor">This
+				endpoint returns 200 for
+				success. <br>
+
+				You can get HTTP client network errors or server
+				errors from any API request. You should check
+				with your network or IT colleagues in case the issue is a
+				local one. <br>
+				All server generated errors will return an '<em>Errors</em>'
+				object that will give specific details about the error. <br>
+				A full list of HTTP codes and their meanings is available <a
+					href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">here</a>,</span>
+		</p>
+
+
+		<h3></h3>
+
+		<h2>Success and fail examples</h2>
+		<p>The sample requests a token using the API key as a parameter.</p>
+		<div class="api-article-main-example">
+			<h4><b style="color: RGB(54, 96,146);">Sample Request:</b></h4>
+			<pre>GET https://[server]/GetSessionToken?APIKey=YOUR_API_KEY&Minutes=30</pre>
+			<p> </p>
+		</div>
+		<div class="api-article-main-blockExample">
+			<h4><strong>Response body on success:</strong></h4>
+
+
+			<div id="GST_Successes"></div>
+
+		</div>
+		<div class="api-article-main-blockExample">
+			<h4></h4>
+			<h4></h4>
+			<h4><strong>Response body on fail:</strong></h4>
+
+
+			<div id="GST_Fail"></div>
+
+		</div>
+		<div class="last-date">
+			<div class="date">Last updated on June 3, 2021</div>
+		</div>
+		<br>
+	</div>
+
+	<div class="dis-block clearfix">
+		<a href="javascript:move_section('#authentcation')" class="doc-prev"><i class="fas fa-chevron-circle-left"></i>
+			Authentication</a>
+		<a href="javascript:move_section('#renewsessiontoken')" class="doc-next">Renew a Session Token<i
+				class="fas fa-chevron-circle-right"></i></a>
+	</div>
+</div>
+
+<script>
+
+	// **************Responses(Success and Fail)***************
+
+	// ***AUTHENTICATION***
+
+	// Get a Session Token
+	var GST_Success_Obj = {};
+	var jsonViewer_GST_Success = new JSONViewer();
+
+	document.querySelector("#GST_Successes").appendChild(jsonViewer_GST_Success.getContainer());
+	// if (!GST_Success) {
+		GST_Success = JSON.stringify({
+			"ServerDateTime": "2018-03-12T22:32:48Z",
+			"TimeStamp": 2458190.4394444,
+			"ExecutionTime": 2458088.3182292,
+			"Result":
+			{
+				"LastActive": "2018-03-11T19:38:15Z",
+				"SessionToken": "YOUR_SESSION_TOKEN",
+				"Remaining": 1800000
+			}
+		});
+	// }
+
+
+
+	var GST_Fail_Obj = {};
+	var jsonViewer_GST_Fail = new JSONViewer();
+	if (document.querySelector("#GST_Fail") != null)
+		document.querySelector("#GST_Fail").appendChild(jsonViewer_GST_Fail.getContainer());
+
+	GST_Fail = JSON.stringify({
+		"ServerDateTime": "2018-03-13T13:28:42Z",
+		"TimeStamp": 2458191.0615972,
+		"ExecutionTime": 0.001,
+		"Errors": [
+			{
+				"Status": 401,
+				"Details": "Invalid credentials. Check your API key",
+			}
+		]
+	}
+	);
+
+
+	var setJSON = function () {
+
+		GST_Success_Obj = JSON.parse(GST_Success);
+		GST_Fail_Obj = JSON.parse(GST_Fail);
+	}
+
+
+	setJSON();
+	jsonViewer_GST_Success.showJSON(GST_Success_Obj);
+	jsonViewer_GST_Fail.showJSON(GST_Fail_Obj);
+</script>

@@ -1,0 +1,22 @@
+.scroll-dataset {
+	position: absolute;
+	top: 70px; /* Header Height */
+	bottom: 60px; /* Footer Height */
+	width: 100%;
+	overflow-y: scroll;
+}
+
+.pager {
+	position: absolute;
+	left: 40%;
+	bottom: 0px;
+}
+
+.scroll-data {
+	height: 72vh;
+	overflow-y: scroll;
+}
+
+.table tbody>tr>td.vert-align{
+    vertical-align: middle;
+}

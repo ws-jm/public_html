@@ -1,0 +1,136 @@
+<div>
+	<h2>1.&nbsp;&nbsp;Overview</h2>
+	<div class="api-right-txt">
+		<div class="images-top">
+			<img src="resources/css/images/monitor-plus.svg" alt="Monitor-plus">
+			<img src="resources/css/images/JSONAPI.svg" alt="JSON API" class="json">
+		</div>
+		<h2
+			style="font-size: 30px; font-weight: 900; font-style: italic; display: inline;">
+			The </h2>
+		<h2
+			style="margin-top: -20px;font-size: 30px; font-weight: 900; display: inline;">
+			Reference Market Data API
+		</h2>
+		<br>
+		<p>The Monitor+ API allows access to a huge range of premium historical end
+			of day reference data from stock exchanges, commodity exchanges  as well as currencies, cryptocurrencies, world indices as well as proprietary data from market data providers and independent
+			pricing agencies. It does this by providing a powerful JSON
+			web	API that allows easy access hundreds of thousands of market data datasets without
+			requiring any knowledge of databases, indices or SQL. With just two
+			simple requests you can be receiving market data to power your own applications
+			and information	systems.</p>
+		<p>The market data is delivered in JSON format and can be used to power web
+			pages, market reports, information systems, databases and software
+			solutions
+			for both in-house and commercial development. Native “R” and Python
+			packagesare available and  the API can be easily used directly with almost any
+			programming	language including C++ and Visual Basic.</p>
+		<p>Monitor+ easily integrates into any information or trading system. It
+			provides an immediate low cost market data solution as well as
+			opportunities
+			for both in-house and commercial developers to power workstation
+			solutions,
+			database, data science, trading and back testing systems.</p>
+		<br>
+		<div style="display: flex; justify-content: center; align-items: center">
+			<img src="resources/css/images/info-monitor-plus.svg"
+				style="width: 625px;">
+		</div>
+		<br>
+		<p>New users receive an email that provides login credentials and an API key
+			that is required for access to the service. The API uses session tokens
+			to
+			allow easy access to the datasources. After authorization, a session
+			token
+			is granted and the token is then used for all data requests to the API.
+		</p>
+		<p>Users can manage their session tokens using the Authentication API
+			endpoints.
+			After a session token has been requested and received, the Datasource
+			endpoints can be used to discover the datasources that are available and
+			the
+			ones that are are accessibly to the user with the current subscription.
+			From
+			the datasources you can then access the dataset endpoints and the
+			dataset
+			historical time series values using the market data endpoints.</p>
+		<p>The endpoints are organized into 7 main groups:</p>
+		<ul class="list-info">
+			<li><b>Authentication</b> endpoints are used to get, query, renew or
+				revoke
+				session tokens. The session tokens are linked to your account and
+				control access to datasources and datasets that are available on the
+				service.</li>
+			<li><b>Datasource</b> endpoints return detailed metadata information
+				about
+				available datasources (databases). They can identify which
+				datasources
+				can be accessed with the current subscription. Some datasources are
+				subdivided (by the vendor) into data categories and require
+				subscription
+				access to individual data category (not access to the full
+				datasource).
+				We refer to these as ‘CategoryDS’ datasources and an extra category
+				name
+				parameter is required in data requests to these datasources.</li>
+			<li><b>Dataset</b> endpoints return detailed metadata information about
+				the
+				datasets (time series) that are available in each datasource.</li>
+			<li><b>Favorite</b> endpoints allow individual subscribers to manage a
+				list of ‘favorite’ datasets – datasets that they use on a day to day
+				basis from multiple datasources. These favorite lists have their own
+				user web management application that allows users to easily manage
+				the
+				favorites list – adding, removing and structuring the datasets. The
+				favorite list is designed to be easily implemented into 3rd party
+				software solutions so cutting development time.</li>
+			<li><b>Market Data</b> endpoints return actual prices and values from
+				the	datasources datasets. Built in averages (day to year and custom),
+				server	calculated bate columns (means, differentials and change etc.),
+				comprehensive fills, weekend handling and more are all available as
+				parameters to each request. Multiple datasets can be requested and
+				results can also be returned in a RC (row x column) format for easy
+				display in 3rd party applications and reports.</li>
+			<li><b>Account:</b> endpoints allow you to retrieve your account details
+				and	to request a new API key.</li>
+			<li><b>Additional:</b> miscellaneous utility endpoints.</li>
+		</ul>
+		<br>
+		<br>
+		<p>Occasionally pre subscription short term trials are available to allow
+			customers to test the service with their systems. These trials are given
+			access to a sample datasource – normally the European Central Bank
+			currency
+			rates. If you have your own proprietary data that you’d like to add to
+			the
+			service (or need access to a particular data source) then please contact
+			us
+			and we’ll be glad to discuss how best we can assist.</p>
+		<br>
+
+		<div class="single-notes notes-indent" style="margin-left: 0px !important;">
+			<div>Notes</div>
+
+			<ul class="list-info">
+				<li>In all documentation, the term ‘datasource’ is interchangeable
+					with
+					‘database’, ‘Dataset’ with ‘data series’ or ‘time series’ and
+					‘Endpoint’
+					with ‘API request’.</li>
+				<li>In this document both US and UK spellings may be used so you may
+					see
+					words such as such as ‘favorite’ (US) and ‘favourite’ (UK).</li>
+			</ul>
+		</div>
+		<br>
+		<div class="last-date">
+			<div class="date">Last updated on June 3, 2021</div>
+		</div>
+		<br>
+	</div>
+
+	<div class="dis-block clearfix">
+		<a href="javascript:move_section('#authentcation')" class="doc-next">Authentication<i class="fas fa-chevron-circle-right"></i></a>
+	</div>
+</div>

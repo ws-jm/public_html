@@ -1,0 +1,328 @@
+@media screen and (max-width:1279px) {
+.main-banner h1{font-size: 32px;}	
+.main-banner {background: url(../images/Blue-6666.jpg) no-repeat center right;}	
+.main-banner ul li{font-size: 14px;}	
+.main-banner p {font-size: 14px;}
+.padT60 {padding-top: 50px;}
+.main-heading h2{font-size: 23px;}
+.main-heading p {font-size: 17px;}
+.contact-box h2 {font-size: 24px;}
+.contact-box p{font-size: 15px; min-height: 162px;}
+.contact-mail{ padding-bottom:60px;}
+	}
+	
+@media screen and (max-width:991px) {	
+.main-banner h1 {
+font-size: 26px;
+}
+.main-banner ul li{font-size: 13px;}	
+.main-banner p {font-size: 13px;}
+.main-banner ul {
+	padding: 17px 0 0 13px;
+	margin: 0;
+}
+.payment-register h2{font-size: 16px;}
+.footer .foot {
+	float: none;
+	width: 100%;
+	text-align: center;
+}
+.footer ul {
+	width: 100%;
+	padding-left: 0;
+	text-align: center;
+}
+.choose-option i {
+	float: left;
+	width: 50px;
+}
+.choose-option-txt {
+	width: calc(100% - 52px);
+	padding-left: 10px;
+	float: left;
+}
+.navbar-default .navbar-brand {
+	color: #ffffff;
+	width: 218px;
+	display: inline-block;
+	margin-right: 0;
+}
+.navbar-brand > img {
+    display: block;
+    max-width: 100%;
+}
+.nav > li > a {
+	position: relative;
+	display: block;
+	padding-left:8px;
+	padding-right:8px;
+}
+.contact-box {
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 30px;
+}
+
+.contact-banner {
+	margin-top: 68px;
+}
+.contact-banner h1 {
+	font-size: 28px;
+}
+
+.contact-box p{font-size: 15px; min-height: 102px;}
+.register-banner-content h1 {font-size: 27px ; margin-bottom: 7px;}
+.register-banner-content p {font-size: 18px;line-height: 20px;line-height: 23px;}
+.register-heading {
+	margin: 0px 0px 0px 0px;
+	padding: 20px 10px 20px 10px;
+	background-color: #121f7c;
+	border-radius: 5px 5px 0px 0px;
+}
+.blue-bold-txt {
+	margin-bottom: 0 !important; padding-top: 21px;
+}
+.logo-register h2{font-size: 19px;}
+.register-heading h2{font-size: 18px;}
+.register-account-col .enquriy-box-form {
+	padding: 15px;}
+	
+	.price-data ul li {
+	padding-left: 6px;
+	font-size: 15px;
+	line-height: 23px;
+	padding-left: 20px;
+	margin-bottom: 10px;
+}
+.logo-register ul li.icelogo img {
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+	max-width: 58%;
+	max-height: 95px;
+}
+.logo-register ul li img {
+	max-width: 89%;
+	max-height: 72px;
+}
+}
+
+@media screen and (max-width:767px) {	
+.main-banner h1 {
+	font-size: 20px;
+}
+/*.dekstop-computer {
+	position: relative;
+	bottom: 0;
+	right: 0;
+	margin: 0;
+	float: left;
+	width: 100%;
+	text-align: center;
+}*/
+.dekstop-computer {
+	position: relative;
+	bottom: 0;
+	right: 29px;
+	margin: 0;
+	float: right;
+	width: 252px;
+	text-align: right;
+}
+.padT60 {
+	padding-top: 35px;
+}
+.main-heading h2 {
+	font-size: 22px;
+}
+.database-pkg {
+	padding: 20px 0px 30px;
+	margin: 31px auto 29px;
+	width: 80%;
+}
+.payment-register h2 {
+	font-size: 14px;
+}
+.database-pkg p{font-size: 18px;}
+.main-heading p {
+	font-size: 16px;
+	padding-top: 10px;
+}
+.footer-space {
+	padding-bottom: 146px;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+	border-color: #fff;
+	background: #fff;
+	color: #fff;
+	padding: 0px;
+	overflow: hidden;
+}
+.navbar-default {
+	color: #dedede;
+	font-family: 'Raleway';
+
+}
+.navbar-default .navbar-nav > li > a {
+    background: none;
+    color: #333;
+    padding: 10px 0px; border-top:1px solid rgba(0, 0, 0, 0.1);  font-size: 15px; font-weight: 500;
+}
+
+.navbar-default .navbar-nav > li > a:hover{color:#008dd0;}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+	color: #008dd0;
+	background: none;
+}
+.login a {
+	padding-left: 0px !important;
+}
+.search-icon {
+	padding-top: 28px;
+	color: #333;
+	cursor: pointer;
+	position: absolute;
+	right: 45px;
+	top: -4px;
+}
+.navbar-nav {
+	margin: 15px 0 0 0;
+}
+.navbar-default{ border-top:0; border-right:0; border-left:0;}
+.navbar-toggle{margin-right: 0;}
+.navbar-default .navbar-brand {
+	color: #ffffff;
+	width: 186px;
+	display: inline-block;
+	margin-right: 0;
+	padding-left: 0;
+}
+
+.inner-banner h1{font-size: 26px;}
+.inner-banner {
+	min-height: 68px;
+	padding-bottom: 0;
+}
+.faq {
+    margin: 18px 0 0 0;
+}
+.faq .question-heading p{font-size: 16px;}
+.faq .panel-default .panel-heading + .panel-collapse .panel-body{padding: 0px 15px 15px 8px;}
+.contact-banner h1 {
+	font-size: 22px;
+}
+.contact-banner {
+	margin-top: 37px;
+}
+.contact-box h2 {
+    font-size: 22px;
+}
+.contact-mail {
+	padding-bottom: 27px;
+}
+.sales-enquriy-box-col{ margin-top:20px;}
+.navbar-nav > li > a{font-family: 'Raleway', sans-serif; font-size:14px;}
+.register a {
+	padding-right: 0;
+	border-right: 0;
+}
+.main-banner{ background-position:top right; background-size:cover;}
+.register-banner-content {
+	padding-right: 0;
+}
+.register-banner{min-height: auto;}
+.logo-register ul li {
+	width: 50%;
+	margin-bottom: 30px;
+	padding: 0 10px;
+}
+.logo-register ul li img {
+	max-width: 83%;
+	max-height: 102px;
+}
+.logo-register ul li.icelogo img {
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+	max-width: 45%;
+	max-height: 95px;
+}
+.new-regsister-page {
+	margin-bottom: 30px;
+}
+.contact-mail {
+	margin-bottom: 30px; padding-top:10px;
+}
+.sales-enquiry-block {
+	padding: 40px 0px 50px 0px;
+}
+}
+
+
+@media screen and (max-width:639px) {	
+.footer ul {
+	width: 100%;
+	padding-left: 0;
+}
+.footer-space {
+    padding-bottom: 180px;
+}
+.footer ul li {
+    display: inline-block;
+    padding: 7px 5px 3px;
+    position: relative;
+    font-size: 13px;
+}
+.inner-banner h1 {
+	font-size: 24px;
+}
+}
+
+
+
+@media screen and (max-width:370px) {	
+.footer ul {
+    padding-left: 0px; padding:0 !important; margin-top:5px;
+ 
+}
+.inner-banner h1 {
+	font-size: 20px; padding-top:15px;
+}
+.logo-register ul li img {
+	max-width: 100%;
+	max-height: 102px;
+}
+}
+
+
+@media screen and (min-width:992px) {
+.sales-enquriy-col{ width:30%;}
+.sales-enquriy-box-col {
+	padding-left: 41px;
+}
+}
+
+@media screen and (min-width:768px) and (max-width:992px) {
+.sales-enquriy-col{ width:42%; padding: 24px;}
+.sales-enquriy-box-col {
+	width: 56%;
+	padding-left: 16px;
+}
+}
+
+
+@media screen and (min-width:768px) {
+.register-account-col {
+	width: 41.8%;
+	margin-top: -242px;
+	float: right;
+}
+.register-content-col {
+	width: 57.997%; padding-right:50px;
+}
+.register-banner-content {
+	padding-right: 462px;
+}
+.contact-block-row{ margin-left:-10px; margin-right:-10px;}
+.salex-box, .support-box ,.partnership-box ,.market-data-box{ padding-left:10px; padding-right:10px;}
+.api-left-col{ width:32%;}
+.api-right-col{ width:65%; float:right; margin-left: 20px; padding-top: 15px;}
+}

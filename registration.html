@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <!-- Title -->
+    <title>Registration</title>
+
+
+    <!-- CSS Files -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i,800,800i"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,500i,600,600i,700,700i,800"
+        rel="stylesheet">
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
+
+    <link href="resources/idm-service/resources/css/font-awesome.min.css" rel="stylesheet">
+    <link href="resources/idm-service/resources/css/bootstrap-navbar.css" rel="stylesheet">
+    <link rel="stylesheet" href="resources/idm-service/resources/css/main.css">
+    <link rel="stylesheet" href="resources/css/main.css">
+    <link href="resources/idm-service/resources/css/responsive.css" rel="stylesheet">
+    <link href="resources/css/general.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="resources/css/intlTelInput.css" rel="stylesheet">
+    <link href="resources/css/bootstrap-formhelpers.css" rel="stylesheet">
+    <link href="resources/css/register.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="resources/api_favicon.png">
+    <link rel="stylesheet" href="resources/css/menu.css">
+	<link rel="stylesheet" href="resources/css/footer.css">
+    <link rel="stylesheet" href="resources/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="resources/css/float.css">
+
+
+
+
+    <!-- JS Files -->
+    <script src="resources/js/jquery-1.12.3.js"></script>
+    <script src="resources/js/jquery-3.6.0.min.js"></script>
+    <script src="resources/js/bootstrap.min.js"></script>
+    <script src="resources/js/bootstrap-dropdown.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="resources/js/include-html.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+    <script src="resources/js/jquery-ui.js"></script>
+    <script src="dev/api/config/config.js"></script>
+    <script src="dev/api/authentication.js"></script>
+    <script src="resources/js/jquery.ihavecookies.min.js"></script>
+    <script src="/resources/js/data.js"></script>
+    <script src="/resources/js/validator.js"></script>
+    <script src="/resources/js/intlTelInput.js"></script>
+    <script src="/resources/js/bootstrap-formhelpers-countries.js"></script>
+    <script src="/resources/js/bootstrap-formhelpers-selectbox.js"></script>
+    <script src="/resources/js/bootstrap-formhelpers-countries.en_US.js"></script>
+    <script src="resources/js/top-menu.js"></script>
+    <script src="resources/js/home.js"></script>
+    <script src="resources/js/messages.js"></script>
+    <script src="resources/js/common.js"></script>
+    <script src="resources/js/goto_homepage.js"></script>
+    <script src="resources/js/owl.carousel.min.js"></script>
+    <script src="resources/js/float.js"></script>
+    <link rel="icon" type="image/x-icon" href="resources/api_favicon.png">
+
+</head>
+
+<body>
+    <div class="fixpage">
+
+        <nav include-html="menu.html" id="menu_file" class="navbar navbar-default navbar-fixed-top"></nav>
+
+        <section class="register-banner">
+            <div class="register-banner-content">
+                <h1>Premier Market Data</h1>
+                <p class="banner-desc">Quality market data is the life blood of any trading company.
+                <br>
+                Power your business systems with our curated reference data.<br> 
+                    Create and publish web reports, charts, analytics or build your own data
+                    solutions easily with our powerful <strong>Monitor+</strong> JSON web API.</p>
+            </div>
+        </section>
+
+        <section class="main-content dis-block clearfix footer-space non-menu">
+
+
+            <div class="dis-block clearfix new-regsister-page">
+                <div class="row">
+                    <div class="col-sm-8 register-content-col">
+                        <div class="price-data">
+                            <p>Use our price data for  internal  reports and web pages (subject to
+                                our fair use policy). Use our market data to drive your business solutions and analytics.</p>
+                            <p><em>With prices from less than $200 per month - can you afford not to? *</em></p>
+                            <ul>
+                                <li>Enterprise grade commercial reference data with up to 50 years of history</li>
+                                <li>Includes 60 stock exchanges accounting for 90% of global trading volume</li>
+                                <li>Includes 90 of the most popular US and international futures contracts</li>
+                                <li>Currency rates for over 160 currencies with history back to to 1999</li>
+                                <li>Over 700 World Indices</li>
+                                <li>Thousands of additional data series available covering all markets</li>
+                                <li>New databases are continually being added</li>
+                            </ul>
+
+                            <p class="blue-bold-txt">Register your company now and to help you get started, we'll offer you a free trial of the European Central Bank currency rates.</p>
+                        </div>
+
+                        <div class="clearfix"></div>
+                        <div class="bdr1"></div>
+                        <div class="clearfix"></div>
+                        <div class="logo-register dis-block clearfix">
+                            <p class="brands-wrapper-text">We provide premier market data from global commodity and
+                                stock exchanges, brokers, independent information providers and banks including:</pড়>
+
+
+
+                                <div class=" floating-brands-wrapper owl-carousel">
+                                    <div class="item" title="Click to stop/start the animation">
+                                        <div>
+                                            <img src="resources/images/exchanges/nymex.png" width="180" height="60"
+                                                alt="nymex" />
+                                            <img src="resources/images/exchanges/ice.png" width="120" height="80"
+                                                alt="ice" />
+                                            <img src="resources/images/exchanges/cme.png" width="240" height="50"
+                                                alt="cme" />
+                                        </div>
+                                        <div>
+                                            <img src="resources/images/exchanges/indices.png" width="160" height="40"
+                                                alt="indices" />
+                                            <img src="resources/images/exchanges/jodi.png" width="160" height="40"
+                                                alt="jodi" />
+                                            <img src="resources/images/exchanges/lme.png" width="130" height="60"
+                                                alt="lme" />
+                                        </div>
+                                        <div>
+                                            <img src="resources/images/exchanges/crypto.png" width="160" height="50"
+                                                alt="crypto" />
+                                            <img src="resources/images/exchanges/fx.png" width="100" height="40"
+                                                alt="fx" />
+                                            <img src="resources/images/exchanges/ecb.png" width="120" height="80"
+                                                alt="ecba" />
+                                        </div>
+                                        <div>
+                                            <img src="resources/images/exchanges/amsterdam.png" width="200" height="60"
+                                                alt="amsterdam" />
+                                            <img src="resources/images/exchanges/argentina.png" width="180" height="60"
+                                                alt="argentina" />
+                                            <img src="resources/images/exchanges/athens.png" width="90" height="80"
+                                                alt="athens" />
+                                        </div>
+                                    </div>
+                                    <div class="item" title="Click to stop/start the animation">
+                                        <div>
+                                            <img src="resources/images/exchanges/B3-brazil.png" width="160" height="80"
+                                                alt="B3-brazil" />
+                                            <img src="resources/images/exchanges/borse-berlin.png" width="200"
+                                                height="50" alt="borse-berlin" />
+                                            <img src="resources/images/exchanges/bombay.png" width="100" height="50"
+                                                alt="bombay" />
+                                        </div>
+                                        <div>
+                                            <img src="resources/images/exchanges/borsa-italiana.png" width="180"
+                                                height="60" alt="borsa-italiana" />
+                                            <img src="resources/images/exchanges/indices.png" width="240" height="50"
+                                                alt="indices" />
+                                            <img src="resources/images/exchanges/brussels.png" width="180" height="60"
+                                                alt="brussles" />
+                                        </div>
+                                        <div>
+                                            <img src="resources/images/exchanges/budapest.png" width="160" height="60"
+                                                alt="budapest" />
+                                            <img src="resources/images/exchanges/cftc.png" width="160" height="60"
+                                                alt="cftc" />
+                                            <img src="resources/images/exchanges/nasdaq-n.png" width="160" height="60"
+                                                alt="nasdaq-n" />
+                                        </div>
+                                        <div>
+                                            <img src="resources/images/exchanges/copenhagen.png" width="160" height="40"
+                                                alt="copenhagen">
+                                            <img src="resources/images/exchanges/dusseldorf.png" width="170" height="60"
+                                                alt="dusseldorf" />
+                                            <img src="resources/images/exchanges/dusx.jpg" width="110" height="50"
+                                                alt="dusx" />
+                                        </div>
+                                    </div>
+                                    <div class="item" title="Click to stop/start the animation">
+                                        <div>
+                                            <img src="resources/images/exchanges/ecb.png" width="180" height="60"
+                                                alt="ecb" />
+                                            <img src="resources/images/exchanges/eurex.png" width="180" height="60"
+                                                alt="eurex" />
+                                            <img src="resources/images/exchanges/frax.png" width="180" height="60"
+                                                alt="frax" />
+                                        </div>
+                                        <div>
+                                            <img src="resources/images/exchanges/hamx.jpg" width="160" height="50"
+                                                alt="hamx" />
+                                            <img src="resources/images/exchanges/hanoi.png" width="180" height="80"
+                                                alt="hanoi" />
+                                            <img src="resources/images/exchanges/hong-kong.png" width="120" height="80"
+                                                alt="hong-kong" />
+                                        </div>
+                                        <div>
+                                            <img src="resources/images/exchanges/ice.png" width="80" height="70"
+                                                alt="ice" />
+                                            <img src="resources/images/exchanges/indonesia.png" width="160" height="80"
+                                                alt="indonesia" />
+                                            <img src="resources/images/exchanges/irish.png" width="280" height="50"
+                                                alt="Ireland" />
+                                        </div>
+                                        <div>
+                                            <img src="resources/images/exchanges/jodi.png" width="180" height="40"
+                                                alt="jodi" />
+                                            <img src="resources/images/exchanges/jse.png" width="180" height="70"
+                                                alt="jse" />
+                                            <img src="resources/images/exchanges/korea.png" width="170" height="60"
+                                                alt="korea" />
+                                        </div>
+                                    </div>
+                                    <div class="item" title="Click to stop/start the animation">
+                                        <div>
+                                            <img src="resources/images/exchanges/kosdaq.png" width="160" height="80"
+                                                alt="kosdaq" />
+                                            <img src="resources/images/exchanges/lisbon.png" width="160" height="60"
+                                                alt="kisbon" />
+                                            <img src="resources/images/exchanges/lme.png" width="130" height="60"
+                                                alt="lme" />
+                                        </div>
+                                        <div>
+                                            <img src="resources/images/exchanges/lse.png" width="200" height="60"
+                                                alt="lsa" />
+                                            <img src="resources/images/exchanges/luxx.jpg" width="120" height="80"
+                                                alt="luxx" />
+                                            <img src="resources/images/exchanges/madrid.png" width="170" height="60"
+                                                alt="madrid" />
+                                        </div>
+                                        <div>
+                                            <img src="resources/images/exchanges/mexico.png" width="120" height="60"
+                                                alt="mexico" />
+                                            <img src="resources/images/exchanges/munich.png" width="180" height="60"
+                                                alt="munich" />
+                                            <img src="resources/images/exchanges/nsadaq-b.png" width="160" height="60"
+                                                alt="nasdaq-b" />
+                                        </div>
+                                        <div>
+                                            <img src="resources/images/exchanges/nasdaq-omx.png" width="160" height="36"
+                                                alt="nasdaq-omx" />
+                                            <img src="resources/images/exchanges/nse.png" width="140" height="60"
+                                                alt="nse" />
+                                            <img src="resources/images/exchanges/nymex.png" width="180" height="60"
+                                                alt="nymex" />
+                                        </div>
+                                    </div>
+                                    <div class="item" title="Click to stop/start the animation">
+                                        <div>
+                                            <img src="resources/images/exchanges/opec.png" width="140" height="40"
+                                                alt="opec" />
+                                            <img src="resources/images/exchanges/oslo.png" width="120" height="80"
+                                                alt="oslo" />
+                                            <img src="resources/images/exchanges/pakistan.png" width="220" height="80"
+                                                alt="pakistan" />
+                                        </div>
+                                        <div>
+                                            <img src="resources/images/exchanges/paris.png" width="180" height="60"
+                                                alt="paris" />
+                                            <img src="resources/images/exchanges/philippines.png" width="120"
+                                                height="40" alt="philippines" />
+                                            <img src="resources/images/exchanges/poland.png" width="180" height="60"
+                                                alt="poland" />
+                                        </div>
+                                        <div>
+                                            <img src="resources/images/exchanges/santiago.png" width="180" height="50"
+                                                alt="santiago" />
+                                            <img src="resources/images/exchanges/saudi-arabia.png" width="120"
+                                                height="60" alt="saudi-arabia" />
+                                            <img src="resources/images/exchanges/shanghai.png" width="220" height="60"
+                                                alt="shanghai" />
+                                        </div>
+                                        <div>
+                                            <img src="resources/images/exchanges/stux.png" width="160" height="60"
+                                                alt="stux" />
+                                            <img src="resources/images/exchanges/taipei.png" width="200" height="60"
+                                                alt="tapei" />
+                                            <img src="resources/images/exchanges/philippines.png" width="120"
+                                                height="40" alt="philippines" />
+                                        </div>
+                                    </div>
+                                    <div class="item" title="Click to stop/start the animation">
+                                        <div>
+                                            <img src="resources/images/exchanges/thailand.png" width="140" height="60"
+                                                alt="thailand" />
+                                            <img src="resources/images/exchanges/tokyo.png" width="140" height="60"
+                                                alt="tokyo" />
+                                            <img src="resources/images/exchanges/toronto.png" width="160" height="80"
+                                                alt="toronto" />
+
+                                        </div>
+                                        <div>
+                                            <img src="resources/images/exchanges/tsxx.jpg" width="90" height="60"
+                                                alt="tsxx" />
+                                            <img src="resources/images/exchanges/twse.png" width="160" height="60"
+                                                alt="twse" />
+                                            <img src="resources/images/exchanges/vienna.png" width="160" height="60"
+                                                alt="vienna" />
+                                        </div>
+                                        <div>
+                                            <img src="resources/images/exchanges/xetra.png" width="90" height="40"
+                                                alt="xetra" />
+                                            <img src="resources/images/exchanges/xhan.png" width="200" height="80"
+                                                alt="xhan" />
+                                            <img src="resources/images/exchanges/toronto.png" width="120" height="80"
+                                                alt="toronto" />
+                                        </div>
+                                        <div>
+                                            <img src="resources/images/exchanges/lse.png" width="200" height="60"
+                                                alt="lse" />
+                                            <img src="resources/images/exchanges/luxx.jpg" width="120" height="80"
+                                                alt="luxx" />
+                                            <img src="resources/images/exchanges/madrid.png" width="170" height="60"
+                                                alt="madrid-2" />
+                                        </div>
+                                    </div>
+
+                                    <div class="item" title="Click to stop/start the animation">
+                                        <div>
+                                            <img src="resources/images/exchanges/cftc.png" width="180" height="60"
+                                                alt="cftc" />
+                                            <img src="resources/images/exchanges/borse-berlin.png" width="180"
+                                                height="60" alt="borse-berlin" />
+                                            <img src="resources/images/exchanges/eurex.png" width="180" height="60"
+                                                alt="eurex" />
+                                        </div>
+                                        <div>
+                                            <img src="resources/images/exchanges/indices.png" width="160" height="50"
+                                                alt="indices" />
+                                            <img src="resources/images/exchanges/kuala-lumpur.png" width="160"
+                                                height="80" alt="kuala-lumpur" />
+                                            <img src="resources/images/exchanges/nsadaq-first-north.png" width="120"
+                                                height="80" alt="nsadaq-first-north" />
+                                        </div>
+                                        <div>
+                                            <img src="resources/images/exchanges/shenzhen.png" width="180" height="60"
+                                                alt="shenzhen" />
+                                            <img src="resources/images/exchanges/singapore.png" width="120" height="40"
+                                                alt="singapore" />
+                                            <img src="resources/images/exchanges/six-swiss.png" width="180" height="60"
+                                                alt="six-swiss" />
+                                        </div>
+                                        <div>
+                                            <img src="resources/images/exchanges/lme.png" width="130" height="60"
+                                                alt="lme" />
+                                            <img src="resources/images/exchanges/ecb.png" width="180" height="60"
+                                                alt="ecb" />
+                                            <img src="resources/images/exchanges/eurex.png" width="180" height="60"
+                                                alt="eurex" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <p class="paused-text">Paused. Click to start</p>
+
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4 register-account-col">
+                        <div class="register-heading">
+                            <h2>Register for your free company account</h2>
+                        </div>
+
+                        <form id="registrationForm" data-toggle="validator">
+                            <div class="enquriy-box-form">
+                                <div class="form-group" style="margin-right: 7px;">
+                                    <label class="main-label">First Name <sup class="mandatory">*</sup></label>
+                                    <input data-minlength="3" required name="first_name" id="first_name" type="text"
+                                        class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="main-label">Last Name <sup class="mandatory">*</sup></label>
+                                    <input data-minlength="3" required name="last_name" id="last_name" type="text"
+                                        class="form-control">
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label class="main-label">Job Title</label>
+                                    <input name="job" id="job" type="text" class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="main-label">Company <sup class="mandatory">*</sup></label>
+                                    <input name="company" id="company" type="text" class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="main-label">Address <sup class="mandatory">*</sup></label>
+                                    <div class="form-group" style="margin-right: 7px;">
+                                        <input name="houseName" id="houseName" required type="text" class="form-control"
+                                            placeholder="Building name*">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="streatName" id="streatName" type="text" class="form-control"
+                                            placeholder="Street name">
+                                    </div>
+                                    <div class="form-group" style="margin-right: 7px;">
+                                        <input name="city" id="city" data-minlength="3" required type="text"
+                                            class="form-control" placeholder="City*">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="post_code" id="post_code" data-minlength="3" required type="text"
+                                            class="form-control" placeholder="Post/Zip Code*">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="main-label">Country <sup class="mandatory">*</sup></label>
+                                    <div id="country" class="bfh-selectbox bfh-countries" data-country="GB"
+                                        data-flags="true" data-blank="false" onchange="countryOnChange()">
+                                        <input type="hidden" value="">
+                                        <a class="bfh-selectbox-toggle" role="button" data-toggle="bfh-selectbox"
+                                            href="#">
+                                            <span class="bfh-selectbox-option input-medium" data-option=""></span>
+                                            <b class="caret"></b>
+                                        </a>
+                                        <div class="bfh-selectbox-options">
+                                            <input type="text" class="bfh-selectbox-filter">
+                                            <div role="listbox">
+                                                <ul role="option"></ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="main-label">Telephone <sup class="mandatory">*</sup></label>
+                                    <input class="form-control" name="phone" id="phone" required type="tel">
+                                    <span id="valid-msg" class="hide" style="color:green;">Valid</span>
+                                    <span id="error-msg" class="hide" style="color:red;">Invalid number</span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="main-label">Email <sup class="mandatory">*</sup></label>
+                                    <input name="email" id="email" required type="email" class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="main-label">Tell us about how you'd like to use the market data
+                                        <sup class="mandatory">*</sup></label>
+                                    <textarea id="message" name="" cols="5" rows="5" class="form-control"></textarea>
+                                </div>
+
+                                <div class="form-group" style="margin-bottom: 0%;">
+                                    <input id="checknotrebot" type="checkbox" required>
+                                    <label style="font-weight: inherit;" for="checknotrebot">I'm
+                                        <strong>not</strong> a
+                                        robot</label>
+                                </div>
+
+
+                                <div class="form-group" style="text-align: right;">
+                                    <button type="submit" class="blue-btn btn">Save</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <p class="footnote">* for a single trader (using XLerate with the currency and commodity packages).</p>
+            <div class="text-center footertxt">
+                <p class="sub-logo"> Copyright © 2018-2022 Sarus Systems Limited - Market Data Solutions </p>
+            </div>
+
+        </section>
+
+        <div id="dialogWindow">
+            <span id="dialogWindowContent"></span>
+        </div>
+
+
+        <div include-html="footer.html" id="footer_file"></div>
+
+
+
+    </div>
+    </div>
+    <script src="resources/js/register.js"></script>
+
+    <script src="resources/js/include-html.js"></script>
+</body>
+
+</html>

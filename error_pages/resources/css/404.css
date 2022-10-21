@@ -1,0 +1,179 @@
+/* fonts link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 0;
+    background: #E8E9EB;
+
+}
+
+.container {
+    max-width: 1230px;
+    width: 100%;
+    margin: auto;
+    padding: 0;
+}
+
+/* main content  */
+.computer-area-wrapper {
+    background: #4963aa;
+    padding: 50px 15px;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-content-area {
+    position: relative;
+}
+
+.computer-area-wrapper img {
+    width: 550px;
+    z-index: 1;
+    margin-top: 55px;
+}
+
+.computer-area-wrapper .mobile-image {
+    display: none;
+}
+
+.computer-inner-text-wrapper {
+    display: block;
+    width: 500px;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.computer-inner-text-wrapper h2 {
+    font-size: 62px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    color: #C9505A;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 50px;
+}
+
+.computer-inner-text-wrapper p {
+    font-weight: 600;
+    font-size: 24px;
+    word-spacing: 12px;
+    text-transform: uppercase;
+    color: #4963aa;
+    text-align: center;
+}
+
+.computer-inner-text-wrapper a {
+    position: absolute;
+    bottom: -120px;
+    left: 15%;
+}
+
+.computer-inner-text-wrapper button {
+    background: #546775;
+    padding: 5px 20px;
+    color: #fff;
+    box-shadow: -4px 4px 2px #00000045;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    transition: .4s;
+}
+
+.computer-inner-text-wrapper button:hover {
+    box-shadow: none;
+}
+
+/* responsive area */
+
+@media screen and (max-width:767px) {
+    .computer-area-wrapper {
+
+        height: 850px;
+
+    }
+}
+
+@media screen and (max-width:670px) {
+    .computer-area-wrapper img {
+        width: 450px;
+    }
+
+    .computer-inner-text-wrapper {
+        width: 300px;
+    }
+
+    .computer-inner-text-wrapper h2 {
+        font-size: 38px;
+    }
+
+    .computer-inner-text-wrapper p {
+        font-size: 14px;
+        word-spacing: inherit;
+    }
+
+    .computer-inner-text-wrapper a {
+        position: unset;
+        text-align: center;
+        display: block;
+        margin: 50px auto;
+    }
+
+    .computer-inner-text-wrapper button {
+        padding: 5px 10px;
+        font-size: 12px;
+       
+    }
+
+    .computer-area-wrapper .monitor-image {
+        display: none;
+    }
+
+    .computer-area-wrapper .mobile-image {
+        display: block;
+        width: 280px;
+    }
+
+   
+
+
+}
+
+@media screen and (max-width:300px) {
+    .computer-area-wrapper .mobile-image {
+        display: block;
+        width: 200px;
+    }
+
+    .computer-inner-text-wrapper h2 {
+        font-size: 22px;
+        line-height: 25px;
+    }
+
+    .computer-inner-text-wrapper p {
+        font-size: 12px;
+        font-weight: 400;
+        word-spacing: inherit;
+    }
+
+    .computer-inner-text-wrapper button {
+        padding: 5px 8px;
+        font-size: 10px;
+    }
+}

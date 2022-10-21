@@ -1,0 +1,769 @@
+/*
+--------------------------------------
+    >>>     index  <<
+--------------------------------------
+
+1. font link
+2. global setting
+3. flexbox framework
+4. overview section
+5. how it works section
+6. why-monitor  section
+7. benefits section
+8. additional feature section
+9. documentation section 
+
+*/
+
+
+/* fonts link */
+@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Open+Sans:wght@300;400;700;900&family=Poppins:wght@100;200;300;400;500&display=swap');
+
+
+/* global setting */
+
+:root {
+    --banner-color: #263d75;
+    --icon-bg-color: #0070a6;
+    --heading-color: #2a4996;
+    --heading-font: 'Cabin', sans-serif;
+    --paragraph-font: 'Open Sans', sans-serif;
+    --section-top-angle: 40px;
+    --section-top-margin: -45px;
+    --section-padding: 80px;
+
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    font-family: var(--paragraph-font);
+    color: black;
+    overflow-x: hidden;
+}
+
+
+body * {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.section-heading {
+    width: 100%;
+    font-family: var(--heading-font);
+    font-weight: 900;
+    text-align: center;
+    font-size: 30px;
+    line-height: 30px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    margin-top: 0px;
+}
+
+.section-heading span {
+    position: relative;
+    color: var(--heading-color);
+    font-weight: 700;
+}
+
+.section-heading span::before {
+    position: absolute;
+    content: '';
+    top: 3px;
+    left: -35px;
+    width: 28px;
+    height: 28px;
+    background-image: url(/resources/images/h1-icon-blue2.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+    opacity: 1;
+}
+
+.overview-container .section-heading::after {
+    content: '';
+    width: 200px;
+    height: 4px;
+    display: block;
+    background-color: #fae606;
+    margin: 2px auto 0px;
+}
+
+.section-heading span::after {
+    position: absolute;
+    content: '';
+    bottom: -3px;
+    left: 25%;
+    width: 50%;
+    height: 3px;
+    background-color: orange;
+    z-index: 2;
+}
+
+.paragraph-heading {
+    font-family: 'Cabin', sans-serif;
+    color: var(--heading-color);
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+.paragraph {
+    font-family: var(--paragraph-font);
+    text-align: justify;
+    color: #515151;
+    font-size: 15px;
+    text-align: justify;
+    font-weight: 500;
+}
+
+
+/* flexbox framework */
+
+.flex-container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+
+.top-logo-wrapper,
+.overview-container,
+.how-it-works-container {
+
+    flex-direction: row;
+
+}
+
+.top-logo,
+.overview-text-wrapper {
+
+    flex-direction: column;
+
+}
+
+
+
+
+/* top section */
+.market {
+    display: block;
+    margin-left: auto;
+    margin-top: -12px;
+}
+
+.top-logo-wrapper {
+    justify-content: flex-end;
+    padding: 5px 30px;
+    margin-bottom: 10px;
+}
+
+.top-logo {
+    width: 310px;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.market em {
+    font-family: "Open Sans", Roboto, sans-serif;
+    font-weight: 300;
+    padding-right: 10px;
+    font-size: 16px;
+    color: #333333;
+}
+
+
+/* overview section */
+.overview-container {
+    align-items: flex-start;
+    padding: 40px 80px;
+    padding-bottom: var(--section-padding);
+    background: linear-gradient(#365992ea, #365992ea), url(../images/m-api-banner.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 140%;
+}
+
+.overview-container .heading-dot-img {
+    width: 40px;
+    margin-top: -7px;
+}
+
+
+
+.overview-text-wrapper {
+    color: #ededed;
+}
+
+.overview-text-wrapper .section-heading {
+    color: #fae606;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 57.6px;
+    letter-spacing: 0;
+    margin-bottom: 20px;
+}
+
+.overview-text-wrapper .paragraph {
+    color: #ffff;
+    font-size: 16px;
+    text-align: left;
+    line-height: 24px;
+    margin-top: 2%;
+    font-weight: 400;
+}
+
+
+/* how it works section */
+
+.how-it-works-container {
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    background-color: white;
+    padding: var(--section-padding) 50px;
+    clip-path: polygon(0% var(--section-top-angle), 100% 0%, 100% 100%, 0% 100%);
+    margin-top: var(--section-top-margin);
+}
+
+.how-it-works-container img {
+    width: 48%;
+    margin-top: 10px;
+}
+
+.how-it-works-text {
+    width: 45%;
+}
+
+.how-it-works-text .paragraph {
+    color: #515151;
+    font-size: 16px;
+    text-align: justify;
+    line-height: 23px;
+    font-weight: 400;
+    margin-top: 15px;
+
+
+
+}
+
+
+/* why-monitor  section */
+
+.why-monitor-container {
+    flex-direction: column;
+    background-color: #f8f8f8;
+    padding: var(--section-padding) 50px;
+    clip-path: polygon(0% 0%, 100% var(--section-top-angle), 100% 100%, 0% 100%);
+    margin-top: var(--section-top-margin);
+
+}
+
+.why-monitor-card-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px 10px;
+    width: 100%;
+    height: auto;
+    margin-top: 30px;
+}
+
+.why-monitor-card {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+.why-monitor-card-text {
+    flex-direction: column;
+    width: 75%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 3%;
+}
+
+.why-monitor-card-text .paragraph {
+    color: #404040
+}
+
+.icon-wrapper {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background-color: var(--icon-bg-color);
+    color: white;
+    font-size: 30px;
+    border-radius: 50%;
+}
+
+
+/* benefits section */
+
+.benefits-container {
+    background-color: rgba(242, 242, 242);
+    padding: 60px 0px 200px 0px;
+    margin-top: 0px;
+    height: auto;
+}
+
+.benefits-card-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2%;
+    width: 100%;
+    height: auto;
+    padding: 0px 50px;
+    margin-top: 20px;
+
+}
+
+.benefits-card {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: auto;
+    background-color: #ffff;
+    margin-top: 30px;
+    padding: 80px 20px 35px 20px;
+    border-radius: 5px;
+    box-shadow: .25vw .25vw .35vw 0vw rgba(211, 211, 211, 0.75);
+    -webkit-box-shadow: .25vw .25vw .35vw 0vw rgba(211, 211, 211, 0.75);
+    -moz-box-shadow: .25vw .25vw .35vw 0vw rgba(211, 211, 211, 0.75);
+}
+
+.benefits-card>.icon-wrapper {
+    position: absolute;
+    top: -30px;
+    width: 80px;
+    height: 80px;
+    border: 10px solid #ededed;
+}
+
+.Benefits-card .paragraph {
+    color: #303030;
+    text-align: justify;
+}
+
+
+/* additional feature section */
+
+.additional-feature-container {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto;
+    background-color: #ffff;
+    padding: 100px 50px 170px;
+    clip-path: polygon(0% var(--section-top-angle), 100% 0%, 100% 100%, 0% 100%);
+    margin-top: var(--section-top-margin);
+}
+
+.additional-feature-text-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 4%;
+    width: 100%;
+    height: auto;
+    margin-top: 25px;
+
+}
+
+.additional-feature-text {
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.additional-feature-text ul li {
+    font-family: #f8f8f8;
+    text-align: justify;
+    color: #515151;
+    font-size: 15px;
+    text-align: justify;
+    font-weight: 500;
+}
+
+.additional-feature-text ul {
+    list-style: disc;
+    list-style-position: inside;
+    margin: 0;
+    padding: 0;
+}
+
+/* documentation section */
+
+.documentation {
+    flex-direction: row;
+    justify-content: center;
+    background-color: RGB(242, 242, 242);
+    padding: 60px 150px 100px 150px;
+    margin-top: -5vw;
+}
+
+.documentation h1 span {
+    margin-bottom: 5%;
+}
+
+.documentation p {
+    margin-top: 10px;
+    text-align: justify;
+    font-size: 16px;
+    font-weight: 500;
+    color: #515151;
+}
+
+.documentation p:nth-last-child(1) {
+    text-align: left;
+}
+
+
+/* need more information section */
+
+.need-information-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    background-color: white;
+    padding: var(--section-padding) 50px 50px 50px;
+    clip-path: polygon(0% 0%, 100% var(--section-top-angle), 100% 100%, 0% 100%);
+    margin-top: var(--section-top-margin);
+}
+
+.need-information-container img {
+    width: 45%;
+    height: 220px;
+    margin-top: 10px;
+}
+
+.need-information-text {
+    flex-direction: column;
+    align-items: center;
+    width: 48%;
+}
+
+.need-information-text .section-heading {
+    margin-bottom: 20px;
+}
+
+
+.need-information-text .paragraph {
+    margin: 5% 0%;
+    color: #515151;
+    font-size: 16px;
+    text-align: justify;
+    line-height: 23px;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.page-bottom {
+    align-items: center;
+    justify-content: center;
+    background: white;
+    padding: 30px 0px 3px;
+    border-top: 0px solid #d8d8d8;
+    border-bottom: 0px solid #d8d8d8;
+}
+
+.page-bottom img {
+    width: 180px;
+    display: block;
+    margin: 0;
+}
+
+.page-bottom h2 {
+    margin-left: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: #263d75;
+}
+
+.need-information-container .get-in-touch-btn {
+    background-color: #198754;
+    border-radius: 2px;
+    border: 0;
+    color: #fff;
+    position: relative;
+    padding: 10px 20px 10px 20px;
+    display: block;
+    font-size: 16px;
+    width: 185px;
+    font-weight: 600;
+    margin: auto;
+    margin-bottom: 30px;
+    border-radius: 6px;
+    transition: .4s ease;
+    box-shadow: 0px 5px 12px -1px #888888;
+}
+
+.need-information-container .get-in-touch-btn i {
+    position: absolute;
+    top: 13px;
+    right: 10px;
+    opacity: 0;
+    transition: .4s ease;
+
+}
+
+.need-information-container .get-in-touch-btn:hover i {
+    right: 25px;
+    opacity: 1;
+
+}
+
+.need-information-container .get-in-touch-btn:hover {
+    padding-right: 40px;
+}
+
+
+.need-information-container .get-in-touch-btn:active {
+    background-color: #3e8e41;
+    box-shadow: 0 1px 6px #666;
+    transform: translateY(2px);
+}
+
+.need-information-container .get-in-touch-btn:focus {
+    outline: none;
+    border: none;
+}
+
+.bottom-hr {
+    opacity: 1;
+    background: #366092;
+    height: 2px;
+    display: block;
+    max-width: 400px;
+    box-shadow: 3px 3px 5px #00000060;
+    width: 100%;
+    margin: 16px auto 0px;
+    border: none;
+}
+
+
+
+
+.tradmark-text {
+    color: rgb(54, 54, 54);
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    padding: 20px 0px;
+}
+
+
+
+
+/* responsive part */
+
+@media screen and (max-width:767px) {
+
+    .overview-container {
+        padding: 20px 20px 60px 20px;
+    }
+
+    .overview-text-wrapper .section-heading {
+        font-size: 40px;
+    }
+
+    .how-it-works-container {
+        flex-direction: column;
+        background-color: white;
+        clip-path: polygon(0% var(--section-top-angle), 100% 0%, 100% 100%, 0% 100%);
+    }
+
+
+    .how-it-works-container img {
+        width: 100%;
+        height: auto;
+        margin-top: 10px;
+    }
+
+    .how-it-works-text {
+        width: 100%;
+    }
+
+    .how-it-works-text .section-heading {
+        font-size: 28px;
+    }
+
+
+    .how-it-works-text .section-heading span::before {
+        top: 4px;
+        left: -35px;
+        width: 28px;
+        height: 28px;
+    }
+
+
+    .why-monitor-container {
+        padding: 100px 50px 100px 50px;
+
+    }
+
+    .why-monitor-card-container {
+        grid-template-columns: 1fr;
+    }
+
+
+
+
+    .benefits-card-container {
+        grid-template-columns: 1fr 1fr;
+        padding: 0px 20px;
+        height: auto;
+    }
+
+
+    .additional-feature-container {
+        padding: 120px 50px 100px 50px;
+    }
+
+
+    .documentation {
+        padding: 60px 60px 100px 60px;
+    }
+
+    .need-information-container {
+        flex-direction: column;
+
+    }
+
+    .need-information-container img {
+        order: 2;
+        width: 100%;
+    }
+
+    .need-information-text {
+        order: 1;
+        width: 100%;
+        margin-top: 50px;
+    }
+
+    .need-information-text .section-heading {
+        font-size: 27px;
+        margin-bottom: 20px;
+    }
+
+    .need-information-text .paragraph {
+        font-size: 14px;
+        line-height: 1.5;
+        font-weight: 500;
+        color: #515151;
+        margin: 5% 0%;
+    }
+
+
+
+}
+
+@media screen and (max-width:576px) {
+
+
+    .overview-container {
+        padding: 20px 10px 60px 10px;
+    }
+
+    .overview-text-wrapper .section-heading {
+        font-size: 40px;
+    }
+
+    .how-it-works-container {
+        padding: var(--section-padding) 20px;
+    }
+
+    .how-it-works-text .section-heading {
+        font-size: 25px;
+    }
+
+
+    .how-it-works-text .section-heading span::before {
+        top: 4px;
+        left: -35px;
+        width: 25px;
+        height: 25px;
+    }
+
+
+    .why-monitor-container {
+        padding: 100px 20px;
+
+    }
+
+    .why-monitor-card-container {
+        grid-template-columns: 1fr;
+    }
+
+    .benefits-container {
+        padding: 70px 0px 450px 0px;
+    }
+
+
+    .benefits-card-container {
+        grid-template-columns: 1fr;
+        padding: 0px 50px;
+        height: auto;
+    }
+
+    .additional-feature-container {
+        padding: 120px 20px 150px 20px;
+    }
+
+    .additional-feature-text-container {
+        grid-template-columns: 1fr;
+    }
+
+
+    .documentation {
+        padding: 60px 20px 100px;
+    }
+
+    .need-information-container {
+        flex-direction: column;
+        padding: var(--section-padding) 20px 210px 20px;
+
+    }
+
+    .need-information-container img {
+        width: 100%;
+    }
+
+    .need-information-text {
+        width: 100%;
+        margin-top: 50px;
+    }
+
+    .need-information-text .section-heading {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+
+
+
+}

@@ -1,0 +1,974 @@
+/* fonts link */
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #E8E9EB;
+}
+
+.large-section-text-header {
+    font-family: 'Cabin', sans-serif;
+    color: #2A4996;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 28px;
+    margin-bottom: 30px;
+
+
+}
+
+.enterprise-title {
+    font-size: 18px;
+    font-family: 'Cabin', sans-serif;
+    color: #2A4996;
+    font-weight: 700;
+    text-transform: capitalize;
+    margin-top: 30px;
+    margin-bottom: 10px;
+
+}
+
+.small-enterprise p {
+    margin-bottom: 15px;
+}
+
+h6 {
+    color: #000;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: capitalize;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 12px;
+}
+
+.small-section-text-header {
+    color: #2a4996;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: capitalize;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 8px;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    color: #515151;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1230px;
+    width: 100%;
+    margin: auto;
+    padding: 0;
+}
+
+.row {
+    --bs-gutter-x: 0;
+}
+
+.astrik {
+    color: #E41313;
+}
+
+
+/* cookie alert area */
+
+#cookie-warning-wrapper {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background: rgb(111 111 111 / 50%);
+    z-index: 9999;
+    display: none;
+}
+
+.cookie-content-wrapper {
+    background: #1f88d7;
+    box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.035);
+    width: 100%;
+    padding: 10px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    top: 0;
+    left: 0;
+}
+
+.cookie-content-wrapper img {
+    width: 40px;
+    display: block;
+    margin: 5px;
+    margin-right: 20px;
+
+}
+
+.cookie-content-wrapper button {
+    background: #1f88d7;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    padding: 5px 10px;
+    outline: none;
+    margin-left: 20px;
+
+}
+
+.cookie-content-wrapper p {
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.cookie-content-wrapper p a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* header area  */
+.banner-area {
+    background: url(../images/illustrations/banner.png);
+    background-position: 125px -70px;
+    background-size: cover;
+    height: 480px;
+    clip-path: polygon(0% 0%, 100% 0, 100% 80%, 50% 100%, 0 80%);
+    padding: 25px 40px 10px;
+    margin-top: 100px;
+}
+
+.banner-desc {
+    width: 660px;
+	text-align: justify;
+}
+
+.title h2 {
+    font-size: 34px;
+    color: #FAE606;
+    margin: 0;
+    font-weight: 600;
+
+
+}
+
+.sub-title h4 {
+    font-size: 21px;
+    font-style: italic;
+    color: #ffff;
+    margin-bottom: 34px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.banner-desc p {
+    color: #ffff;
+    margin: 15px 0px 20px;
+	width: 600px;
+}
+
+.banner-desc .bold-desc {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    margin-top: -15px;
+}
+
+.banner-img-wrapper {
+    width: 100%;
+    position: relative;
+}
+
+.banner-img-wrapper img {
+    width: 440px;
+    position: absolute;
+    top: -294px;
+    right: 10px;
+}
+
+/* why choose idm area */
+.why-choose-idm-wrapper {
+    background: #ffff;
+    margin-top: -95px;
+    padding: 140px 40px 40px;
+    align-items: center;
+}
+
+.why-choose-idm-wrapper .why-choose-idm-img {
+    width: 320px;
+    display: block;
+    margin: auto;
+}
+
+.why-idm-area {
+    margin-top: auto;
+}
+
+.why-idm-area h2 {
+    margin-bottom: 20px;
+}
+
+.row.why-choose-idm-wrapper p {
+    margin-bottom: 13px;
+    color: #515151;
+}
+
+.gray-bold-text {
+
+    font-weight: 500;
+    margin-top: -12px;
+    margin-bottom: 0 !important;
+}
+
+.dagray-lessbold-text {
+
+    font-weight: 500;
+	color: #6a6868;
+    margin-top: -12px;
+    margin-bottom: 0 !important;
+}
+
+.dagray-bold-text {
+
+    font-weight: 600;
+    margin-top: -12px;
+    margin-bottom: 0 !important;
+}
+
+/* services area */
+.service-image {
+    padding: 0;
+}
+
+.service-text {
+    padding: 0;
+}
+
+.service-wrapper {
+    background: #fff;
+    padding: 20px 15px 95px;
+}
+
+.service-text p {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.services .service-img {
+    width: 70px;
+    display: block;
+    margin: auto;
+}
+
+.services {
+    margin-bottom: 25px;
+}
+
+.notice {
+    font-size: 12px;
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+/* products you need area */
+.enterprises-wrapper {
+    background: #f2f2f2;
+    padding: 70px 40px 95px;
+    height: auto;
+    clip-path: polygon(0 0, 100% 7%, 100% 100%, 0% 100%);
+    margin-top: -65px;
+
+}
+
+.enterprise-img {
+    width: 310px;
+    display: block;
+    margin: 20px auto;
+}
+
+/* market data integration area */
+.data-integration-wrapper {
+    background: #263D75;
+    height: auto;
+    padding: 90px 40px 40px;
+    clip-path: polygon(0 7%, 100% 0, 100% 100%, 0% 100%);
+    margin-top: -40px;
+}
+
+.data-integration-wrapper p {
+    color: #fff;
+}
+
+.data-integration-section h2 {
+    color: white;
+}
+
+.data-integration-img {
+    width: 295px;
+    display: block;
+    margin: auto;
+}
+
+/* How much does it cost area  */
+.how-much-cost-section .how-much-cost-wrapper {
+    padding: 40px 40px 90px;
+    background: #fff;
+
+}
+
+/* Need more  information area */
+.need-more-warpper {
+    padding: 60px 40px;
+    background: #F5F5F5;
+    clip-path: polygon(0 0, 100% 7%, 100% 100%, 0% 100%);
+    margin-top: -50px;
+}
+
+.need-information-desc-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.need-information-desc-wrapper .large-section-text-header {
+    margin-bottom: 30px;
+}
+
+.need-info-img {
+    width: 260px;
+    display: block;
+    margin: auto;
+
+}
+
+/* REGISTER NOW AND GET STARTED area */
+.register-now-wrapper {
+    background: #fff;
+    padding: 60px 40px 50px;
+    padding-bottom: 90px;
+}
+
+.register-now-wrapper img {
+    width: 300px;
+    display: block;
+    margin: auto;
+}
+
+.register-now-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 120px;
+}
+
+.register-text {
+    font-size: 18px;
+    font-style: italic;
+    margin-left: 5px;
+    font-family: 'Poppins', sans-serif !important;
+    text-align: center;
+    color: #0A0A0B;
+}
+
+.package-text {
+    font-size: 22px;
+    font-family: 'Cabin', sans-serif !important;
+    text-align: center;
+    margin-bottom: 40px;
+    color: rgba(11, 20, 46, 0.69);
+}
+
+.register-now-text-wrapper .large-section-text-header {
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 0;
+}
+
+.bottom-title-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background: #f9fafb;
+    padding: 20px 0px;
+    border-top: 1px solid #d8d8d8;
+    border-bottom: 1px solid #d8d8d8;
+}
+
+.bottom-title-wrapper .idm-logo {
+    width: 140px;
+    display: block;
+    margin: 0;
+}
+
+.bottom-title-wrapper .large-section-text-header {
+    margin: 0px 0px 0px 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+
+.register-now-wrapper .register-now-btn {
+    background-color: #e8b400;
+    border-radius: 2px;
+    border: 0;
+    color: #fff;
+    position: relative;
+    padding: 10px 20px 10px 20px;
+    display: block;
+    font-size: 16px;
+    width: 185px;
+    font-weight: 600;
+    margin: auto;
+    margin-bottom: 46px;
+    border-radius: 6px;
+    transition: .4s ease;
+    box-shadow: 0px 5px 12px -1px #888888;
+}
+
+.register-now-wrapper .register-now-btn i {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    opacity: 0;
+    transition: .4s ease;
+
+}
+.register-now-wrapper .register-now-btn:hover i{
+        right: 25px;
+        opacity: 1;
+    
+}
+.register-now-wrapper .register-now-btn:hover{
+   padding-right: 40px;
+}
+
+.register-now-wrapper .register-now-btn:active {
+  background-color: #cca000;
+  box-shadow: 0 1px 6px #666;
+  transform: translateY(2px);
+}
+
+.tradmark-text {
+    color: rgb(54, 54, 54);
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    padding: 20px 20px 40px 20px;
+}
+#bottom .container{
+    background: #fff;
+}
+
+/* marquee area */
+
+marquee img {
+    margin-right: 20px;
+}
+
+
+.marquee-wrapper {
+    overflow: hidden;
+    display: flex;
+    padding: 12px 0px;
+    position: fixed;
+    left: 50%;
+    bottom: 40px;
+    transform: translateX(-50%);
+    background: #fff;
+    width: 1230px;
+    z-index: 0;
+    transition: 0.6s;
+}
+
+.marquee {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    -moz-animation: marquee 190s linear infinite;
+    -webkit-animation: marquee 190s linear infinite;
+    animation: marquee 190s linear infinite;
+}
+
+
+
+.marquee img {
+    height: 50px;
+    margin-right: 20px;
+    display: inline;
+
+}
+
+@keyframes marquee {
+    0% {
+        margin-left: 100%;
+    }
+
+    100% {
+        margin-left: 0%;
+        transform: translateX(-100%)
+    }
+
+}
+
+
+
+.mrqstop {
+    animation-play-state: paused;
+
+}
+
+
+
+/* responsive area */
+@media screen and (max-width:1230px) {
+    .marquee-wrapper {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:1080px) {
+    .banner-img-wrapper img {
+        width: 380px;
+        position: absolute;
+        top: -235px;
+        right: 0px;
+    }
+
+    .banner-area {
+
+        background-position: center;
+
+    }
+
+    .why-choose-idm-wrapper {
+
+        padding: 140px 40px 40px;
+    }
+
+    .large-section-text-header {
+
+        font-size: 24px;
+    }
+
+    .enterprises-wrapper {
+        margin-top: -85px;
+    }
+
+    .data-integration-wrapper {
+        margin-top: -65px;
+    }
+
+
+}
+
+@media screen and (max-width:880px) {
+    .banner-area {
+        margin-top: 75px;
+    }
+
+    .banner-desc {
+        width: 450px;
+    }
+
+
+
+    .title h2 {
+        font-size: 48px;
+        color: #F9F648;
+        font-weight: 600;
+        margin-top: 0;
+    }
+
+    .banner-img-wrapper img {
+        width: 325px;
+        top: -200px;
+        right: 0px;
+    }
+}
+
+@media screen and (max-width:992px) {
+    .banner-img-wrapper img {
+        width: 340px;
+        top: -200px;
+    }
+}
+
+@media screen and (max-width:950px) {
+    .banner-img-wrapper img {
+        width: 340px;
+        top: -215px;
+        right: 0px;
+    }
+
+    .banner-desc {
+        width: 520px;
+    }
+
+    .banner-area {
+        height: 520px;
+    }
+
+    .banner-img-wrapper img {
+        right: 0px;
+    }
+
+    .why-choose-idm-wrapper {
+        margin-top: -105px;
+    }
+
+    .why-choose-idm-wrapper {
+        padding: 150px 40px 40px;
+    }
+}
+
+@media screen and (max-width:930px) {
+
+
+    .large-section-text-header {
+        font-size: 22px;
+
+    }
+
+    .why-choose-idm-wrapper {
+        padding: 140px 30px 40px;
+    }
+
+    .services .service-img {
+        width: 60px;
+        display: block;
+
+    }
+
+    .why-idm-area h2 {
+        margin-bottom: 30px;
+    }
+
+    .package-text {
+        font-size: 22px;
+        margin-left: 10px;
+    }
+
+    .why-choose-idm-wrapper .why-choose-idm-img {
+        width: 280px;
+        display: block;
+        margin: auto;
+        margin-top: 60px;
+    }
+
+    .register-now-wrapper img {
+        width: 240px;
+        display: block;
+    }
+
+    .register-text {
+
+        margin-left: 0px;
+
+    }
+
+    .register-now-wrapper {
+        background: #fff;
+        padding: 40px 40px;
+    }
+}
+
+
+
+
+@media screen and (max-width:767px) {
+    .banner-area {
+        height: 640px;
+        margin-top: 60px;
+        padding: 35px 15px 10px;
+    }
+
+    .bottom-title-wrapper {
+        margin-top: 0;
+    }
+
+    .banner-desc {
+        width: 100%;
+    }
+
+    .need-info-img {
+        margin-bottom: 20px;
+    }
+
+    .banner-img-wrapper img {
+        width: 370px;
+        top: -250px;
+        right: 22%;
+    }
+
+    .why-choose-idm-wrapper {
+        background: #ffff;
+        margin-top: -130px;
+        padding: 160px 15px 40px;
+    }
+
+    .why-choose-idm-wrapper .why-choose-idm-img {
+        width: 320px;
+        display: block;
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+
+    .services .service-img {
+        width: 80px;
+        margin: inherit;
+
+    }
+
+    .enterprises-wrapper {
+        background: #f2f2f2;
+        padding: 70px 15px 95px;
+        height: auto;
+        clip-path: polygon(0 0, 100% 3%, 100% 100%, 0% 100%);
+        margin-top: -65px;
+    }
+
+    .enterprise-img {
+        width: 250px;
+        display: block;
+        margin: 30px auto;
+
+    }
+
+
+    .data-integration-wrapper {
+        background: #263D75;
+        height: auto;
+        padding: 90px 15px 40px;
+        clip-path: polygon(0 3%, 100% 0%, 100% 100%, 0% 100%);
+        margin-top: -60px;
+    }
+
+    .how-much-cost-section .how-much-cost-wrapper {
+        padding: 45px 15px 90px;
+        background: #fff;
+    }
+
+    .data-integration-img {
+        width: 245px;
+        display: block;
+        margin: 20px auto;
+    }
+
+
+
+    .package-text {
+        margin-bottom: 35px;
+    }
+
+    .register-text {
+        width: auto;
+    }
+
+    .need-information-desc-wrapper {
+        display: block;
+    }
+
+    .register-now-wrapper img {
+        width: 240px;
+        margin: 40px auto 0px;
+        display: block;
+
+    }
+
+    .register-now-row {
+        display: block;
+        margin-bottom: 0;
+    }
+
+    .register-now-text-wrapper .large-section-text-header {
+        font-size: 22px;
+        margin-bottom: 15px;
+
+    }
+
+
+    .register-now-wrapper {
+
+        padding: 40px 15px;
+    }
+
+    .need-more-warpper {
+        padding: 60px 15px;
+    }
+
+    #hide-marquee-btn {
+        display: block !important;
+    }
+
+    .footer-menu .hide-scroller-btn {
+        display: block;
+    }
+
+    .marquee-wrapper {
+        bottom: 0px;
+    }
+
+}
+
+@media screen and (max-width:756px) {}
+
+@media screen and (max-width:658px) {
+
+    .banner-area {
+        clip-path: polygon(0% 0%, 100% 0, 100% 88%, 50% 100%, 0 88%);
+        height: 680px;
+    }
+
+
+    .title h2 {
+        font-size: 42px;
+        font-weight: 600;
+    }
+
+
+
+
+}
+
+
+@media screen and (max-width:550px) {
+    .title h2 {
+        font-size: 36px;
+
+    }
+
+    .sub-title h4 {
+        font-size: 18px;
+        width: auto;
+
+    }
+
+    .banner-area {
+        height: 520px;
+
+    }
+
+    .banner-img-wrapper {
+        width: 100%;
+        position: relative;
+        display: none;
+    }
+
+    .banner-img-wrapper img {
+        right: 19%;
+    }
+
+    .why-choose-idm-wrapper .why-choose-idm-img {
+        width: 250px;
+
+    }
+
+    .services .service-img {
+        width: 60px;
+
+    }
+
+
+    .package-text {
+        font-size: 22px;
+        margin-left: 0;
+    }
+
+    .register-now-wrapper .bottom-title-wrapper {
+        display: block;
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .register-now-wrapper .bottom-title-wrapper .idm-logo {
+        display: block;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+}
+
+
+@media screen and (max-width:471px) {
+    .marquee img {
+        height: 40px;
+
+    }
+
+    .marquee-wrapper {
+        overflow: hidden;
+        display: flex;
+        padding: 12px 0px;
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #fff;
+        width: 1230px;
+        z-index: 10;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .services .service-img {
+        width: 50px;
+    }
+
+    .enterprises-wrapper {
+        clip-path: polygon(0 0, 100% 3%, 100% 100%, 0% 100%);
+
+    }
+
+    .data-integration-wrapper {
+        clip-path: polygon(0 3%, 100% 0%, 100% 100%, 0% 100%);
+    }
+
+    .need-more-warpper {
+        clip-path: polygon(0 0, 100% 5%, 100% 100%, 0% 100%);
+
+    }
+
+    p {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+        color: #515151;
+        font-weight: 400;
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .banner-area {
+        height: 580px;
+        clip-path: polygon(0% 0%, 100% 0, 100% 93%, 50% 100%, 0 93%);
+    }
+
+    .title h2 {
+        font-size: 32px;
+    }
+
+    .register-now-wrapper .bottom-title-wrapper .large-section-text-header {
+        font-size: 20px;
+    }
+
+    .register-now-wrapper .bottom-title-wrapper .idm-logo {
+        width: 170px;
+    }
+
+}

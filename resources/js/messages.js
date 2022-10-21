@@ -1,0 +1,1 @@
+var bc = new BroadcastChannel("dcode");

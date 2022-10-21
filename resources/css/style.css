@@ -1,0 +1,166 @@
+/*====== PPH ======*/
+.jqx-expander-header {
+    background: #FFF;
+}
+.helpIcon {
+    background: url(../../../icons/Help_16-Grey.png) no-repeat center;
+    height: 16px;
+    width: 16px;
+    padding: 0 10px;
+    border: 0;
+    outline: 0;
+    float: left;
+}
+.helpIcon:hover {
+    cursor: pointer;
+}
+#databaseDropdown {
+    margin-top: -3px;
+}
+#rootFolderUid {
+    display: none;
+}
+.jqx-tabs-header {
+    background: #f8f8f8;
+}
+#btnBackupRestore span,
+#btnBackupEdit span,
+#btnBackupCreate span,
+#btnBackupRemove span {
+    margin-left: 8px;
+}
+/*
+div.jqx-widget-header:not(.jqx-tabs-header):not(.jqx-hideborder) {
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#f8f8f8), to(#eaeaea));
+}
+.jqx-grid-toolbar td {
+    background: #efefef !important;
+}
+.jqx-grid-toolbar {
+    background: #efefef !important;
+    border-color: #aaa !important;
+}
+#disactiveJqxgrid,
+#gridDatasetsOfDatasource {
+    border-color: #aaa !important;
+}
+#toolbaractiveJqxgrid {
+    border: 1px solid #aaa;
+    z-index: 1;
+}
+#contentactiveJqxgrid {
+    top: 35px !important;
+}*/
+section > #jqxWidget, #formAddFolder {
+    opacity: 0;
+}/*
+div#contenttablebackupsJqxgrid div:nth-of-type(3),
+div#contenttablebackupsJqxgrid div:nth-of-type(5) {
+    text-align: center;
+}*/
+.jqx-tree-item-selected {
+    background: #376ba1;
+    color: #fff;
+    border-color: #376ba1;
+}
+.jqx-tree-item-selected span {
+    color: #fff !important;
+}
+.deleteBackup {
+    background: #3c882e;
+    color: #fff;
+    display: none;
+    padding: 12px;
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 250px;
+    text-align: center;
+    top: 50%;
+    z-index: 9999;
+}
+.jqx-grid-cell-selected {
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-color: #003399;
+    background-repeat: repeat-x;
+    border-color: #316293 #316293 #29547E !important;
+    background: #356aa0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+.jqx-grid-cell-selected a {
+    color: #fff !important;
+}
+body.overlay::after {
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 8888;
+}
+.ui-dialog {
+    z-index: 9999;
+}
+#dataPageNymber {
+    width: 32px;
+    height: 20px;
+    text-align: center;
+    border: 1px solid #aaa;
+    border-radius: 2px;
+    outline: 0;
+    color: #000;
+    font-size: 13px;
+    font-family: Calibri;
+}
+#pageButtonToFirst,
+#leftPageButton,
+#rightPageButton,
+#pageButtonToLast
+{
+    padding: 0px;
+    float: left;
+    box-shadow: unset;
+    border: 0;
+    background: transparent;
+    margin-top: 1px;
+}
+#pageButtonToFirst div,
+#leftPageButton div,
+#rightPageButton div,
+#pageButtonToLast div
+{
+    width: 16px;
+    height: 16px;
+}
+.HelpMessage {
+    height: 200px;
+    width: 400px;
+    display: none;
+}
+.HelpMessage .content {
+    font-size: 13px;
+}
+.HelpMessage .jqx-icon-close {
+    background-size: 12px;
+}
+.HelpMessage .content .underline {
+    text-decoration: underline;
+}
+#contentdisactiveJqxgrid .jqx-widget-content,
+#contentactiveJqxgrid .jqx-widget-content,
+#contenttableactiveJqxgrid,
+#contenttabledisactiveJqxgrid {
+    height: 100%;
+}
+body > span {
+    display: none;
+}

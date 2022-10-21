@@ -1,0 +1,517 @@
+<div>
+	<div class="doc-sec-container" id="documentor_seccontainer">
+		<div class="doc-sectionwrap" id="getfavoritesuser_wrap">
+			<div class="documentor-section  section-303" id="getfavoritesuser"
+				data-section-id="303">
+				<h3 class="doc-sec-title main_sections_right_img"> <span class="doc-sec-count"
+						style="display:inline-block">5.
+					&nbsp;&nbsp;Manage User Favorite Datasets</span>
+					<img class="size-full wp-image-1633 alignleft"
+							src="resources/target.png" alt="" width="100"
+							height="100">
+				</h3>
+				<div class="doc-sec-content">
+					
+					<h2></h2>
+					<h2></h2>
+					<h2></h2>
+					<h2>User Favorites</h2>
+					<p>The Monitor+ API allows you to build, structure and manage a
+						list
+						of user “favorite” or frequently used datasets (time
+						series). The ‘favorites’ list is designed to
+						allow the user to create and manage their own selection of
+						datasets from the many tens of thousands that may be
+						available
+						in their available datasources. The favorites list
+						is available to any application that uses the API (the
+						Xlerate Excel add in uses only the Monitor+ API for all data
+						requests). It is very useful for creating
+						applications for end users.</p>
+					<p>The User Favorites feature also has its own web application
+						with an easy to use GUI. It provides an easy
+						way for users to manage their favorites list, arrange their
+						favorites list into a hierarchical data tree and provide
+						automatic backup or restore facilities for their favorites
+						list.
+					</p>
+					<p>The favorite endpoints are:</p>
+					<ul style="line-height: 25px;">
+						<li><strong>GetFavoritesStatus</strong> – Returns the dataset
+							count and timestamp of the favorites list on the
+							server.</li>
+						<li><strong>GetUserFavorites</strong> – Returns the metadata for
+							the datasets contained in the users favorites list.</li>
+						<li><strong>AddFavorites</strong> – Add one or more datasets to your
+							list of user favorite datasets.</li>
+						<li><strong>RemoveFavorites</strong> – Remove one or more datasets
+							from your favorites list.</li>
+						<li><strong>GetDeletedFavorites</strong> – <b> </b>Return a list of
+							datasets that have been removed from your favorites
+							list.
+						</li>
+					</ul>
+					<p> </p>
+				</div>
+				<div class="last-date">
+					<div class="date">Last updated on June 3, 2021
+					</div>
+				</div>
+				<br>
+			</div>
+			
+			
+<div class="dis-block clearfix">
+		<a href="#datasetsmultiplesources" class="doc-prev"><i class="fas fa-chevron-circle-left"></i>Get Datasets from multiple Datasources</a>
+		<a href="#favoritestatus" class="doc-next">Get Favorites Status<i class="fas fa-chevron-circle-right"></i></a>
+	</div>
+	
+		
+		</div>
+	</div>
+</div>
+<div id="favoritestatus">
+	<div class="doc-sec-container" id="documentor_seccontainer">
+		<div class="doc-sectionwrap" id="getuserfavoritestatus_wrap">
+			<div class="documentor-section  section-322" id="getuserfavoritestatus"
+				data-section-id="322">
+				<h3 class="doc-sec-title"> <span class="doc-sec-count"
+						style="display:inline-block">5.1.</span><span
+						class="title-text">&nbsp;&nbsp;Return the series count and
+						last changed
+						timestamp of the favorites list on the server.</span>
+				</h3>
+				<div class="doc-sec-content">
+					<h2><b><span class="spanColor"
+								style="color: #339966;">GET</span>
+							GetFavoritesStatus</b>
+					</h2>
+					<p><strong>Description:</strong>&nbsp;&nbsp;Returns the dataset
+						count and timestamp of
+						the ‘favorites’ list on the server.</p>
+					<p><strong>Usage:</strong>&nbsp;&nbsp;Used to check if the users
+						favorites list has
+						changed on the server (and may need to be downloaded again).
+					</p>
+					<p> </p>
+					<div class="api-article-main-example">
+						<h4><b style="color: RGB(54, 96,146);"><span
+									style="color: #008000;">GET</span> Sample
+								Request:</b>
+						</h4>
+						<pre><span class="spanColor">GET</span> https://[server]/GetFavoritesStatus?SessionToken=YOUR_SESSION_TOKEN</pre>
+					</div>
+					<div class="api-article-table"></div>
+					<div>
+						<div class="api-article-table">
+							<br>
+							<h3>Request Parameters</h3>
+							<table class="table table-bordered"
+								style="height: 93px;" width="734">
+								<thead>
+									<tr>
+										<th style="text-align: left;">Parameter</th>
+										<th style="text-align: left;">Type</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>SessionToken</td>
+										<td>String</td>
+										<td>The Session token from
+											the <em>GetSessionToken</em> endpoint.
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<p></p>
+					<div>
+						<div class="api-article-table">
+							<h3>Response Parameters</h3>
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th style="text-align: right;"></th>
+										<th style="text-align: left;">Parameter</th>
+										<th style="text-align: left;">Type</th>
+										<th>Mandatory</th>
+										<th style="text-align: left;">Description
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td style="text-align: right;"><span
+												style="color: #000000;">1</span>
+										</td>
+										<td><span
+												style="color: #000000;">ServerDateTime</span>
+										</td>
+										<td><span
+												style="color: #000000;">String</span>
+										</td>
+										<td style="text-align: center;"><span
+												style="color: #000000;">Yes</span>
+										</td>
+										<td><span style="color: #000000;">The server
+												UTC
+												date and time as an ISO 8601
+												string.</span></td>
+									</tr>
+									<tr>
+										<td style="text-align: right;"><span
+												style="color: #000000;">2</span>
+										</td>
+										<td><span
+												style="color: #000000;">TimeStamp</span>
+										</td>
+										<td><span
+												style="color: #000000;">Float</span>
+										</td>
+										<td style="text-align: center;"><span
+												style="color: #000000;">Yes</span>
+										</td>
+										<td><span style="color: #000000;">The server
+												date and time as a Julian
+												date.</span>
+										</td>
+									</tr>
+									<tr>
+										<td style="text-align: right;"><span
+												style="color: #000000;">3</span>
+										</td>
+										<td><span
+												style="color: #000000;">ExecutionTime</span>
+										</td>
+										<td><span
+												style="color: #000000;">Float</span>
+										</td>
+										<td style="text-align: center;"><span
+												style="color: #000000;">Yes</span>
+										</td>
+										<td><span style="color: #000000;">The number
+												of
+												milliseconds taken to process the
+												request.</span></td>
+									</tr>
+									<tr>
+										<td style="text-align: right;">4</td>
+										<td>Result</td>
+										<td>[Object]</td>
+										<td style="text-align: center;">Yes</td>
+										<td><span style="color: #000000;">If the
+												request
+												is a success,
+												a <em>Result</em> object is
+												returned.<br>
+												See the ‘<em>Result</em>‘
+												table below for details.</span></td>
+									</tr>
+									<tr>
+										<td style="text-align: right;">5</td>
+										<td>Errors</td>
+										<td>[Object]</td>
+										<td style="text-align: center;">Yes</td>
+										<td>An '<em>Errors</em>' object as described
+											in
+											the ‘<em>Errors Object</em>‘ table
+											below.
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="api-article-table">
+							<div class="api-article-table">
+								<div class="api-article-table">
+									<div class="api-article-table">
+										<div class="single-notes notes-indent">
+											<div> Note</div>
+											<p>A successful API response will return
+												a
+												'<em>Result</em>' object with the
+												requested
+												payload <strong>or</strong> an
+												'<em>Errors</em>' object detailing
+												the issue
+												that caused the error.
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<h3></h3>
+						</div>
+					</div>
+					<div class="api-article-table">
+						<h3>Result Object</h3>
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th style="text-align: left;">Parameter</th>
+									<th style="text-align: left;">Type</th>
+									<th>Mandatory</th>
+									<th style="text-align: left;">Notes</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style="text-align: left;"><span
+											style="color: #000000;">UpdatedDateTime</span>
+									</td>
+									<td><span style="color: #000000;">String</span>
+									</td>
+									<td style="text-align: center;"><span
+											style="color: #000000;">Yes</span></td>
+									<td><span style="color: #000000;">The date and
+											time
+											that the favorites list was last changed
+											as
+											an ISO 8601 string.</span></td>
+								</tr>
+								<tr>
+									<td style="text-align: left;"><span
+											style="color: #000000;">UpdatedTimeStamp</span>
+									</td>
+									<td><span style="color: #000000;">Float</span>
+									</td>
+									<td style="text-align: center;"><span
+											style="color: #000000;">Yes</span></td>
+									<td><span style="color: #000000;">The date and
+											time
+											that the favorites list was last changed
+											as
+											a Julian date.</span></td>
+								</tr>
+								<tr>
+									<td style="text-align: left;"><span
+											style="color: #000000;">SeriesCount</span>
+									</td>
+									<td><span style="color: #000000;">Integer</span>
+									</td>
+									<td style="text-align: center;"><span
+											style="color: #000000;">Yes</span></td>
+									<td><span style="color: #000000;">The number of
+											data
+											sets (time series) in the user favorites
+											list.</span></td>
+								</tr>
+							</tbody>
+						</table>
+						<p> </p>
+					</div>
+					<div class="api-article-table">
+						<div class="api-article-table">
+							<h3>Errors Object</h3>
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th></th>
+										<th>Parameter</th>
+										<th style="text-align: left;">Type</th>
+										<th>Mandatory</th>
+										<th style="text-align: left;">Notes</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><span style="color: #000000;">1</span>
+										</td>
+										<td><span
+												style="color: #000000;">Status</span>
+										</td>
+										<td><span
+												style="color: #000000;">Integer</span>
+										</td>
+										<td><span style="color: #000000;">Yes</span>
+										</td>
+										<td><span style="color: #000000;">HTTP
+												status
+												code.</span></td>
+									</tr>
+									<tr>
+										<td><span style="color: #000000;">2</span>
+										</td>
+										<td><span
+												style="color: #000000;">Detail</span>
+										</td>
+										<td><span
+												style="color: #000000;">String</span>
+										</td>
+										<td><span style="color: #000000;">Yes</span>
+										</td>
+										<td><span style="color: #000000;">Text
+												description of the status code
+												above.</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="api-article-table">
+						<h4 style="padding-left: 30px;">Possible Status codes in the
+							'<em>Errors</em>' object
+						</h4>
+						<table class="table table-bordered"
+							style="margin-left: 30px;">
+							<thead style="padding-left: 30px;">
+								<tr style="padding-left: 30px;">
+									<th style="text-align: center;">Code</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>400</td>
+									<td>Missing parameter or unknown argument in
+										request.</td>
+								</tr>
+								<tr>
+									<td>404</td>
+									<td>Unknown/expired session token.</td>
+								</tr>
+								<tr>
+									<td>405</td>
+									<td>Method &lt;request&gt; not
+										allowed.</td>
+								</tr>
+								<tr>
+									<td>500</td>
+									<td>Server may be down for maintenance.</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="single-notes notes-indent"
+						style="margin-left: 48px;">
+						<div> Note</div>
+						<p>This is not an
+							exhaustive list and additional error codes may be
+							returned. The <em>Errors </em>object <em>Detail</em>
+							field will return request specific error information.
+						</p>
+					</div>
+					<div class="api-article-table" style="margin-top: 25px;"></div>
+					<h3>Possible HTTP response codes</h3>
+					<p style="line-height: 30px !important;"><span
+							class="spanColor">This endpoint returns 200 for
+							success. <br>
+							You can get HTTP client network errors or server
+							errors from any API request. You should check
+							with your network or IT colleagues in case the issue is
+							a
+							local one. <br>
+							All server generated errors will return an
+							'<em>Errors</em>'
+							object that will give specific details about the error.
+							<br>
+							A full list of HTTP codes and their meanings is
+							available <a
+								href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">here</a>,</span>
+					</p>
+					<h2></h2>
+					<p> </p>
+					<br>
+					<h3>Success and fail examples</h3>
+					<p>The sample renews a session token using the session token
+						string
+						as a parameter.</p>
+					<div class="api-article-main-example">
+						<h4><b style="color: RGB(54, 96,146);">Sample Request:</b>
+						</h4>
+						<pre>
+						GET https://[server]/GetFavoritesStatus?SessionToken=YOUR_SESSION_TOKEN
+					</pre>
+					</div>
+					<br>
+					<div class="api-article-main-blockExample">
+						<h4><strong>Response body on success:</strong></h4>
+
+						<div id="GFS_Success"></div>
+
+					</div>
+					<div class="api-article-main-blockExample">
+						<h4></h4>
+						<h4><strong>Response body on fail:</strong></h4>
+
+						<div id="GFS_Fail"></div>
+					</div>
+				</div>
+				<div class="last-date">
+					<div class="date">Last updated on May 14, 2021
+					</div>
+				</div>
+				<br>
+			</div>
+			
+			<div class="dis-block clearfix">
+					<a href="javascript:move_section('#favoritesuser')" class="doc-prev"><i class="fas fa-chevron-circle-left"></i>User Favorite
+					Datasets</a>
+				<a href="javascript:move_section('#favoritesmetadata')" class="doc-next">Get Favorites Metadata<i class="fas fa-chevron-circle-right"></i></a>
+	</div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	
+
+	// **************Responses(Success and Fail)***************
+
+	// ***AUTHENTICATION***
+
+	// ***User Favorite Datasets***
+	// Get Favorite Status
+	var GFS_Success_Obj = {};
+	var jsonViewer_GFS_Success = new JSONViewer();
+	document.querySelector("#GFS_Success").appendChild(jsonViewer_GFS_Success.getContainer());
+
+	GFS_Success = JSON.stringify({
+		"ServerDateTime": "2019-12-24T18:35:57Z",
+		"TimeStamp": 2458842.27497,
+		"ExecutionTime": 0.012,
+		"Result": {
+			"UpdatedDateTime": "2019-12-22T08:17:40Z",
+			"UpdatedTimeStamp": 2458839.8456,
+			"SeriesCount": 382
+		}
+	}
+	);
+
+
+	var GFS_Fail_Obj = {};
+	var jsonViewer_GFS_Fail = new JSONViewer();
+	document.querySelector("#GFS_Fail").appendChild(jsonViewer_GFS_Fail.getContainer());
+
+	GFS_Fail = JSON.stringify({
+		"ServerDateTime": "2017-11-30T19:38:15Z",
+		"TimeStamp": 2458088.3182292,
+		"ExecutionTime": 0,
+		"Errors": [
+			{
+				"Status": "404",
+				"Details": "Unknown Session token"
+			}
+		]
+	}
+	);
+
+
+	var setJSON = function () {
+
+		GFS_Success_Obj = JSON.parse(GFS_Success);
+		GFS_Fail_Obj = JSON.parse(GFS_Fail);
+		
+	}
+
+
+	setJSON();
+	jsonViewer_GFS_Success.showJSON(GFS_Success_Obj);
+	jsonViewer_GFS_Fail.showJSON(GFS_Fail_Obj);
+	
+</script>

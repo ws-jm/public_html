@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Meta -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+	<!-- Title -->
+	<title>Monitor+ API</title>
+
+	<!-- JS Files -->
+	<script src="resources/js/jquery-1.12.3.js"></script>
+	<script src="resources/js/jquery-3.6.0.min.js"></script>
+	<script src="resources/js/bootstrap.min.js"></script>
+	<script src="resources/js/bootstrap-dropdown.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+	<script src="resources/js/jquery-ui.js"></script>
+
+	<script src="resources/jqwidgets/jqxcore.js"></script>
+	<script src="resources/jqwidgets/jqxwindow.js" async></script>
+	<script src="resources/jqwidgets/jqxscrollbar.js" async></script>
+	<script src="resources/jqwidgets/jqxbuttons.js" async></script>
+	<script src="resources/jqwidgets/jqxinput.js" async></script>
+    <script src="resources/jqwidgets/jqxlistbox.js" async></script>
+    <script src="resources/jqwidgets/jqxdropdownlist.js" async></script>
+	<script src="resources/jqwidgets/jqxmenu.js" async></script>
+	<script src="resources/jqwidgets/jqxcheckbox.js" async></script>
+
+	<script src="resources/js/jquery.event.drag-2.3.0.js"></script>
+	<script src="resources/js/slick.core.js"></script>
+	<script src="resources/js/slick.formatters.js" async></script>
+	<script src="resources/js/slick.editors.js"> async</script>
+	<script src="resources/js/slick.rowselectionmodel.js" async></script>
+	<script src="resources/js/slick.grid.js" async></script>
+	<script src="resources/js/slick.dataview.js" async></script>
+	<script src="resources/js/slick.cellrangeselector.js" async></script>
+	<script src="resources/js/slick.cellselectionmodel.js" async></script>
+	<script src="resources/js/slick.rowmovemanager.js" async></script>
+  	<script src="resources/js/slick.checkboxselectcolumn.js" async></script>
+
+	<script src="dev/api/config/config.js"></script>
+	<script src="dev/api/authentication.js"></script>
+	<script src="resources/js/jquery.ihavecookies.min.js"></script>
+	<script src="resources/js/top-menu.js"></script>
+	<script src="resources/js/messages.js"></script>
+	<script src="resources/js/common.js"></script>
+	<script src="resources/js/goto_homepage.js"></script>
+	<script src="resources/js/include-html.js"></script>
+
+	<!-- CSS Files -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i,800,800i"
+		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,500i,600,600i,700,700i,800"
+		rel="stylesheet">
+	<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
+	<link href="resources/idm-service/resources/css/font-awesome.min.css" rel="stylesheet">
+	<link href="resources/idm-service/resources/css/bootstrap-navbar.css" rel="stylesheet">
+	<link href="resources/idm-service/resources/css/main.css" rel="stylesheet">
+	<link href="resources/idm-service/resources/css/responsive.css" rel="stylesheet">
+	<link href="resources/css/bootstrap-navbar.css" rel="stylesheet">
+	<link href="resources/css/general.css" rel="stylesheet">
+	<link rel="stylesheet" href="resources/css/menu.css">
+	<link rel="stylesheet" href="resources/css/footer.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+		integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="icon" type="image/x-icon" href="resources/api_favicon.png">
+	<link rel="stylesheet" href="resources/css/m-api.css">
+
+	<link href="resources/jqwidgets/styles/jqx.base.css" rel="stylesheet">
+	<link href="resources/jqwidgets/styles/jqx.light.css" rel="stylesheet">
+	
+	<link rel="stylesheet" href="resources/css/slick.grid.css" type="text/css" />
+	<link rel="stylesheet" href="resources/css/slick.pager.css" type="text/css" />
+	<link rel="stylesheet" href="resources/css/slick.columnpicker.css" type="text/css" />
+	<link rel="stylesheet" href="resources/css/monitor-gui.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/monitor-ui.css" type="text/css" />
+
+	<style>
+		section.main-content {
+			margin-top: 97px;
+			padding: 0px 0px 60px;
+		}
+
+
+		.big-blue-title {
+			font-family: 'Cabin', sans-serif;
+			color: #2A4996;
+			font-weight: 700;
+			font-size: 28px;
+			margin-bottom: 15px;
+		}
+
+		.sml-blue-title {
+			font-weight: bold;
+			color: #2A4996;
+		}
+
+		section.main-content .top-logo {
+			display: flex;
+			flex-direction: row;
+			justify-content: end;
+			align-items: flex-start;
+
+		}
+
+		section.main-content .top-logo .monitor {
+			text-align: right;
+		}
+
+		section.main-content .top-logo .monitor .market em {
+			letter-spacing: -1px;
+		}
+
+		section.main-content .top-logo .monitor img {
+			margin-top: 35px;
+		}
+
+		.nav>li>a {
+			padding: 0px 8px;
+		}
+
+		section.main-content .top-logo .monitor .market {
+			margin-left: 129px;
+			text-align: right;
+		}
+
+		img {
+			max-width: 100%;
+		}
+
+		.modelView {
+			display: none;
+		}
+
+		.modalVisible {
+			position: fixed;
+			top: 0px;
+			left: 0%;
+			display: block;
+			z-index: 1000;
+			width: 100%;
+			background-color: black;
+			height: 100vh;
+			margin: auto;
+		}
+
+		.model-content {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.model-content img {
+			height: 100vh;
+		}
+
+		.cross {
+			position: fixed;
+			top: 3%;
+			right: 0.4%;
+			color: white;
+			width: 50px;
+			height: 50px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: 0.4s;
+			background: rgba(255, 255, 255, 0.45);
+			border-radius: 50%;
+		}
+
+		.cross:hover {
+			display: block;
+			background-color: rgb(255, 255, 255);
+			width: 50px;
+			height: 50px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: rgb(22, 21, 21);
+		}
+
+		@media screen and (max-width:880px) {
+			section.main-content {
+				margin-top: 68px;
+			}
+		}
+
+		@media screen and (max-width:767px) {
+			section.main-content {
+				margin-top: 50px;
+
+			}
+
+			section.main-content .top-logo img {
+				width: 230px;
+			}
+
+			.market em {
+				font-size: 12px;
+			}
+		}
+
+
+		@media screen and (max-width:528px) {}
+	</style>
+</head>
+
+<body class="default">
+	<div class="fixpage">
+
+		<nav include-html="menu.html" id="menu_file" class="navbar navbar-default navbar-fixed-top "></nav>
+
+		<section class="main-content dis-block clearfix">
+			<section id="top">
+				<div class="top-logo-wrapper flex-container">
+					<div class="top-logo flex-container">
+						<img src="resources/css/images/monitor-plus.svg" alt="monitor-plus-logo" />
+						<div class="market"><em>Market data made easy</em></div>
+					</div>
+				</div>
+			</section>
+
+			<section id="OVERVIEW">
+				<div class="flex-container overview-container">
+					<!-- <img src="resources/images/m-api-banner.png" alt="monitor-plus-banner" /> -->
+					<div class=" flex-container overview-text-wrapper">
+						<h1 class="section-heading"><img class="heading-dot-img"
+								src="resources/images/header-dots-image.png" alt="heading image"> Introducing Monitor+
+						</h1>
+						<p class="paragraph">Monitor+ is <i>the</i> Web API that provides easy access to a huge range of
+							historical reference market data from stock exchanges, commodity exchanges, proprietary
+							market data providers and independent pricing agencies as well as currencies, global indices
+							and more.
+						</p>
+
+						<p class="paragraph">The Monitor+ API sits between the subscriber and the cloud data
+							servers, enabling subscribers to request and receive time series market data in JSON format.
+						</p>
+
+						<p class="paragraph">With simple flexible licensing, Monitor+ allows easy integration of market
+							data into new or existing platforms, information systems and trading systems. The Monitor+
+							API is easy to use, extremely powerful and has native access in both Python and "R" which
+							enables data scientists, analysts and developers to be able to use it straight out of the box.
+						</p>
+
+					</div>
+				</div>
+			</section>
+
+			<section id="HOW-IT-WORKS">
+				<div class="flex-container how-it-works-container">
+					<div class="how-it-works-text">
+						<h1 class="section-heading"><span>How it Works</span></h1>
+						<p class="paragraph">A clients subscribes to one or more datasources and receives an API key
+							to access the service. The client sends a HTTP request for market data and the server
+							returns the data in the requested JSON format. It's really that simple. <br><br>With just two HTTP
+							requests subscribers can authenticate and receive  values for any number of datasets that
+							their subscription permits.</P>
+
+						<p class="paragraph">The API is extremely  powerful, flexible and is well documented with interactive help in both "R" Studio and Python. There are plenty of code samples and multiple working examples in both "R" and Python. <br><br>
+							The API also provides easy access to the metadata (data describing the datasources and datasets), the time series values as well managing as list of "Favorite" datasets for each subscriber.</P>
+
+
+					</div>
+					<img src="resources/images/info-monitor-plus.svg" class="modal-view" alt="monitor-plus-info" />
+
+				</div>
+			</section>
+
+			<section id="WHY-MONITOR">
+				<div class="flex-container why-monitor-container">
+					<h1 class="section-heading"><span>WHY MONITOR+?</span></h1>
+					<div class="why-monitor-card-container">
+
+						<div class="flex-container why-monitor-card">
+							<div class="flex-container icon-wrapper">
+								<i class="fa-solid fa-database"></i>
+							</div>
+							<div class="flex-container why-monitor-card-text">
+								<h6 class="paragraph-heading">Global reference market data</h6>
+								<p class="paragraph">Monitor+ is a RESTful API that is designed to enable fast and easy
+									access to a vast and ever growing amount of international reference market data from
+									stock and commodity exchanges, proprietary market data providers, independent
+									pricing agencies as well as currencies, global indices and more.
+								</p>
+							</div>
+						</div>
+
+						<div class="flex-container why-monitor-card">
+							<div class="flex-container icon-wrapper">
+								<i class="fa-solid fa-dollar-sign"></i>
+							</div>
+							<div class="flex-container why-monitor-card-text">
+								<h6 class="paragraph-heading">Low cost subscriptions</h6>
+								<p class="paragraph">We offer a range of low cost subscriptions to suit all business
+									sizes - from the sole trader to the large corporations. We provide flexible,
+									simple licensing to encourage internal use of the market data to help maximize the
+									subscribers return (subject to any data vendor restrictions).</p>
+							</div>
+						</div>
+
+						<div class="flex-container why-monitor-card">
+							<div class="flex-container icon-wrapper">
+								<i class="fa-solid fa-code"></i>
+							</div>
+							<div class="flex-container why-monitor-card-text">
+								<h6 class="paragraph-heading">Flexible JSON Data.</h6>
+								<p class="paragraph">Our market data can be requested (as values or averages) for a
+									single date or as a date range for historical time series. Historical time series
+									datasets can be returned as individual time series or in row by column format.
+									Requests for a single date can return sparkline values and calculated
+									columns.<br><br> As well as a full range of averages (including custom averages),
+									there are many optional request parameters to control the content of the
+									market data result.</p>
+							</div>
+						</div>
+
+						<div class="flex-container why-monitor-card">
+							<div class="flex-container icon-wrapper">
+								<i class="fa-solid fa-server"></i>
+							</div>
+							<div class="flex-container why-monitor-card-text">
+								<h6 class="paragraph-heading">We can host your own Market Data</h6>
+								<p class="paragraph">We can also host proprietary market data for both third party data
+									vendors and subscribers. The Monitor+ platform can help subscribers open a new sales
+									channel and access potential customers from around the world.
+									<br><br> For companies who wish to market their own proprietary data, Monitor+ can
+									provide a ready made solution without the headaches of cost, time and investment
+									needed to create and manage their own solution.</p>
+							</div>
+						</div>
+
+
+
+
+						<div class="flex-container why-monitor-card">
+							<div class="flex-container icon-wrapper">
+								<i class="fa-solid fa-folder-tree"></i>
+							</div>
+							<div class="flex-container why-monitor-card-text">
+								<h6 class="paragraph-heading">Free analytic functions</h6>
+								<p class="paragraph">Subscribers who use "R" or Python can access a huge library of free
+									analytic functions and reports that are published and freely available. Using
+									Monitor+, even the smallest company can have an analytic capability that were
+									unheard of only a few years ago. <br><br>There are thousands of published analytic
+									function such as seasonality, ARIMA, correlations, regressions, forecasting, machine
+									learning and more that are freely available and easy to implement.We provide code
+									samples to demonstrate just how easily reports like these can be created.
+								</p>
+							</div>
+						</div>
+
+						<div class="flex-container why-monitor-card">
+							<div class="flex-container icon-wrapper">
+								<i class="fa-solid fa-file-excel"></i>
+							</div>
+							<div class="flex-container why-monitor-card-text">
+								<h6 class="paragraph-heading">Market Data in Excel</h6>
+								<p class="paragraph">Subscribers can use the powerful “XLerate” for Excel add-in to
+									enable easy access to market data for traders, analysts as well as front, mid and
+									back office
+									users.<br><br>
+									XLerate brings the power of Monitor+ to Excel and makes it easy to create both
+									analytic
+									reports and technical analysis charts using a 'point and click' interface. Reports
+									can be
+									shared, edited and refreshed at the click of a button. <br><br>
+									If you can use Excel, you can use XLerate.</p>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</section>
+
+			<section id="BENEFITS">
+				<div class="flex-container benefits-container">
+
+					<h1 class="section-heading"><span>benefits</span></h1>
+
+					<div class="benefits-card-container">
+
+						<div class="flex-container benefits-card">
+							<div class="flex-container icon-wrapper">
+								<i class="fa-solid fa-chart-line"></i>
+							</div>
+							<h6 class="paragraph-heading">Increased Productivity</h6>
+							<p class="paragraph">Get fast access to hundreds of thousands of premium market data time
+								series.
+								Developers, analysts and data scientists can be creating the analytic reports you need
+								almost immediately.
+								<br><br>Monitor+ lets you create and share powerful market data reports in minutes
+								giving your company real commercial advantage.
+							</p>
+						</div>
+
+						<div class="flex-container benefits-card">
+							<div class="flex-container icon-wrapper">
+								<i class="fa-solid fa-sort-amount-down"></i>
+							</div>
+							<h6 class="paragraph-heading">Cost Reduction</h6>
+							<p class="paragraph">The Monitor+ service typically costs a fraction of other market data
+								delivery services and is designed to suit businesses of all size. <br><br>
+								Our flexible licensing can significantly reduce data costs for subscribers making it a
+								cost effective
+								way to employ market data throughout your company (subject to any data vendor
+								restrictions).</p>
+						</div>
+
+						<div class="flex-container benefits-card">
+							<div class="flex-container icon-wrapper">
+								<i class="fa-solid fa-hands-helping"></i>
+							</div>
+							<h6 class="paragraph-heading">Ease of Use</h6>
+							<p class="paragraph">Monitor+ is designed to be powerful, flexible and easy to use. It is
+								fully documented with lots of sample code and working analytic report examples. <br><br>
+								No knowledge of networks, databases or SQL is needed and with just two commands you can
+								receive the market data that you need to power your trading systems and reports.</p>
+						</div>
+
+						<div class="flex-container benefits-card">
+							<div class="flex-container icon-wrapper">
+								<i class="fa-solid fa-rocket"></i>
+							</div>
+							<h6 class="paragraph-heading">Data Science</h6>
+							<p class="paragraph">We provide native “R” and Python components to enable companies of any
+								size to have full access to tools to create analytics, machine learning and forecasting
+								reports.
+								Developers who use other development tools will also find Monitor+ easy to use.
+							</p>
+						</div>
+
+						<div class="flex-container benefits-card">
+							<div class="flex-container icon-wrapper">
+								<i class="fa-solid fa-file-excel"></i>
+							</div>
+							<h6 class="paragraph-heading">Microsoft Excel</h6>
+							<p class="paragraph">Excel users can access the powerful "XLerate for Excel" add-in to make
+								market data report generation in Excel a breeze.<br><br>Because XLerate is built into
+								Excel, all reports can be easily created, refreshed and shared with colleagues. </p>
+						</div>
+
+						<div class="flex-container benefits-card">
+							<div class="flex-container icon-wrapper">
+								<i class="fa-solid fa-server"></i>
+							</div>
+							<h6 class="paragraph-heading">Market Data</h6>
+							<p class="paragraph">Subscribers can have access to huge volumes of historical market data
+								for stocks, commodities, currency, indices as well as data from 3rd party data vendors.
+								<br><br>If data vendor supported, we apply and return details of any published corrected
+								values.
+							</p>
+						</div>
+
+						<div class="flex-container benefits-card">
+							<div class="flex-container icon-wrapper">
+								<i class="fa-solid fa-laptop-code"></i>
+							</div>
+							<h6 class="paragraph-heading">Product Development</h6>
+							<p class="paragraph">Use Monitor+ to power your trading systems, create reports, quote pages
+								and in-house software solutions using virtually any programming language like C++,
+								Java, PHP or VBA.
+								<br><br>Our comprehensive documentation provides HTTP examples of how to use all
+								endpoints
+								with request and result code and we provide working examples in both "R"
+								and Python.
+							</p>
+						</div>
+
+						<div class="flex-container benefits-card">
+							<div class="flex-container icon-wrapper">
+								<i class="fa-solid fa-copyright	"></i>
+							</div>
+							<h6 class="paragraph-heading">Proprietary Data</h6>
+							<p class="paragraph">If you require market data from a third party (or have your own
+								proprietary data that you wish to market), we are happy to discuss adding it to the
+								service. <br><br>Adding your own market data to Monitor+ can open up a global sales
+								channel for your business.
+								We can also supply private data servers to comply with any vendor data restrictions.
+							</p>
+						</div>
+
+						<div class="flex-container benefits-card">
+							<div class="flex-container icon-wrapper">
+								<i class="fa-solid fa-splotch"></i>
+							</div>
+							<h6 class="paragraph-heading">User Favorites</h6>
+							<p class="paragraph">We provide and manage a user defined custom list of "favorite" datasets
+								via
+								our client web portal. <br><br>The Favorites list is fully
+								manageable via the API and can be employed by developers to shorter their own
+								applications
+								development cycle. XLerate for Excel was written using the Monitor+ API for
+								all dataset and favorites selection.
+							</p>
+						</div>
+
+
+					</div>
+				</div>
+			</section>
+
+			<section id="ADDITIONAL-FEATURE">
+				<div class="flex-container additional-feature-container">
+					<h1 class="section-heading"><span>Additional Features</span></h1>
+					<div class="additional-feature-text-container">
+
+						<div class="flex-container additional-feature-text">
+							<h6 class="paragraph-heading">JSON Data Formats</h6>
+							<p class="paragraph">Monitor+ is ideal for creating a variety of analytic solutions and
+								reports as market data can be returned in one of three JSON formats:<br><br>
+								<ul>
+									<li>Single Date. Ideal for creating "quote page" style reports that require values
+										for a single date with optional "Spark Line" and "Change" values</li>
+									<li>Historical TS. Market data is returned as individual time series.</li>
+									<li>Historical RC. Market data is returned in a ”row x column” format to make report
+										creation and display easy.</li>
+								</ul>
+							</p>
+						</div>
+
+						<div class="flex-container additional-feature-text">
+							<h6 class="paragraph-heading">Integration</h6>
+							<p class="paragraph">Our market data is natively accessible in both "R" and Python but you
+								don't have to use "R" or Python as almost any other development language such as C#,
+								Java, VB or PHP can be used with the API.<br><br>
+
+								Monitor+ should be easy to integrate into new and existing systems as the API is
+								designed to be return large amounts of both metadata and time series data as well as
+								managing a list of user "Favorite" datasets to makes user times series selection simple
+								and easy.
+
+								Excel users can use our XLerate for Excel add-in to create, update and share detailed
+								Excel market reports.</p>
+						</div>
+
+						<div class="flex-container additional-feature-text">
+							<h6 class="paragraph-heading">Averages</h6>
+							<p class="paragraph">The Monitor+ API can return values as daily, weekly, half monthly,
+								monthly,
+								quarterly, half yearly and yearly. Custom averages can be calculated for weeks, half
+								months and months.
+								Custom quarterly, half-yearly and yearly averages can be created using custom month
+								averages.
+							</p>
+						</div>
+
+						<div class="flex-container additional-feature-text">
+							<h6 class="paragraph-heading">Data Preparation</h6>
+							<p class="paragraph">Monitor+ can perform time series data preparation. Choose the date
+								range to include and handle weekend values. Choose to use the first
+								or last date in each average and fill missing values using the previous, mid point
+								or interpolated values. Datasets can be filled at different stages of the average
+								calculation and a lead/lag value can also be applied.
+							</p>
+						</div>
+
+					</div>
+
+				</div>
+			</section>
+
+			<section id="DOCUMENTATION">
+				<div class="flex-container documentation">
+					<h1 class="section-heading"><span>DOCUMENTATION</span></h1>
+					<p class="paragraph">The complete Monitor+ documentation can be viewed by clicking on the
+						“Documents”
+						menu at the top of the page and selecting the "API Documentation" option. From there you can see
+						the list of API
+						requests, a detailed description of each as well as the request parameters and examples of HTTP
+						requests and the JSON results.<br><br>
+						We also provide documented working examples (in both "R" and Python) that can be be a great help in getting your team up and running straight away.<br> </p>
+				</div>
+			</section>
+
+			<section id="NEED-INFORMATION">
+				<div class="flex-container need-information-container">
+					<div class="flex-container need-information-text">
+						<h1 class="section-heading"><span>FIND OUR MORE?</span></h1>
+						<p class="paragraph">If you have questions about Monitor+, our market data, analytics or about how our solutions can be integrated into your business then why not contact us using
+							"get in touch" button below.</p>
+						<p class="paragraph" style="margin-bottom: 35px;">You can find out more about our “R” and Python
+							packages (as well as on
+							using the API from other development languages) from the “Documentation” menu at the top of
+							the page.</p>
+						<a href="contact-us" style="display: block;margin: auto;"><button
+								class="btn get-in-touch-btn">GET IN TOUCH <i
+									class="fas fa-angle-double-right"></i></button></a>
+						<p class="paragraph">Details about XLerate for Excel can be found under the "Products” menu at
+							the top of the page.
+						</p>
+						<p class="paragraph">Monitor+ can provide you with the market data your business wants, the
+							analytics your business needs and at a cost any business can afford. Why not get in touch to
+							find out more.<br><br>With Monitor+, market data <i>is</i> made easy</p>
+					</div>
+					<img src="resources/images/question.svg" class="modal-view" alt="" />
+				</div>
+			</section>
+
+			
+			<section id="BOTTOM">
+				<div class="flex-container page-bottom">
+					<img src="resources/images/imgpsh_fullsize_anim.png" alt="monitor-plus-logo">
+					<h2>MARKET DATA - MADE EASY</h2>
+				</div>
+			</section>
+			<hr class="bottom-hr">
+			<p class="tradmark-text">(c) 2000-2022 Sarus Systems Ltd. Sarus, Monitor+ and XLerate are trademarks of Sarus Systems Ltd.  All trademarks acknowledged.</p>
+
+		</section>
+
+		<div class="modelView">
+
+			<i class="fas fa-times cross"></i>
+
+			<div class="model-content">
+
+				<img src="" style="border: 5px solid rgb(0, 0, 0);" />
+
+			</div>
+		</div>
+
+		<div include-html="footer.html" id="footer_file"></div>
+		<div class="text-center footertxt">
+			<p class="sub-logo"> Copyright © 2018-2021 International Data Media Limited - Market Data Solutions </p>
+		</div>
+	</div>
+	</div>
+
+
+	<script>
+		const body = document.querySelector("body");
+		const navbar_default = document.querySelector(".navbar-default");
+		window.addEventListener("load", () => {
+			body.style.background = "#ececec";
+		})
+	</script>
+	<script src="resources/js/m-api.js"></script>
+</body>
+
+</html>

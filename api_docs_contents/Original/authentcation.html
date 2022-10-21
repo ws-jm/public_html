@@ -1,0 +1,50 @@
+<div>
+	<div class="api-right-txt">
+		<h3 class="doc-sec-title main_sections_right_img">
+			<span class="doc-sec-count" style="display:inline-block">2. Token
+				Authentication</span>
+			<img class="size-full wp-image-3533 alignnone"
+			src="resources/css/images/token-authentication.png" alt=""
+			width="96" height="96">	
+		</h3>
+		
+		<h3>Token Authentication</h3>
+		<p>The Monitor+ API uses ‘session’ tokens to authenticate and
+			identify each user to the server. The user requests
+			a session token using their private API key and, once a token
+			has been received from the server, it can be used in all further
+			endpoints (API requests). Tokens automatically
+			expire after 20 minutes of inactivity but live tokens renew
+			automatically to full life each time an endpoint that uses the
+			token is used.</p>
+		<p>With the authentication endpoints you can create, revoke, extend
+			or query the remaining life of a session token.</p>
+		<ul class="list-info">
+			<li>Use the <em>GetSessionToken</em> endpoint to get a new token
+				(using an API key).</li>
+			<li>Use the <em>RenewSessionToken </em>endpoint to renew an
+				existing token to full life.</li>
+			<li>Use the <em>RevokeSessionToken</em> endpoint to revoke or
+				cancel an token.</li>
+			<li>Use the S<em>essionTokenExpires</em> endpoint to query the
+				remaining life of an existing token.</li>
+		</ul>
+		<p>Once you have authenticated and received a session token, use
+			your session token with the metadata endpoints to locate all
+			available datasources or only the datasources that <em>your
+			</em>subscription entitles you to access.</p>
+		<p>Session tokens are required to get both price data and
+			‘favorites’ metadata from the server. Please refer
+			to the documentation for each individual endpoint for more
+			details.</p>
+		<div class="last-date">
+			<div class="date">Last updated on June 3, 2021</div>
+		</div>
+		<br>
+	</div>
+	
+	<div class="dis-block clearfix">
+		<a href="javascript:move_section('#overview')" class="doc-prev"><i class="fas fa-chevron-circle-left"></i>Overview</a>
+		<a href="javascript:move_section('#sessiontoken')" class="doc-next">Get a new Session Token <i class="fas fa-chevron-circle-right"></i></a>
+	</div>
+</div>

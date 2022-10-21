@@ -1,0 +1,1385 @@
+body {
+    margin: 0px;
+}
+
+html,
+body,
+.fixpage {
+    overflow: hidden;
+    height: 100%;
+}
+
+.jqx-widget-header1 {
+    border-color: #D3D3D3 !important;
+}
+
+.jqx-grid-column-header1 {
+    z-index: 100 !important;
+}
+
+#searchSeriesBox:focus {
+    border: 1px solid #298bbc;
+}
+
+#formAddFolder {
+    margin: 0;
+    padding-left: 90px;
+    padding-right: 20px;
+}
+
+#formAddFolder>div {
+    margin-bottom: 10px
+}
+
+#folderName {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.folderInfo {
+    padding-left: 15px;
+}
+
+#folder-info {
+    margin-left: 20px;
+}
+
+#jqxWidget {
+    width: 100%;
+    height: calc(100% - 65px) !important;
+}
+
+#mainSplitter-datasource {
+    height: calc(100% - 35px) !important;
+}
+
+.wait {
+    opacity: 0;
+}
+
+#jqxTabs {
+    width: 100%;
+}
+
+#first-tab {
+    margin-left: 30px;
+}
+
+#splitter {
+    overflow: hidden;
+    padding: 10px;
+}
+
+#treeExpander,
+#gridExpander {
+    border: none;
+}
+
+#treeExpander .jqx-hideborder:first-child,
+#gridExpander .jqx-hideborder:first-child {
+    font-size: 15px;
+}
+
+#overwriteBackupWindow>div,
+#addDefaultBackupWindow>div,
+#windowBackups>div,
+#backupsJqxgrid {
+    overflow: hidden;
+}
+
+#addDefaultBackupWindow>div>div,
+#overwriteBackupWindow>div>div {
+    float: right;
+    margin-top: 0px;
+}
+
+#selectedDatasource {
+    float: left;
+    padding: 3px 10px 12px 0;
+}
+
+#backupName {
+    margin-bottom: 10px;
+    margin-top: 0px;
+    width: 100%;
+}
+
+#backupPadlock {
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+#oldBackupName {
+    font-weight: bolder;
+    margin-bottom: 0px;
+    margin-top: 10px;
+    width: 100%;
+    font-style: italic;
+}
+
+#newBackupName {
+    margin-bottom: 10px;
+    margin-top: 0px;
+    width: 100%;
+    color: #000;
+}
+
+#newBackupPadlock {
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+#addSeriesWindow>p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#btnBackupCreate {
+    margin-left: 0 !important;
+}
+
+#windowBackups .jqx-window-content {
+    overflow: hidden !important;
+}
+
+#horizontalScrollBarbackupsJqxgrid {
+    display: none !important;
+}
+
+#addBackupWindow>div,
+#editBackupWindow>div {
+    padding: 10px
+}
+
+#databaseDropdown {
+    float: left;
+    background: #ffffff;
+    box-shadow: none !important;
+    border-radius: 1px;
+}
+
+#selectSource {
+    overflow: hidden;
+    padding: 10px;
+}
+
+#selectSource .slick-viewport {
+    height: calc(100% - 32px) !important;
+}
+
+#selectSource .splitter-panel-datasource {
+    height: calc(100% + 28px) !important;
+}
+
+#selectSource .jstreeCategoriesTree {
+    height: calc(100% - 26px) !important;
+}
+
+#disactiveGrid {
+    overflow: hidden;
+    height: calc(100% - 25px) !important;
+    margin: 10px;
+    border: 1px solid #c5c5c5;
+}
+
+.toolbar {
+    font-weight: normal;
+    font-family: Calibri;
+    background-color: #f0f0f0;
+    background: #f0f0f0;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#f8f8f8), to(#eaeaea));
+    background: -moz-linear-gradient(100% 100% 90deg, #eaeaea, #f8f8f8);
+    background: -ms-linear-gradient(top, #f8f8f8 0%, #eaeaea 100%);
+    background: linear-gradient(top, #f8f8f8 0%, #eaeaea 100%);
+    border-color: #cccccc;
+}
+
+table,
+td,
+th {
+    padding: 0px;
+    border: none;
+}
+
+.fullscreen {
+    max-height: 100% !important;
+    max-width: 100% !important;
+}
+
+#loadingData,
+#wait-message-category {
+    display: none;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0
+}
+
+#loadingData .load-data,
+#wait-message-category .load-data {
+    z-index: 99999;
+    margin-left: -66px;
+    left: 50%;
+    top: 50%;
+    margin-top: -24px;
+    position: relative;
+    width: 153px;
+    height: 33px;
+    padding: 5px;
+    font-family: verdana;
+    font-size: 12px;
+    color: #767676;
+    border-color: #898989;
+    border-width: 1px;
+    border-style: solid;
+    background: #f6f6f6;
+    border-collapse: collapse;
+}
+
+#wait-message-category .load-data {
+    width: 90px;
+}
+
+.load-data .load-content {
+    float: left;
+}
+
+.load-data .load-content>div {
+    float: left;
+    overflow: hidden;
+    width: 32px;
+    height: 32px;
+}
+
+.load-data .load-content>span {
+    margin-top: 10px;
+    float: left;
+    display: block;
+    margin-left: 5px;
+}
+
+#chMoveFolders {
+    float: left;
+    margin-right: 5px;
+}
+
+#newFolderName {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    width: 100%;
+}
+
+#oldFolderName {
+    margin-bottom: 5px;
+    margin-top: 0px;
+    width: 100%;
+}
+
+#formRenameFolder {
+    margin: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#formRenameFolder>div {
+    margin-bottom: 10px;
+}
+
+#formRenameFolder>div>div {
+    height: 25px;
+}
+
+.jqx-grid-cell-left-align {
+    margin-top: 7px;
+}
+
+#databaseColumnRender {
+    margin-top: 2px;
+}
+
+#databaseColumnRender img {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+#disactive-renderer {
+    position: absolute;
+    margin-top: -15px;
+}
+
+#disactive-renderer img {
+    width: 30px;
+    height: 30px;
+}
+
+#disactiveJqxgrid-table {
+    width: 100%;
+    height: 32px;
+    /* padding: 4px; */
+    display: flex;
+    overflow-x: auto;
+    background: #f8f8f8;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#disactiveJqxgrid-table {
+    width: 100%;
+}
+
+
+/* #btnDelAutosize,
+#btnRemove,
+#fullWidth1,
+#fullWidth2,
+#fullWidth3 {
+	margin-right: 12px;
+} */
+
+
+/* #btnRemoveFromFavorites,
+#btnAutosizeActive {
+	margin-right: 6px;
+} */
+
+/* #fullWidth2 {
+    margin-left: 6px;
+} */
+
+
+/* #btnAutosize,
+#btnHideShowEmptyRecords,
+#btnHideAdditInfo_datasource #btnHideAdditInfo_favorite,
+#btnHideAdditInfo_deleted {
+    margin-right: 6px;
+} */
+
+
+/* #fullWidth3 {
+	margin-left: 6px;
+} */
+
+#btnCopySeriesToFavorite {
+    margin-left: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+/* #autosizeRow,
+#toolbar-table,
+#lastItem-backup,
+#activegrid-buttons,
+#disactive-table-first {
+	width: 100%;
+} */
+
+#disactiveJqxgrid-table tbody,
+#toolbar-table tbody {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.toolbar-table {
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    background: #f8f8f8;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+/* .toolbar-table div#btnHideAdditInfo_favorite {
+    margin-left: 5px;
+} */
+
+#autosizeRow {
+    text-align: right;
+}
+
+#activegrid-img {
+    margin-right: 3px;
+    margin-top: 3px;
+}
+
+#color-tree {
+    color: blue;
+}
+
+#windowBackup-style {
+    margin-left: 2px;
+}
+
+#table3-container,
+#backup-container,
+#activegrid-container {
+    position: relative;
+    width: 100%;
+}
+
+#searchSeriesBox {
+    float: left;
+    margin-left: 5px;
+}
+
+#img-g3 {
+    float: left;
+    margin-left: 10px;
+}
+
+#jqxPageDropDownList {
+    float: left;
+}
+
+#label1-pages {
+    margin-right: 12px;
+}
+
+#label2-pages {
+    padding: 0px;
+    margin: 0px 3px;
+    float: left;
+}
+
+#pages-numbers-before,
+#pages-numbers-after {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#pageNumbers {
+    margin-right: 3px;
+    font-family: Calibri;
+}
+
+#pages-first-element {
+    margin-right: 10px;
+}
+
+#pages-first-element,
+#pages-last-element {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+#pages-first-element>div,
+#pages-last-element>div {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+
+/* #btnAutosize {
+	float: right;
+} */
+
+#startIcon {
+    margin-top: 7px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#tableID {
+    margin-left: 4px;
+    margin-top: 7px;
+}
+
+#databaseDropdown-lable {
+    left: 3px;
+    top: 2px;
+    position: relative;
+}
+
+.columnData {
+    margin-top: 8px;
+}
+
+#backup-lock {
+    margin-left: 2.5px;
+}
+
+#datasource-label {
+    left: 3px;
+    top: 6px;
+    position: relative;
+}
+
+.table-icon {
+    float: left;
+    margin-right: 5px;
+}
+
+.seletedItemStyle {
+    top: 4px;
+    position: relative;
+}
+
+#exportDialog {
+    overflow: hidden;
+    height: 100%;
+    font-family: "Open Sans", Roboto, sans-serif;
+    padding: 10 5px !important;
+}
+
+#formExportSeries {
+    padding: 20px;
+}
+
+#exportDialofControlsPanel {
+    width: 100%;
+    text-align: right;
+    padding: 10px;
+    position: absolute;
+    bottom: 0px;
+    border-top: 1px solid #ccc;
+}
+
+#exportSeriesBtn {
+    margin-right: 5px;
+}
+
+#exportDialogWindow {
+    display: none;
+}
+
+#dialogForm {
+    margin: 30px;
+}
+
+#export-one {
+    margin-bottom: 20px;
+}
+
+#export-all {
+    margin-bottom: 15px;
+}
+
+#exportSeriesBtn,
+#cancelExportDialog {
+    border: 1px solid #b9b9b9;
+    background: #f6f6f6;
+    color: #000;
+    font-weight: normal;
+}
+
+input#exportSeriesBtn:active,
+input#cancelExportDialog:active {
+    background: #038bff;
+    color: #fff;
+}
+
+#exportSeriesBtn,
+#cancelExportDialog {
+    border: 1px solid #b9b9b9;
+    background: #f6f6f6;
+    color: #000;
+    font-weight: normal;
+}
+
+#renameFolderWindow,
+#jqxGridMenu,
+#jqxTreeMenu,
+#addDefaultBackupWindow,
+#addFolderWindow,
+#exportDialogWindow {
+    display: none;
+}
+
+#addFolderWindow {
+    padding: 0 0 10px 0;
+}
+
+#tableActiveStyle {
+    color: white;
+    background: #709dc9
+}
+
+.activeBorder {
+    border: 1px solid #bbbdbf;
+}
+
+.jqx-notification-content {
+    color: #fff !important;
+}
+
+.jqx-notification.jqx-widget td {
+    background-color: transparent !important;
+    color: #fff !important;
+}
+
+.jqx-notification-table {
+    margin: 0;
+}
+
+#btnBackupCheckbox {
+    margin-right: 20px;
+}
+
+#multipleBackup {
+    display: none;
+}
+
+#newBackupPadlock {
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 1em !important;
+}
+
+
+/* #btnDelAutosize,
+#btnRemove {
+    margin-right: 6px;
+} */
+
+.jqx-tabs-content-element {
+    overflow: hidden;
+    height: 100%;
+}
+
+#userCategory {
+    padding: 4px 0;
+    margin-left: 10px;
+    display: none;
+    margin-top: -42px;
+}
+
+#topmenu-category {
+    margin-left: 20px;
+}
+
+
+/*====== PPH ======*/
+
+.jqx-expander-header {
+    background: #FFF;
+}
+
+.helpIcon {
+    background: url(../../../icons/Help_16-Grey.png) no-repeat center;
+    height: 16px;
+    width: 16px;
+    padding: 0 10px;
+    border: 0;
+    outline: 0;
+    float: left;
+}
+
+.helpIcon:hover {
+    cursor: pointer;
+}
+
+#databaseDropdown {
+    margin-top: -3px;
+}
+
+.jqx-tabs-header {
+    background: #f8f8f8;
+}
+
+#btnBackupRestore span,
+#btnBackupEdit span,
+#btnBackupCreate span,
+#btnBackupRemove span {
+    margin-left: 8px;
+}
+
+#jqxGridMenuBackups,
+#windowBackups,
+#editBackupWindow,
+#addBackupWindow {
+    display: none;
+}
+
+.jqx-tree-item-selected {
+    background: #376ba1;
+    color: #fff;
+    border-color: #376ba1;
+}
+
+.jqx-tree-item-selected span {
+    color: #fff !important;
+}
+
+.deleteBackup {
+    background: #3c882e;
+    color: #fff;
+    display: none;
+    padding: 12px;
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 250px;
+    text-align: center;
+    top: 50%;
+    z-index: 9999;
+}
+
+.jqx-grid-cell-selected {
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-color: #003399;
+    background-repeat: repeat-x;
+    border-color: #316293 #316293 #29547E !important;
+    background: #356aa0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.jqx-grid-cell-selected a {
+    color: #fff !important;
+}
+
+.jqx-widget-header td {
+    background-color: unset !important;
+}
+
+body.overlay::after {
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 8888;
+}
+
+.ui-dialog {
+    z-index: 9999;
+}
+
+#dataPageNymber {
+    width: 32px;
+    height: 20px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    outline: 0;
+    color: #000;
+    font-size: 13px;
+    font-family: Calibri;
+}
+
+#pageButtonToFirst,
+#leftPageButton,
+#rightPageButton,
+#pageButtonToLast {
+    padding: 0px;
+    box-shadow: unset;
+    border: 0;
+    background: transparent;
+    margin-top: 1px;
+}
+
+#pageButtonToFirst div,
+#leftPageButton div,
+#rightPageButton div,
+#pageButtonToLast div {
+    width: 16px;
+    height: 16px;
+}
+
+.HelpMessage {
+    height: 200px;
+    width: 400px;
+    display: none;
+}
+
+.HelpMessage .content {
+    font-size: 13px;
+}
+
+.HelpMessage .jqx-icon-close {
+    background-size: 12px;
+}
+
+.HelpMessage .content .underline {
+    text-decoration: underline;
+}
+
+#contentdisactiveJqxgrid .jqx-widget-content,
+#contentactiveJqxgrid .jqx-widget-content,
+#contenttableactiveJqxgrid,
+#contenttabledisactiveJqxgrid {
+    height: 100%;
+}
+
+body>span {
+    display: none;
+}
+
+#databaseDropdown,
+#listBoxContentinnerListBoxdatabaseDropdown .jqx-fill-state-pressed,
+#listBoxContentinnerListBoxjqxPageDropDownList .jqx-fill-state-pressed,
+#jqxPageDropDownList,
+#jqxTreeToolBar {
+    background-color: #fff;
+    border-color: #ddd;
+}
+
+#wrapperactiveJqxgrid {
+    border-top: 1px solid #ddd;
+}
+
+.jqx-fill-state-focus {
+    border-color: #ccc;
+}
+
+.jqx-menu-vertical {
+    background-color: #fff;
+}
+
+.jqx-listitem-state-selected-light {
+    color: #ffffff !important;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) !important;
+    background-color: #003399 !important;
+    border-color: #316293 #316293 #29547E !important;
+    background: #356aa0 !important;
+}
+
+
+/* #btnHideAdditInfo_datasource,
+#btnHideShowEmptyRecords,
+#btnAutosize,
+#fullWidth3 {
+	position: absolute !important;
+	margin-top: -11px;
+} */
+
+
+/* #fullWidth2,
+#btnHideAdditInfo_favorite,
+#btnAutosizeActive,
+#btnRemoveFromFavorites {
+	 position: absolute !important;
+	margin-top: -13px; 
+} */
+
+
+/* #btnRemove,
+#btnDelAutosize,
+#btnHideAdditInfo_deleted,
+#fullWidth1,
+#btnRestore {
+	position: absolute !important;
+	margin-top: -2px;
+} */
+
+
+/* #btnRemove:active,
+#btnDelAutosize:active,
+#btnHideAdditInfo_deleted:active,
+#fullWidth1:active,
+#btnRestore:active {
+    margin-top: 0px;
+} */
+
+
+/* #fullWidth3:active,
+#btnHideAdditInfo_datasource:active,
+#btnHideShowEmptyRecords:active,
+#btnAutosize:active {
+    margin-top: -9px;
+} */
+
+
+/* #fullWidth2:active,
+#btnHideAdditInfo_favorite:active,
+#btnAutosizeActive:active,
+#btnRemoveFromFavorites:active {
+	margin-top: -11px;
+} */
+
+
+/* #fullWidth2,
+#fullWidth3 {
+	margin-left: -36px;
+} */
+
+
+/* #btnHideAdditInfo_favorite,
+#btnHideAdditInfo_datasource {
+	margin-left: -64px;
+} */
+
+
+/* #btnAutosizeActive,
+#btnHideShowEmptyRecords {
+	margin-left: -92px;
+} */
+
+#btnRemoveFromFavorites {
+    margin-right: 5px;
+}
+
+
+/* #btnAutosize {
+	right: 100px;
+} */
+
+.fixpage {
+    max-width: 1230px;
+    margin: 0 auto;
+    background: #fff;
+    height: 100%;
+}
+
+#jqxLoader .jqx-loader-icon {
+    background-image: url(images/loader.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 999;
+}
+
+#jqxLoader .jqx-button-light,
+#jqxLoader .jqx-fill-state-normal-light {
+    color: #555;
+    background: #fafafa;
+    border-color: #dddddd;
+}
+
+#jqxLoader .jqx-widget-light,
+#jqxLoader .jqx-widget-header-light,
+#jqxLoader .jqx-fill-state-normal-light,
+#jqxLoader .jqx-widget-content-light,
+#jqxLoader .jqx-fill-state-hover-light,
+#jqxLoader .jqx-fill-state-pressed-light {
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
+#jqxLoader .jqx-loader-text-bottom {
+    bottom: 0px;
+    position: absolute;
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+
+/* mydatasources loading */
+
+#jqxTabs-datasource {
+    opacity: 0;
+}
+
+.tree-loading {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: none;
+}
+
+.tree-loading>div {
+    z-index: 99999;
+    margin-left: -66px;
+    left: 50%;
+    top: 50%;
+    margin-top: -24px;
+    position: relative;
+    width: 133px;
+    height: 33px;
+    padding: 5px;
+    font-family: verdana;
+    font-size: 12px;
+    color: rgb(137, 137, 137);
+    border-color: rgb(137, 137, 137);
+    border-width: 1px;
+    border-style: solid;
+    background: rgb(246, 246, 246);
+    border-collapse: collapse;
+}
+
+.tree-loading>div>div {
+    float: left;
+}
+
+.tree-loading .jqx-grid-load {
+    float: left;
+    overflow: hidden;
+    width: 32px;
+    height: 32px;
+}
+
+.tree-loading .jqx-grid-load+span {
+    margin-top: 10px;
+    float: left;
+    display: block;
+    margin-left: 5px;
+}
+
+#jqxCategoriesMenu {
+    opacity: 0;
+}
+
+#btnCopySeriesToFavorite img,
+#btnRestore img {
+    position: unset !important;
+}
+
+#btnCopySeriesToFavorite span,
+#btnRestore span {
+    position: unset !important;
+}
+
+div#btnRestore {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#disactiveJqxgrid-table {
+    margin-bottom: 0px;
+}
+
+.slick-pane.slick-pane-header.slick-pane-left {
+    top: 0 !important;
+}
+
+#disactiveGrid .slick-viewport.slick-viewport-top.slick-viewport-left {
+    height: calc(100% - 37px) !important;
+}
+
+#disactiveJqxgrid {
+    height: calc(100% - 28px) !important;
+}
+
+#activeJqxgrid .slick-viewport {
+    height: calc(100% - 70px) !important;
+}
+
+.jqx-toolbar-tool-minimized.jqx-toolbar-tool-no-separator-ltr {
+    float: unset !important;
+}
+
+.jqx-toolbar-minimized-popup {
+    border-width: 1px;
+    border-top-width: 0;
+    left: 117px !important;
+    border-style: solid;
+    width: 100px !important;
+    visibility: hidden;
+    top: 230px !important;
+    z-index: 99999;
+}
+
+#jstreeCategoriesTree {
+    height: calc(100% - 5px) !important;
+}
+
+#jstreeCategoriesList {
+    height: calc(100% - 48px);
+}
+
+#jqxTabs-datasource {
+    height: calc(100% - 20px);
+}
+
+#disactiveJqxgrid-table::-webkit-scrollbar-thumb,
+#toolbar-table::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 6px;
+}
+
+#disactiveJqxgrid-table::-webkit-scrollbar,
+#toolbar-table::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+    background: #e6e6e6;
+    border-radius: 7px;
+}
+
+div#pager2>div {
+    overflow-x: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    padding: 5px;
+}
+
+#gridDatasetsOfDatasource {
+    height: calc(100% - 96px) !important;
+}
+
+div#pager2>div::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 5px;
+}
+
+div#pager2>div::-webkit-scrollbar {
+    height: 6px;
+}
+
+#leftPageButton,
+#rightPageButton,
+#pageButtonToLast,
+#pageButtonToFirst {
+    cursor: pointer;
+}
+
+
+/* my favourites left tree toolbar */
+
+#jqxTreeToolBar {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    width: 100% !important;
+    margin-bottom: 5px;
+    background: #f8f8f8;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+#jqxTreeToolBar .jqx-button{
+    padding-top:4px!important;
+}
+
+.jqx-toolbar-tool {
+    float: unset !important;
+    display: block !important;
+}
+
+.jqx-toolbar-tool-no-separator-ltr {
+    /*margin-left:auto;*/
+    position: absolute;
+    right: 3px;
+}
+
+.jqx-toolbar-minimized-button {
+    display: none !important;
+}
+
+div#jqxTreeToolBar::-webkit-scrollbar {
+    background: white;
+    height: 5px;
+}
+
+div#jqxTreeToolBar::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 5px;
+}
+
+
+/* my data source top dropdown area */
+
+div#dropdownlistArrowdatabaseDropdown .jqx-icon-arrow-down {
+    top: 5px;
+    position: unset;
+    margin: 0;
+    margin-top: 6px;
+}
+
+
+/* my data source pager area */
+
+span#inputPage {
+    margin: 0px 5px;
+}
+
+div#droplistPages {
+    margin-left: 6px;
+}
+
+span#numOfAllPages {
+    margin: 0px 6px;
+}
+
+#dropdownlistArrowdroplistPages .jqx-icon-arrow-up.jqx-icon-arrow-up-light.jqx-icon.jqx-icon-light {
+    transform: rotate(180deg);
+}
+
+
+/* window backup area wrapper */
+
+#windowBackups {
+    /* left: 50% !important;
+	top: 50% !important; */
+    background: transparent;
+    /* height: 100% !important; */
+    /* align-items: center;
+	justify-content: center; */
+    /* transform: translate(-50%, -50%) !important; */
+}
+
+div#windowBackups .slick-viewport.slick-viewport-top.slick-viewport-left {
+    height: 100% !important;
+    position: unset;
+}
+
+#windowBackups .slick-pane.slick-pane-top.slick-pane-left {
+    height: calc(100% - 30px) !important;
+    top: 30px !important;
+}
+
+
+/* #windowBackups .jqx-window-header.jqx-widget-header.jqx-disableselect.jqx-rc-t {
+	cursor: unset !important;
+} */
+
+div#backup-container table tbody tr td:nth-child(5) {
+    margin-left: auto;
+    margin-right: 0;
+}
+div#windowBackups .jqx-window-content {
+    padding-top: 3px;
+}
+div#backup-container table tbody tr {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-around; */
+}
+div#backup-container table tbody tr td:nth-child(5) div {
+    width: 25px !important;
+    margin-right: 0;
+}
+div#backup-container table tbody tr td {
+    margin-right: 10px;
+}
+
+#windowBackups #backup-container img[style],
+#windowBackups #backup-container span[style] {
+    position: unset !important;
+}
+
+#btnBackupEdit,
+#btnBackupCreate,
+div#btnBackupRestore,
+div#btnBackupRemove,
+div#refreshBackup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100% !important;
+}
+div#windowBackups div {
+    float: none !important;
+}
+#windowBackups .jqx-window-close-button-background div {
+    margin-top: 0 !important;
+}
+/* #windowBackups .jqx-window-header.jqx-widget-header.jqx-disableselect.jqx-rc-t {
+    width: 100% !important;
+} */
+
+#windowBackups .jqx-window-close-button-background {
+    right: 15px !important;
+}
+
+#windowBackups .jqx-window-content.jqx-widget-content.jqx-rc-b {
+    width: calc(100% - 10px) !important;
+    height: calc(100% - 40px) !important;
+}
+
+#windowBackups .jqx-resize.jqx-rc-all {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+div#backup-container {
+    overflow: auto;
+}
+
+#backup-container::-webkit-scrollbar {
+    height: 5px;
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+#backup-container::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 5px;
+}
+
+
+/* responsive area */
+
+@media screen and (max-width:991px) {
+    input#searchBox {
+        width: 120px !important;
+    }
+}
+
+@media screen and (max-width:992px) {
+    #jqxWidget {
+        height: calc(100% - 55px) !important;
+    }
+    .jqx-toolbar-minimized-popup {
+        left: 0px !important;
+        top: 200px !important;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .section.main-content {
+        margin-top: 75px;
+    }
+    #backup-container table {
+        display: inline-table;
+        width: 100%;
+        overflow: auto;
+    }
+    #jqxWidget {
+        width: 100%;
+        height: 100% !important;
+    }
+    #activeJqxgrid .slick-viewport {
+        height: calc(100% - 77px) !important;
+    }
+    .jqx-toolbar-minimized-popup {
+        left: 0px !important;
+        top: 180px !important;
+    }
+    #table3-container {
+        position: relative;
+    }
+    .toolbar-table {
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        overflow-x: auto;
+    }
+    #disactiveJqxgrid .slick-viewport {
+        height: 100% !important;
+    }
+    #searchSeriesBox {
+        width: 120px !important;
+    }
+    .footerbar {
+        bottom: 10px;
+    }
+    .footerbar .bar span {
+        background: #ffff;
+    }
+}
+
+@media screen and (max-width:449px) {
+    #gridDatasetsOfDatasource {
+        height: calc(100% - 115px) !important;
+    }
+}

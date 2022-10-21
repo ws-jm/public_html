@@ -1,0 +1,258 @@
+html,
+body {
+    height: 100%;
+    margin: 0px;
+    font-size: 16px;
+    background-color: #ececec;
+}
+
+.navbar-fixed-top {
+    position: sticky;
+    top: 0;
+}
+
+.login-page {
+    display: none;
+}
+
+.fixpage {
+    height: 100%;
+}
+
+nav {
+    border-radius: 0px;
+}
+
+.eye {
+    position: absolute;
+    margin-top: 15px;
+    margin-left: -25px;
+    display: none;
+}
+
+.show-eye {
+    display: inline-block;
+}
+
+#submitButton {
+    background-color: #4DAF7C;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 10px 35px;
+    border: 1px solid #fff;
+    float: right;
+    text-transform: none;
+}
+
+#submitButton:hover {
+    background-color: white;
+    border: 1px solid #4DAF7C;
+    color: #4DAF7C;
+}
+
+.enquriy-box-form .form-group {
+    padding-bottom: 0;
+}
+
+.sales-enquiry-box div {
+    margin-bottom: 15px;
+}
+
+.sales-enquiry-box div {
+    color: #7a7a7a;
+    text-align: justify;
+    text-align-last: left;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.mandatory {
+    color: #ff2000 !important;
+    font-size: 26px !important;
+}
+
+sup.mandatory {
+    font-weight: bold;
+}
+
+sup {
+    top: 8px;
+}
+
+#username-icon {
+    margin-bottom: 4px;
+}
+
+.full-height {
+    height: 100%;
+    margin-top: 110px;
+
+}
+
+.container {
+    height: 100%;
+}
+
+.container {
+    display: table;
+    width: 100%;
+    margin-top: -50px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.row {
+    height: 101%;
+
+}
+
+.row .no-float {
+    height: 100%;
+}
+
+.login-img {
+    background-image: url(../idm-service/resources/images/login-img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login-form {
+    background-color: #eff4fb;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-form h1 {
+    color: #163e9c;
+    font-size: 37px;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.login-form .right-side>div {
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    margin-top: 3px;
+}
+
+.login-form form {
+    width: 320px;
+    margin: 50px auto 0;
+}
+
+.login-form label:not(.login-checkbox) {
+    display: block;
+    color: #163e9c;
+    font-family: 'Open Sans';
+    ;
+}
+
+.login-checkbox {
+    font-weight: normal;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    color: #999;
+    font-family: 'Open Sans';
+    margin-top: 15px;
+}
+
+.btn {
+    border: none;
+    padding: 14px 28px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 12px;
+    background-color: #3070b9;
+    color: #fff;
+    font-size: 15px;
+}
+
+.btn:hover {
+    background: #397dcc;
+    color: #fff;
+}
+
+.login-form input:not(#checkbox),
+.login-form #password {
+    width: 100%;
+    padding: 5px 5px;
+    margin: 5px 0 20px;
+    display: inline-block;
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+}
+
+#checkbox {
+    margin-right: 4px;
+}
+
+.login-form #password {
+    height: 60px;
+    resize: none;
+    padding-right: 40px;
+}
+
+.lockImg {
+    background-image: url(../css/icons/LogonLockLayer.png);
+    background-size: 300px;
+    background-repeat: no-repeat;
+    height: 260px;
+    width: 260px;
+    position: absolute;
+    top: -25px;
+    left: -25px;
+}
+
+#new-user {
+    float: right;
+}
+
+.form-bottom {
+    margin-top: 14px;
+}
+
+.footer-wraper {
+    position: fixed;
+}
+
+@media (max-width:991px) {
+    .row {
+        height: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .col-xs-0 {
+        display: none;
+    }
+
+    body {
+        overflow: hidden;
+        height: 100%;
+    }
+}
+
+
+
+.login-form input:not(#checkbox):focus,
+.login-form #password:focus {
+    border: 2px solid #3b7eb8 !important;
+    outline: none;
+}
+
+
+input[type=password]::-ms-reveal,
+input[type=password]::-ms-clear {
+    display: none;
+}
+
+input[type='text'],
+input[type='password'],
+input[type='number'],
+textarea {
+    font-size: 16px;
+}

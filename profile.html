@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,500i,600,600i,700,700i,800" rel="stylesheet">
+    <link href="resources/idm-service/resources/css/font-awesome.min.css" rel="stylesheet">
+    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+
+    <link href="resources/idm-service/resources/css/responsive.css" rel="stylesheet">
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
+
+    <!-- jqxv4.3.0 -->
+    <link href="resources/jqwidgets/styles/jqx.base.css" rel="stylesheet">
+    <link href="resources/jqwidgets/styles/jqx.light.css" rel="stylesheet">
+
+    <link href="resources/idm-service/resources/css/main.css" rel="stylesheet" />
+    <link href="resources/css/intlTelInput.css" rel="stylesheet">
+    <link href="resources/css/profile.css" rel="stylesheet">
+    
+
+    <link rel="stylesheet" href="resources/css/slick.grid.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/slick.pager.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/slick.columnpicker.css" type="text/css" />
+
+    <link rel="stylesheet" href="resources/css/menu.css">
+    <link rel="stylesheet" href="resources/css/footer.css">
+    <link href="resources/css/apprise.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="resources/css/json-viewer.css">
+
+    <link rel="stylesheet" href="dist/themes/default/style.min.css" />
+
+    <link rel="stylesheet" href="resources/css/monitor-gui.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/monitor-ui.css" type="text/css" />
+
+    
+    <!-- <script src="resources/idm-service/resources/js/jquery-1.12.3.js"></script> -->
+
+    
+
+    <script src="resources/js/jquery-3.6.0.min.js"></script> 
+
+    <script src="resources/idm-service/resources/js/bootstrap.min.js" async></script>
+    <script src="resources/idm-service/resources/js/bootstrap-dropdown.js" async></script>
+    <script src="resources/js/jquery-ui.js" async></script>
+
+    <script src="dist/jstree.min.js"></script>
+
+    <script src="resources/jqwidgets/jqxcore.js"></script>
+    <script src="resources/jqwidgets/jqxdata.js" async></script>
+    <script src="resources/jqwidgets/jqxsplitter.js" async></script>
+    <script src="resources/jqwidgets/jqxpopover.js" async></script>
+    <script src="resources/jqwidgets/jqxgrid.js"></script>
+    <script src="resources/jqwidgets/jqxgrid.sort.js" async></script>
+    <script src="resources/jqwidgets/jqxgrid.selection.js" async></script>
+    <script src="resources/jqwidgets/jqxgrid.columnsresize.js" async></script>
+    <script src="resources/jqwidgets/jqxscrollbar.js" async></script>
+    <script src="resources/jqwidgets/jqxbuttons.js" async></script>
+    <script src="resources/jqwidgets/jqxmenu.js" async></script>
+    <script src="resources/jqwidgets/jqxlistbox.js" async></script>
+    <script src="resources/jqwidgets/jqxpasswordinput.js" async></script>
+    <script src="resources/jqwidgets/jqxgrid.filter.js" async></script>
+    <script src="resources/jqwidgets/jqxdropdownlist.js" async></script>
+    <script src="resources/jqwidgets/jqxinput.js" async></script>
+    <script src="resources/jqwidgets/jqxdatetimeinput.js" async></script>
+    <script src="resources/jqwidgets/jqxcalendar.js" async></script>
+    <script src="resources/jqwidgets/jqxtabs.js" async></script>
+    <script src="resources/jqwidgets/jqxtoolbar.js" async></script>
+    <script src="resources/jqwidgets/jqxswitchbutton.js" async></script>
+    <script src="resources/jqwidgets/jqxtoolbar.js" async></script>
+    <script src="resources/jqwidgets/jqxtextarea.js" async></script>
+    <script src="resources/jqwidgets/jqxpanel.js" async></script>
+    <script src="resources/jqwidgets/jqxtooltip.js" async></script>
+    <script src="resources/jqwidgets/jqxwindow.js" async></script>
+    <script src="resources/jqwidgets/jqxcheckbox.js" async></script>
+    <script src="resources/jqwidgets/jqxgrid.pager.js" async></script>
+    <script src="resources/jqwidgets/jqxdropdownbutton.js" async></script>
+    <script src="resources/jqwidgets/jqxdragdrop.js" async></script>
+    <script src="resources/js/intlTelInput.js" async></script>
+    <script src="resources/js/data.js" async></script>
+
+    <script src="resources/js/jquery.event.drag-2.3.0.js"></script>
+    <script src="resources/js/slick.core.js"></script>
+    <script src="resources/js/slick.formatters.js" async></script>
+    <script src="resources/js/slick.editors.js">
+        async
+    </script>
+    <script src="resources/js/slick.rowselectionmodel.js" async></script>
+    <script src="resources/js/slick.grid.js" async></script>
+    <script src="resources/js/slick.dataview.js" async></script>
+    <script src="resources/js/slick.cellrangeselector.js" async></script>
+    <script src="resources/js/slick.cellselectionmodel.js" async></script>
+    <script src="resources/js/slick.rowmovemanager.js" async></script>
+    <script src="resources/js/slick.checkboxselectcolumn.js" async></script>
+
+    <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js" async></script>
+    <script src="resources/js/jquery.easy-confirm-dialog.js" async></script>
+    <script src="resources/js/messages.js" async></script>
+    <script src="dev/api/authentication.js"></script>
+    <script src="dev/api/user_favorites.js"></script>
+    <script src="dev/api/config/config.js"></script>
+    <script src="dev/api/utils/folders.js" async></script>
+    <script src="dev/api/utils/utils.js"></script>
+    <script src="resources/js/top-menu.js" async></script>
+    <script src="resources/js/apprise.js" async></script>
+    <script src="resources/js/goto_homepage.js" async></script>
+    <script src="resources/js/include-html.js" async></script>
+
+    <link rel="icon" type="image/x-icon" href="resources/favicon.png">
+
+    <style>
+        ul.dropdown-item {
+            text-align: left;
+        }
+    </style>
+
+    <title>My Account</title>
+</head>
+
+<body style="background: rgb(236, 236, 236);" class="seriesviewer">
+    <div class="fixpage">
+
+        <nav include-html="menu.html" id="menu_file" class="navbar navbar-default "></nav>
+
+        <section class="main-content dis-block clearfix footer-space">
+
+            <div id="content">
+                <span class="openMenu" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
+                <div style="position: relative;" class="tabs-menu-wrapper">
+                    <div id="tabs-menu">
+                        <h1>
+                            My Account</h1>
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <ul>
+                            <li data-page="tab1" data-tab='MyProfile' class="active">
+                                <div class="profileIco"></div>My Profile
+                            </li>
+                            <li data-page="tab2" data-tab='ChangePassword'>
+                                <div class="passswordIco"></div>Change Password
+                            </li>
+                            <li data-page="tab3" data-tab='YourAPIKey'>
+                                <div class="APIkeyIco"></div>Your API Key
+                            </li>
+                            <li data-page="tab4" data-tab='SessionToken'>
+                                <div class="sessionIco"></div>Session Token
+                            </li>
+                            <li data-page="tab5" data-tab='LoginSettings'>
+                                <div class="settingsIco"></div>Login Settings
+                            </li>
+                            <li data-page="tab6" data-tab='MySubscriptions'>
+                                <div class="subscriptionsIco"></div>My Subscriptions
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div id="pages">
+                    <div class="page active" id="tab1">
+                        <div class="header">
+                            <img src="resources/css/icons/User.png" height="50">
+                            <h2>My Profile</h2>
+                        </div>
+                        <div class="content">
+                            <div class="secTitle">
+                                <span>Personal Information</span>
+                            </div>
+                            <div class="secContent">
+                                <div class="p-row">
+                                    <div>Name: </div><span id="name"></span>
+                                    <span class="reference">Reference No: <span></span></span>
+                                </div>
+                                <div class="p-row">
+                                    <div>Company: </div><span id="company"></span>
+                                </div>
+                                <div class="p-row">
+                                    <div>Address: </div>
+                                    <div id="address">
+                                        <p></p>
+                                        <p></p>
+                                        <p></p>
+                                        <p></p>
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="p-row">
+                                    <div>Country: </div><span id="country"></span>
+                                </div>
+                                <div class="p-row">
+                                    <div>Phone: </div><span id="phone"></span>
+                                </div>
+                            </div>
+                            <div class="secTitle">
+                                <span>E-mail address</span>
+                            </div>
+                            <div class="secContent">
+                                <div class="p-row">
+                                    <div>Email: </div><span id="email"></span>
+                                </div>
+                            </div>
+                            <div class="secTitle">
+                                <span>Account Status</span>
+                            </div>
+                            <div class="secContent">
+                                <div class="p-row">
+                                    <div id="access">Active: </div><img height="28" src="resources/css/icons/True.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page" id="tab2">
+
+                        <div class="header">
+                            <img src="resources/css/icons/Password.png" height="25">
+                            <h2>Change Password</h2>
+                        </div>
+                        <div class="content">
+                            <div class="secTitle"></div>
+                            <div class="secContent">
+                                <div class="sec-txt">
+                                    <p>For security reasons it is recommended that 'passphrases' are used instead of passwords. A passphrase is a string of random words - much easier to remember than a password and infinitely harder to crack.</p>
+                                    <p>To create a passphrase, you need a unique, memorable and random phrase that is at least four words long. Five words or more is better and the words should be completely random.</p>
+                                    <p>To assist you creating in creating a random passphrase, we have included a passphrase generator. To use it, click the "Generate Passphrase" button until you find a passphrase that you like. You can edit and change the
+                                        words as you wish before saving them. <b style="color: #727272;">Any generated
+											passphrases
+											are suggestions only and
+											are used by you entirely at your own discretion and risk.</b></p>
+                                    <p>If you choose to use a single word as a password, it should be at least 8 characters long, contain upper and lower case characters, a number and a special character.
+                                    </p>
+                                    <p>Remember that whatever passphrase you choose, you'll have to type it at least once a day!</p>
+                                </div>
+                                <div class="sec-form">
+                                    <label for="newPassword" style="margin-top: 4px;">New Passphrase:</label>
+                                    <div class="d-flex justify-content-end" style="margin-bottom: 3px;">
+                                        <a href="javascript:void(0);" id="generatedPass" class="btn-sm">Generate
+											Passphrase</a>
+                                        <div id="words-wrapper">
+                                            <div id="words-number"></div>
+                                        </div>
+                                    </div>
+                                    <input class="form-control password_show" name="newPassword" id="newPassword" maxlength="120" type="text" autocomplete="off">
+
+                                    <br>
+                                    <label for="confrimPassword" style="margin-top:14px; display:block;">Confirm
+										Passphrase:</label>
+                                    <input class="form-control password_show" name="confrimPassword" id="confrimPassword" maxlength="120" type="text">
+                                    <button id="btnSaveUserPassword" class="btn btn-success btn-sm" type="submit">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page" id="tab3">
+                        <div class="header">
+                            <img src="resources/css/icons/smChangeAPIKey.png" height="50">
+                            <h2>Your API Key</h2>
+                        </div>
+                        <div class="content">
+                            <div class="secTitle"></div>
+                            <div class="secContent">
+                                <div class="sec-txt">
+                                    <p>The API key is used to access the market data and metadata on the Monitor+ service. You can change the API key at any time. Changing the API key changes the key stored on the server.</p>
+                                    <p>Remember to change the key in all applications that also use the API key (as they may use a local copy).<br>These include in-house applications, XLerate for Excel and the Monitor+ 'R' or Python libraries.</p>
+                                </div>
+                                <div class="sec-form">
+                                    <div class="p-row key-row">
+                                        <div class="d-flex align-items-center">
+                                            <label style="white-space: nowrap;">Your API Key:</label>
+                                            <div class="w-100">
+                                                <input type="password" class="prop-value" id="apiKey" autocomplete="off" readonly>
+                                                <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                                            </div>
+
+                                        </div>
+                                        <span id="copyAPIKey">Copy</span>
+                                        <input class="btn btn-success" type="button" id="newAPIKey" value="Change your API Key">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page" id="tab4">
+                        <div class="header">
+                            <img src="resources/css/icons/Token1.png" height="50">
+                            <h2>Current Session Token</h2>
+                        </div>
+                        <div class="content">
+                            <div class="secTitle"></div>
+                            <div class="secContent">
+                                <div class="sec-txt">
+                                    <p>Session tokens are unique digital identifiers, used to communicate securely between the application and the Monitor+ server. They are server generated and are allow the server to know who your and what data you can
+                                        access.
+                                    </p>
+                                    <p>Session tokens allow for fast authentication in all data requests, are tied to your IP address, have a short life and automatically expire.</p>
+                                </div>
+                                <div class="sec-form">
+                                    <div class="p-row">
+                                        <div class="box" style="margin-right:15px; display: flex; flex-direction: column;">
+                                            <div>Session Token</div>
+                                            <div class="prop-value" id="session-key"><span id="session-token"></span>
+                                            </div>
+                                            <input id="newSession" class="btn btn-success btn-session btn-new" type="submit" value="New" title="Generate a new session token">
+                                            <!--<input id="deleteSession" class="btn btn-danger btn-session btn-delete"
+												type="submit" value="Clear" title="Clear the current session token">-->
+                                        </div>
+                                        <div class="box" style="width:130px;">
+                                            <div>Remaining</div>
+                                            <div class="prop-value" id="remaining"><span id="remaining-token"></span>
+                                            </div>
+                                            <img id="refreshSessionToken" height="28" src="resources/css/icons/Refresh-Clear.png" title="Reset token to full life">
+                                        </div>
+                                        <div class="box" style="width:150px;">
+                                            <div>Token Life</div>
+                                            <input type="text" id="token-life" style="width:55px; height:42px; margin:10px; border:1px solid #ddd; border-radius:4px; padding:10px;" maxlength=4 value="10" title="Minutes of life for a new session token. Range is 1 to 1440 (1 day).">
+                                            <span>Mins.</span>
+                                            <div class="d-flex align-items-center" style="padding-left: 10px;">
+                                                <input id="saveDefault" type="button" value="Save">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page" id="tab5">
+                        <div class="header">
+                            <img src="resources/css/icons/loginSettings.png" height="50">
+                            <h2>Login Settings</h2>
+                        </div>
+                        <div class="content">
+                            <div class="secTitle"></div>
+                            <div class="secContent">
+                                <div class="sec-txt">
+                                    <p>You can choose to 'remember' the values used in the account login window so they're visible when the window is displayed. We do <b>not</b> recommend that you choose to remember the password as an unattended system can
+                                        be vulnerable to unauthorised access.</p>
+                                    <p>For security reasons you will still need to enter the password the first time you login for each session - even if you choose to remember the password.</p>
+                                    <p>We strongly recommend a commercial password manager as a more convenient and safer way to store and retrieve your login credentials.</p>
+                                </div>
+                                <div class="sec-form">
+                                    <table class="rememberSettings">
+                                        <tbody>
+                                            <tr>
+                                                <td class="prop-name">User Reference No</td>
+                                                <td class="prop-value"><input name="id" type="checkbox"></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="prop-name">User Name</td>
+                                                <td class="prop-value"><input name="username" type="checkbox"></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="prop-name">Password</td>
+                                                <td class="prop-value" id="password-value"><input name="password" type="checkbox"></td>
+                                                <td class="not-recommended"> ( <b>Not</b> recommended ) </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="prop-name">Confirmation box</td>
+                                                <td class="prop-value"><input name="checkbox" type="checkbox"></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr style="height:20px">
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="prop-name">Automatically renew token</td>
+                                                <td class="prop-value"><input name="renewToken" id="renewToken" type="checkbox"></td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="panel" style="display: block;">
+                                        <input id="saveSettings" class="btn btn-success ms-auto d-block" type="submit" value="Save">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page" id="tab6">
+                        <div class="header">
+                            <img src="resources/css/icons/MySubs.png" height="50">
+                            <h2>My Subscriptions</h2>
+                            <a href="MySubscriptions"><img title="List view" id="listViewer" src="resources/css/icons/List.png"></a>
+                        </div>
+                        <div class="content">
+                            <div class="secTitle">
+                                <span></span>
+                                <span class="reference">Reference No: <span></span></span>
+                            </div>
+                            <div class="secContent">
+                                <div class="idm-database-block">
+                                    <div class="row justify-content-between"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+
+        <div id="jqxWidget">
+            <div style="width: 100%; height: 650px; margin-top: 50px;" id="mainDemoContainer">
+                <div id="window">
+                    <div id="windowHeader">
+                        <span>
+							<img height="24" src="/resources/favicon.png" alt="" style="margin-right: 10px" /> <span
+								id="databaseName"></span> Databases
+                        </span>
+                    </div>
+                    <div style="overflow: hidden;width: 100%;height: 100%;" id="windowContent">
+                        <div id="jqxgrid"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="dialogWindow">
+            <span id="dialogWindowContent"></span>
+        </div>
+
+        <div include-html="footer.html" id="footer_file"></div>
+        <div class="text-center footertxt">
+            <p class="sub-logo"> Copyright © 2018-2022 Sarus Systems Limited - Market Data Solutions </p>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        function loadScript(src) {
+            var scriptElem = document.createElement('script');
+            scriptElem.setAttribute('src', src);
+            scriptElem.setAttribute('type', 'text/javascript');
+            document.getElementsByTagName('head')[0].appendChild(scriptElem);
+        }
+
+        setTimeout("loadScript('resources/js/profile.js');", 100);
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <!-- Title -->
+    <title>Sarus Login</title>
+
+    <!-- CSS Files -->
+    <link rel="icon" type="image/x-icon" href="resources/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,500i,600,600i,700,700i,800" rel="stylesheet">
+    <link href="resources/idm-service/resources/css/font-awesome.min.css" rel="stylesheet">
+    <link href="resources/idm-service/resources/css/bootstrap-navbar.css" rel="stylesheet">
+    <link href="resources/idm-service/resources/css/main.css" rel="stylesheet">
+    <link href="resources/idm-service/resources/css/responsive.css" rel="stylesheet">
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
+    <link href="resources/css/login.css" rel="stylesheet">
+    <link rel="stylesheet" href="resources/css/menu.css">
+    <link rel="stylesheet" href="resources/css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+
+    <link href="resources/jqwidgets/styles/jqx.base.css" rel="stylesheet">
+    <link href="resources/jqwidgets/styles/jqx.light.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="resources/css/slick.grid.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/slick.pager.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/slick.columnpicker.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/monitor-gui.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/monitor-ui.css" type="text/css" />
+
+    <!-- JS Files -->
+
+    <script1 src="resources/idm-service/resources/js/jquery-1.12.3.js"></script1>
+    <script src="resources/js/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+    <script src="resources/idm-service/resources/js/bootstrap.min.js"></script>
+    <script src="resources/idm-service/resources/js/bootstrap-dropdown.js"></script>
+    <script src="resources/js/jquery-ui.js"></script>
+
+    <script src="resources/jqwidgets/jqxcore.js"></script>
+    <script src="resources/jqwidgets/jqxwindow.js" async></script>
+    <script src="resources/jqwidgets/jqxsplitter.js" async></script>
+    <script src="resources/jqwidgets/jqxscrollbar.js" async></script>
+    <script src="resources/jqwidgets/jqxbuttons.js" async></script>
+    <script src="resources/jqwidgets/jqxinput.js" async></script>
+    <script src="resources/jqwidgets/jqxlistbox.js" async></script>
+    <script src="resources/jqwidgets/jqxdropdownlist.js" async></script>
+    <script src="resources/jqwidgets/jqxmenu.js" async></script>
+    <script src="resources/jqwidgets/jqxcheckbox.js" async></script>
+
+    <script src="resources/js/jquery.event.drag-2.3.0.js"></script>
+    <script src="resources/js/slick.core.js"></script>
+    <script src="resources/js/slick.formatters.js" async></script>
+    <script src="resources/js/slick.editors.js" async></script>
+    <script src="resources/js/slick.rowselectionmodel.js" async></script>
+    <script src="resources/js/slick.grid.js" async></script>
+    <script src="resources/js/slick.dataview.js" async></script>
+    <script src="resources/js/slick.cellrangeselector.js" async></script>
+    <script src="resources/js/slick.cellselectionmodel.js" async></script>
+    <script src="resources/js/slick.rowmovemanager.js" async></script>
+    <script src="resources/js/slick.checkboxselectcolumn.js" async></script>
+
+    <script src="dev/api/config/config.js"></script>
+    <script src="dev/api/authentication.js"></script>
+    <script src="dev/api/user_favorites.js"></script>
+    <script src="resources/js/top-menu.js"></script>
+    <script src="resources/js/messages.js" defer></script>
+    <script src="resources/js/login.js" defer></script>
+
+    <style>
+        .login-form input:not(#checkbox):focus {
+            border: 2px solid blue !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fixpage login-page">
+
+        <nav class="navbar navbar-default navbar-fixed-top" include-html="menu.html" id="menu_file"></nav>
+
+        <section class="full-height">
+            <div class="container">
+                <div class="row" style="display: table-row;">
+                    <div class="no-float login-img col-xs-0 col-sm-4 col-lg-6">
+                        <div class="lockImg"></div>
+                    </div>
+                    <div class="no-float login-form col-xs-12 col-sm-8 col-lg-6">
+                        <div class="right-side">
+                            <h1>Welcome</h1>
+                            <div>Please login to continue</div>
+                            <form id="loginForm" action="javascript:void(0)">
+                                <label for="id"><b>Reference Number</b></label>
+                                <input type="text" name="id" id="id" autocomplete="off" required>
+
+                                <label for="username"><b>User Name</b></label>
+                                <input type="text" name="username" id="usernameForm" autocomplete="off" required>
+
+                                <label for="password"><b>Password</b></label>
+
+                                <div>
+                                    <input type="password" id="password">
+                                    <i class="fas fa-eye-slash eye" id="eye"></i>
+                                </div>
+                                <label class="login-checkbox">
+									<input type="checkbox" id="checkbox" required> I have read and accept the <a
+										href="terms-and-conditions" id="termAndConditions" data-toggle="popover"
+										data-placement="bottom" data-trigger="focus">Term and Conditions</a>
+								</label>
+
+                                <button type="submit" class="btn" id="btnLogin">Login</button>
+
+                                <div class="form-bottom">
+                                    <a id="forgote-pass" href="forgot-password" class="link">Forgot password?</a>
+                                    <a id="new-user" href="registration" class="link">Register</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="dialogWindow">
+            <span id="dialogWindowContent"></span>
+        </div>
+
+        <div class="text-center footertxt">
+            <p class="sub-logo"> Copyright © 2018-2022 Sarus Systems Limited - Market Data Solutions </p>
+        </div>
+
+    </div>
+
+    <script src="resources/js/include-html.js" async></script>
+    <script>
+        let password = document.querySelector("#password")
+        window.addEventListener("keydown", (e) => {
+            if (e.key == "Tab") {
+                setTimeout(() => {
+                    if (password == document.activeElement) {
+                        console.log("yes")
+                        password.select();
+                    } else {
+                        console.log("no")
+                    }
+                }, 100)
+
+
+            }
+        })
+    </script>
+</body>
+
+</html>

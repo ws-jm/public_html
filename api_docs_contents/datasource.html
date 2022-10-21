@@ -1,0 +1,130 @@
+<div>
+	<div class="api-right-txt">
+		<h3 class="doc-sec-title main_sections_right_img"> <span class="doc-sec-count"
+				style="display:inline-block">3.
+				&nbsp;Datasource Metadata</span>
+				<img class="size-full wp-image-1629 alignleft"
+					src="resources/database.png" alt="" width="100" height="100">
+		</h3>
+		<div class="doc-sec-content">
+			<p> </p>
+			<p> </p>
+			<p> </p>
+			<p> </p>
+			<h2>Datasources</h2>
+			<p>Our datasources are time series databases containing end of day
+				market data from exchanges, commodity markets, stock markets,
+				banks, governments, NGO’s, data vendors and independent pricing
+				agencies from around the world. A datasource contains both
+				datasets (historical time series) and metadata
+				(information describing the datasource and its datasets).</p>
+			<p>The datasource endpoints allow you to get:</p>
+			<ul>
+				<li> The metadata for one named datasource using the
+					<em>GetDatasource</em> endpoint.
+				</li>
+				<li> A metadata list of all the available datasources on
+					the server using the <em>GetAllDatasources</em> endpoint.
+				</li>
+				<li> A metadata list of accessible datasources (based on
+					the subscription) using the <em>GetUserDatasources</em>
+					endpoint.</li>
+			</ul>
+			<p>Some datasources are subdivided and grouped into data
+				categories for logical or commercial reasons. We refer to
+				these types of datasource as “CategoryDS” datasources.
+				Typically a user may not have access to all the data categories
+				in a CategoryDS datasource. The data category name will need to
+				be included in all dataset/value requests as it is
+				possible that a symbol exists in more than one data
+				category. CategoryDS datasources can optionally also return a
+				category list (and tree) of all available data
+				categories as well as the categories that the user can
+				access in the datasource. See the “CategoryDS datasources” section 
+				below for more details.</p>
+			<p>To make it easier for users to locate the datasets they
+				require, some datasource endpoints <i>may </i>return a
+				hierarchical data tree that can be used to organize some or all
+				of the the datasets by market, region, instrument type, exchange
+				etc. If present, this tree can be used in 3rd party
+				applications to help organise a non CategoryDS datasource.</p>
+
+
+			<div class="single-notes notes-indent">
+				<div>Notes</div>
+				<ul>
+					<li>A subscriber may not have access to the full data range
+						available in any datasource, data category or dataset
+						(subscription limitations).</li>
+					<li>The <em>GetUserDatasources </em> endpoint returns
+						the date range that is <em>available </em>to the
+						subscriber for each datasource and for the data categories
+						in a CategoryDS datasource.</li>
+					<li>The <em>GetDatasource </em>endpoint returns the
+						the metadata about a single datasource including any
+						subscription access details.</li>
+					<li>Datasources can be defined as ‘premium’ or
+						‘complimentary’. Complimentary datasources may be
+						freely available with a premium datasource.</li>
+					<li>The datasource metadata reports if the datasource is a
+						“CategoryDS” datasource, has an optional data tree, is
+						premium and the number of datasets/data categories in the
+						datasource.</li>
+					<li>Use the <em>Datasets metadata</em> endpoints to
+						view the list of datasets that are in any datasource.</li>
+				</ul>
+			</div>
+			<div class="api-article-main-example">
+				<div class="api-article-table">
+					<div class="api-article-table">
+						<div class="api-article-table">
+
+							<div class="single-notes notes-indent">
+								<div>CategoryDS datasources</div>
+								<br>
+								<ul>
+									<li>A CategoryDS is a datasource whose datasets
+										are grouped in data categories. The user
+										must be authorised to access individual
+										data categories.</li>
+									<li>Category datasources are defined in their
+										metatata as “<em>ISCategoryDS</em>“:
+										true and have a “<em>CategoryCount</em>”
+										parameter value greater than zero.</li>
+									<li>The category name parameter must be used in
+										all data requests to a CategoryDS
+										datasource.</li>
+									<li>In GET
+										requests <em>Datasource</em>,
+										<em>Datacategory</em> (in a
+											CategoryDS
+											datasource only) and <em>Symbol</em>
+											are
+											combined into one ‘Series’
+											string.<br>
+											e.g.
+											Symbols[]=Datasource/Datacategory/Symbol&amp;Symbols[]
+											= …
+										</li>																			
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="api-article-table">
+				<h3></h3>
+			</div>
+		</div>
+		<div class="last-date">
+			<div class="date">Last updated on June 3, 2021
+			</div>
+		</div>
+		<br>
+	</div>
+
+	<div class="dis-block clearfix">
+		<a href="javascript:move_section('#querysessiontoken')" class="doc-prev"><i class="fas fa-chevron-circle-left"></i> Query a Session Token</a>
+		<a href="javascript:move_section('#getonedatasource')" class="doc-next">Get Metadata for one Datasource<i class="fas fa-chevron-circle-right"></i></a>
+	</div>
+</div>

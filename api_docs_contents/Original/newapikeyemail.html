@@ -1,0 +1,455 @@
+<div>
+	<div class="doc-sec-container" id="documentor_seccontainer">
+		<div class="doc-sectionwrap" id="request-api-key-via-email_wrap">
+			<div class="documentor-section  section-624"
+				id="request-api-key-via-email" data-section-id="624">
+				<h3 class="doc-sec-title"> <span class="doc-sec-count"
+						style="display:inline-block">7.3.</span><span
+						class="title-text">&nbsp;&nbsp; Request a new API key via
+						email</span>
+				</h3>
+				<div class="doc-sec-content">
+					<h2><b><span style="color: #339966;"><span
+									style="color: #008000;">GET</span>
+							</span></b><b>RequestAPIKey</b>
+					</h2>
+					<p><strong>Description:</strong>&nbsp;&nbsp;Request a new API
+						key be sent to your
+						registered email address. The API key is emailed to the
+						email
+						address parameter (if valid).</p>
+
+
+					<p> </p>
+					<div class="api-article-main-example">
+						<h4><b style="color: RGB(54, 96,146);"><span
+									style="color: #008000;">GET</span> Sample
+								Request:</b>
+						</h4>
+						<pre><span class="spanColor">GET</span> https://[server]/RequestAPIKey?Email=myemail@mydomain.com</pre>
+					</div>
+					
+					
+						<div class="single-notes notes-indent">
+						<div> Notes</div>
+						<ul>
+							<li>You must use the email address registered with your
+								account.</li>
+							<li>An email message with the new API key will be sent
+								if
+								the email address is registered. Delete the email as
+								soon as possible.</li>
+							<li>For security reasons, You can only call this
+								endpoint once
+								every 3 minutes.</li>
+							<li>You can also change your API key by using the “My
+								Account” feature in the web portal.</li>
+						</ul>
+					</div>													
+					
+					
+					
+					<div class="api-article-table">
+						<h3></h3>
+					
+						<table style="height: 81px;" width="792">
+						<h3>Request parameter</h3>
+<tbody>
+								<tr>
+									<td><strong>Parameter</strong></td>
+									<td><strong>Type</strong></td>
+									<td style="text-align: center;">
+										<strong>Description</strong>
+									</td>
+								</tr>
+								<tr>
+									<td>Email</td>
+									<td>String</td>
+									<td>The email address that is registered to your
+										account.</td>
+								</tr>
+							</tbody>
+						</table>
+						<h3></h3>
+						<div class="api-article-table">
+							<div class="api-article-table">
+								<div class="api-article-table">
+									<h3>Response Parameters</h3>
+									<table class="table table-bordered">
+										<thead>
+											<tr>
+												<th style="text-align: right;"></th>
+												<th style="text-align: left;">
+													<b>Parameter</b>
+												</th>
+												<th style="text-align: left;">Type
+												</th>
+												<th style="text-align: center;">
+													<strong>Mandatory</strong>
+												</th>
+												<th style="text-align: center;">
+													<strong>Description</strong>
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td style="text-align: right;"><span
+														style="color: #000000;">1</span>
+												</td>
+												<td><span
+														style="color: #000000;">ServerDateTime</span>
+												</td>
+												<td><span
+														style="color: #000000;">String</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">Yes</span>
+												</td>
+												<td><span
+														style="color: #000000;">The
+														server UTC date and time as
+														an
+														ISO 8601 string.</span></td>
+											</tr>
+											<tr>
+												<td style="text-align: right;"><span
+														style="color: #000000;">2</span>
+												</td>
+												<td><span
+														style="color: #000000;">TimeStamp</span>
+												</td>
+												<td><span
+														style="color: #000000;">Float</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">Yes</span>
+												</td>
+												<td><span
+														style="color: #000000;">Server
+														date and time as a Julian
+														date.</span></td>
+											</tr>
+											<tr>
+												<td style="text-align: right;"><span
+														style="color: #000000;">3</span>
+												</td>
+												<td><span
+														style="color: #000000;">ExecutionTime</span>
+												</td>
+												<td><span
+														style="color: #000000;">Float</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">Yes</span>
+												</td>
+												<td><span
+														style="color: #000000;">The
+														number of milliseconds taken
+														to
+														process the request.</span>
+												</td>
+											</tr>
+											<tr>
+												<td style="text-align: right;"><span
+														style="color: #808080;">4</span>
+												</td>
+												<td><span
+														style="color: #808080;">Result</span>
+												</td>
+												<td><span
+														style="color: #808080;">[Object]</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #808080;">No*</span>
+												</td>
+												<td><span style="color: #808080;">A
+														<em>Result</em> object as
+														described in table
+														below.</span>
+												</td>
+											</tr>
+											<tr>
+												<td style="text-align: right;"><span
+														style="color: #808080;">5</span>
+												</td>
+												<td><span
+														style="color: #808080;">Errors</span>
+												</td>
+												<td><span
+														style="color: #808080;">[Object]</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #808080;">No*</span>
+												</td>
+												<td><span style="color: #808080;">An
+														'<em>Errors</em>' object as
+														described in table
+														below.</span>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+								<div class="single-notes notes-indent">
+									<div> Note</div>
+									<p>A successful API response will return
+										a <em>Result</em> object with the
+										requested
+										payload <strong>or</strong> an
+										'<em>Errors</em>' object
+										detailing the issue that caused the error.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="api-article-table" style="margin-top: 25px;">
+						<div class="api-article-table">
+							<div class="api-article-table"
+								style="padding-left: 0px;">
+							</div>
+						</div>
+					</div>
+					<div style="padding-left: 30px;">
+						<div class="api-article-table" style="padding-left: 0px;">
+							<div class="api-article-table"
+								style="padding-left: 0px;">
+								<h3>Result Object</h3>
+							</div>
+						</div>
+					</div>
+					<div style="padding-left: 0px;">
+						<table class="table table-bordered"
+							style="margin-left: 30px;">
+							<thead>
+								<tr>
+									<th></th>
+									<th><b>Parameter</b></th>
+									<th>Type</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>Status</td>
+									<td>Integer</td>
+									<td>HTTP status code. 200 for success</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>Detail</td>
+									<td>String</td>
+									<td>Description of the status code above.</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="api-article-table" style="padding-left: 30px;">
+							<h3></h3>
+							<h3>Errors Object</h3>
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th></th>
+										<th><b>Parameter</b></th>
+										<th>Type</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>Status</td>
+										<td>Integer</td>
+										<td>HTTP status code.</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>Detail</td>
+										<td>String</td>
+										<td>Description of the status code above.
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<p> </p>
+						</div>
+					</div>
+					<div>
+						<div class="api-article-table">
+							<div class="api-article-table">
+								<h4 style="padding-left: 60px;">Possible Status
+									codes in
+									the '<em>Errors</em>' object</h4>
+							</div>
+						</div>
+					</div>
+					<table class="table table-bordered" style="margin-left: 60px;">
+						<thead style="padding-left: 150px;">
+							<tr style="padding-left: 150px;">
+								<th>Code</th>
+								<th style="text-align: center;">Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>400</td>
+								<td>Missing parameter or unknown argument in
+									request.
+								</td>
+							</tr>
+							<tr>
+								<td>403</td>
+								<td>The account assigned to this email address is
+									inactive.</td>
+							</tr>
+							<tr>
+								<td>405</td>
+								<td>Method [request] not allowed.</td>
+							</tr>
+							<tr>
+								<td>429</td>
+								<td>
+									<div>
+										<div>Requested too many
+											times. You may retry in
+											3 minutes”</div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>500</td>
+								<td>Server may be down for maintenance.</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="single-notes notes-indent"
+						style="margin-left: 78px;">
+						<div> Note</div>
+						<p>This is not an
+							exhaustive list and additional error codes may be
+							returned. The <em>Errors </em>object <em>Detail</em>
+							field will return request specific error information.
+						</p>
+					</div>
+					<div class="api-article-table"
+						style="padding-left: 30px; margin-top: 25px;"></div>
+					<h3>Possible HTTP response codes</h3>
+					<p style="line-height:30px !important ;"><span
+							class="spanColor">This endpoint returns 200 for
+							success. <br>
+							You can get HTTP client network errors or server
+							errors from any API request. You should check
+							with your network or IT colleagues in case the issue is
+							a
+							local one. <br>
+							All server generated errors will return an
+							'<em>Errors</em>'
+							object that will give specific details about the error.
+							<br>
+							A full list of HTTP codes and their meanings is
+							available <a
+								href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">here</a>,</span>
+					</p>
+					<h2></h2>
+					<h3></h3>
+					<h2>Success and fail examples</h2>
+					<h4><b style="color: RGB(54, 96,146);">Sample Request:</b></h4>
+					<div class="api-article-main-example">
+						<pre>GET https://[server]/GetAccountDetails?SessionToken=YOUR_SESSION_TOKEN
+	</pre>
+					</div>
+					<div class="api-article-main-blockExample">
+						<h4></h4>
+						<h4><strong>Response body on success:</strong></h4>
+
+						<div id="NAKE_Success"></div>
+					</div>
+					<div class="api-article-main-blockExample">
+						<h4></h4>
+						<h4><strong>Response body on fail:</strong></h4>
+
+						<div id="NAKE_Fail"></div>
+					</div>
+				</div>
+				<div class="last-date">
+					<div class="date">Last updated on May 7, 2021</div>
+				</div>
+				<br>
+			</div>
+			
+		<div class="dis-block clearfix">
+				<a href="javascript:move_section('#newapikey')" class="doc-prev"><i class="fas fa-chevron-circle-left"></i>Request a new API Key</a>
+				<a href="javascript:move_section('#resetpassword')" class="doc-next">Reset the Account Password<i class="fas fa-chevron-circle-right"></i></a>
+			</div>
+															
+		</div>
+		<!--./doc-sectionwrap-->
+	</div>
+</div>
+
+
+<script>
+	
+
+	// **************Responses(Success and Fail)***************
+
+	// ***AUTHENTICATION***
+
+	// ***MY ACCOUNT***
+	// Request a New Api Key via Email
+
+	var NAKE_Success_Obj = {};
+	var jsonViewer_NAKE_Success = new JSONViewer();
+	document.querySelector("#NAKE_Success").appendChild(jsonViewer_NAKE_Success.getContainer());
+
+
+	NAKE_Success = JSON.stringify({
+		"ServerDateTime": "2018-03-8T14:29:18Z",
+		"TimeStamp": 2458186.1036806,
+		"ExecutionTime": 0.004,
+		"Result": {
+			"Status": 200,
+			"Detail": "OK"
+		}
+	}
+	);
+
+
+
+	var NAKE_Fail_Obj = {};
+	var jsonViewer_NAKE_Fail = new JSONViewer();
+	document.querySelector("#NAKE_Fail").appendChild(jsonViewer_NAKE_Fail.getContainer());
+
+	NAKE_Fail = JSON.stringify({
+		"ServerDateTime": "2017-11-30T19:38:15Z",
+		"TimeStamp": 2458088.3182292,
+		"ExecutionTime": 0.000,
+		"Errors": [
+			{
+				"Status": 429,
+				"Details": "Too Many Requests. You may retry in 3 minutes.",
+			}
+		]
+	}
+	);
+
+
+	var setJSON = function () {
+
+		NAKE_Success_Obj = JSON.parse(NAKE_Success);
+		NAKE_Fail_Obj = JSON.parse(NAKE_Fail);
+	}
+
+
+	setJSON();
+	jsonViewer_NAKE_Success.showJSON(NAKE_Success_Obj);
+	jsonViewer_NAKE_Fail.showJSON(NAKE_Fail_Obj);
+</script>

@@ -1,0 +1,96 @@
+<div>
+	<div class="doc-sec-container" id="documentor_seccontainer">
+		<div class="doc-sectionwrap" id="price-data_wrap">
+			<div class="documentor-section  section-42" id="price-data"
+				data-section-id="42">
+				<h3 class="doc-sec-title main_sections_right_img"> <span class="doc-sec-count"
+						style="display:inline-block">6.&nbsp;&nbsp;Dataset Values</span>
+						<img class="wp-image-3602 alignleft"
+							src="resources/market.png" alt="" width="100"
+							height="100">
+				</h3>
+				<div class="doc-sec-content">
+					
+					<h2></h2>
+					<h2></h2>
+					<h2></h2>
+					<h2>Datasets</h2>
+					<p>Datasets are the historical time series that are stored in the datasources.
+						They contain the market data values and prices for the stocks,
+						commodities, currencies, financial and other independently
+						assessed market data.
+					</p>
+					<p>Every dataset has its own properties
+						including: datasource, symbol, name, description, frequency, start and end
+						dates range etc. This data collectively is referred to as “metadata” as it describes
+						the dataset and its properties.<br>
+						The actual values for each dataset are stored
+						in the datasource in a similar way to columns in a
+						spreadsheet. We refer to these columns as ‘bate’
+						columns. The number and names of the columns depend on
+						the type of data contained in the datasource.<br>
+						In a typical futures contract you would have a date column
+						and bate columns like “Open”, “High”, “Low”, “Close”, “Volume” etc.
+					</p>
+					<ul id="mntl-sc-block_1-0-18"
+						class="comp mntl-sc-block finance-sc-block-html mntl-sc-block-html">
+					</ul>
+					<p> </p>
+					<p>There are 3 dataset endpoints:</p>
+					<ul style="line-height: 25px;">
+						<li><strong>GetValues</strong> – Get dataset historical data as individual
+							datasets.</li>
+						<li><strong>GetValuesRC</strong> – Get dataset historical data in row
+							x column format.</li>
+						<li><strong>GetValuesforDate</strong> – Get the values for a number of
+							datasets on a single date.</li>
+					</ul>
+					<p> </p>
+					<p>The GetValues and GetValuesRC endpoints have similar
+						request and result structures to simplify
+						application development. They allow both simple and
+						complex data requests requests to be made. The requests can
+						allow you to choose multiple datasets (in multiple
+						datasources)
+						, over 12 average types including custom averages, custom
+						bate
+						columns, comprehensive filling (of missing values)
+						including interpolation, weekend handling and more. Many
+						parameters can be applied to all or to individual datasets
+						in
+						the request. As well as market data, the endpoints
+						return basic dataset metadata and can return the user access
+						that is available to each datasource or datacategory.</p>
+					<p>The GetValuesforDate endpoint returns the actual
+						values reported on a date or the averages for a date. It
+						also
+						returns the previous value (to assist in calculating the
+						change)
+						and can provide a requested number of previous values for
+						spark
+						lines.</p>
+					<p>All endpoints return any published corrections (where
+						available)
+						in the datasources for the requested date or date range.
+					</p>
+					<p>If you need access to a datasource that is not listed, need
+						extra
+						endpoint features, or have your own data that you’d like to
+						publish, please get in touch and we’ll discuss how we can
+						add it
+						to the Monitor+ API for you.</p>
+				</div>
+				<div class="last-date">
+					<div class="date">Last updated on May 7, 2021</div>
+				</div>
+				<br>
+			</div>
+			<div class="dis-block clearfix">
+				<a href="javascript:move_section('#erasedeleteedfavorites')" class="doc-prev"><i class="fas fa-chevron-circle-left"></i>Erase Deleted
+					Favorites</a>
+				<a href="javascript:move_section('#getdatasetvalues')" class="doc-next">Get Dataset Values<i class="fas fa-chevron-circle-right"></i></a>
+			</div>
+		</div>
+		<!--./doc-sectionwrap-->
+	</div>
+</div>

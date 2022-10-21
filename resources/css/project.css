@@ -1,0 +1,115 @@
+/******************************
+            General
+*******************************/
+body {
+    background-color: #ececec;
+    font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
+    font-size: 14px;
+}
+.content {
+    background-color: #FFF;
+}
+.navbar {
+    padding: 0;
+}
+.navbar-light .navbar-toggler {
+    outline: 0;
+}
+.navbar-light .navbar-nav .nav-link,
+.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show > .nav-link {
+    color: #000;
+}
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #000;
+}
+.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #337ab7;
+}
+
+/**************************************
+    Profilemain ( User Favorites )
+***************************************/
+.navbar-brand {
+    background: url(../idm-service/resources/images/IntDatMedSM274.png) no-repeat;
+    height: 90px;
+    width: 274px;
+}
+.navbar .content {
+    padding: 15px 30px;
+}
+.nav-tabs .nav-link.active {
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #aaa;
+    border-color: #aaa #aaa #fff;
+    padding: 5px 13px 7px;
+}
+.nav-link, .nav-item.active a:hover {
+    color: #000;
+}
+.nav-tabs {
+    border-bottom: 1px solid #c5c5c5;
+    padding-left: 30px;
+}
+.container-tabs {
+    background: #f8f8f8;
+    padding: 0;
+    border: 1px solid #c7c7c7;
+    border-top: 2px solid #d8d8d8;
+    border-radius: 2px 2px 0 0;
+}
+.nav-item {
+    line-height: normal;
+}
+.nav-tabs .nav-link {
+    border: 0;
+    padding: 6px 15px;
+}
+.nav-tabs .nav-item {
+    margin-top: 3px;
+}
+nav .nav-link {
+    font-size: 18px;
+}
+.fade {
+    transition: none;
+}
+#userIcon {
+    background: url(../fonts/man.png) no-repeat;
+    height: 16px;
+    width: 16px;
+    float: left;
+    margin: 3px;
+}
+.dropdown-toggle::after {
+    margin-bottom: -2px;
+    border-top: 0.25em solid;
+    border-right: .2em solid transparent;
+    border-left: .2em solid transparent;
+}
+.dropdown-menu {
+    border-radius: 0;
+    padding: 0;
+}
+.dropdown-menu > a {
+    color: #333;
+    padding: 10px 0 8px 8px;
+}
+.dropdown-menu > a:not(:last-child) {
+    border-bottom: 1px solid #e5e5e5;
+}
+.dropdown-menu > a:hover {
+    background: #fff;
+    color: #91c444;
+}
+.tab-content {
+    height: calc( 100vh - 157px );
+}
+.tab-pane {
+    height: 100%;
+}

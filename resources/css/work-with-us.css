@@ -1,0 +1,548 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #3A648B;
+}
+
+a {
+    text-decoration: none;
+    font-size: 14px;
+
+}
+
+p {
+    font-size: 14px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+label {
+    font-size: 14px;
+}
+
+.btn {
+    background: var(--primary-color);
+    padding: 10px 15px;
+    color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    display: block;
+    margin: 15px auto;
+    cursor: pointer;
+    border: 1px solid var(--primary-color);
+    transition: .4s;
+}
+
+.btn:hover {
+    background: none;
+    color: var(--primary-color);
+}
+
+.container {
+    width: 1140px;
+    display: block;
+    margin: auto;
+    padding: 0% 15px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f2f2f2;
+}
+
+/* header */
+header {
+    background: white;
+}
+
+header img {
+    object-fit: cover;
+    width: 100%;
+}
+
+/* work with us area */
+.work-with-us-area {
+    padding: 80px 0px;
+    background: linear-gradient(rgba(0, 0, 33, .19), rgba(0, 0, 33, .19)), url("../images/work-wu-1200.jpg");
+    background-position: center;
+    background-size: cover;
+    margin-top: 99px;
+
+}
+
+.work-with-us-area .work-with-us-title {
+    font-size: 26px;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 15px;
+    width: 250px;
+    text-align: center;
+    background: var(--primary-color);
+}
+
+/* work-desc-area */
+.work-desc-area {
+    padding: 25px 0px;
+}
+
+.work-desc-area p {
+    line-height: 28px;
+    font-size: 16px;
+}
+
+/* work-facilities-area */
+.work-facilities-area .facilities-wrapper {
+    width: 100%;
+    padding: 50px 0px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.work-facilities-area .card .card-circle-icon {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    box-shadow: 2px 3px 5px #00000016;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: -100px;
+    background: #ffff;
+}
+
+.card-circle-icon {
+    box-shadow: 2px 3px 5px #00000016,
+        0 0 4px #00000016,
+        0 0 5px #00000016 !important;
+
+}
+
+.work-facilities-area .card {
+    width: 360px;
+    background: #ffff;
+    padding: 25px 20px;
+    box-shadow: 3px 3px 5px #00000016,
+        0px 0px 4px #00000016,
+        0px 0px 5px #00000016;
+    border-radius: 8px;
+    margin-top: 100px;
+    transition: .4s;
+    border: 1px solid transparent;
+}
+
+.work-facilities-area .card:hover {
+    border: 1px solid var(--primary-color);
+}
+
+.work-facilities-area .card:nth-child(4) {
+    width: 450px;
+}
+
+.work-facilities-area .card:nth-child(5) {
+    width: 450px;
+}
+
+.work-facilities-area .card:nth-child(6) {
+    width: 550px;
+}
+
+.work-facilities-area .card .card-title {
+    color: black;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 22px;
+    text-align: center;
+    margin: 40px 0px 20px;
+}
+
+.work-facilities-area .card p {
+    color: #595A5B;
+    font-size: 14px;
+}
+
+.work-facilities-area .card .card-circle-icon img {
+    width: 50px;
+    fill: var(--primary-color);
+}
+
+
+/* start working area */
+
+.start-working-area {
+    padding: 50px 0px;
+}
+
+.start-working-area .working-title-wrapper {
+    text-align: center;
+    width: 100%;
+}
+
+.start-working-area .working-title-wrapper h2 {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 36px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.start-working-area .working-title-wrapper hr {
+    max-width: 350px;
+    display: block;
+    height: 2px;
+    opacity: 1;
+    margin: auto;
+    background: #000;
+}
+
+.start-working-area .message-area {
+    width: 50%;
+    position: relative;
+    margin-top: 50px;
+
+}
+
+.message-area .name,
+.company,
+.email,
+.message {
+    position: relative;
+}
+
+.start-working-area .message-area input {
+    padding: 15px 40px 15px;
+    margin-bottom: 10px;
+    width: 100%;
+    border: none;
+    outline: none;
+
+
+}
+
+.start-working-area .message-area input[type="checkbox"] {
+    width: 30px;
+    margin: 0;
+    margin-top: 6px;
+}
+
+.start-working-area .message-area .term {
+    display: flex;
+}
+
+.start-working-area .message-area textarea {
+    width: 100%;
+    padding: 15px 40px;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    border: none;
+    outline: none;
+
+}
+
+.start-working-area .message-area select {
+    width: 100%;
+    padding: 15px 40px;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    border: none;
+    outline: none;
+
+}
+
+.start-working-area .message-area select option {
+    font-size: 16px;
+    color: var(--primary-color);
+    border: none;
+}
+
+.start-working-area .message-area i {
+    font-size: 25px;
+    color: var(--primary-color);
+    position: absolute;
+    top: 13px;
+    left: 10px;
+
+}
+
+
+
+.start-working-area .message-area .btn {
+    margin: 0%;
+    margin-top: 10px;
+    width: 100px;
+}
+
+.start-working-area .message-and-img-wrapper {
+    display: flex;
+    padding-bottom: 40px;
+}
+
+.message-and-img-wrapper {
+    background: #f2f2f2;
+    padding: 15px;
+}
+
+.start-working-area .image-area {
+    width: 50%;
+    padding: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.start-working-area .image-area img {
+    display: block;
+    width: 90%;
+    align-self: center;
+}
+
+/* footer area */
+.footer-area {
+    padding: 50px 0px;
+    background: var(--primary-color);
+}
+
+.footer-area img {
+    object-fit: cover;
+    width: 100%;
+}
+
+/* responsive area */
+@media screen and (max-width:1200px) {
+    .container {
+        width: 992px;
+    }
+
+    .work-facilities-area .card {
+        width: 470px;
+
+    }
+
+    .work-facilities-area .card:nth-child(5) {
+        width: 550px;
+    }
+}
+
+@media screen and (max-width:1000px) {
+    .container {
+        width: 768px;
+    }
+
+    .work-facilities-area .card {
+        width: 360px;
+
+    }
+
+    .work-facilities-area .card:nth-child(4) {
+        width: 360px;
+    }
+
+    .work-facilities-area .card:nth-child(6) {
+        width: 450px;
+    }
+
+    .work-facilities-area .card:nth-child(5) {
+        width: 450px;
+    }
+}
+
+@media screen and (max-width:880px) {
+    .work-with-us-area {
+        margin-top: 65px;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .work-with-us-area {
+        margin-top: 50px;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .container {
+        width: 576px;
+    }
+
+    .work-facilities-area .card {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+
+
+    }
+
+    .start-working-area .message-and-img-wrapper {
+        flex-direction: column;
+    }
+
+    .start-working-area .message-area {
+        width: 100%;
+
+    }
+
+    .start-working-area .image-area {
+        width: 100%;
+
+    }
+
+    .work-facilities-area .card:nth-child(4) {
+        width: 80%;
+    }
+
+    .work-with-us-area .work-with-us-title {
+        font-size: 20px;
+        padding: 10px;
+        width: 185px;
+
+    }
+
+    .work-desc-area p {
+        line-height: 25px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width:580px) {
+    .container {
+        width: 100%;
+    }
+
+    a {
+        font-size: 12px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+
+    .user-tracking-area .user-tracking-title h2 {
+        font-size: 26px;
+
+    }
+
+    .work-with-us-title-area .work-with-us-title-wrapper p {
+        font-size: 12px;
+        line-height: 18px;
+
+    }
+
+    .work-with-us-title-area .work-with-us-title-wrapper h2 {
+
+        font-size: 28px;
+
+    }
+
+    .work-facilities-area .card .card-title {
+
+        font-size: 18px;
+
+    }
+
+    .btn {
+        font-size: 12px;
+    }
+
+    .start-working-area .working-title-wrapper h2 {
+        color: var(--primary-color);
+        font-weight: 700;
+        font-size: 28px;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+    }
+
+    label {
+        font-size: 12px;
+    }
+
+    .start-working-area .message-area input[type="checkbox"] {
+
+        margin-top: 3px;
+    }
+
+    .work-facilities-area .card:nth-child(5) {
+        width: 100%;
+    }
+
+    .work-facilities-area .card:nth-child(6) {
+        width: 100%;
+    }
+
+    .work-facilities-area .card:nth-child(4) {
+        width: 100%;
+    }
+
+    .work-facilities-area .card {
+        width: 100%;
+
+    }
+
+}
+
+.start-working-area .message-area input:focus {
+    border: 2px solid var(--primary-color);
+}
+
+.start-working-area .message-area input[type="checkbox"]:focus {
+    outline: none;
+}
+
+.start-working-area .message-area textarea:focus {
+    border: 2px solid var(--primary-color);
+}
+
+
+.start-working-area .message-area select:focus {
+    border: 2px solid #3b7eb8 !important;
+}
+
+.error-text {
+    color: red !important;
+    background-color: white;
+    text-align: center;
+    padding: 5px;
+    position: relative;
+
+}
+
+
+
+
+
+.start-working-area .message-area .error-icon {
+    color: red !important;
+    top: 2px;
+    left: -5px;
+    position: relative;
+    font-size: 20px;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+.card a {
+    text-decoration: none;
+}
+
+
+input,
+textarea,
+select,
+button,
+.message-and-img-wrapper {
+    border-radius: 8px;
+}

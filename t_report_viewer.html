@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <!-- Title -->
+    <title>Report Viewer</title>
+    <style>
+        .chart-container {
+            height: 100%;
+        }
+        
+        .ui-resizable-s {
+            border-bottom: solid #b3b3b3 1px;
+            border-top: solid #b3b3b3 1px;
+        }
+        
+        .u-legend th>* {
+            vertical-align: middle;
+            display: inline-block;
+            font-size: 12px;
+            font-weight: normal;
+            text-transform: capitalize;
+        }
+        
+        .u-legend {
+            text-align: left !important;
+        }
+        
+        .u-cursor-y {
+            display: none !important;
+        }
+        
+        #legend-chart .uplot,
+        #legend-subchart .uplot {
+            width: 100% !important;
+            padding: 0px 10px;
+        }
+        
+        .u-legend .u-value {
+            font-size: 12px;
+            padding-left: 5px;
+            background-color: transparent !important;
+            height: 15px;
+            vertical-align: middle;
+        }
+        
+        #zoom-chart,
+        #zoom-subchart {
+            margin-left: 80px;
+            margin-right: 25px;
+        }
+        
+        .zoom-subpanel,
+        .zoom-panel {
+            height: 45px !important;
+            top: initial !important;
+            position: absolute !important;
+            z-index: 9;
+            background-color: rgba(180, 215, 235, 0.4);
+        }
+        
+        .highlightBG {
+            height: 28px;
+        }
+        
+        #request-json-input,
+        #response-json-input {
+            display: block;
+            width: 100%;
+            height: 200px;
+        }
+        
+        #translate {
+            display: block;
+            height: 28px;
+            margin: 20px 0;
+            border-radius: 3px;
+            border: 2px solid;
+            cursor: pointer;
+        }
+        
+        #json-display {
+            border: 1px solid #000;
+            margin: 0;
+            padding: 10px 20px;
+        }
+        
+        .right-toolbar-content {
+            display: flex;
+            justify-content: flex-end;
+            margin-left: auto;
+            padding: 0;
+            min-width: 130px;
+            height: 100%;
+            padding-top: 1px;
+        }
+        
+        #fileDropdown:active,
+        #fileDropdown1:active,
+        #btnCopy:active,
+        #btnDateRange:active,
+        #btnDateRange1:active,
+        #btnRequestRefreshJson:active,
+        #btnResponseRefresh:active,
+        #btnFrequency:active,
+        #btnFrequency1:active,
+        #btnFill:active,
+        #btnFill1:active,
+        #btnSeriesProperties:active,
+        #btnSeriesProperties1:active,
+        #btnRequestRefreshJson:active,
+        #hideDropdown:active,
+        #hideDropdown1:active,
+        #fullWidth:active,
+        #btnResponseSaveJson:active,
+        #ResultfullWidth:active {
+            margin-top: 2px;
+        }
+        
+        #btnRefresh:active,
+        .fav-help:active {
+            margin-top: 2px;
+        }
+        
+        div#series_frequency,
+        div#series_frequency_json {
+            width: 95px !important;
+            min-width: 95px !important;
+        }
+        
+        #fav-help-div img:hover {
+            box-shadow: 0px 0 5px rgb(0 0 0 / 30%);
+            border: 2px solid #ddd;
+            border-radius: 20px;
+        }
+        
+        #listBoxContentinnerListBoxhideDropdown1 .jqx-listitem-element,
+        #listBoxContentinnerListBoxhideDropdown .jqx-listitem-element {
+            padding-left: 5px;
+        }
+        
+        #listBoxContentinnerListBoxhideDropdown1 .jqx-listitem-element:hover,
+        #listBoxContentinnerListBoxhideDropdown .jqx-listitem-element:hover {
+            background-color: #e3f5fb;
+        }
+        
+        #listBoxContentinnerListBoxhideDropdown1 .jqx-listitem-element div,
+        #listBoxContentinnerListBoxhideDropdown .jqx-listitem-element div {
+            z-index: 5;
+        }
+        
+        #listBoxContentinnerListBoxhideDropdown1 .jqx-listitem-state-selected:hover,
+        #listBoxContentinnerListBoxhideDropdown .jqx-listitem-state-selected:hover {
+            border: 1px transparent;
+            background-color: #fff
+        }
+        
+        div#listitem2innerListBoxhideDropdown>span,
+        div#listitem3innerListBoxhideDropdown>span {
+            margin-left: 0 !important;
+        }
+        
+        #jqxgrid .slick-header-column {
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+            padding-top: 0px !important;
+        }
+        
+        #jqxgrid .slick-header-column .slick-column-name,
+        #jqxgrid .slick-header-column .slick-sort-indicator {
+            margin: 0;
+            float: unset;
+        }
+        
+        #jqxgrid .slick-header-column .slick-sort-indicator {
+            position: absolute;
+            right: 2px;
+        }
+    </style>
+
+    <!-- CSS Files -->
+    <link rel="icon" type="image/x-icon" href="resources/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,500i,600,600i,700,700i,800" rel="stylesheet">
+    <link href="resources/idm-service/resources/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="resources/idm-service/resources/css/bootstrap-navbar.css" rel="stylesheet" />
+    <link href="resources/idm-service/resources/css/responsive.css" rel="stylesheet" />
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
+    <link href="resources/jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="resources/jqwidgets/styles/jqx.light.css" rel="stylesheet" />
+    <link href="resources/idm-service/resources/css/main.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="resources/css/slick.grid.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/slick.pager.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/slick.headermenu.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/slick.columnpicker.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/slick.headerbuttons.css" type="text/css" />
+    <!-- <link rel="stylesheet" href="resources/css/slick-default-theme.css" type="text/css" /> -->
+
+    <link rel="stylesheet" href="resources/css/jquery.json-viewer.css" type="text/css" />
+
+    <link href="resources/css/intlTelInput.css" rel="stylesheet" />
+    <link href="resources/css/series_style.css" rel="stylesheet">
+    <link rel="stylesheet" href="resources/css/menu.css">
+    <link rel="stylesheet" href="resources/css/footer.css">
+    <link rel="stylesheet" href="resources/css/pre-loader.css">
+    <link href="https://leeoniya.github.io/uPlot/dist/uPlot.min.css" rel="stylesheet">
+
+    <link href="resources/js/arslan-uPlot.min.css" rel="stylesheet">
+    <link href="resources/css/chart_fix.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="resources/css/json-viewer.css">
+
+    <link rel="stylesheet" href="dist/themes/default/style.min.css" />
+
+    <!-- JS Files -->
+    <!-- <script src="resources/js/jquery-3.6.0.min.js"></script> -->
+    <script src="resources/idm-service/resources/js/jquery-1.12.3.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js" async></script>
+    <script src="resources/idm-service/resources/js/bootstrap.min.js" async></script> -->
+    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+
+    <script src="resources/js/jquery-ui.js"></script>
+    <script src="resources/js/jquery.easy-confirm-dialog.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="dist/jstree.min.js"></script>
+
+    <script src="resources/jqwidgets/jqxcore.js"></script>
+    <script src="resources/jqwidgets/jqxdata.js" async></script>
+    <script src="resources/jqwidgets/jqxsplitter.js" async></script>
+
+    <script type="text/javascript" src="resources/js/jquery.json-editor.min.js"></script>
+    <script type="text/javascript" src="resources/js/jquery.json-viewer.js"></script>
+
+    <script src="resources/jqwidgets/jqxexpander.js" async></script>
+    <script src="resources/jqwidgets/jqxscrollbar.js" async></script>
+    <script src="resources/jqwidgets/jqxbuttons.js" async></script>
+    <script src="resources/jqwidgets/jqxmenu.js" async></script>
+    <script src="resources/jqwidgets/jqxlistbox.js" async></script>
+    <script src="resources/jqwidgets/jqxdropdownlist.js" async></script>
+    <script src="resources/jqwidgets/jqxinput.js" async></script>
+    <script src="resources/jqwidgets/jqxdatetimeinput.js" async></script>
+    <script src="resources/jqwidgets/jqxcalendar.js" async></script>
+    <script src="resources/jqwidgets/jqxdragdrop.js" async></script>
+    <script src="resources/jqwidgets/jqxtabs.js" async></script>
+    <script src="resources/jqwidgets/jqxpopover.js"></script>
+    <!-- <script src="resources/jqwidgets/jqxtreegrid.js" async></script> -->
+    <script src="resources/jqwidgets/jqxcheckbox.js" async></script>
+    <script src="resources/jqwidgets/jqxtoolbar.js" async></script>
+    <script src="resources/jqwidgets/jqxswitchbutton.js" async></script>
+    <script src="resources/jqwidgets/jqxcombobox.js" async></script>
+    <script src="resources/jqwidgets/jqxformattedinput.js" async></script>
+    <script src="resources/jqwidgets/jqxloader.js" async></script>
+    <script src="resources/jqwidgets/jqxtoolbar.js" async></script>
+    <script src="resources/jqwidgets/jqxtextarea.js" async></script>
+    <script src="resources/jqwidgets/jqxpanel.js" async></script>
+    <script src="resources/jqwidgets/jqxtooltip.js" async></script>
+    <script src="resources/jqwidgets/jqxwindow.js"></script>
+    <script src="resources/jqwidgets/jqxnotification.js" async></script>
+    <script src="resources/jqwidgets/jqxnavigationbar.js"></script>
+
+    <script src="resources/js/jquery.event.drag-2.3.0.js"></script>
+
+    <script src="resources/js/slick.core.js"></script>
+    <script src="resources/js/slick.formatters.js" async></script>
+    <script src="resources/js/slick.editors.js" async></script>
+    <script src="resources/js/slick.rowselectionmodel.js" async></script>
+    <script src="resources/js/slick.grid.js" async></script>
+    <script src="resources/js/slick.groupitemmetadataprovider.js"></script>
+    <script src="resources/js/slick.dataview.js" async></script>
+    <script src="resources/js/slick.headermenu.js"></script>
+    <script src="resources/js/slick.resizer.js" async></script>
+    <script src="resources/js/slick.headerbuttons.js" async></script>
+
+    <script src="dev/api/config/config.js"></script>
+    <script src="resources/js/data.js"></script>
+    <script src="dev/api/authentication.js"></script>
+    <script src="dev/api/user_favorites.js"></script>
+    <script src="dev/api/utils/folders.js" async></script>
+    <script src="dev/api/utils/utils.js"></script>
+    <script src="resources/js/top-menu.js" async></script>
+    <script src="resources/js/messages.js" async></script>
+    <script src="resources/js/arslan-uPlot.iife.js"></script>
+    <script type="text/javascript" src="resources/js/json-viewer.js"></script>
+
+    <style>
+        .main-content {
+            margin-top: 100px;
+        }
+        
+        .slick-preheader-panel.ui-state-default {
+            width: 100%;
+            overflow: hidden;
+            border-left: 0px !important;
+            border-bottom: 0px !important;
+        }
+        
+        .slick-preheader-panel .slick-header-columns {
+            border-bottom: 0px !important;
+        }
+        
+        #jqxgrid .cell-title,
+        #jqxgridCorrectionDetails .cell-title,
+        #treeGrid .cell-title,
+        #treeGrid .slick-cell {
+            line-height: 28px;
+            padding-left: 10px;
+        }
+        
+        #treeGrid .slick-group {
+            background-color: white !important;
+            font-weight: 500;
+            border-top: 1px solid silver;
+        }
+        
+        #treeGrid .cell-effort-driven.selected {
+            background-image: url(resources/css/icons/check-green.png);
+            background-repeat: no-repeat;
+            background-position: center
+        }
+        
+        #treeGrid .slick-row.odd,
+        #treeGrid .slick-row.even {
+            background: #fff;
+        }
+        
+        .slick-header-left .slick-header-columns {
+            white-space: pre !important;
+            height: 30px;
+        }
+        
+        .slick-preheader-panel .slick-header-columns {
+            white-space: pre !important;
+            height: 50px;
+            text-align: center
+        }
+        
+        .slick-header-column.ui-state-default {
+            height: 100%;
+            line-height: 22px;
+        }
+        
+        #treeGrid .slick-header-column.ui-state-default {
+            height: 100%;
+            line-height: 22px;
+            background-color: #f3f3f3;
+        }
+        
+        .ui-widget-content a {
+            color: #337ab7;
+            cursor: pointer
+        }
+        
+        .slick-cell.selected,
+        .slick-cell.selected a {
+            background-color: #356aa0;
+            color: white;
+        }
+        
+        .slick-header-column {
+            text-align: center;
+        }
+        
+        .cell-right {
+            text-align: right;
+            padding-right: 5px
+        }
+        
+        .slick-header-column.right {
+            text-align: right;
+            padding-right: 5px
+        }
+        
+        #jqxgrid .slick-viewport,
+        #jqxgridCorrectionDetails .slick-viewport {
+            /*padding-top:32px;*/
+            top: 0;
+        }
+        
+        #treeGrid .slick-pane-top {
+            /*padding-top:32px;*/
+            top: 61px !important;
+        }
+        
+        #treeGrid .slick-viewport {
+            /*padding-top:32px;*/
+            top: 0px;
+        }
+        
+        .slick-pane-header {
+            z-index: 10
+        }
+        
+        .slick-header.ui-state-default {
+            /*width: 98.3%;*/
+            border-right: 0px;
+            background-color: white;
+        }
+        
+        #jqxgrid .slick-cell {
+            padding: 0;
+        }
+        
+        .seriesviewer #bottomPanel #jqxTabs ul li:first-child {
+            margin-left: 0px;
+        }
+        
+        div#requestToolbar,
+        div#responseToolbar {
+            display: flex !important;
+            align-items: center;
+            overflow-x: auto;
+            white-space: nowrap;
+            flex-wrap: nowrap;
+            padding: 3px;
+            background-color: #fff;
+        }
+        
+        .jqx-fill-state-pressed-light {
+            background-color: white;
+            border-bottom: 1px solid #fff
+        }
+        
+        #metadataContent div {
+            margin-bottom: 3px;
+        }
+        
+        #metadataContent span {
+            color: #000;
+            /*color: #1763a5;*/
+        }
+        
+        .jqx-menu-item-arrow-up-selected-light,
+        .jqx-icon-arrow-up-selected-light {
+            background-image: url(resources/css/images/metro-icon-up.png);
+        }
+        
+        .jqx-menu-item-arrow-down-selected-light,
+        .jqx-icon-arrow-down-selected-light {
+            background-image: url(resources/css/images/metro-icon-up.png);
+        }
+        
+        .jqx-widget-header {
+            padding-left: 10px;
+            padding-right: 10px
+        }
+        
+        #seriesToolbar {
+            background: #ffff;
+        }
+        
+        #saveReport-container {
+            border: 1px solid #ccc;
+            min-height: 260px;
+            margin-bottom: 12px;
+            width: 100%;
+        }
+        
+        #notes-json-display span {
+            color: #000;
+        }
+        
+        #btnRequestSaveJson {
+            margin-right: 10px !important;
+            padding-right: 15px !important;
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+        
+        #btnRequestReadJson {
+            margin-right: 10px !important;
+            padding-right: 15px !important;
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+        
+        #btnRequestSaveJson img {
+            width: 16px !important;
+        }
+        
+        #btnRequestReadJson img {
+            width: 16px !important;
+        }
+        
+        .right-toolbar-content .dropdown-btn {
+            /* box-shadow: rgb(0 0 0 / 25%) 0px 0px 2px; */
+            box-shadow: -1px 0 5px rgb(0 0 0 / 25%);
+            /* border: 1px solid #ddd; */
+            border-radius: 1px;
+            height: 28px;
+        }
+        
+        .right-toolbar-content .dropdown-item li {
+            border-bottom: 0px solid #dddd;
+            clear: both;
+        }
+        
+        .right-toolbar-content .nav-menu li a {
+            padding: 2px 3px;
+        }
+        
+        .right-toolbar-content .dropdown-item li a {
+            padding: 10px 5px;
+        }
+        
+        #allowEdit {
+            display: inline-block !important;
+            float: left !important;
+        }
+        
+        #simpleView {
+            display: inline-block !important;
+            float: left !important;
+        }
+        
+        .footerbar.full-footer {
+            max-width: 100%;
+        }
+        
+        .footerbar {
+            transition: inherit !important;
+        }
+        
+        #seriesToolbar .jqx-button:hover,
+        #requestToolbar .jqx-button:hover,
+        #requestToolbar .dropdown-btn:hover,
+        #responseToolbar .jqx-button:hover {
+            box-shadow: 0px 0 5px rgb(0 0 0 / 30%) !important;
+        }
+        
+        #seriesToolbar .jqx-dropdownlist-state-normal {
+            box-shadow: -1px 0 5px rgb(0 0 0 / 25%);
+            border-color: #c5c4c49e !important;
+        }
+        
+        #dateRangePopup .jqx-window-header,
+        #frequencyPopup .jqx-window-header,
+        #fillPopup .jqx-window-header,
+        #seriesPropertiesPopup .jqx-window-header {
+            background: url(resources/css/icons/dot-logo.png) 8% no-repeat;
+            background-size: 40px;
+            text-align: center;
+            height: 50px;
+            line-height: 45px;
+        }
+        
+        #dateRangePopup .jqx-window-header div,
+        #frequencyPopup .jqx-window-header div,
+        #fillPopup .jqx-window-header div,
+        #seriesPropertiesPopup .jqx-window-header div {
+            font-size: 22px;
+            color: #666;
+            line-height: 50px;
+        }
+        
+        #selectSeriesPopup .jqx-window-header div {
+            color: #333;
+            font-size: 14px;
+            line-height: 19px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        #selectSeriesPopup * {
+            font-family: Calibri, Arial, Helvetica, sans-serif !important;
+            font-size: 14px;
+            /* font-size: 12px; */
+        }
+        
+        #selectSeriesPopup #btnLoadBates,
+        #selectSeriesPopup #btnCancelBates {
+            background-color: #ededed !important;
+            border-radius: 3px;
+        }
+        
+        #selectSeriesPopup .jqx-window-header .jqx-window-close-button-background {
+            background-color: #f3f3f3;
+            border-radius: 3px;
+            top: 6px;
+            border: 1px solid #ccc;
+        }
+        
+        #dateRangePopup .jqx-window-header .jqx-window-close-button-background,
+        #frequencyPopup .jqx-window-header .jqx-window-close-button-background,
+        #fillPopup .jqx-window-header .jqx-window-close-button-background,
+        #seriesPropertiesPopup .jqx-window-header .jqx-window-close-button-background {
+            top: 20%
+        }
+        
+        #startDate_btnCalendar img:hover,
+        #endDate_btnCalendar img:hover {
+            box-shadow: 0px 0 5px rgb(0 0 0 / 30%);
+            /* border: 1px solid #ddd; */
+        }
+        
+        #startDate_btnCalendar img:active,
+        #endDate_btnCalendar img:active {
+            margin-top: 4px !important;
+        }
+        
+        .icon-highlight-off,
+        .icon-highlight-on {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            margin: 0;
+            position: absolute;
+            /*z-index: 9;*/
+            /*margin-top:3px;*/
+            /*background-image: url(resources/css/icons/bullet_blue.png);*/
+        }
+        
+        .icon-highlight-off:hover,
+        .icon-highlight-on:hover {
+            width: 100% !important;
+        }
+        
+        .icon-highlight-off {
+            opacity: 0.2;
+        }
+        
+        .negative-highlight {
+            background: red;
+        }
+        
+        #fileDropdown #dropdownlistContentfileDropdown,
+        #fileDropdown1 #dropdownlistContentfileDropdown1 {
+            margin-top: 5px !important;
+            width: 65px !important;
+        }
+        
+        div.fileDropdown_arrow {
+            width: 90px !important;
+        }
+        
+        div#dropdownlistWrapperhideDropdown .jqx-dropdownlist-content,
+        div#dropdownlistWrapperhideDropdown1 .jqx-dropdownlist-content {
+            margin-top: 9px !important;
+        }
+        
+        .slick-header-column:has(.icon-highlight-on) {
+            background-color: #94e9f7fa;
+            color: #0574b6;
+        }
+        
+        #listitem1innerListBoxhideDropdown,
+        #listitem2innerListBoxhideDropdown1,
+        #listitem1innerListBoxfileDropdown,
+        #listitem1innerListBoxfileDropdown1 {
+            border-bottom: 1px solid #ddd;
+        }
+        
+        #btnSpinnUp:hover,
+        #btnSpinnDown:hover {
+            background-color: #f0f0f0;
+        }
+        
+        #btnSpinnUp:active,
+        #btnSpinnDown:active {
+            background-color: #fff;
+        }
+        
+        .jqx-checkbox-default:hover {
+            box-shadow: none;
+            border-color: rgba(0, 0, 0, 0.3);
+            background-color: #f0f0f0;
+        }
+        
+        .slick-header-menu {
+            border: 1px solid #718BB7;
+            background: #f0f0f0;
+            padding: 2px;
+            box-shadow: 2px 2px 2px silver;
+            z-index: 20;
+        }
+        
+        .slick-header-menuitem {
+            padding: 2px 4px;
+            border: 1px solid transparent;
+            border-radius: 3px;
+            display: block;
+        }
+        
+        .slick-header-menuitem:hover {
+            border-color: silver;
+            background: white;
+        }
+        
+        .slick-header-menuitem-disabled {
+            border-color: transparent !important;
+            background: inherit !important;
+        }
+        
+        .slick-header-menuitem-hidden {
+            display: none;
+        }
+        
+        .slick-header-menubutton {
+            height: calc(100% - 4px);
+        }
+        
+        .ui-state-hover .slick-sort-indicator {
+            background: unset;
+        }
+        
+        .cell-effort-driven {
+            text-align: center;
+        }
+        
+        .slick-group-title[level='1'] {
+            text-decoration: underline;
+        }
+        
+        .slick-group-title[level='2'] {
+            font-style: italic;
+        }
+        
+        #treeGrid .slick-cell.selected {
+            background-color: rgb(205, 222, 243);
+            /* background-color: #d5f5df;  */
+            color: #333;
+        }
+        
+        #treeGrid #header-effort-driven {
+            width: 23px;
+            height: 20px;
+            margin-left: 4px;
+            background-image: url(resources/css/icons/check-grey.png);
+            background-repeat: no-repeat;
+            background-position: center
+        }
+        
+        #treeGrid .slick-cell.l0.r0 {
+            border-bottom-color: white;
+        }
+        
+        #treeGrid .slick-cell.l1.r1 {
+            top: 1px;
+        }
+        
+        #treeGrid .slick-cell.l2.r2 {
+            top: 1px;
+        }
+        
+        .slick-group-toggle.expanded {
+            width: 9px;
+            height: 9px;
+            margin-left: 4px !important;
+            margin-right: 5px;
+            background: url(resources/css/images/collapse.gif) no-repeat center center;
+        }
+        
+        .slick-group-toggle.collapsed {
+            width: 9px;
+            height: 9px;
+            margin-left: 4px !important;
+            margin-right: 5px;
+            background: url(resources/css/images/expand.gif) no-repeat center center;
+        }
+        
+        .jqx-button span:active {
+            color: #000 !important;
+        }
+        
+        .jqx-popover-title {
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            font-size: 12px;
+            background-color: #6c9dc036;
+        }
+        
+        .jqx-popover.bottom .jqx-popover-arrow:after {
+            border-bottom-color: #6c9dc036;
+        }
+    </style>
+</head>
+
+<body class="seriesviewer">
+    <div id="saveReportWindow" style="display:none;">
+        <div>
+            <div id='saveReport-container'>
+                <table style="width: 95%; margin: auto; margin-top: 20px;">
+                    <tr>
+                        <td style="padding-left: 20px; height: 45px;">Report ID: <span id="saveReportID"></span></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 40px; padding-right: 24px; line-height:30px; vertical-align: top; height:50px">
+                            Name:
+                            <div style='float: right;' id='reportsList'></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="saveReportLockedRow" style="line-height:22px; height: 100px; padding-left: 35px; vertical-align:top">
+                            <span style="float: left;">Locked: &nbsp;</span>
+                            <div id="reportPadlock" style="float:left"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="line-height:22px; height: 42px;">
+                            <div id="createCloneReport">&nbsp;&nbsp;Create a copy</td>
+                    </tr>
+                </table>
+                </div>
+                <div id='saveReport-buttons'>
+                    <span style="float:left; margin-left:10px; color:#666">If you save an existing report it will be
+                    overwritten and the<br>original lost. You can create a copy of the original using<br>the "Create a
+                    copy" checkbox above.</span>
+                    <table style="margin-bottom:0px; width:auto; float:right; height:42px;">
+                        <tr>
+                            <td style="padding-right:10px" style="vertical-align:top"><input id="btnSaveReport" type="button" value="Save"></td>
+                            <td style="padding-right:10px" style="vertical-align:top"><input id="btnCancelReport" type="button" value="Cancel"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class='HelpMessage_leading' style="display:none;">
+            <div class="content">
+                If true, any leading missing values are filled forward using the previous (valid) value.<br> The fill is applied using the currently selected 'Fill Type' and 'Style' parameters.<br> If no previous value exists no leading fill is used.
+            </div>
+        </div>
+
+        <div class='HelpMessage_trailing' style="display:none;">
+            <div class="content">
+                If true, trailing missing values after the last valid value are filled using the last valid value.<br> The fill is applied using the currently selected 'Fill Type' and the 'Style' parameters.<br> Fill Types ‘midpoint‘ or ‘interpolate‘
+                require a valid value after the last selected date or they cannot be calculated.
+            </div>
+        </div>
+
+        <div class='HelpMessage_updateValue1' style="display:none;">
+            <div class="content">
+                Refresh the market data in the 'Values Table' tab when the 'Ok' button is clicked.
+            </div>
+        </div>
+
+        <div class='HelpMessage_updateValue2' style="display:none;">
+            <div class="content">
+                Refresh the market data in the 'Values Table' tab when the 'Ok' button is clicked.
+            </div>
+        </div>
+
+        <div class='HelpMessage_updateValue3' style="display:none;">
+            <div class="content">
+                Refresh the market data in the 'Values Table' tab when the 'Ok' button is clicked.
+            </div>
+        </div>
+
+        <div class='HelpMessage_updateValue4' style="display:none;">
+            <div class="content">
+                Refresh the market data in the 'Values Table' tab when the 'Ok' button is clicked.
+            </div>
+        </div>
+
+        <div id="dateRangePopup" style="display:none;">
+            <div>
+                <div id='dateRange-container' style="width:85%; margin:auto">
+                    <div id='dateRangeTabs' class="wait" style="margin-top:5px;">
+                        <ul>
+                            <li style="margin-left:20px">Start Date</li>
+                            <li>Rolling Periods</li>
+                        </ul>
+                        <div>
+                            <table style="width: 95%; margin: auto; margin-top: 25px; margin-bottom: 16px">
+                                <tr>
+                                    <td style="padding-left: 25px; height: 40px;">
+                                        <label style="float:left; padding-right: 10px; padding-top:4px">From:</label>
+                                        <div id='dr_startDate' style="float: left;"></div>
+                                        <button id="startDate_btnCalendar" style="float:left; margin-left:5px; margin-top: 2px; border: 0; background-color: white;">
+                                        <img width="22" src="/resources/css/icons/calendar.png">
+                                    </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-left: 25px;">
+                                        <div id='cm_startDate' style="margin-left:60px">&nbsp;Common start date</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-left: 25px;">
+                                        <div id='use_earliest' style="margin-left:60px;">&nbsp;Use Earliest</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div>
+                            <table style="width: 95%; margin: auto; margin-top: 25px;">
+                                <tr>
+                                    <td style="padding-left: 40px; height: 60px;">
+                                        <label style="float:left; padding-right: 15px; line-height: 23px;">Periods to use:</label>
+                                        <div id="dr_periods">
+                                            <input type="text" style="text-align: center;" />
+                                            <div></div>
+                                        </div><br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:left; padding:0 20px 12px 20px; color:#666;">
+                                        Instead of a date range, display the most recent number of rows above
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <table style="width: 95%; margin: auto; margin-top: 17px;">
+                        <tr>
+                            <td style="padding-left: 35px; height: 40px;">
+                                <label style="float:left; padding-right: 10px; padding-top:4px;">End:</label>
+                                <div id='dr_endDate' style="float: left;"></div>
+                                <button id="endDate_btnCalendar" style="float:left; margin-left:5px; margin-top: 2px; border: 0; background-color: white;">
+                                <img width="22" src="/resources/css/icons/calendar.png">
+                            </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 25px;">
+                                <div id='cm_endDate' style="margin-left:60px">&nbsp;Common end date</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 25px;">
+                                <div id='use_latest' style="margin-left:60px;">&nbsp;Use Latest</div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id='dateRange-buttons' style="margin-top:15px">
+                    <div style="float:left; padding-left:20px; color:#666;">
+                        <div id='updateToJson_dateRange' style="margin-top:10px; float:left">&nbsp;Update Values</div>
+                        <div id="updateValues-help-div1" style="float: left; margin-top:12px">
+                            <img src="resources/css/icons/Help_16-Grey.png" title="Update Values" class="fav-help" width="18px" style="border:0">
+                        </div>
+                    </div>
+                    <table style="margin-bottom:0px; width:auto; float:right; height:42px; margin-right: 15px;">
+                        <tr>
+                            <td style="padding-top:7px; padding-right:5px; vertical-align:top; width:40px;"><input id="btnLoadDateRange" type="button" value="OK"></td>
+                            <td style="padding-top:7px; padding-right:10px; vertical-align:top; width:40px;"><input id="btnCancelDateRange" type="button" value="Cancel"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="frequencyPopup" style="display:none;">
+            <div>
+                <div id='frequency-container' style="width:90%; margin:auto">
+                    <div id='frequencyTabs' class="wait" style="margin-top:5px;">
+                        <ul>
+                            <li style="margin-left:20px">Average</li>
+                            <li>Weekends</li>
+                        </ul>
+                        <div style="height:298px">
+                            <table style="width: 100%; margin: auto; margin-top: 20px; margin-bottom: 12px">
+                                <tr>
+                                    <td style="padding-left: 20px;">
+                                        <label style="line-height: 23px;">Report Average:</label>
+                                        <div id='select_frequency' style="box-shadow: 0px 0 1px rgb(0 0 0 / 25%);"></div>
+                                    </td>
+                                </tr>
+                            </table>
+                            <fieldset id="frequency_panel" style="border: 1px solid #ccc; margin: 0 20px 10px 20px; height: 148px;">
+                                <legend id="frequency_title" style="width: auto; margin-left: 10px; margin-bottom:6px; padding: 0 2px 0 2px; font-size:14px; font-weight:bold; border: 0; line-height: 25px;">&nbsp;Day</legend>
+                                <div id="average_panel" style="margin-bottom:2px">
+                                </div>
+                            </fieldset>
+                            <table style="width: 100%; margin: auto; margin-top: 0px; margin-bottom: 4px">
+                                <tr>
+                                    <td style="padding-left: 32px;">
+                                        <div id='firstDate_averages' class="firstDate_averages">&nbsp;Return first date in averages</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:0 12px 8px 56px; color:#666;">
+                                        <p class="firstDate_averages">Return first or last date for each average.</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div>
+                            <table style="width: 95%; margin: auto; margin-top: 20px;">
+                                <tr>
+                                    <td style="padding-left: 20px;">
+                                        <label style="line-height: 22px;">Handle Weekends:</label>
+                                        <div id='select_weekends' style="box-shadow: 0px 0 1px rgb(0 0 0 / 25%);"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="height:81px; padding:8px 12px 5px 21px; color:#666; vertical-align: top;">
+                                        <p id="weekends_hint" style="font-size:13px;">Use weekends if in the source dataset. All datasets are adjusted if weekends are found in any dataset.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:0px 12px 30px 20px; color:#666;">
+                                        <div id='overwriteWeekend'>&nbsp;Overwrite with weekend Values</div>
+                                    </td>
+                                </tr>
+                                <!-- <tr>
+                                <td id="weekendLabel" style="padding:0px 20px 15px 44px; color:#666;">
+                                    Add weekend dates filled using the selected 'Previous Value' fill type.
+                                </td>
+                            </tr> -->
+                                <tr>
+                                    <td style="padding-left: 20px;">
+                                        <div id='weekendDate_averages'>&nbsp;Allow weekend dates in averages</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:0px 20px 12px 44px; color:#666;">
+                                        If unchecked, average values (not daily) that fall on a weekend will be adjusted to the nearest weekday in the range.
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id='frequency-buttons' style="margin-top:10px">
+                    <div style="float:left; padding-left:20px; color:#666;">
+                        <div id='updateToJson_frequency' style="margin-top:10px; float:left">&nbsp;Update Values</div>
+                        <div id="updateValues-help-div2" style="float: left; margin-top:12px">
+                            <img src="resources/css/icons/Help_16-Grey.png" title="Update Values" class="fav-help" width="18px" style="border:0">
+                        </div>
+                    </div>
+                    <table style="margin-bottom:0px; width:auto; float:right; height:42px; margin-right: 15px;">
+                        <tr>
+                            <td style="padding-top:7px; padding-right:10px; vertical-align:top; width:40px;"><input id="btnLoadFrequency" type="button" value="OK"></td>
+                            <td style="padding-top:7px; padding-right:5px; vertical-align:top; width:40px;"><input id="btnCancelFrequency" type="button" value="Cancel"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="fillPopup" style="display:none;">
+            <div>
+                <div id='fill-container' style="width:90%; margin:auto">
+                    <!-- <div id='fillTabs' class="wait" style="margin-top:5px; padding-bottom: 7px;">
+                    <ul>
+                        <li style="margin-left:20px">Fill</li>
+                        <li>Weekends</li>
+                    </ul>
+                    <div> -->
+                    <table style="width: 100%; margin: auto; margin-top: 35px;">
+                        <tr>
+                            <td colspan="2" style="padding-bottom:17px; padding-left: 10px; color:#666; vertical-align: top; font-size: 16px; text-align:left">
+                                How missing values are handled in the result.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:64%; padding-left: 28px;">
+                                <label style="line-height: 23px;">Fill Type:</label>
+                                <div id='select_fillType' style="box-shadow: 0px 0 1px rgb(0 0 0 / 25%);"></div>
+                            </td>
+                            <td>
+                                <label style="line-height: 23px;">Style:</label>
+                                <div id='select_fillStyle' style="box-shadow: 0px 0 1px rgb(0 0 0 / 25%);"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="height:58px; padding:8px 20px 0px 28px; color:#666; vertical-align: top;">
+                                <p id="fill_hint">Previous Value: Use the previous value.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 27px;">
+                                <div id='fillLeading' style="float:left">&nbsp;Leading</div>
+                                <div id="leading-help-div" style="float: left; margin:3px 0 0 10px">
+                                    <img src="resources/css/icons/Help_16-Grey.png" title="Leading Fill Help" class="fav-help" width="18px" style="border:0">
+                                </div>
+                            </td>
+                            <td>
+                                <div id='fillTrailing' style="float:left">&nbsp;Trailing</div>
+                                <div id="trailing-help-div" style="float: left; margin:3px 0 0 10px">
+                                    <img src="resources/css/icons/Help_16-Grey.png" title="Trailing Fill Help" class="fav-help" width="18px" style="border:0">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="padding-top:20px; padding-left: 27px;">
+                                <div id='sparse'>&nbsp;Sparse</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="padding:0 20px 0px 28px; color:#666;">
+                                Remove rows containing no values in the result. Sparse is ignored if 'Fill' is set to ON for any series.
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- </div>
+                    <div>
+                        <table style="width: 100%; margin: auto; margin-top: 20px;">
+                            <tr>
+                                <td style="padding-left: 28px;">
+                                    <label style="line-height: 23px;">Handle Weekends:</label>
+                                    <div id='select_weekends' style="box-shadow: 0px 0 1px rgb(0 0 0 / 25%);"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding:8px 20px 0px 27px; color:#666;">
+                                    <div id='overwriteWeekend'>&nbsp;Overwrite with weekend Values</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding:0px 20px 40px 51px; color:#666;">
+                                    Use weekends if found in the source dataset. API normally adjust all datasets if weekends are found in any series.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 27px;">
+                                    <div id='allowWeekend'>&nbsp;Allow weekend dates in averages</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding:0 20px 0px 51px; color:#666;">
+                                    If unchecked, averages that fall on a weekend are adjusted to the nearest weekday.
+                                </td>
+                            </tr>
+                        </table>
+                    </div> -->
+                    <!-- </div>                 -->
+                </div>
+                <div id='fill-buttons' style="margin-top:40px">
+                    <div style="float:left; padding-left:20px; color:#666;">
+                        <div id='updateToJson_fill' style="margin-top:10px; float:left">&nbsp;Update Values</div>
+                        <div id="updateValues-help-div3" style="float: left; margin-top:12px">
+                            <img src="resources/css/icons/Help_16-Grey.png" title="Update Values" class="fav-help" width="18px" style="border:0">
+                        </div>
+                    </div>
+                    <table style="margin-bottom:0px; width:auto; float:right; height:42px; margin-right: 15px;">
+                        <tr>
+                            <td style="padding-top:7px; padding-right:10px; vertical-align:top; width:40px;"><input id="btnLoadFill" type="button" value="OK"></td>
+                            <td style="padding-top:7px; padding-right:10px; vertical-align:top; width:40px;"><input id="btnCancelFill" type="button" value="Cancel"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="selectSeriesPopup" style="display:none;">
+            <div style="padding:0">
+                <div id="treeGrid" style="width:100%; height:365px; font-family: Calibri; padding:0; border-bottom: 1px solid silver;"></div>
+                <div id='selectSeries-buttons' style="margin-top:7px">
+                    <div style="float:left; padding-left:10px; color:#666;">
+                        <div style="margin-top:24px; font-size:14px; color: #aaa">&nbsp;Selected: <span id="sel_series">0</span></div>
+                    </div>
+                    <table style="margin-bottom:0px; width:auto; float:right; height:42px; margin-right: 3px;">
+                        <tr>
+                            <td style="padding-top:7px; padding-right:10px; vertical-align:top; width:40px;"><input id="btnLoadBates" type="button" value="OK"></td>
+                            <td style="padding-top:7px; padding-right:10px; vertical-align:top; width:40px;"><input id="btnCancelBates" type="button" value="Cancel"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="seriesPropertiesPopup" style="display:none;">
+            <div>
+                <div id='seriesProperties-container' style="width:90%; margin:auto">
+                    <div id='seriesPropertiesTabs' class="wait" style="margin-top:5px; padding-bottom: 5px;">
+                        <ul>
+                            <li style="margin-left:20px">Fill Settings</li>
+                            <li>Advanced</li>
+                        </ul>
+                        <div>
+                            <table style="width: 100%; margin: auto; margin-top: 20px;">
+                                <tr>
+                                    <td style="padding-left: 27px;">
+                                        <div id='prefill_holiday'>&nbsp;Prefill missing (holiday) values.</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:0 20px 15px 51px; color:#8f8f8f;">
+                                        Fill any missing source values BEFORE Handle Weekends is Calculated.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-left: 27px;">
+                                        <div id='fill_holiday'>&nbsp;Fill missing (holiday) values.</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:0 20px 15px 51px; color:#8f8f8f;">
+                                        Fill any missing source values BEFORE any frequency average is calculated.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-left: 27px;">
+                                        <div id='postfill_holiday'>&nbsp;Postfill missing (holiday) values.</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:0 20px 21px 51px; color:#8f8f8f;">
+                                        Fill missing values in the result AFTER any frequency average is calculated.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:0 20px 0px 40px; color:#8f8f8f;">
+                                        All selected 'Fills' use the '<span id="fillType">Previous Value</span>' fill type as selected in the main window.
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div>
+                            <table style="width: 100%; margin: auto; margin-top: 20px;">
+                                <tr>
+                                    <td style="padding-left: 28px;">
+                                        <label style="line-height: 23px;">Handle Weekends:</label>
+                                        <div id='s_p_select_weekends' style="box-shadow: 0px 0 1px rgb(0 0 0 / 25%);"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="height:84px; padding:8px 20px 5px 29px; color:#666; vertical-align: top;">
+                                        <p id="weekends_hint1" style="font-size:13px;">Use weekends if in the source dataset. All datasets are adjusted if weekends are found in any dataset.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:0px 20px 30px 27px; color:#666;">
+                                        <div id='s_p_overwriteWeekend'>&nbsp;Overwrite with weekend Values</div>
+                                    </td>
+                                </tr>
+                                <!-- <tr>
+                                <td id="s_p_WeekendLabel" style="padding:0px 20px 9px 51px; color:#666; height: 55px; vertical-align: top;">
+                                    Add weekend dates filled using the selected 'Previous Value' fill type.
+                                </td>
+                            </tr> -->
+                                <tr>
+                                    <td style="padding-bottom:9px; padding-left: 27px;">
+                                        <div id="leadOption" style="float:left">&nbsp;Lead/Lag:</div>
+                                        <div id="s_p_lagNum" style="float:left">
+                                            <input type="text" style="text-align: center;" />
+                                            <div></div>
+                                        </div><br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:0 20px 3px 28px; color:#666;">
+                                        Phase shift the source values in the data series values + or - a number of days.
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id='seriesProperties-buttons' style="margin-top:10px">
+                    <!-- <div style="float:left; padding-left:20px; color:#666;">Handle Weekends: Automatic</div> -->
+                    <div style="float:left; padding-left:20px; color:#666;">
+                        <div id='updateToJson_seriesProperties' style="margin-top:10px; float:left" title="Update the worksheet values on close">&nbsp;Update Values</div>
+                        <div id="updateValues-help-div4" style="float: left; margin-top:12px">
+                            <img src="resources/css/icons/Help_16-Grey.png" title="Update Values" class="fav-help" width="18px" style="border:0">
+                        </div>
+                    </div>
+                    <table style="margin-bottom:0px; width:auto; float:right; height:42px; margin-right: 15px;">
+                        <tr>
+                            <td style="padding-top:7px; padding-right:10px; vertical-align:top; width:40px;"><input id="btnLoadSeriesProperties" type="button" value="OK"></td>
+                            <td style="padding-top:7px; padding-right:10px; vertical-align:top; width:40px;"><input id="btnCancelSeriesProperties" type="button" value="Cancel"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- website pre-loader -->
+        <div class="loader-container">
+            <div class="loader-box">
+                <div class="loader-wrapper">
+                    <span class="loader-circle"></span>
+                    <span class="loader-circle"></span>
+                    <span class="loader-circle"></span>
+                    <span class="loader-circle"></span>
+                    <span class="loader-circle"></span>
+                    <span class="loader-circle"></span>
+                </div>
+                <div class="loader-wrapper-2">
+                    <span class="loader-circle"></span>
+                    <span class="loader-circle"></span>
+                    <span class="loader-circle"></span>
+                    <span class="loader-circle"></span>
+                </div>
+                <div class="loader-wrapper-3">
+                    <span class="loader-circle"></span>
+                    <span class="loader-circle"></span>
+                    <span class="loader-circle"></span>
+                    <span class="loader-circle"></span>
+                    <span class="loader-circle"></span>
+                </div>
+                <div class="loader-wrapper-4">
+                    <span class="loader-circle"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="fixpage">
+            <nav include-html="menu.html" id="menu_file" class="navbar navbar-default navbar-fixed-top "></nav>
+            <section class="main-content footer-space">
+                <div id="jqxLoader"></div>
+                <div id="jqxLoader1"></div>
+                <div class="wrap relative">
+                    <div id="exportDialogWindow">
+                        <div id="exportDialog">
+                            <form id="formExportSeries" method="post">
+                                <div id="dialogForm">
+                                    - Export options:<br /><br />
+                                    <input type="radio" name="export_type" id="export-one" value="selected" checked="checked"> <span id="exportSelectedRecordsText"></span><br>
+                                    <input type="radio" name="export_type" id="export-all" value="all"> Export all <span id="num"></span> records in the database<br><br> - Export type:<br /><br />
+                                    <input type="radio" name="file_type" id="export-csv" value="csv" checked="checked"> Export CSV file&nbsp;&nbsp;&nbsp;
+                                    <input type="radio" name="file_type" id="export-xls" value="xls"> Export XLS file<br>
+                                </div>
+                            </form>
+
+                            <div id="exportDialofControlsPanel">
+                                <input type="button" class="btn-success-green window-controls" value="Export" id="exportSeriesBtn">
+                                <input type="button" class="btn-success-red window-controls" value="Cancel" id="cancelExportDialog">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="dialogWindow">
+                        <span id="dialogWindowContent"></span>
+                    </div>
+                    <div id="mainSplitter">
+                        <div id="topPanel" style="height:65px; overflow:hidden">
+                            <div id="metadataContent" style="user-select:text; color:#1763a5">
+                                <img id="triangle" src="/resources/images/down.png" />
+                                <div>
+                                    <b>Report ID: </b><span id="reportID"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <b>Name: </b><span id="reportName"></span>
+                                </div>
+                                <div>
+                                    <b>Average: </b><span id="average"></span>&nbsp;&nbsp;&nbsp;
+                                    <b>Fill Setting: </b><span id="reportFillType"></span>&nbsp;&nbsp;&nbsp; Leading: <span id="reportLeading"></span>&nbsp;&nbsp;&nbsp; Trailing: <span id="reportTrailing"></span>&nbsp;&nbsp;&nbsp;
+                                </div>
+                                <div>
+                                    <b>From: </b><span id="reportFrom"></span>&nbsp;&nbsp;&nbsp;
+                                    <b>To: </b><span id="reportTo"></span>
+                                </div>
+                                <div>
+                                    <b>Created: </b><span id="reportCreated"></span>&nbsp;&nbsp;&nbsp;
+                                    <b>Updated: </b><span id="reportUpdated"></span>
+                                </div>
+                                <br>
+                                <div>
+                                    <b>Notes: </b><br><span id="reportNotes"></span>
+                                </div>
+                                <br>
+                                <div>
+                                    <b>ReportJSON: </b><br><span id="reportJSON"></span>
+                                </div>
+                                <br>
+                                <div>
+                                    <b>UserJSON: </b><br><span id="userJSON"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="bottomPanel">
+                            <div id='jqxTabs' class="wait">
+                                <ul>
+                                    <li style="margin-left:20px">Values Table</li>
+                                    <li>Chart</li>
+                                    <li style="display:none">JSON Result</li>
+                                    <li style="display:none">JSON Request</li>
+                                </ul>
+                                <div>
+                                    <div id="bottomSplitter">
+                                        <div>
+                                            <div id="pricesSplitter">
+                                                <div>
+                                                    <div id='seriesToolbar' style="height:36px; padding-top: 2px !important;">
+                                                        <div id="fileDropdown" class="right-toolbar-button fileDropdown_arrow" style="background-color: white; border-radius: 1px; height: 28px; margin-left : 10px; border: 1px transparent; min-width:90px;"></div>
+                                                        <input type="file" id="fileupload" style="display:none" accept=".SJR" />
+                                                        <input id="btnCopy" title="Copy selected rows to the clipboard" style="margin-left:10px; margin-right:10px; border-radius: 1px; min-width:63px" value="Copy">
+                                                        <input id="btnDateRange" title="Select the date range to use in the report" style="margin-right:10px; border-radius: 1px; min-width:65px" value="Dates">
+                                                        <input id="btnFrequency" title="Select the frequency/average for the report" style="margin-right:10px; border-radius: 1px; min-width:85px" value="Average">
+                                                        <input id="btnFill" title="Set the defaults to use in any series fill" style="margin-right:10px; border-radius: 1px; min-width:55px" value="Fill">
+                                                        <input id="btnSeriesProperties" title="Change column properties" style="margin-right:10px; border-radius: 1px; min-width:70px " value="Columns">
+                                                        <button id="decimal" class="left-toolbar-button" title="Set the decimal places for  selected columns" style="border-radius:1px; margin-right:33px">
+                                                        <span id="decimal-style">0</span>.<span
+                                                            id="decimalContent">00</span>
+                                                    </button>
+                                                        <div class="right-toolbar-content" style="margin-right: 12px">
+                                                            <input id="btnResponseRefresh" title="Refresh the Values Table content." style="margin-right: 8px; border-radius: 1px; margin-top:-1; min-width:28px">
+                                                            <div id="hideDropdown1" class="right-toolbar-button hideDropdown_arrow" style="border-radius: 1px; border: 0; min-width:40px"></div>
+                                                            <input class="btnlayers" id="btnAutosizeSeries" class="right-toolbar-button" type="button" style="margin-right:10px; border-radius: 1px; min-width:28px">
+                                                            <input class="btnlayers" id="fullWidth1" class="right-toolbar-button" type="button" style="border-radius: 1px; min-width:28px">
+                                                        </div>
+                                                    </div>
+                                                    <div id="jqxgrid" style="width:100%; height:2000px; font-family: Calibri;"></div>
+                                                    <div id='jqxgridMenu'>
+                                                        <ul>
+                                                            <li><img class="table-icon"><span> Select All</span></li>
+                                                            <li type='separator'></li>
+                                                            <li><img class="table-icon" src="/resources/css/icons/copy.png"><span> Copy</span>
+                                                            </li>
+                                                            <li type='separator'></li>
+                                                            <li><img class="table-icon" src="/resources/css/icons/calendar7_16.png"><span>
+                                                                Highlight W/E</span><img src="/resources/css/icons/checked.png" height="12" width="12"  class="toggle-button highlight-weekends">
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div id="export_excel" style="display:none"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div id="chart" class="chart-container">
+                                        <div id="top-chart">
+                                            <div id='jqxgridMenuChart'>
+                                                <ul>
+                                                    <li><img class="table-icon" src="/resources/css/icons/imgpsh_fullsize_anim.png"><span>
+                                                        Candlestick </span><img src="/resources/css/icons/checked.png" height="12" width="12" class="toggle-button chart-candlestick">
+                                                    </li>
+                                                    <li><img class="table-icon" src="/resources/css/icons/imgpsh_fullsize_anim_line.png"><span>
+                                                        Hide missing values </span><img src="/resources/css/icons/checked.png" height="12" width="12" class="toggle-button chart-missing"></li>
+                                                    <li type='separator'></li>
+                                                    <li><img class="table-icon" src="/resources/css/icons/imgpsh_fullsize_anim2.png"><span> Zoom
+                                                        Reset </span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div id="bottom-chart"></div>
+                                        <div class="zoom-part">
+                                            <div id="zoom-chart">
+                                                <div class="zoom-panel"></div>
+                                            </div>
+                                        </div>
+                                        <div id="legend-chart">
+                                            <div class="uplot"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div id='responseToolbar' style="height:36px; border-bottom:1px solid #ddd">
+                                        <input id="btnResponseSaveJson" title="Save the result data below in a JSON file" value="Save JSON File" style="border-radius: 1px;  margin-left:10px">
+                                        <div class="right-toolbar-content" style="margin-right: 12px">
+                                            <!--    <input id="btnResponseRefresh" title="Refresh the Values Table content."
+                                            style="margin-right: 10px; border-radius: 1px;">  -->
+                                            <input id="ResultfullWidth" title="Toggle full window width" style="margin-right: 6px; border-radius: 1px; margin-left: 10px; ">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <!-- <pre id="response-json-display" style="height:100%;"></pre> -->
+                                        <div id="response-json-display" style="height:100%; user-select: text;"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div id='requestToolbar' style="height:36px; background-color:#fff">
+                                        <div id="fileDropdown1" class="right-toolbar-button fileDropdown_arrow" style="background-color: white; border-radius: 1px; margin-left:10px; border: 0; min-width:90px;"></div>
+                                        <input id="btnDateRange1" title="" style="margin-left:10px; margin-right:10px; border-radius: 1px; min-width:65px" value="Date">
+                                        <input id="btnFrequency1" title="" style="margin-right:10px; border-radius: 1px; min-width:85px" value="Average">
+                                        <input id="btnFill1" title="" style="margin-right:10px; border-radius: 1px; min-width:55px" value="Fill">
+                                        <input id="btnSeriesProperties1" title="" style="margin-right:10px; border-radius: 1px; min-width:70px" value="Series">
+                                        <!-- <p style="margin-right: 10px;">Frequency:</p>
+                                    <div id='series_frequency_json' style="margin-right:8px; box-shadow: 0px 0 1px rgb(0 0 0 / 25%); border-radius: 1px;"></div> -->
+                                        <div class="right-toolbar-content" style="margin-right: 12px">
+                                            <input id="btnRequestRefreshJson" title="Refresh the Values Table content" style="margin-right:10px; border-radius: 1px; min-width:28px">
+                                            <div id="hideDropdown" class="right-toolbar-button hideDropdown_arrow" style="border-radius: 1px; border: 0; min-width:40px"></div>
+                                            <div id="fav-help-div" style="margin-right: 10px">
+                                                <!-- <input id="fav-help" type="button" value=""> -->
+                                                <a href="javascript: go_help_page('/api-docs#getdatasetvaluesrc', 'Do you want to see the API help page?');"><img src="resources/css/icons/Help_16-Grey.png" title="Help for GetValuesRC API endpoint" class="fav-help" style="border:0" width="27px"></a>
+                                            </div>
+                                            <input id="fullWidth" style="margin-right: 6px; border-radius: 1px; min-width:28px">
+                                        </div>
+                                    </div>
+                                    <!-- 2022.5.21 11 Start-->
+                                    <div id='jqxnavigationbar'>
+                                        <!--Header-->
+                                        <div id="tabName" style="color:#555!important; opacity: 0;">
+                                            Report JSON</div>
+                                        <!--Content-->
+                                        <div id="request-json-body">
+                                            <pre id="request-json-display" style="height:100%; margin-bottom:0px"></pre>
+                                        </div>
+                                        <!--Header-->
+                                        <div id="tabnote" style="color:#555!important;display: none;">Notes</div>
+                                        <div id="notes-json-body">
+                                            <textarea id="notes-json-display" style="width:100%; height:100%; border:0; background-color: white; padding:30px" readonly="readonly"></textarea>
+                                            <!-- <pre id="notes-json-display" style="height:100%; background-color: white"></pre> -->
+                                        </div>
+                                        <!--Header-->
+                                        <div id="tabuser" style="color:#555!important;display: none;">User JSON</div>
+                                        <div id="user-json-body">
+                                            <pre id="user-json-display" style="height:100%; background-color:#1d43b4"></pre>
+                                        </div>
+                                    </div>
+                                    <!-- End -->
+
+                                    <!-- <div id='jqxExpander1' style="height: calc( 100% - 169px );">
+                                    <div id="tabName" style="color:#555!important">Report JSON 
+
+                                    <div id='series_frequency_json' style="margin-right:8px;"></div>
+                                    </div>
+                    
+                                    <div id="request-json-body">
+                                        <pre id="request-json-display" style="height:100%; margin-bottom:0px"></pre>
+                                    </div>                                    
+                                </div>
+                                <div id='jqxExpander2'>
+                                    <div style="color:#555!important">Notes</div>
+                                    <div id="notes-json-body">
+                                        <pre id="notes-json-display" style="height:100%; background-color: white"></pre>
+                                    </div>                                    
+                                </div>
+                                <div id='jqxExpander3'>
+                                    <div style="color:#555!important">User JSON</div>
+                                    <div id="user-json-body">
+                                        <pre id="user-json-display" style="height:100%; background-color:#b3b3b3"></pre>
+                                    </div>                                    
+                                </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div include-html="footer.html" id="footer_file"></div>
+
+            <div class="text-center footertxt">
+                <p class="sub-logo"> Copyright © 2018-2022 Sarus Systems Limited - Market Data Solutions </p>
+            </div>
+        </div>
+
+        <script src="resources/js/include-html.js" async></script>
+
+        <script id="no_cache_script"></script>
+        <script>
+            var value_clicked = "";
+            var date_clicked = "";
+            var chart = "";
+
+            // Global Scope variable we need this
+            var clickCount = 0;
+            // Our Timeout, modify it if you need
+            var timeout = 500;
+            var grid, grid1, dataView, dataView1, headerMenuPlugin;
+            var s = document.getElementById("no_cache_script");
+            var sc = document.createElement('script');
+            sc.type = 'text/javascript';
+            sc.async = true;
+            sc.src = 'resources/js/rana-charts.js?v=1.2' + Math.random();
+            s.parentNode.insertBefore(sc, s);
+
+            if (getParameterByName('tab') == "chart") {
+                $('#jqxgrid').css('width', '400px');
+
+                setTimeout(() => {
+                    $("#jqxgrid .slick-pane-top").css('top', '68px');
+                }, 6000);
+            }
+
+            function clicks() {
+                clickCount++;
+                if (clickCount == 1) {
+                    setTimeout(function() {
+                        if (clickCount == 1) {
+                            if (document.getElementById("jqxTabsTab0").classList.contains(
+                                    "jqx-fill-state-pressed-light"))
+                                getItemsByColumnValue(grid, "Date", date_clicked, 0);
+                            else
+                                console.log("not active");
+                        } else {
+                            console.log('double click');
+                        }
+                        clickCount = 0;
+                    }, timeout || 300);
+                }
+            }
+
+            function getItemsByColumnValue(grid, field, value, selectField) {
+
+                if (grid.getData().length == undefined)
+                    var rows = grid.getData().getItems();
+                else
+                    var rows = grid.getData();
+
+                var output = [];
+                rows.forEach(function(row) {
+
+                    // if (row[field] == value) {
+                    var data_date = new Date(row[field]);
+                    var search_date = new Date(value.split(" ")[0]);
+                    if (
+                        data_date && search_date &&
+                        data_date.getFullYear() == search_date.getFullYear() &&
+                        data_date.getMonth() == search_date.getMonth() &&
+                        data_date.getDate() == search_date.getDate()
+                    ) {
+                        if (selectField) {
+                            //if selectField is specified, put only that field value to array
+                            output.push(row[selectField]);
+                        } else {
+                            var rowsindexes = grid.getSelectedRows();
+                            if (rowsindexes[0] - (row.num - 1) < -6 || rowsindexes[0] - (row.num - 1) > 6) {
+                                if (row.num > 7) {
+                                    $(".slick-viewport").prop("scrollTop", (row.num - 8) * 30);
+                                }
+                            }
+                            grid.setSelectedRows([]);
+                            grid.setSelectedRows([(row.num - 1)]);
+
+                            output.push(row.boundindex);
+                        }
+                    }
+                });
+                return output;
+            }
+
+            function filtervalues_grid(grid, filtervalue, columnIndex, filtercondition, filtertype) {
+                var filtergroup = new $.jqx.filter();
+                var filter_or_operator = 1;
+
+                var filter = filtergroup.createfilter(filtertype, filtervalue, filtercondition);
+                filtergroup.addfilter(filter_or_operator, filter);
+                grid.jqxGrid('addfilter', columnIndex, filtergroup);
+                // apply the filters.
+                grid.jqxGrid('applyfilters');
+            }
+
+            function initialise_chart_for_click() {
+                if (document.getElementById("bigChart") && document.getElementById("bigChart").getElementsByClassName(
+                        "u-over")[0]) {
+                    document.getElementById("bigChart").getElementsByClassName("u-over")[0].removeEventListener("click",
+                        clicks);
+                    document.getElementById("bigChart").getElementsByClassName("u-over")[0].addEventListener('click',
+                        clicks);
+                }
+                if (document.getElementById("top-subchart") && document.getElementById("top-subchart")
+                    .getElementsByClassName("u-over")[0]) {
+                    document.getElementById("top-subchart").getElementsByClassName("u-over")[0].removeEventListener("click",
+                        clicks);
+                    document.getElementById("top-subchart").getElementsByClassName("u-over")[0].addEventListener('click',
+                        clicks);
+                }
+            }
+
+            function go_help_page(url, msg = '') {
+                if (msg != "") {
+                    dialogWindow(msg, "query", "confirm", "Monitor+ - Allow Weekends", () => {
+                        window.open(url, "_blank");
+                    }, () => {}, null, {
+                        Ok: "Yes",
+                        Cancel: "No"
+                    });
+                }
+            }
+
+            function loadScript(src) {
+                var scriptElem = document.createElement('script');
+                scriptElem.setAttribute('src', src);
+                scriptElem.setAttribute('type', 'text/javascript');
+                document.getElementsByTagName('head')[0].appendChild(scriptElem);
+            }
+
+            setTimeout("loadScript('resources/js/report_viewer.js');", 100);
+        </script>
+
+</body>
+
+</html>

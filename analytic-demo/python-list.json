@@ -1,0 +1,38 @@
+[
+    {
+        "report_name": "View My Favorite Datasets", 
+        "filename": "analytic-demo/python-demos/List My Favorites.ipynb", 
+        "description": "List the metadata for all your selected 'Favorite' market datasets. The list makes it easy to get your favorite datasource and dataset names for use in any analytic report.<br>You can login to your your Sarus account to manage your favorite datasets by <a href=\"https:\/\/www.sarus.com\/profilemain?tab=favorites\"> clicking here</a>.", 
+        "free_enabled": true
+    },
+    {
+        "report_name": "Load and display one daily dataset", 
+        "filename": "analytic-demo/python-demos/Single-Series-rev1.ipynb", 
+        "description": "Load and display the market data for one dataset.  This simple report can be used as a building block for all single dataset reports that you want to create.", 
+        "free_enabled": true
+    },
+    {
+        "report_name": "Load a dataset as a monthly average and chart with two moving Averages", 
+        "filename": "analytic-demo/python-demos/Single-SeriesMA-rev1.ipynb", 
+        "description": "Load a dataset as a monthly average then chart and display it with two moving averags. You can easily change the dataset used, the moving averages and all other parameters.", 
+        "free_enabled": true
+    },
+    {
+        "report_name": "Load and chart 2 datasets as daily and quarterly time series.", 
+        "filename": "analytic-demo/python-demos/Two-datasets-DailyQuarterly-Charted.ipynb",  
+        "description": "The report downloads two daily market data datasets (time series) as both daily and quarter year values. They are requested as business days only, filled forward ( using the 'interpolate' fill method) and with a common start date. Six charts are created to display both daily and quarterly values (defined in the 'Global Variables' section below). ", 
+        "free_enabled": true
+    },
+    {
+        "report_name": "ARIMA model on Time-Series data", 
+        "filename": "analytic-demo/python-demos/AR model on Time-Series data.ipynb", 
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", 
+        "free_enabled": false
+    },
+    {
+        "report_name": "Jupyter Seasonality model", 
+        "filename": "analytic-demo/python-demos/ARIMA.ipynb", 
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", 
+        "free_enabled": false
+    }
+]

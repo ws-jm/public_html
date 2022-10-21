@@ -1,0 +1,142 @@
+#jqxWidget {
+    margin-top: 17px;
+}
+
+.splitter-panel,
+#mainSplitter {
+    height: 100%;
+    width: 100%;
+}
+.inactiveRenderer{
+    text-align: center;
+    margin-top: 5px;
+}
+#vCenter {
+    margin-top: 7px;
+}
+.redClass {
+    color: #f00;
+}
+.redClass a {
+    color: #f00;
+}
+#fullWidth {
+    margin-right: 10px;
+}
+
+#btn-list-view {
+    margin-left: -8px;
+    margin-right: 8px;
+}
+
+.FRight {
+    float: right;
+    margin-right: 5px;
+}
+#pagerender-element {
+    margin-right: 10px;
+    margin-top: 8px;
+    height: 100%;
+    float: right;
+}
+#pagerender-last-element {
+    margin-left: 10px;
+    margin-top: 8px;
+    height: 100%;
+    float: left;
+}
+#pageNumberStyle {
+    margin-right: 3px;
+    float: left;
+    margin-top: -2px;
+    font-family: Calibri;
+}
+#page-lable1 {
+    margin-right: 5px;
+    float: left;
+}
+#page-lable2 {
+    padding: 0px;
+    margin: 0px 3px;
+    float: left;
+}
+#jqxgridMenu {
+    display: none;
+}
+.jqx-listitem-state-selected-light,
+.jqx-menu-item-selected-light,
+.jqx-tree-item-selected-light,
+.jqx-calendar-cell-selected-light,
+.jqx-grid-cell-selected-light,
+.jqx-menu-vertical-light .jqx-menu-item-top-selected-light,
+.jqx-grid-selectionarea-light,
+.jqx-input-button-header-light,
+.jqx-input-button-innerHeader-light,
+.jqx-grid-cell-selected
+{
+    border-color: #ddd !important;
+    background: #fff !important;
+    color: #000 !important;
+    text-shadow: none !important;
+}
+div.sub-grid .jqx-grid-cell-selected {
+    color: #ffffff !important;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-color: #003399;
+    background-repeat: repeat-x;
+    border-color: #316293 #316293 #29547E !important;
+    background: #356aa0 !important;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+div.sub-grid .jqx-grid-cell-selected a {
+    color: #fff !important;
+}
+#fullWidth {
+    position: absolute !important;
+    margin: -12px 0 0 -36px;
+}
+#btnAutosizeActive {
+    position: absolute !important;
+    margin: -12px 0 0 -64px;
+}
+#refrestData {
+    position: absolute !important;
+    margin: -12px 0 0 -92px;
+}
+#btnAutosizeActive:active,
+#fullWidth:active,
+#refrestData:active {
+    margin-top: -10px;
+}
+.fixpage {
+    height: auto;
+    min-height: calc(100% - 2px);
+}
+.jqx-grid-details-cell,
+.jqx-grid-group-collapse,
+.green-light {
+    background-color: rgb(232, 248, 255);
+}
+.footer-space {
+    padding-bottom: 0 !important;
+}
+.jqx-grid-cell-selected a {
+    color: #337ab7 !important;
+}
+#mainSplitter {
+    border: 0;
+}
+.footer-wraper {
+    bottom: 0;
+}
+.access-available {
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 50%;
+    transform: translateY(-50%);
+}

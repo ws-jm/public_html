@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta -->
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+		
+		<!-- Title -->
+		<title>User Favorites</title>
+
+		<!-- CSS Files -->
+		<!-- <link rel="stylesheet" href="dist/themes/default/style.min.css" /> -->
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+        <!-- <link rel="stylesheet" type="text/css" href="./json-viewer-master/src/json-viewer.css">     -->
+
+    
+		<!-- JS Files -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+		<script src="dev/api/authentication.js"></script>
+		<script src="dev/api/config/config.js"></script>
+		
+    <style>
+      body{
+        font-family: 'Open Sans', sans-serif;
+        font-size: 12px;
+      }
+
+      .jstree-default .jstree-node, .jstree-default .jstree-icon {
+          background-image: none;
+      }
+
+      .jstree-default .jstree-closed>.jstree-ocl {
+          background-position: 0px 3px;
+          background-image: url(resources/jqwidgets/styles/images/metro-icon-right.png);
+          width: 18px;
+      }
+
+      .jstree-default .jstree-open>.jstree-ocl {
+          background-position: 0px 3px;
+          background-image: url(resources/jqwidgets/styles/images/metro-icon-down.png);
+          width: 18px;
+      }
+
+      .jstree-default .jstree-node {
+          min-height: 30px;
+          line-height: 30px;
+      }
+
+      #jstree_demo_div{
+        margin-top: 8px;
+      }
+    </style>
+
+	</head>
+	<body class="default wait">
+    <div style="display: inline-block; user-select: none;" class="draggable jqx-rc-all jqx-rc-all-light jqx-tree-item jqx-tree-item-light jqx-item jqx-item-light jqx-draggable jqx-fill-state-pressed jqx-fill-state-pressed-light jqx-tree-item-selected jqx-tree-item-selected-light" id="jqxWidget45b1c408" unselectable="on">
+      <img width="16" height="16" style="float: left; margin-right: 4px;" class="itemicon" src="resources/css/icons/globe16-1.png">[All Categories]
+    </div>
+    <div id="jstree_demo_div"></div>
+  </body>
+</html>
+      
+<script>
+  
+  $(document).ready(function () {  
+
+    function getDatasource(datasource, sessionToken) { 
+        return fetch(`https://api.intdatamedia.com/GetDatasource?SessionToken=${sessionToken}&Datasource=${datasource}&ReturnAccess=true`)
+    }
+    
+    function arrangeData( array, type, userCategoryList = [] ){
+      if (type === "Tree") {
+          for ( let i in array ){
+              if ( array[i].Group !== undefined ) {
+                  let name = array[i].Group,
+                  category = array[i].Filter;
+                  delete array[i].Group;
+                  delete array[i].Filter;
+                  let flag = false
+                  userCategoryList.map((l) => {
+                      for (let m of category.split(",")) {
+                          if (m === l.Name) {
+                              flag = true
+                          }
+                      }
+                  })
+                  if (flag) {
+                      array[i].icon = 'resources/css/icons/folder_yellow.png';
+                      array[i].text = '<font color="black">'+name+'</font>';
+                  } else {
+                      array[i].icon = 'resources/css/icons/folder_grey.png';
+                      array[i].text = '<font color="#aaa">'+name+'</font>';
+                  }
+                  
+
+                  array[i].expanded = true;
+                  array[i].value = category;
+                  let items = array[i].Items;
+                  delete array[i].Items;
+                  array[i].children = arrangeData( items, "Tree", userCategoryList );
+              } else {
+                  if ( array[i].access ) {
+                      array[i].icon = 'resources/css/icons/Tree2.png';
+                      let name = array[i].Name;
+                      delete array[i].Name;
+                      if (array[i].Description !== undefined) {
+                          array[i].text = '<font color="black">'+name + ' [' + array[i].Description + ']</font>';
+                          array[i].value = array[i].Description;
+                          delete array[i].Description;
+                      } else {
+                          array[i].text = '<font color="black">'+name + ' [' + array[i].Category + ']</font>';
+                          array[i].value = array[i].Category;
+                          delete array[i].Category;
+                      }
+                  } else {
+                      array[i].icon = 'resources/css/icons/Abort1.png';
+                      let name = array[i].Name;
+                      delete array[i].Name;
+                      if (array[i].Description !== undefined) {
+                          array[i].text = '<font color="#aaa">'+name + ' [' + array[i].Description + ']</font>';
+                          array[i].value = array[i].Description;
+                          delete array[i].Description;
+                      } else {
+                          array[i].text = '<font color="#aaa">'+name + ' [' + array[i].Category + ']</font>';
+                          array[i].value = array[i].Category;
+                          delete array[i].Category;
+                      }
+
+                  }
+                  
+                  
+              }
+          }
+      } else if (type === "List") {
+          for (let i in array) {
+              if (array[i].access) {
+                  array[i].icon = 'resources/css/icons/Tree2.png';
+                  let name = array[i].Name;
+                  delete array[i].Name;
+                  if (array[i].Description !== undefined) {
+                      array[i].text = name + ' [' + array[i].Description + ']';
+                      array[i].value = array[i].Description;
+                      delete array[i].Description;
+                  } else {
+                      array[i].text = name + ' [' + array[i].Category + ']';
+                      array[i].value = array[i].Category;
+                      delete array[i].Category;
+                  }
+              } else {
+                  array[i].icon = 'resources/css/icons/Abort1.png';
+                  let name = array[i].Name;
+                  delete array[i].Name;
+                  if (array[i].Description !== undefined) {
+                      array[i].text = name + ' [' + array[i].Description + ']';
+                      array[i].value = array[i].Description;
+                      delete array[i].Description;
+                  } else {
+                      array[i].text = name + ' [' + array[i].Category + ']';
+                      array[i].value = array[i].Category;
+                      delete array[i].Category;
+                  }
+              }
+              
+          }
+      } else if (type === "UserList") {
+          for (let i in array) {
+              array[i].icon = 'resources/css/icons/Tree2.png';
+              let name = array[i].Name;
+              delete array[i].Name;
+              if (array[i].Description !== undefined) {
+                  array[i].text = name + ' [' + array[i].Description + ']';
+                  array[i].value = array[i].Description;
+                  delete array[i].Description;
+              } else {
+                  array[i].text = name + ' [' + array[i].Category + ']';
+                  array[i].value = array[i].Category;
+                  delete array[i].Category;
+              }
+          }
+      }
+      
+      return array;
+    };
+
+    var request = {
+      CaseSensitive: false,
+      Datasource: "PLATTS",
+      Page: 1,
+      ReturnAccess: true,
+      Rows: 50,
+      SessionToken: getSession(),
+      ShortRecord: false,
+      SortColumns: "CategoryName",
+      SortOrder: "asc"
+    }
+
+    var categoryTree = [];
+    var categoryList = [];
+    var userCategoryList = [];
+
+    var data = {
+      "themes" : {
+        "variant" : "large",
+        "icons": 0,
+      },
+      "multiple" : false,
+      "animation" : 0
+    };
+
+    call_api_ajax('GetDatasets', 'get', request, true,
+    ( data ) => {
+        
+        getDatasource(request.Datasource, request.SessionToken)
+        .then(res => res.json())
+        .then(result => {
+            if (result.Result.IsCategoryDS === true) {
+                categoryTree = result.Result.DetailsDS.CategoryTree;
+                categoryList = result.Result.DetailsDS.CategoryList;
+                userCategoryList = result.Result.DetailsDS.UserCategoryList;
+
+                function compareAccess(elem) {
+                    for (e of userCategoryList) {
+                        if(elem === e.Name) {
+                            return true
+                        }
+                    }
+                    return false
+                }
+
+                function accessIcon() {
+                  let list = categoryTree;
+                  for (j in list) {
+                      if (list[j].Group !== undefined) {
+                          for (i in list[j].Items) {
+                              if (list[j].Items[i].Items) {
+                                  for (k in list[j].Items[i].Items) {
+                                      if (compareAccess(list[j].Items[i].Items[k].Category)) {
+                                          list[j].Items[i].Items[k].access = true;
+                                      } else {
+                                          list[j].Items[i].Items[k].access = false;
+                                      }
+                                  }
+                                  
+                              } else {
+                                  if (compareAccess(list[j].Items[i].Category)) {
+                                      list[j].Items[i].access = true;
+                                  } else {
+                                      list[j].Items[i].access = false;
+                                  }
+                              }
+                              
+                          }
+                      } else {
+                          if (compareAccess(list[j].Category)) {
+                              list[j].access = true;
+                          } else {
+                              list[j].access = false;
+                          }
+                      }
+                  }
+                }
+
+                accessIcon();
+
+                var treeRecords = arrangeData( categoryTree, "Tree", userCategoryList ); // TODO Here is the problem with the Tree
+
+                data.data = treeRecords;
+
+                $('#jstree_demo_div').jstree({
+                  "core" : data,
+                  // "checkbox" : {
+                  //   "keep_selected_style" : false
+                  // },
+                  // "plugins" : [ "wholerow", "checkbox" ]
+                });
+
+            } else {
+
+            } 
+        })
+        .catch(e => console.warn("Error in GetDatasource Call: ", e));
+    }, null, () => {
+        
+    });  
+ 
+  });
+
+  </script>

@@ -1,0 +1,27 @@
+.nav > li.home-menu,
+.fixpage {
+    display: none;
+}
+.main-banner ul {
+    font-family: "Open Sans",Roboto,sans-serif;
+}
+.main-banner ul li {
+    font-family: "Open Sans",Roboto,sans-serif;
+    font-size: 15px;
+}
+.main-heading h2 {
+    font-size: 24px;
+    font-weight: normal;
+    font-family: "Open Sans",Roboto,sans-serif;
+}
+p {
+    font-family: "Open Sans",Roboto,sans-serif;
+}
+.choose-option-txt span {
+    font-family: "Open Sans",Roboto,sans-serif;
+    font-size: 16px;
+}
+.choose-option-txt p {
+    font-family: "Open Sans",Roboto,sans-serif;
+    font-size: 12px;
+}

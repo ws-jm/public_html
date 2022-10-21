@@ -1,0 +1,543 @@
+<div>
+	<div class="doc-sec-container" id="documentor_seccontainer">
+		<div class="doc-sectionwrap" id="adddatasetstofavorites_wrap">
+			<div class="documentor-section  section-311"
+				id="adddatasetstofavorites1" data-section-id="311">
+				<h3 class="doc-sec-title"> <span class="doc-sec-count"
+						style="display:inline-block">5.3.</span><span
+						class="title-text">&nbsp;&nbsp;Add one or more datasets to
+						the user
+						favorites list.</span>
+				</h3>
+				<div class="doc-sec-content">
+					<h2><b><span style="color: #339966;"><span
+									style="color: #008000;">GET
+								</span></span></b><b>and </b><b><span
+								style="color: #339966;"><span
+									style="color: #008000;">POST</span>
+							</span></b><b>AddFavorites </b>
+					</h2>
+					<p><strong>Description:</strong>&nbsp;&nbsp;Add dataset(s) to
+						your ‘favorites’ list.</p>
+					<div class="api-article-main-example">
+						<p><strong>Usage:</strong>&nbsp;&nbsp;Add one or more
+							datasets to your list of user
+							favorite datasets.</p>
+						<h4><b style="color: RGB(54, 96,146);"><span
+									style="color: #008000;">GET</span> Sample
+								Request:</b>
+						</h4>
+						<pre><span class="spanColor">GET</span> https://[server]/AddFavorites?SessionToken=YOUR_SESSION_TOKEN&amp;Series[]=ECBFX/EURGBP&amp;Series[]=ECBFX/EURUSD</pre>
+					</div>
+					<div class="api-article-table">
+						<div class="api-article-main-example">
+						
+						<h4><b style="color: RGB(54, 96,146);"><span
+										style="color: #008000;">POST</span>
+									Sample Request:</b></h4>												
+																						
+							<pre>POST https://[server]/AddUserFavorites
+	
+							{
+								"SessionToken=YOUR_SESSION_TOKEN",
+								"Series":[
+									{ "Datasource":"ECBFX", "Symbol":"EURGBP" }, 
+									{ "Datasource":"ECBFX", "Symbol":"EURUSD" }
+								]
+
+							}
+						</pre>
+							<p> </p>
+						</div>
+					</div>
+
+
+
+					<div class="api-article-main-example">
+						<div class="api-article-table">
+							<div class="api-article-table">
+								<div class="api-article-table">
+									<div class="single-notes notes-indent"
+										style="padding-top: 20px;">
+										<div>CategoryDS datasources</div>
+
+										<ul>
+											<li>A CategoryDS is a datasource whose
+												datasets
+												are grouped in data categories. The
+												user
+												must be authorised to access
+												individual
+												data categories.</li>
+											<li>A CategoryDS is identified when
+												the result
+												parameter <em>IsCategoryDS</em>
+												is set to true.</li>
+											<li>The category name must be used in
+												all data
+												requests to a CategoryDS datasource.
+											</li>
+										</ul>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="api-article-table">
+						<h3></h3>
+						<br>
+						<h3>Request Parameters</h3>
+						<table style="height: 117px;" width="695">
+							<tbody>
+								<tr>
+									<td><strong>Parameter</strong></td>
+									<td><strong>Type</strong></td>
+									<td><strong>Mandatory</strong></td>
+									<td><strong>Description</strong></td>
+								</tr>
+								<tr>
+									<td><span
+											style="color: #000000;">SessionToken</span>
+									</td>
+									<td><span style="color: #000000;">String</span>
+									</td>
+									<td style="text-align: center;"><span
+											style="color: #000000;">Yes</span></td>
+									<td><span style="color: #000000;">The Session
+											token from
+											the <em>GetSessionToken</em>
+											endpoint</span>
+									</td>
+								</tr>
+								<tr>
+									<td><span style="color: #000000;">Series</span>
+									</td>
+									<td><span
+											style="color: #000000;">[Object]</span>
+									</td>
+									<td style="text-align: center;"><span
+											style="color: #000000;">Yes</span></td>
+									<td><span style="color: #000000;">A list of
+											<em>Datasource</em> (,
+											<em>Datacategory</em>) and
+											<em>Symbol</em> parameters to
+											request.</span><br>
+										<span style="color: #000000;">See the
+											example
+											above.<br>
+										</span><br>
+										<span style="color: #000000;">The
+											<em>Series</em><em>Datacategory </em>
+											parameter is only required if the
+											datasource
+											is a CategoryDS datasource
+											e.g:</span><br>
+										<span style="color: #000000;">{
+											“Datasource”:”AAAA”,
+											“Datacategory”:”BB”, “Symbol”:”CCCCC”
+											}</span><br>
+										<span style="color: #000000;">See the Notes
+											above for information about CategoryDS
+											datasources.</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+
+						<blockquote>
+							<p><strong>
+									Tips:</strong></p>
+							<ul>
+								<li>You can use the <em>GetUserFavorites</em>
+									endpoint
+									to return the current list of user favorites.
+								</li>
+								<li>Use the <em>RemoveUserFavorites</em> endpoint to
+									remove
+									data symbols from the user favorites.</li>
+								<li>If you try to add a dataset that is in your
+									favorites
+									(or is not authorised) the result ‘ignored’
+									parameter
+									will be incremented.</li>
+							</ul>
+						</blockquote>
+						<div class="api-article-table">
+							<h3></h3>
+							<h3>Response Parameters</h3>
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th style="text-align: right;"></th>
+										<th style="text-align: left;">Parameter</th>
+										<th style="text-align: left;">Type</th>
+										<th>Mandatory</th>
+										<th style="text-align: left;">Description
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td style="text-align: right;"><span
+												style="color: #000000;">1</span>
+										</td>
+										<td><span
+												style="color: #000000;">ServerDateTime</span>
+										</td>
+										<td><span
+												style="color: #000000;">String</span>
+										</td>
+										<td style="text-align: center;"><span
+												style="color: #000000;">Yes</span>
+										</td>
+										<td><span style="color: #000000;">The server
+												UTC
+												date and time as an ISO 8601
+												string.</span></td>
+									</tr>
+									<tr>
+										<td style="text-align: right;"><span
+												style="color: #000000;">2</span>
+										</td>
+										<td><span
+												style="color: #000000;">TimeStamp</span>
+										</td>
+										<td><span
+												style="color: #000000;">Float</span>
+										</td>
+										<td style="text-align: center;"><span
+												style="color: #000000;">Yes</span>
+										</td>
+										<td><span style="color: #000000;">Server
+												date
+												and time as a Julian date.</span>
+										</td>
+									</tr>
+									<tr>
+										<td style="text-align: right;"><span
+												style="color: #000000;">3</span>
+										</td>
+										<td><span
+												style="color: #000000;">ExecutionTime</span>
+										</td>
+										<td><span
+												style="color: #000000;">Float</span>
+										</td>
+										<td style="text-align: center;"><span
+												style="color: #000000;">Yes</span>
+										</td>
+										<td><span style="color: #000000;">The number
+												of
+												milliseconds taken to process the
+												request.</span></td>
+									</tr>
+									<tr>
+										<td style="text-align: right;">4</td>
+										<td><span
+												style="color: #808080;">Result</span>
+										</td>
+										<td><span
+												style="color: #808080;">[Object]</span>
+										</td>
+										<td style="text-align: center;"><span
+												style="color: #808080;">No*</span>
+										</td>
+										<td><span style="color: #808080;">If the
+												request
+												is a success,
+												a <em>Result</em> object is
+												returned.</span><br>
+											<span style="color: #808080;">See the
+												‘<em>Result</em>‘ table below for
+												details.</span>
+										</td>
+									</tr>
+									<tr>
+										<td style="text-align: right;">5</td>
+										<td>Errors</td>
+										<td>[Object]</td>
+										<td style="text-align: center;">No*</td>
+										<td><span style="color: #808080;">If the
+												request
+												fails, an '<em>Errors</em>' object
+												is
+												returned.<br>
+												See the
+												‘<em>Errors Object</em>‘
+												table below for details.</span>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+
+							<div class="single-notes notes-indent">
+								<div> Note</div>
+								<p>A successful API response will return a
+									'<em>Result</em>'
+									object with the requested payload
+									<strong>or</strong> an
+									'<em>Errors</em>' object detailing the issue
+									that caused
+									the error.
+								</p>
+							</div>
+							<h3 style="padding-left: 30px;"></h3>
+							<h3 style="padding-left: 30px;">Result Object</h3>
+							<table class="table table-bordered"
+								style="margin-left: 30px;">
+								<thead style="padding-left: 30px;">
+									<tr style="padding-left: 30px;">
+										<th style="text-align: right;"></th>
+										<th>Parameter</th>
+										<th>Type</th>
+										<th>Mandatory</th>
+										<th style="text-align: left;">Description
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td style="text-align: right;"><span
+												style="color: #000000;">1</span>
+										</td>
+										<td><span
+												style="color: #000000;">Added</span>
+										</td>
+										<td><span
+												style="color: #000000;">Integer</span>
+										</td>
+										<td style="text-align: center;"><span
+												style="color: #000000;">Yes</span>
+										</td>
+										<td><span style="color: #000000;">The number
+												of
+												datasets that were added to
+												favorites
+												list.</span></td>
+									</tr>
+									<tr>
+										<td style="text-align: right;"><span
+												style="color: #000000;">2</span>
+										</td>
+										<td><span
+												style="color: #000000;">Ignored</span>
+										</td>
+										<td><span
+												style="color: #000000;">Integer</span>
+										</td>
+										<td style="text-align: center;"><span
+												style="color: #000000;">Yes</span>
+										</td>
+										<td><span style="color: #000000;">The number
+												of
+												datasets that were ignored (already
+												in
+												the favorites list or
+												unauthorised)</span>.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<h3 style="padding-left: 30px;">Errors Object</h3>
+					<table class="table table-bordered" style="margin-left: 30px;">
+						<thead style="padding-left: 30px;">
+							<tr style="padding-left: 30px;">
+								<th style="text-align: right;"></th>
+								<th>Parameter</th>
+								<th>Type</th>
+								<th style="text-align: center;">Mandatory</th>
+								<th style="text-align: left;">Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #000000;">1</span></td>
+								<td><span style="color: #000000;">Status</span></td>
+								<td><span style="color: #000000;">Integer</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes</span></td>
+								<td><span style="color: #000000;">HTTP status
+										code.</span></td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #000000;">2</span></td>
+								<td><span style="color: #000000;">Detail</span></td>
+								<td><span style="color: #000000;">String</span></td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes</span></td>
+								<td><span style="color: #000000;">Description of the
+										status code above.</span></td>
+							</tr>
+						</tbody>
+					</table>
+					<div></div>
+					<h4 style="padding-left: 60px;">Possible Status codes in the
+						'<em>Errors</em>' object
+					</h4>
+					<table class="table table-bordered" style="margin-left: 60px;">
+						<thead style="padding-left: 60px;">
+							<tr style="padding-left: 60px;">
+								<th>Code</th>
+								<th style="text-align: left;">Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>400</td>
+								<td>The Datasource field is invalid.</td>
+							</tr>
+							<tr>
+								<td>401</td>
+								<td>Invalid session token.</td>
+							</tr>
+							<tr>
+								<td>404</td>
+								<td>Datasource not found.</td>
+							</tr>
+							<tr>
+								<td>406</td>
+								<td>Unacceptable row count.</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<div class="single-notes notes-indent">
+						<div> Note</div>
+						<p>This is not an
+							exhaustive list and additional error codes may be
+							returned. The <em>Errors </em>object <em>Detail</em>
+							field will return request specific error information.
+						</p>
+					</div>
+					<div class="api-article-table"
+						style="padding-left: 60px; margin-top: 25px;"></div>
+					<h3>Possible HTTP response codes</h3>
+					<p style="line-height: 30px !important;"><span
+							class="spanColor">This endpoint returns 200 for
+							success. <br>
+							You can get HTTP client network errors or server
+							errors from any API request. You should check
+							with your network or IT colleagues in case the issue is
+							a
+							local one. <br>
+							All server generated errors will return an
+							'<em>Errors</em>'
+							object that will give specific details about the error.
+							<br>
+							A full list of HTTP codes and their meanings is
+							available <a
+								href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">here</a>,</span>
+					</p>
+					<h2></h2>
+					<div class="api-article-table" style="padding-left: 60px;">
+						<div class="api-article-table"></div>
+					</div>
+					<h3>Success and fail examples</h3>
+					<p> </p>
+					<h4><b style="color: RGB(54, 96,146);">Sample Request:</b></h4>
+					<div class="api-article-main-example">
+						<pre>GET https://[server]/AddFavorites?SessionToken=YOUR_SESSION_TOKEN&amp;Series[]=ECBFX/EURCAD
+					</pre>
+					</div>
+					<div class="api-article-main-blockExample">
+						<h4></h4>
+						<h4><strong>Response body on success:</strong></h4>
+
+
+						<div id="ADTF_Success"></div>
+
+					</div>
+					<div class="api-article-main-blockExample">
+						<h4></h4>
+						<h4><strong>Response body on fail:</strong></h4>
+
+						<div id="ADTF_Fail"></div>
+
+					</div>
+					<p> </p>
+				</div>
+				<div class="last-date">
+					<div class="date">Last updated on June 3, 2021
+					</div>
+				</div>
+				<br>
+			</div>
+			<div class="dis-block clearfix">
+				<a href="#favoritesmetadata" class="doc-prev">� Get Favorites
+					Metadata</a>
+				<a href="#removedatasetfromfavorites" class="doc-next">Remove
+					Dataset(s) from Favorites �</a>
+			</div>
+			
+				<div class="dis-block clearfix">
+					<a href="javascript:move_section('#favoritesmetadata')" class="doc-prev"><i class="fas fa-chevron-circle-left"></i> Get Favorites
+					Metadata</a>
+					<a href="javascript:move_section('#removedatasetfromfavorites')" class="doc-next">Datasources<i class="fas fa-chevron-circle-right"></i></a>
+				</div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	
+
+	// **************Responses(Success and Fail)***************
+
+	// ***AUTHENTICATION***
+
+	//Add Datasets To Favorites
+	var ADTF_Success_Obj = {};
+	var jsonViewer_ADTF_Success = new JSONViewer();
+	document.querySelector("#ADTF_Success").appendChild(jsonViewer_ADTF_Success.getContainer());
+
+
+	ADTF_Success = JSON.stringify({
+		"ServerDateTime": "2018-02-17T21:46:24Z",
+		"TimeStamp": 2458167.4072222,
+		"ExecutionTime": 0.021,
+		"Result": {
+			"Added": 1,
+			"Ignored": 0
+		}
+	}
+	);
+
+
+
+	var ADTF_Fail_Obj = {};
+	var jsonViewer_ADTF_Fail = new JSONViewer();
+	document.querySelector("#ADTF_Fail").appendChild(jsonViewer_ADTF_Fail.getContainer());
+
+	ADTF_Fail = JSON.stringify({
+		"ServerDateTime": "2017-11-30T19:38:15Z",
+		"TimeStamp": 2458088.3182292,
+		"ExecutionTime": 0,
+		"Errors": [
+			{
+				"Status": 401,
+				"Details": "Invalid Token"
+			}
+		]
+	}
+	);
+
+
+	var setJSON = function () {
+
+		ADTF_Success_Obj = JSON.parse(ADTF_Success);
+		ADTF_Fail_Obj = JSON.parse(ADTF_Fail);
+	}
+
+
+	setJSON();
+	jsonViewer_ADTF_Success.showJSON(ADTF_Success_Obj);
+	jsonViewer_ADTF_Fail.showJSON(ADTF_Fail_Obj);
+
+</script>

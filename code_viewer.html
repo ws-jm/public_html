@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- other content of the head element goes here -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link id="theme_css" rel="stylesheet" type="text/css" href="resources/highlight/styles/base16/tomorrow.min.css">
+
+    <script src="resources/js/jquery-3.6.0.min.js"></script>
+    <script src="resources/idm-service/resources/js/bootstrap.min.js"></script>
+    <script src="resources/highlight/highlight.min.js"></script>
+    <script src="resources/js/highlightjs-line-numbers.js"></script>
+    <script src="dev/api/authentication.js"></script>
+    <script src="dev/api/config/config.js"></script>
+
+    <style>
+        td.hljs-ln-numbers {
+            text-align: center;
+            color: #ccc;
+            border-right: 1px solid #999;
+            vertical-align: top;
+            padding-right: 5px;
+    
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        td.hljs-ln-code {
+            padding-left: 10px;
+            /* color:#e9e7e7; */
+        }
+    
+        /* .hljs-ln-code,
+        .hljs-ln-numbers {
+            line-height: 14px;
+        } */
+    
+        code {
+            white-space: pre-wrap;
+            overflow: auto;
+        }
+
+        .header{
+            width:100%; height:45px; border-bottom:1px solid #ccc; margin:0
+        }
+
+        .header h3{
+            margin-left: 20px; color:#4d4d4c;
+        }
+
+        .dropdown{
+            position: fixed; right:20px; top:16px;
+        }
+    </style>    
+</head>
+
+<body class="default" style="background: #fff; margin:0px; ">
+    <div class="header">
+        <h3 id="code_title">Python sample code viewer</h3>
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><span id="theme" style="width:100px; float:left; text-align:left;">Light</span>
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu" style="min-width:134px;">
+                <li><a href="javascript:select_theme('Light');">Light</a></li>
+                <li><a href="javascript:select_theme('Dark');">Dark</a></li>                
+            </ul>
+        </div>
+    </div>
+    <pre style="border:0; padding:0"><code>    
+    </code></pre>
+    <script>
+
+        var filetype = getParameterByName('filetype');
+        var url = getParameterByName('url');
+    
+        if(filetype == "python"){
+            $("code").removeClass('language-r');
+            $("code").addClass('language-python')
+            $("#code_title").html("Python sample code viewer");
+        }
+        else if(filetype == "r"){
+            $("code").removeClass('language-python');
+            $("code").addClass('language-r');
+            $("#code_title").html("R sample code viewer");
+        }
+        else{
+            var filename = url.split("/");
+            filename = filename[filename.length-1];
+            filename = filename.split(".");
+            window.location = "https://nbviewer.org/urls/"+location.host+"/"+url;
+        }    
+    
+        const escapeHtml = (unsafe) => {
+            return unsafe.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
+        }
+    
+        $.ajax({
+            type: "GET",
+            url: url,
+            dataType: "text",
+            success: function(data) {                
+                // console.log(escapeHtml(data));
+                $("code").html( data )
+                hljs.highlightAll();
+                hljs.initLineNumbersOnLoad();
+            }, 
+            error: function(xhr){                 
+            }
+        });
+
+        function select_theme(theme){
+            var obj = document.querySelector("link#theme_css");
+
+            if(theme == "Dark"){
+                obj.setAttribute("href", "resources/highlight/styles/base16/tomorrow-night.min.css");
+                $("body").css("background", "#2d2d2d");
+                $("#code_title").css("color", "#ccc");
+            }
+            else if(theme == "Light"){
+                obj.setAttribute("href", "resources/highlight/styles/base16/tomorrow.min.css");
+                $("body").css("background", "#ffffff");
+                $("#code_title").css("color", "#4d4d4c");
+            }
+
+            $("#theme").html(theme);
+        }   
+    </script>
+</body>
+</html>

@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <!-- Title -->
+    <title>Monitor+ API for Python</title>
+
+    <!-- CSS Files -->
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i,800,800i"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,500i,600,600i,700,700i,800"
+        rel="stylesheet">
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
+    <link href="resources/idm-service/resources/css/font-awesome.min.css" rel="stylesheet">
+    <link href="resources/idm-service/resources/css/bootstrap-navbar.css" rel="stylesheet">
+    <link href="resources/idm-service/resources/css/responsive.css" rel="stylesheet">
+    <link href="resources/css/bootstrap-navbar.css" rel="stylesheet">
+    <link href="resources/css/general.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="resources/api_favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="resources/css/python-package.css">
+    <link rel="stylesheet" href="resources/css/menu.css">
+    <link rel="stylesheet" href="resources/css/footer.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <link href="resources/jqwidgets/styles/jqx.base.css" rel="stylesheet">
+	<link href="resources/jqwidgets/styles/jqx.light.css" rel="stylesheet">
+	<link href="resources/idm-service/resources/css/main.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="resources/css/slick.grid.css" type="text/css" />
+	<link rel="stylesheet" href="resources/css/slick.pager.css" type="text/css" />
+	<link rel="stylesheet" href="resources/css/slick.columnpicker.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/monitor-gui.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/monitor-ui.css" type="text/css" />
+
+    <!-- JS Files -->
+
+    <script src="resources/js/jquery-1.12.3.js"></script>
+    <script src="resources/js/jquery-3.6.0.min.js"></script>
+    <script src="resources/js/bootstrap.min.js"></script>
+    <script src="resources/js/bootstrap-dropdown.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+    <script src="resources/js/jquery-ui.js"></script>
+
+    <script src="resources/jqwidgets/jqxcore.js"></script>
+	<script src="resources/jqwidgets/jqxwindow.js" async></script>
+	<script src="resources/jqwidgets/jqxbuttons.js" async></script>
+	<script src="resources/jqwidgets/jqxinput.js" async></script>
+    <script src="resources/jqwidgets/jqxlistbox.js" async></script>
+    <script src="resources/jqwidgets/jqxdropdownlist.js" async></script>
+	<script src="resources/jqwidgets/jqxmenu.js" async></script>
+	<script src="resources/jqwidgets/jqxcheckbox.js" async></script>
+
+	<script src="resources/js/jquery.event.drag-2.3.0.js"></script>
+	<script src="resources/js/slick.core.js"></script>
+	<script src="resources/js/slick.formatters.js" async></script>
+	<script src="resources/js/slick.editors.js"> async</script>
+	<script src="resources/js/slick.rowselectionmodel.js" async></script>
+	<script src="resources/js/slick.grid.js" async></script>
+	<script src="resources/js/slick.dataview.js" async></script>
+	<script src="resources/js/slick.cellrangeselector.js" async></script>
+	<script src="resources/js/slick.cellselectionmodel.js" async></script>
+	<script src="resources/js/slick.rowmovemanager.js" async></script>
+  	<script src="resources/js/slick.checkboxselectcolumn.js" async></script>
+
+    <script src="dev/api/config/config.js"></script>
+    <script src="dev/api/authentication.js"></script>
+    <script src="resources/js/jquery.ihavecookies.min.js"></script>
+    <script src="resources/js/top-menu.js"></script>
+    <script src="resources/js/messages.js"></script>
+    <script src="resources/js/common.js"></script>
+    <script src="resources/js/goto_homepage.js"></script>
+
+    <style>
+        :root {
+            --primary-green: RGB(29, 150, 65);
+        }
+
+        html {
+            scroll-behavior: auto;
+        }
+
+        section.main-content {
+            margin-top: 98px;
+            padding: 32px;
+            padding-top: 0%;
+        }
+
+        section.main-content .info-monitor .blue-title {
+            color: rgb(26, 101, 187);
+            font-size: large;
+
+        }
+
+        section.main-content .top-logo {
+            justify-content: space-between;
+            margin-top: 30px;
+            margin-bottom: 40px;
+            margin-left: -23px;
+        }
+
+        section.main-content .top-logo .monitor img {
+            margin-top: 35px;
+        }
+
+        section.main-content .top-logo .monitor .market {
+            margin-left: 129px;
+        }
+
+
+        .swiper-Bigcontainer {
+            position: relative;
+        }
+
+        .swiper-container {
+            height: 600px;
+            width: 759px;
+            z-index: 1;
+            overflow: hidden;
+            margin: auto;
+        }
+
+        .swiper-zoom-container {
+            height: 88%;
+        }
+
+        .swiper-slide img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+
+        }
+
+        .swiper-slide p {
+            position: absolute;
+            bottom: 25px;
+            text-align: center;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1em;
+
+        }
+
+        .next,
+        .prev {
+
+            width: 60px;
+            z-index: 1;
+            transition: all 0.4s;
+            position: absolute !important;
+            color: rgb(102, 104, 105);
+            top: 50%;
+            transform: translateY(-50%);
+
+        }
+
+
+        .next::after,
+        .prev::after {
+            content: '';
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 3px 0.1px rgba(0, 0, 0, 0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: none;
+        }
+
+
+        .next:hover::after,
+        .prev:hover::after {
+            z-index: -1;
+            display: none;
+        }
+
+        .swiper-Bigcontainer .fa-arrow-right,
+        .swiper-Bigcontainer .fa-arrow-left {
+
+            font-size: 1.5em;
+            background-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 3px 0.1px rgba(0, 0, 0, 0.2);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+
+        .next:hover .fa-arrow-right,
+        .prev:hover .fa-arrow-left {
+            display: block;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0 0 1px 3px rgb(56, 57, 58);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(56, 57, 58);
+        }
+
+
+
+        .next {
+            right: 7%;
+        }
+
+        .prev {
+            left: 7%;
+        }
+
+
+        /* modal css */
+        .modalVisible {
+
+            position: fixed;
+            top: 0px;
+            left: 0%;
+            display: block;
+            z-index: 1000;
+            width: 100%;
+            background-color: black;
+            height: 100vh;
+            margin: auto;
+        }
+
+        .model-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modalVisible img {
+            max-height: 100vh;
+            max-width: 86vw;
+
+        }
+
+        .modelView .fa-times {
+            position: fixed;
+            top: 3%;
+            right: 0.4%;
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.4s;
+            background: rgba(255, 255, 255, 0.45);
+        }
+
+
+        .imgc {
+            z-index: 100002;
+        }
+
+        .modelView .fa-times:hover {
+            display: block;
+            background-color: rgb(255, 255, 255);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(22, 21, 21);
+        }
+
+
+
+
+
+
+        .ImageBig img {
+            width: 90%;
+            position: fixed;
+            top: 0%;
+            margin: 0px;
+            /* height: 100vh; */
+            object-fit: contain;
+        }
+
+
+        .blackbackground {
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            z-index: 100000;
+            top: 0%;
+            left: 0%;
+            background-color: black;
+            display: none;
+        }
+
+        #iframe {
+            width: 100%;
+            height: 250px;
+        }
+
+
+        .modelVisible img {
+            border: 4px solid #ffffff !important;
+            max-width: 86vw;
+        }
+
+        .clearfix {
+            padding-left: 0% !important;
+            padding-right: 0% !important;
+        }
+
+        #main-top {
+            position: sticky;
+        }
+
+        /* responsive area */
+        @media screen and (max-width:880px) {
+            section.main-content {
+                margin-top: 65px;
+            }
+        }
+
+        @media screen and (max-width:767px) {
+            section.main-content {
+                margin-top: 50px;
+
+            }
+        }
+    </style>
+
+</head>
+
+<body class="default">
+    <div class="fixpage">
+
+
+        <nav class="navbar navbar-default navbar-fixed-top" include-html="menu.html" id="menu_file"></nav>
+
+
+
+
+        <section class="main-content dis-block clearfix">
+            <div class="top-logo" style="margin:0px;padding: 20px 10px; background-color: RGB(249,253,234);">
+                <img src="resources/images/python-monitor.png" alt="r-rmonitor-plus" width="500">
+            </div>
+
+            <div style="display: flex;" id="main-top">
+                <div class="left-side">
+                    <div class="ham-TocHeading">
+                        <div class="hamburger" data-bs-toggle="tooltip" data-bs-html="true">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <h2 class="title">Table of Contents</h2>
+                    </div>
+
+
+                    <div class="left-menu-wrapper">
+
+                        <ul class="left-menu">
+                            <li><a href="">Introduction</a></li>
+                            <li><a href="">Installation</a></li>
+                            <li><a href="">Getting Help</a></li>
+                            <li><a href="">The Monitor+ API documentation</a></li>
+                            <li><a href="">Locating your API key</a></li>
+                            <li><a href="#using">Using the module</a></li>
+                            <li><a href="">User Favorites</a></li>
+                            <li><a href="">My Account</a></li>
+                            <li><a href="">Contact us</a></li>
+                            <li><a href="">Python Examples</a></li>
+                            <li><a href="">Available Python API Functions:</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+
+                <div class="main-content">
+
+
+                    <div class="dark-green-title head-padding">Introduction</div>
+                    <p>The Monitor+ Python module gives Python users access to a huge range of reference market data
+                        from global exchanges, markets and data vendors. Before you begin, you must have Python version
+                        3 or later installed on your computer and a have valid Monitor+ API key available.</p>
+                    <p>The Python module integrates into Python and makes accessing the market data easy as market data
+                        can be accessed with commands beginning with the class name <strong>“idata”</strong>. </p>
+
+
+                    <br>
+
+
+                    <div class="dark-green-title head-padding">Installation.</div>
+                    <p> If you do not have already Python version 3 or later (or the Monitor+ Python package) installed
+                        then please click on the install button below.
+                        <br><br>You will need to have your Monitor+ API key available. If you cannot find the API key,
+                        see the “My Account” section below for help. For any other problems, please see the “Contact Us”
+                        section below.<br>
+                        <br>
+                        <br>
+                        <div id="installBox"><a id="install-p-btn" href="install-python-module.html"> Install the
+                                Monitor + Python package</a></div>
+                    </p>
+                    <br>
+                    <br>
+
+                    <div class="dark-green-title head-padding">Getting Help </div>
+                    <p>The “idmmonitor” package has detailed interactive help as can be seen in the Visual Studio Code
+                        and PyScripter example screenshots below. Type “<b>idata.</b>” in the console window on the left
+                        and a list of the available commands is displayed. Many of the help topics also have clickable
+                        links to open the relevant section in the online Monitor+ API help system. </p>
+
+
+
+                    <div class="swiper-Bigcontainer">
+                        <div class="swiper-container mySwiper">
+
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="swiper-zoom-container">
+                                        <img src="resources/images/python_scrn_1.png" />
+                                        <p>Use arrow buttons to scroll. Double click to view.</p>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="swiper-zoom-container">
+                                        <img src="resources/images/python_scrn_2.png" />
+                                        <p>Use arrow buttons to scroll. Double click to view.</p>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="swiper-zoom-container">
+                                        <img src="resources/images/python_scrn_3.png" />
+                                        <p>Use arrow buttons to scroll. Double click to view.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="swiper-pagination"></div>
+                        </div>
+
+                        <div class="swiper-button-next next"><i class="fas fa-arrow-right"></i></div>
+                        <div class="swiper-button-prev prev"><i class="fas fa-arrow-left"></i></div>
+                    </div>
+
+
+                    <div class="modelView">
+
+                        <i class="fas fa-times"></i>
+
+                        <div class="model-content">
+
+                            <img src="resources/images/Python_GP1.png" style="border: 5px solid rgb(0, 0, 0);" />
+
+                        </div>
+                    </div>
+
+                    <div class="dark-green-title head-padding">The Monitor+ API documentation</div>
+                    <p>The Python module is a subset of the full Monitor+ API. You can view the API documentation by
+                        clicking on the “Documents” menu at the top of this window and selecting the “API Documentation”
+                        menu (see the image below).
+                    </p>
+
+                    <center>
+                        <div class="top-logo">
+                            <img src="resources/images/api-docs-menu.png" alt="Image 'api-docs-menu.png' was not found"
+                                width="500">
+                        </div>
+                    </center>
+
+                    <p>The API documentation shows in detail the available functions and their parameters and should be
+                        referenced when writing Python code that uses the Monitor+ Python module. The API, “R” and
+                        Python function and parameter names are very similar to make the online documentation familiar
+                        to all developers. Note that not all API functions or parameters are available (or needed) in
+                        the Python module.
+                    </p>
+                    <p>If you need further assistance please go to the “Contact Us” section below.</p>
+
+                    <br>
+
+                    <div class="dark-green-title head-padding">Locating your API key</div>
+
+                    <p>You will need your Monitor+ API key to download the Python module. You should have received your
+                        API key from us via email. You can also access your API key by logging in using the top right
+                        "Login" menu at the top of this page, logging in and viewing your account. If you are already
+                        logged in, your user name will be displayed on this menu (see the red box in the image below).
+                    </p>
+
+
+
+                    <br>
+                    <div style="text-align: center;">
+                        <img src="resources/images/myfavorites-api.png" alt="" style="height: 100%; width: 100%;">
+                    </div>
+                    <br><br>
+                    <p>Click on the <i class="fas fa-eye-slash"></i> symbol in the edit box to see the API key. Click
+                        the “Copy” link to copy the API key
+                        to the clipboard.
+                    </p>
+                    <p>
+                        If you still have a problem locating your API key, please see the "Contact us" section below.
+                    </p>
+                    <br>
+
+
+
+                    <div class="dark-green-title head-padding">Using the module</div>
+                    <p>You will need your Monitor+ API key to access the data on the service. If you have a problem
+                        locating your API key, please see the "Locating your API key"
+                        section above.</p>
+
+
+                    <p>To begin you need to initilise the ‘idmmonitor’ module, store your API key and get a session
+                        token from the remote API server. You need to type four commands (in black text) below in the
+                        Python console to get a session token. In the example below, commands are in black text,
+                        comments in green and results from the server in blue. </p>
+
+                    <br>
+
+                    <div id="text_under_using-package">
+                        <div>
+                            <p class="green"># from class_source.idata_client import IData<br>
+                                <span style="color: black;">>>> from idmmonitor import IData</span>
+                            </p>
+                        </div>
+                        <br>
+                        <div>
+                            <p class="green"># Initialise the class <br>
+                                <span style="color: black;">>>> idata = IData() </span>
+                            </p>
+                        </div>
+                        <br>
+
+                        <div>
+                            <p class="green"># Store your API key in the module <br>
+                                <span style="color: black;">> >> idata.set_api_key("XXXXX-XXXXX-XXXXX-XXXXX")</span>
+                                <br>
+                                <span class="blue-para">Stored the new API key XXXXX-XXXXX-XXXXX-XXXXX.</span> </p>
+                        </div>
+
+                        <br>
+
+
+                        <div>
+                            <p class="green"># Get a session token <br>
+                                <span class="blue-para">[INFO] Retrieving session token using: XXXXX-XXXXX-XXXXX-XXXXX
+                                    <br>
+                                    [INFO] API call to: http://api.sarus.com/GetSessionToken?APIKey=
+                                    XXXXX-XXXXX-XXXXX-XXXXX <br>
+                                    [INFO] Session token retrieved: 12ba9c13a8c9f270e71bb2526f0532ad
+                                </span></p>
+                        </div>
+
+
+
+
+
+                        <br>
+                        <p>Once you have a valid session token, you can access the full service. As you can see above,
+                            commands to the Monitor+ package are prefixed with the term “<b>idata.</b>”. </p>
+
+                        <p>A full list of functions available in the package is located at the bottom of this document
+                            as well as Python coding examples. </p>
+
+                        <p>Session tokens are needed to access data and metadata. Session tokens expire after a number
+                            of minutes of inactivity (from 10-30 minutes depending on server settings). The Monitor+
+                            package will automatically attempt to get a new session token if the current one has
+                            expired. You can check the life remaining in the current session token with the
+                            <i>query_session_token</i> command below. You can also use this command to test that
+                            communications with the API server is OK.</p>
+
+                        <p>After you receive a session token, you should be able to list datasources and their datasets
+                            and download values for any datasets that you have access to. You can check what datasources
+                            you can access using the <i>idata.get_user_datasources command</i>. </p>
+
+
+                    </div>
+
+
+                    <br>
+                    <div class="dark-green-title head-padding">User Favorites</div>
+                    <p> The Monitor+ API allows you to build, structure and manage a list of user “favorite” or
+                        frequently used datasets (time series). This ‘favorites’ list is designed to allow the user to
+                        create and manage their own selection of datasets from the many tens of thousands that may be
+                        available with their subscription. The favorites list is also is very useful for creating
+                        applications for end users.</p>
+
+                    <p>There are 4 user "favorite" commands in the "idata" class to help manage your favorite datasets.
+                        They are get_user_favorite_status(), get_user_favorites(), add_user_favorites() and
+                        remove_user_favorites(). </p>
+                    <p>Please look at the available Python functions table at the end of this document for more details.
+                        Also look at the API documentation for more detailed information on using each function. See the
+                        "The Monitor+ API documentation" section above for details.</p>
+                    <br>
+
+                    <p>You can also manage your list of favourite datasets using your user account menu and selecting
+                        the "My Favorites" menu. After logging in, the “Register/Login” top menu will display your user
+                        name (See the red box in the image below). Click on this menu to access the “My Favorites” page.
+                    </p>
+
+                    <center>
+                        <div class="top-logo">
+                            <img src="resources/images/favorites-menu.png" alt="" width="500">
+                        </div>
+                    </center>
+
+                    <br>
+
+
+
+
+                    <div class="dark-green-title head-padding">My Account</div>
+                    <p> You can view your account details online by logging in using the "Login" menu above at the top
+                        right of this page.
+                        If you are already logged in, your user name will be displayed on this menu (see the image
+                        above).</p>
+                    <p>To login you will need your User Reference Number, user name and password (these should have
+                        been emailed to you).
+                        Click on the "Login" menu and enter your reference number, user name and password. Once logged
+                        in, click on the the top right menu
+                        (with your user name) to access your account. From here you can see your datasources, reset your
+                        password or API key, manage your user
+                        favorites and more.</p>
+
+
+                    <p> If you have problems accessing your account page, please check your emails
+                        page, contact your IT colleagues or see the “Contact us” section below.</p>
+
+                    <br>
+
+
+                    <br>
+                    <div class="dark-green-title head-padding">Contact us</div>
+                    <p>For general enquiries please click the “Contact” menu at the top of the window above and select
+                        the contact choice you require. </p>
+                    <center>
+                        <div class="top-logo">
+                            <img src="resources/images/contact-menu.png" alt="" width="500">
+                        </div>
+                    </center>
+
+                    <p>For technical support you can also contact us via email. Please email <a
+                            href="https://www.sarus.com/contact-us">support@sarus.com</a> with a subject of
+                        “Monitor+ Python Module question”. Send your contact details, User Reference Number and
+                        description of the issue and any images, output or screenshots that may assist. </p>
+
+                    <p>Please note we do not offer advice with any Python setup or programming issues, only issues
+                        regarding accessing data from the API. Also, please see the Python examples section below for
+                        more examples on using the Python module. </p>
+                    <br>
+
+
+                    <div class="dark-green-title head-padding" id="using">Python Examples</div>
+                    <p>Below are examples of using the “IData.” Python module. In the example 4, you can see how to
+                        access the objects returned from the API. In the examples below, commands are in black text,
+                        comments in green and the server results in blue.
+
+                    </p>
+                    <br>
+                    <div id="text_under_using-package">
+                        <div>
+                            <p class="green"># Example 1. Echo request information on<br>
+                                <span style="color: black;">>>> idata.set_verbose(True)</span><br>
+                                <span class="blue-para">[INFO] Verbose settting updated to True</span>
+                            </p>
+                        </div>
+                        <br>
+                        <div>
+                            <p class="green"># Exampe 2. Turn off traceback in Console window <br>
+                                <span style="color: black;">>>> idata.set_traceback(False) </span> <br>
+                                <span class="blue-para">[INFO] Traceback settting updated to False</span>
+                            </p>
+                        </div>
+                        <br>
+
+                        <div>
+                            <p class="green"># Example 3. Add two contracts to your user favorites list <br>
+                                <span style="color: black;">idata.add_user_favorites (["ECBFX/EURGBP",
+                                    "ECBFX/EURCAD"])</span> <br>
+                                <span class="blue-para"> {'Added': 2, 'Ignored': 0, 'Status': 200}</span> </p>
+                        </div>
+
+                        <br>
+
+                        <div>
+                            <p class="green"># Print user datasource information. No result from server is displayed due
+                                to space limitations.</p>
+                        </div>
+
+
+                        <div>
+                            <p class="green"># No error checks are made</p>
+
+                        </div>
+
+                        <p>result = idata.get_user_datasources(return_category_list=True, return_category_tree=True)</p>
+
+                        <p style="white-space: pre;">
+                            for i in result:
+                            print("Keys", list(i.keys()))
+                            print("Datasource: ", i['Datasource'])
+                            print("Name: ", i['Name'])
+                            print("HasCategoryTree: ", i['HasCategoryTree'])
+                            print('Details:')
+                            print("SeriesCount: ", i['Details']['SeriesCount'])
+                            print("StartDate: ", i['Details']['StartDate'])
+                            print("EndDate: ", i['Details']['EndDate'])
+                            if i['HasCategoryTree']:
+                            print("Category Tree", i["Details"]["CategoryTree"])
+
+                        </p>
+
+                    </div>
+
+                    <br>
+
+                    <div class="dark-green-title  head-padding">Available Python API Functions:</div><br>
+                    <table>
+                        <tr style="background-color: rgb(23,125,54); color: white; ">
+                            <th style=" color: white;">Function</th>
+                            <th style=" color: white;">Description</th>
+                        </tr>
+                        <tr style="border: 1px solid rgb(23,125,54);">
+                            <td>set_api_key</td>
+                            <td>Store your API key in the Python module.</td>
+                        </tr>
+                        <tr>
+                            <td>print_api_key()</td>
+                            <td>Return the API key that was set with the set_api_key command.</td>
+                        </tr>
+                        <tr>
+                            <td>get_api_address()</td>
+                            <td>Displays the selected API server IP address.</td>
+                        </tr>
+                        <tr>
+                            <td>get_api_version()</td>
+                            <td>Returns the API version number from the API server.</td>
+                        </tr>
+                        <tr>
+                            <td>request_new_api_key()</td>
+                            <td>Return a new API key.</td>
+                        </tr>
+
+
+
+                        <tr>
+                            <td colspan="2" style="height: 35px;"></td>
+                        </tr>
+
+                        <tr>
+                            <td>get_session_token()</td>
+                            <td>Return a new session token.</td>
+                        </tr>
+                        <tr>
+                            <td>query_session_token()</td>
+                            <td>Return the remaining token life in milliseconds.</td>
+                        </tr>
+                        <tr>
+                            <td>renew_session_token()</td>
+                            <td>Renew the current token to full life.</td>
+                        </tr>
+                        <tr>
+                            <td>revoke_session_token()</td>
+                            <td>Invalidate the current token on the server.</td>
+                        </tr>
+                        <tr>
+                            <td>print_session_token()</td>
+                            <td>Return the current session token value.</td>
+                        </tr>
+
+
+                        <tr>
+                            <td colspan="2" style="height: 35px;"></td>
+
+                        </tr>
+
+                        <tr>
+                            <td>get_datasource()</td>
+                            <td>Return the metadata for one named datasource.</td>
+                        </tr>
+
+                        <tr>
+                            <td>get_all_datasources()</td>
+                            <td>Return the metadata for all available datasources.</td>
+                        </tr>
+
+                        <tr>
+                            <td>get_user_datasources()</td>
+                            <td>Return the metadata datasources user can access.</td>
+                        </tr>
+
+
+
+
+                        <tr>
+                            <td colspan="2" style="height: 35px;"></td>
+
+                        </tr>
+
+                        <tr>
+                            <td>get_datasets()</td>
+                            <td>Return metadata for the datasets in one datasource</td>
+                        </tr>
+
+
+                        <tr>
+                            <td>get_selected_datasets()</td>
+                            <td>Return metadata for multiple named datasets in one or more datasources.</td>
+                        </tr>
+
+
+
+
+
+
+                        <tr>
+                            <td colspan="2" style="height: 35px;"></td>
+
+                        </tr>
+
+
+                        <tr>
+                            <td>get_dataset_values()</td>
+                            <td>Return a range dataset values or averages for named datasets in one or more datasources.
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>get_dataset_values_rc()</td>
+                            <td>As get_dataset_values but values returned in row x column format.</td>
+                        </tr>
+
+                        <tr>
+                            <td>get_dataset_values_for_date()</td>
+                            <td>Return dataset values or averages for named datasets (in one or more datasources) for a
+                                single date.</td>
+                        </tr>
+
+
+
+
+                        <tr>
+                            <td colspan="2" style="height: 35px;"></td>
+
+                        </tr>
+                        <tr>
+                            <td>get_user_favorite_status()</td>
+                            <td>Return the server date and time that the user favorites list was last changed.</td>
+                        </tr>
+
+                        <tr>
+                            <td>get_user_favorites()</td>
+                            <td>Return metadata for all datasets in your user favorites list.</td>
+                        </tr>
+
+                        <tr>
+                            <td>add_user_favorites()</td>
+                            <td>Add named datasets to your user favorites list.</td>
+                        </tr>
+
+                        <tr>
+                            <td>remove_user_favorites()</td>
+                            <td>Remove named datasets from your user favorites list.</td>
+                        </tr>
+
+
+
+
+                        <tr>
+                            <td colspan="2" style="height: 35px;"></td>
+
+                        </tr>
+
+                        <tr>
+                            <td>get_my_account_details()</td>
+                            <td>Return registered user account details including API key.</td>
+                        </tr>
+
+                        <tr>
+                            <td>set_return_raw_data(true)</td>
+                            <td>If true return raw JSON from all server requests.</td>
+                        </tr>
+
+
+
+                        <tr>
+                            <td>set_verbose(true)</td>
+                            <td>If true extra the request details are displayed in the console. </td>
+                        </tr>
+
+                        <tr>
+                            <td>set_traceback(True)</td>
+                            <td>Turn on/off traceback in the Python console window.</td>
+                        </tr>
+
+
+
+
+                    </table>
+
+                    <br>
+
+                </div>
+        </section>
+        <div class="blackbackground">
+
+        </div>
+
+        <div include-html="footer.html" id="footer_file"></div>
+
+    </div>
+
+
+
+    <div class="text-center footertxt">
+        <p class="sub-logo"> Copyright © 2018-2022 Sarus Systems Limited - Market Data Solutions </p>
+    </div>
+    </div>
+    </div>
+
+    <script src="resources/js/include-html.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="resources/js/python-api.js"></script>
+    <script>
+        const body = document.querySelector("body");
+        const navbar_default = document.querySelector(".navbar-default");
+        window.addEventListener("load", () => {
+            body.style.background = "#ececec";
+
+        })
+    </script>
+</body>
+
+</html>

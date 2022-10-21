@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Monitor+ Api for "R"</title>
+
+	<!-- CSS Files -->
+
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i,800,800i"
+		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,500i,600,600i,700,700i,800"
+		rel="stylesheet">
+	<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
+	<link href="resources/idm-service/resources/css/font-awesome.min.css" rel="stylesheet">
+	<link href="resources/idm-service/resources/css/bootstrap-navbar.css" rel="stylesheet">
+	<link href="resources/idm-service/resources/css/responsive.css" rel="stylesheet">
+	<link href="resources/css/bootstrap-navbar.css" rel="stylesheet">
+	<!-- <link href="resources/css/main.css" rel="stylesheet"> -->
+	<link href="resources/css/general.css" rel="stylesheet">
+	<link rel="icon" type="image/x-icon" href="resources/api_favicon.png">
+	<link rel="stylesheet" href="resources/css/menu.css">
+	<link rel="stylesheet" href="resources/css/footer.css">
+	<link rel="stylesheet" href="resources/css/r-package.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+		integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<link href="resources/jqwidgets/styles/jqx.base.css" rel="stylesheet">
+	<link href="resources/jqwidgets/styles/jqx.light.css" rel="stylesheet">
+	<link href="resources/idm-service/resources/css/main.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="resources/css/slick.grid.css" type="text/css" />
+	<link rel="stylesheet" href="resources/css/slick.pager.css" type="text/css" />
+	<link rel="stylesheet" href="resources/css/slick.columnpicker.css" type="text/css" />
+	<link rel="stylesheet" href="resources/css/monitor-gui.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/monitor-ui.css" type="text/css" />
+
+
+	<!-- JS Files -->
+	<script src="resources/js/messages.js"></script>
+	<script src="resources/js/jquery-1.12.3.js"></script>
+	<script src="resources/js/jquery-3.6.0.min.js"></script>
+	<script src="resources/js/bootstrap.min.js"></script>
+	<script src="resources/js/bootstrap-dropdown.js"></script>
+	<script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+	<script src="resources/js/jquery-ui.js"></script>
+
+	<script src="resources/jqwidgets/jqxcore.js"></script>
+	<script src="resources/jqwidgets/jqxwindow.js" async></script>
+	<script src="resources/jqwidgets/jqxsplitter.js"></script>
+	<script src="resources/jqwidgets/jqxbuttons.js" async></script>
+	<script src="resources/jqwidgets/jqxinput.js" async></script>
+    <script src="resources/jqwidgets/jqxlistbox.js" async></script>
+    <script src="resources/jqwidgets/jqxdropdownlist.js" async></script>
+	<script src="resources/jqwidgets/jqxmenu.js" async></script>
+	<script src="resources/jqwidgets/jqxcheckbox.js" async></script>
+
+	<script src="resources/js/jquery.event.drag-2.3.0.js"></script>
+	<script src="resources/js/slick.core.js"></script>
+	<script src="resources/js/slick.formatters.js" async></script>
+	<script src="resources/js/slick.editors.js"> async</script>
+	<script src="resources/js/slick.rowselectionmodel.js" async></script>
+	<script src="resources/js/slick.grid.js" async></script>
+	<script src="resources/js/slick.dataview.js" async></script>
+	<script src="resources/js/slick.cellrangeselector.js" async></script>
+	<script src="resources/js/slick.cellselectionmodel.js" async></script>
+	<script src="resources/js/slick.rowmovemanager.js" async></script>
+  	<script src="resources/js/slick.checkboxselectcolumn.js" async></script>
+
+	<script src="dev/api/config/config.js"></script>
+	<script src="dev/api/authentication.js"></script>
+	<script src="resources/js/jquery.ihavecookies.min.js"></script>
+	<script src="resources/js/top-menu.js"></script>
+	<!-- <script src="resources/js/home.js"></script> -->
+	<script src="resources/js/common.js"></script>
+	<script src="resources/js/cookies-alert.js"></script>
+	<script src="resources/js/goto_homepage.js"></script>
+
+	<style>
+		.w-100 {
+			width: 100% !important;
+		}
+
+		:root {
+			--primary-blue: rgb(26, 101, 187);
+		}
+
+		body {
+			scroll-behavior: smooth;
+		}
+
+		.navbar-default {
+			z-index: 10;
+		}
+
+		section.main-content {
+			margin-top: 115px;
+			padding: 32px;
+		}
+
+		section.main-content .info-monitor .blue-title {
+			color: rgb(26, 101, 187);
+			font-size: large;
+		}
+
+		section.main-content .top-logo {
+			justify-content: space-between;
+			margin-top: 30px;
+			margin-bottom: 40px;
+			margin-left: -23px;
+		}
+
+		section.main-content .top-logo .monitor img {
+			margin-top: 35px;
+		}
+
+		section.main-content .top-logo .monitor .market {
+			margin-left: 129px;
+		}
+
+
+		@media screen and (max-width:700px) {
+
+
+			#install-r-btn {
+				padding: 12px 5px;
+				font-size: 0.9em;
+			}
+
+			img {
+				width: 100%;
+			}
+
+			ul.dropdown-item.dropdown-item-shown img {
+				width: inherit;
+			}
+
+		}
+
+		.modelView {
+			display: none;
+		}
+
+		.modalVisible {
+			position: fixed;
+			top: 0px;
+			left: 0%;
+			display: block;
+			z-index: 1000;
+			width: 100%;
+			background-color: black;
+			height: 100vh;
+			margin: auto;
+		}
+
+		.model-content {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.cross {
+			position: fixed;
+			top: 3%;
+			right: 0.4%;
+			color: white;
+			width: 50px;
+			height: 50px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: 0.4s;
+			background: rgba(255, 255, 255, 0.45);
+			border-radius: 50%;
+		}
+
+		.cross:hover {
+			display: block;
+			background-color: rgb(255, 255, 255);
+			width: 50px;
+			height: 50px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: rgb(22, 21, 21);
+		}
+
+		.left-side {
+			width: 50px;
+			background: #ECF8FB;
+			padding: 2.5px;
+			height: min-content;
+			position: sticky;
+			top: 120px;
+			overflow: hidden;
+			/* transition: none; */
+			transition: all 0.3s;
+		}
+
+		.left-side .ham-TocHeading {
+			display: flex;
+			justify-content: center;
+			height: 40px;
+		}
+
+		.left-side .ham-TocHeading h2 {
+			color: var(--primary-blue);
+			position: relative;
+			left: 200px;
+			pointer-events: none;
+			opacity: 0;
+			transition: none;
+		}
+
+		/* heading  text speed: none; */
+		.showToc .ham-TocHeading h2 {
+			transform: translate(0px, 0px);
+			left: 0%;
+			opacity: 1;
+			transition: all 0.3s;
+		}
+
+		.left-side .left-menu-wrapper {
+			transform: translateX(-115%);
+			margin-top: 5px;
+			width: 320px;
+			/* transition: none; */
+			transition: all 0.3s;
+		}
+
+		.showToc {
+			width: 324px;
+			transition: all 0.3s;
+		}
+
+		.showToc .left-menu-wrapper {
+			transform: translateX(0px);
+
+			transition: all 0.3s;
+
+		}
+
+		.left-side .hamburger {
+			cursor: pointer !important;
+			position: absolute;
+			top: 10px;
+			left: 10px;
+		}
+
+		/*  TOC icon animation time */
+		.left-side .hamburger div {
+			width: 25px;
+			height: 2px;
+			background-color: var(--primary-blue);
+			margin-top: 4.5px;
+			transition: all 0.7s;
+		}
+
+		.left-side .hamburger div:nth-child(2) {
+			transition: all 0.1s;
+		}
+
+		/* .showToc .hamburger div{
+			background-color: var(--primary-blue);
+		} */
+
+		.showToc .hamburger div:nth-child(1) {
+			transform: rotateZ(45deg);
+			position: absolute;
+			top: 5px;
+		}
+
+		.showToc .hamburger div:nth-child(2) {
+			opacity: 0;
+		}
+
+		.showToc .hamburger div:nth-child(3) {
+			transform: rotateZ(-45deg);
+		}
+
+		.left-side~.main-content {
+			width: calc(100% - 50px);
+		}
+
+		.showToc~.main-content {
+			width: calc(100% - 340px);
+		}
+
+		.clearfix {
+			padding-left: 0% !important;
+			padding-right: 0% !important;
+		}
+
+		/* responsive area */
+		@media screen and (max-width:880px) {
+			section.main-content {
+				margin-top: 85px;
+			}
+		}
+
+		@media screen and (max-width:767px) {
+			section.main-content {
+				margin-top: 65px;
+			}
+		}
+	</style>
+</head>
+
+<body class="default">
+	<div class="fixpage">
+		<!-- header area -->
+		<nav include-html="menu.html" id="menu_file" class="navbar navbar-default navbar-fixed-top "></nav>
+		<section class="main-content dis-block clearfix">
+
+
+			<div class="col-12 right-content">
+				<div class=" position-relative">
+					<!-- R package logo area -->
+					<div class="w-100 d-flex justify-content-between align-items-center r-package-logo"
+						style="background:#ECF8FB">
+						<img class="img-responsive" src="resources/images/r-monitor.png" alt=""
+							style="min-width:320px; max-width: 500px;">
+					</div>
+
+
+					<div style="display: flex;">
+						<div class="left-side">
+							<div class="ham-TocHeading">
+								<div class="hamburger" data-bs-toggle="tooltip" data-bs-html="true">
+									<div></div>
+									<div></div>
+									<div></div>
+								</div>
+								<h2 class="title">Table of Contents</h2>
+							</div>
+
+
+							<div class="left-menu-wrapper">
+
+								<ul class="left-menu">
+									<!-- <li><a href="#Introduction">Introduction</a></li>
+								<li><a href="#Installation">Installation</a></li>
+								<li><a href="#Help">Getting Help</a></li>
+								<li><a href="#Api">The Monitor+ API documentation</a></li>
+								<li><a href="#Api-key">Locating your API key</a></li>
+								<li><a href="#Package">Using the package</a></li>
+								<li><a href="#Favourites">User Favorites</a></li>
+								<li><a href="#My-account">My Account</a></li>
+								<li><a href="#Contact">Contact us</a></li>
+								<li><a href="#Available-Function">Available “R” Functions:</a></li> -->
+
+									<li><a href="">Introduction</a></li>
+									<li><a href="">Installation</a></li>
+									<li><a href="">Getting Help</a></li>
+									<li><a href="">The Monitor+ API documentation</a></li>
+									<li><a href="">Locating your API key</a></li>
+									<li><a href="">Using the package</a></li>
+									<li><a href="">User Favorites</a></li>
+									<li><a href="">My Account</a></li>
+									<li><a href="">Contact us</a></li>
+									<li><a href="">Available “R” Functions:</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<!-- main content area -->
+						<div class="main-content">
+							<h2 class="title head-padding" id="Introduction">Introduction</h2>
+							<p>The Monitor+ “R” package gives subscribers access to a huge range of reference market
+								data from global stock, commodity exchanges, currencies, crypto-currencies and
+								independent data vendors.<br><br>
+								Before you begin, you will need to have "R" installed on your computer and your
+								Monitor+ API key
+								available.<br>
+								The Monitor+ package integrates into "R" to make accessing the market data easy.
+								Market data
+								can be accessed easily with commands beginning with the class name
+								“<strong>idata</strong>”.</p><br>
+
+
+							<h2 class="title head-padding" id="Installation">Installation.</h2>
+							<p> If you do not have already "R" (or the Monitor+ "R" package installed) then please
+								click on the "Install"
+								button below.
+								<br>
+								<br>
+								<div class="w-100" style="text-align: center;">
+									<a id="install-r-btn" href="install-r-package.html"> Install the Monitor+ "R"
+										package</a>
+								</div>
+								<br>
+
+
+
+								<br>
+								You will need to have your API key available. If you cannot find the API key,
+								see the “My Account” section
+								below for help. For any other problems, please see the “Contact Us” section
+								below.
+							</p>
+							<br>
+
+							<h2 class="title head-padding" id="Help">Getting Help </h2>
+							<p>The "idmmonitor" package has detailed interactive help as can be seen in the RStudio
+								screenshot
+								below. Type “<b>idata.</b>” In the console window on the left and the list of the
+								available commands is displayed in a dropdown list.
+								Select a command and press the "F1" key to display the command help in
+								the ‘Help’ tab in the right section. Many of the help topics also have clickable
+								links to open the relevant section in the Monitor+ online API help. </p>
+							<br>
+
+							<div class="w-100 px-5 mb-4">
+								<img class="w-100" src="resources/images/getting-r-help.png" alt="">
+							</div>
+							<br>
+							<br>
+
+							<h2 class="title head-padding" id="Api">The Monitor+ API documentation </h2>
+							<p>The Monitor+ “R” package is a subset of the full API. You can view the API documents
+								by
+								clicking on the “Documents” menu above and selecting the "API Documentation" menu.
+							</p>
+
+							<center>
+								<div>
+									<img class="img-responsive" src="resources/images/api-docs-menu.png" alt="">
+								</div>
+							</center>
+							<br>
+
+
+							<p> The API documentation shows in detail the available functions and their parameters
+								and should be referenced when writing “R” code that uses the Monitor+ “R” package.
+								The API, “R” and Python function and parameter names are very similar to make the
+								online documentation familiar to all developers. Note that not all API functions or
+								parameters are available (or needed) in the “R” package.
+							</p>
+
+							<p>If you need further assistance please go to the “Contact Us” section below.
+							</p>
+							<br>
+
+
+
+							<h2 class="title head-padding" id="Api-key">Locating your API key</h2>
+							<p>You will need your Monitor+ API key to download the "R" package. You should have
+								received your
+								API key from us via email. You can also access your API key by logging in using the
+								top right "Login" menu at the top of this page, logging in and viewing your account.
+								If you are already logged in, your user name will be displayed on this menu (see the
+								image below).</p>
+
+							<br>
+
+
+							<center>
+								<div>
+									<img class="img-responsive" src="resources/images/myfavorites-api.png" alt="">
+								</div>
+							</center>
+							<br>
+
+
+
+							<br><br>
+							<p>Click on the <i class="fas fa-eye-slash"></i> symbol in the edit box to see the API
+								key. Click the “Copy” link to copy the API key
+								to the clipboard.</p>
+
+							<p>
+								If you still have a problem locating your API key, please see the "Contact us"
+								section below.
+							</p>
+							<br>
+
+
+
+							<h2 class="title head-padding" id="Package">Using the package</h2>
+							<p>You will need your Monitor+ API key to access the data on the service. If you have a
+								problem locating your API key, please see the "Locating your API key"
+								section above.</p>
+
+							<p>To begin you need to enable the ‘idmmonitor’ package, register your API key and get a
+								session token
+								from the remote API server. To do this you need to type three simple commands (in
+								black text below)
+								in the “R” console. In the example below, comments are in green text and results
+								from the server are
+								in blue. </p>
+
+							<br>
+
+							<div id="text_under_using-package">
+								<p class="green"># Enable the library</p>
+								> library(idmmonitor)
+								<p class="blue-para">Loading required package: R6 <br>
+									Loading required package: jsonlite <br>
+									Loading required package: httr
+								</p>
+
+								<p class="green"># Register your API key with the service</p>
+								> idata.set_api_key("XXXXX-XXXXX-XXXXX-XXXXX")
+								<p class="blue-para">Stored the new API key XXXXX-XXXXX-XXXXX-XXXXX.</p>
+
+								<p class="green"># Get a session token</p>
+								> idata.get_session_token()
+								<p class="blue-para">A new token 2b4a1038338c9b4234a1a8c5cc01ba3d has been set. <br>
+									<span style="color: black;">></span>
+								</p>
+								<br>
+								<p>Once you have successfully entered the commands above and have a valid session
+									token, you can
+									access the full service. As you can see above, commands to the Monitor+ package
+									are prefixed
+									with the term “<b>idata.</b>“. A full list of functions available in the package
+									is located at
+									the bottom of this document. </p>
+
+								<p>Session tokens are needed to access data and metadata. Session tokens expire
+									after a number of
+									minutes of inactivity. The Monitor+ package will automatically attempt to get a
+									new session
+									token if the current one has expired. You can check the milliseconds of life
+									remaining in the
+									current session token with the query_session_token command below. You can also
+									use it to test
+									that communications with the API server is OK.</p>
+
+								<p>> idata.query_session_token()</p>
+
+								<p class="blue-para">[1] 1796000</p>
+								<p>You should now be able to list datasources and their datasets. You can download
+									values for any
+									datasets that you have access to. You can check what datasources you can access
+									using the
+									idata.get_user_datasources command. </p>
+							</div><br>
+
+
+							<h2 class="title head-padding" id="Favourites">User Favorites</h2>
+							<p> The Monitor+ API allows you to build, structure and manage a list of user “favorite”
+								or frequently used datasets (time series). This ‘favorites’ list is designed to
+								allow the user to create and manage their own selection of datasets from the many
+								tens of thousands that may be available with their subscription. The favorites list
+								is also is very useful for creating applications for end users.</p>
+
+							<p>There are 4 user "favorite" commands in the "idata" class to help manage your
+								favorite datasets. They are get_user_favorite_status(), get_user_favorites(),
+								add_user_favorites() and remove_user_favorites(). </p>
+							<p>Please look at the available "R" functions table at the end of this document for more
+								details. Also look at the API documentation for more detailed information on using
+								each function. See the "The Monitor+ API documentation" section above for details.
+							</p>
+							<br>
+
+							<p>You can also manage your list of favourite datasets using your user account menu and
+								selecting the "My Favorites" menu. After logging in, the “Register/Login” top menu
+								will display your user name. Click on this menu to access the “My Favorites” page.
+							</p>
+
+							<div class="w-100 px-5 mb-4">
+								<img class="w-50 d-block mx-auto" src="resources/images/favorites-menu.png" alt="">
+							</div>
+
+							<br>
+							<h2 class="title head-padding" id="My-account">My Account</h2>
+							<p> You can view your account details online by logging in using the "Login" menu above
+								at the top right of this page.
+								If you are already logged in, your user name will be displayed on this menu (see the
+								image above).</p>
+							<p>To login you will need your User Reference Number, Username and password (these
+								should have been emailed to you).
+								Click on the "Login" menu and enter your reference number, user name and password.
+								Once logged in, click on the the top right menu
+								(with your user name) to access your account. From here you can see your
+								datasources, reset your password or API key, manage your user
+								favorites and more.</p>
+
+
+							<p> If you have problems accessing your account page, please check your emails
+								page, contact your IT colleagues or see the “Contact us” section below.</p>
+
+							<br>
+							<h2 class="title head-padding" id="Contact">Contact us</h2>
+							<p>For general enquiries please click the “Contact” menu at the top of the window and
+								select the contact
+								choice you require. </p>
+
+							<div class="w-100 px-5 mb-4 ">
+								<img class="w-50 d-block mx-auto" src="resources/images/contact-menu.png" alt="">
+							</div>
+
+							<p>For technical support enquiries, please email <a href="">support@sarus.com</a>
+								with a subject of
+								“Monitor+ R Package Support Question”. Send your contact details, User Reference
+								Number, API key,
+								description of the question and any images, output or screenshots necessary.</p>
+							<p> Please note we do not offer advice with any “R” coding issues, only issues regarding
+								accessing data from the API. </p>
+							<br>
+
+
+
+
+							<br>
+
+							<h2 class="title head-padding" id="Available-Function">And finally…</h2>
+							<p>If you have any questions or suggestions, please don’t hesitate to contact us. We’re
+								always glad to offer assistance and advice.</p>
+							<br>
+
+							<h2 class="title">Available “R” Functions:</h2><br>
+							<table>
+								<tr>
+									<th style="color: #fff;">Function</th>
+									<th style="color: #fff;">Description</th>
+								</tr>
+								<tr>
+									<td>set_api_key</td>
+									<td>Register your API key to be able to get a session token.</td>
+								</tr>
+								<tr>
+									<td>print_api_key()</td>
+									<td>Return the API key that was set with the set_api_key command.</td>
+								</tr>
+								<tr>
+									<td>get_api_address()</td>
+									<td>Displays the selected API server address.</td>
+								</tr>
+								<tr>
+									<td>get_api_version()</td>
+									<td>Returns the API version number.</td>
+								</tr>
+								<tr>
+									<td>request_new_api_key()</td>
+									<td>Return a new API key (any active API key will be invalidated).</td>
+								</tr>
+
+
+
+								<tr>
+									<td colspan="2" style="height: 35px;"></td>
+
+								</tr>
+
+								<tr>
+									<td>get_session_token()</td>
+									<td>Return a new session token.</td>
+								</tr>
+								<tr>
+									<td>query_session_token()</td>
+									<td>Return the remaining token life in milliseconds.</td>
+								</tr>
+								<tr>
+									<td>renew_session_token()</td>
+									<td>Restore the current token to full life.</td>
+								</tr>
+								<tr>
+									<td>revoke_session_token()</td>
+									<td>Invalidate the current token.</td>
+								</tr>
+								<tr>
+									<td>print_session_token()</td>
+									<td>Display the current session token value.</td>
+								</tr>
+
+
+								<tr>
+									<td colspan="2" style="height: 35px;"></td>
+
+								</tr>
+
+								<tr>
+									<td>get_datasource()</td>
+									<td>Return metadata for one named datasource.</td>
+								</tr>
+
+								<tr>
+									<td>get_all_datasources()</td>
+									<td>Return metadata for all available datasources.</td>
+								</tr>
+
+								<tr>
+									<td>get_user_datasources()</td>
+									<td>Return metadata for the datasources that the user can access.</td>
+								</tr>
+
+								<tr>
+									<td colspan="2" style="height: 35px;"></td>
+
+								</tr>
+
+								<tr>
+									<td>get_datasets()</td>
+									<td>Return metadata for the datasets in one datasource</td>
+								</tr>
+
+								<tr>
+									<td>get_selected_datasets()</td>
+									<td>Return metadata for multiple named datasets in one or more datasources.</td>
+								</tr>
+
+								<tr>
+									<td colspan="2" style="height: 35px;"></td>
+
+								</tr>
+
+								<tr>
+									<td>get_dataset_values()</td>
+									<td>Return a range of dataset values or averages for named datasets in one or more
+										datasources.
+									</td>
+								</tr>
+
+								<tr>
+									<td>get_dataset_values_rc()</td>
+									<td>As with get_dataset_values above but values are returned formatted row X column.
+									</td>
+								</tr>
+
+								<tr>
+									<td>get_dataset_values_for_date()</td>
+									<td>Return dataset values (or averages)for named datasets (in one or more
+										datasources) for a single date.</td>
+								</tr>
+
+								<tr>
+									<td colspan="2" style="height: 35px;"></td>
+
+								</tr>
+								<tr>
+									<td>get_user_favorite_status()</td>
+									<td>Return the server date and time that the user favorites list was last changed.
+									</td>
+								</tr>
+
+								<tr>
+									<td>get_user_favorites()</td>
+									<td>Return metadata for all the datasets in the user favorites list.</td>
+								</tr>
+
+								<tr>
+									<td>add_user_favorites()</td>
+									<td>Add datasets to the user favorites list.</td>
+								</tr>
+
+								<tr>
+									<td>remove_user_favorites()</td>
+									<td>Remove datasets from your user favorites list.</td>
+								</tr>
+
+								<tr>
+									<td colspan="2" style="height: 35px;"></td>
+								</tr>
+
+								<tr>
+									<td>get_my_account_details()</td>
+									<td>Return registered user account details including API key.</td>
+								</tr>
+
+								<tr>
+									<td>set_return_raw_data(false)</td>
+									<td>If true return raw JSON is returned from all server requests.</td>
+								</tr>
+
+								<tr>
+									<td>set_verbose</td>
+									<td>If true extra request details are displayed in the console. </td>
+								</tr>
+
+								<tr>
+									<td colspan="2" style="height: 35px;"></td>
+								</tr>
+
+								<tr>
+									<td>get_api_version</td>
+									<td>Returns the API version string from the server. </td>
+								</tr>
+
+							</table>
+							<br>
+						</div>
+						<div class="text-center footertxt">
+							<p class="sub-logo"> Copyright © 2018-2022 Sarus Systems Limited - Market Data
+								Solutions </p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<div class="modelView">
+
+			<i class="fas fa-times cross"></i>
+
+			<div class="model-content">
+
+				<img src="" style="border: 5px solid rgb(0, 0, 0);" />
+
+			</div>
+		</div>
+
+		<div id="dialogWindow">
+			<span id="dialogWindowContent"></span>
+		</div>
+
+		<!-- footer-area -->
+		<div include-html="footer.html" id="footer_file" style="position: fixed; bottom: 0px;"></div>
+	</div>
+
+
+	<!-- js link -->
+	<script src="resources/js/bootstrap.bundle.min.js"></script>
+
+	<script src="resources/js/r-package.js"></script>
+
+	<script src="resources/js/include-html.js"></script>
+
+	<script>
+		const body = document.querySelector("body");
+		const navbar_default = document.querySelector(".navbar-default");
+		window.addEventListener("load", () => {
+			body.style.background = "#ececec";
+
+		})
+	</script>
+
+
+
+</body>
+
+</html>

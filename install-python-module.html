@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Meta -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+	<!-- Title -->
+	<title>Monitor+ API</title>
+
+	<!-- JS Files -->
+
+	<script src="resources/js/jquery-1.12.3.js"></script>
+	<script src="resources/js/jquery-3.6.0.min.js"></script>
+	<script src="resources/js/bootstrap.min.js"></script>
+	<script src="resources/js/bootstrap-dropdown.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+	<script src="resources/js/jquery-ui.js"></script>
+	<script src="dev/api/config/config.js"></script>
+	<script src="dev/api/authentication.js"></script>
+	<script src="resources/js/jquery.ihavecookies.min.js"></script>
+	
+	<script src="resources/jqwidgets/jqxcore.js"></script>
+	<script src="resources/jqwidgets/jqxwindow.js" async></script>
+	<script src="resources/jqwidgets/jqxscrollbar.js" async></script>
+	<script src="resources/jqwidgets/jqxbuttons.js" async></script>
+	<script src="resources/jqwidgets/jqxinput.js" async></script>
+    <script src="resources/jqwidgets/jqxlistbox.js" async></script>
+    <script src="resources/jqwidgets/jqxdropdownlist.js" async></script>
+	<script src="resources/jqwidgets/jqxmenu.js" async></script>
+	<script src="resources/jqwidgets/jqxcheckbox.js" async></script>
+
+	<script src="resources/js/jquery.event.drag-2.3.0.js"></script>
+	<script src="resources/js/slick.core.js"></script>
+	<script src="resources/js/slick.formatters.js" async></script>
+	<script src="resources/js/slick.editors.js"> async</script>
+	<script src="resources/js/slick.rowselectionmodel.js" async></script>
+	<script src="resources/js/slick.grid.js" async></script>
+	<script src="resources/js/slick.dataview.js" async></script>
+	<script src="resources/js/slick.cellrangeselector.js" async></script>
+	<script src="resources/js/slick.cellselectionmodel.js" async></script>
+	<script src="resources/js/slick.rowmovemanager.js" async></script>
+  	<script src="resources/js/slick.checkboxselectcolumn.js" async></script>
+	
+	<script src="resources/js/top-menu.js"></script>
+	<script src="resources/js/messages.js"></script>
+	<script src="resources/js/common.js"></script>
+	<script src="resources/js/goto_homepage.js"></script>
+
+	<!-- CSS Files -->
+
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,500i,600,600i,700,700i,800" rel="stylesheet">
+	<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
+	<link href="resources/idm-service/resources/css/font-awesome.min.css" rel="stylesheet">
+	<link href="resources/idm-service/resources/css/bootstrap-navbar.css" rel="stylesheet">
+
+	<link href="resources/jqwidgets/styles/jqx.base.css" rel="stylesheet">
+    <link href="resources/jqwidgets/styles/jqx.light.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="resources/css/slick.grid.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/slick.pager.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/slick.columnpicker.css" type="text/css" />
+
+	<link href="resources/idm-service/resources/css/main.css" rel="stylesheet">
+	<link href="resources/idm-service/resources/css/responsive.css" rel="stylesheet">
+	<link href="resources/css/bootstrap-navbar.css" rel="stylesheet">
+	<link href="resources/css/general.css" rel="stylesheet">
+	<link rel="icon" type="image/x-icon" href="resources/api_favicon.png">
+	<link rel="stylesheet" href="resources/css/python-package.css">
+	<link rel="stylesheet" href="resources/css/menu.css">
+    <link rel="stylesheet" href="resources/css/footer.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<link href="resources/jqwidgets/styles/jqx.base.css" rel="stylesheet">
+	<link href="resources/jqwidgets/styles/jqx.light.css" rel="stylesheet">
+	
+	<link rel="stylesheet" href="resources/css/slick.grid.css" type="text/css" />
+	<link rel="stylesheet" href="resources/css/slick.pager.css" type="text/css" />
+	<link rel="stylesheet" href="resources/css/slick.columnpicker.css" type="text/css" />
+	<link rel="stylesheet" href="resources/css/monitor-gui.css" type="text/css" />
+
+	<style>
+		section.main-content {
+			margin-top: 120px;
+			padding: 0 0 32px 0;
+		}
+
+		section.main-content .info-monitor .blue-title {
+			color: rgb(26, 101, 187);
+			font-size: large;
+		}
+
+		section.main-content .top-logo {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: flex-start;
+            padding: 20px;
+            background-color: RGB(249,253,234);
+		}
+
+		section.main-content .top-logo .monitor img {
+			margin-top: 35px;
+		}
+
+		section.main-content .top-logo .monitor .market {
+			margin-left: 129px;
+		}
+
+        .info-monitor{
+            padding: 32px;
+        }
+
+	</style>
+</head>
+
+<body class="default">
+	<div class="fixpage">
+
+		<nav include-html="menu.html" id="menu_file" class="navbar navbar-default navbar-fixed-top " ></nav>
+		
+		<section class="main-content dis-block clearfix">
+		
+            <div class="top-logo">
+                <img class="img-fluid" src="resources/images/install-python.png" alt="r-rmonitor-plus"  width="800"  >	
+            </div>
+			<div class="info-monitor">
+				
+				<div class="dark-green-title">Introduction </div>
+				<p>You must have Python installed before you begin. If not, you can download the latest Python version from <a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>
+					</p>
+					<p>If you are unsure about how to install Python or Python modules, please get an IT professional to
+						assist as help with a Python installation is beyond the scope of this document. 
+						</p>
+                
+				 <br>
+
+				 <div class="dark-green-title">Python version</div>
+				 <p>The Monitor+ Python module requires Python version <b>3.5</b> (or later) to work at its best. Earlier Python versions
+					will require two additional modules to be installed (they were included in later Python versions). We suggest that you check your installed Python
+					version and upgrade as necessary using the link in the introduction section above.</p>
+
+				<p>We recommend that you add the Python module “Colorama” as it adds coloured text to the Python
+					console. It can be downloaded from <a href="https://pypi.org/project/colorama/">https://pypi.org/project/colorama/</a> </p>
+
+					
+				<br>
+
+
+				<div class="dark-green-title">Using an older Python version </div>
+				<p>If you need to use an earlier version of Python (prior to version 3.5), you may need to install two additional modules from the Python repository “pypi”. </p>
+				<p>These two modules are built into later versions of Python. </p>
+				<p>The modules are:</p>
+
+				<table>
+					<tr>
+						<th>Module</th>
+						<th>Python Version</th>
+						<th>Description</th>
+						<th>Link</th>
+					</tr>
+					<tr>
+						<td><b>Requests</b></td>
+						<td>3.5</td>
+						<td>Easy http for Python </td>
+						<td><a href="https://pypi.org/project/requests/">https://pypi.org/project/requests/</a></td>
+							
+					</tr>
+
+					<tr>
+						<td><b>Typing</b></td>
+						<td>3.62</td>
+						<td>New standard library
+							typing module 
+							</td>
+						<td><a href="https://pypi.org/project/typing/">https://pypi.org/project/typing/</a></td>
+					</tr>
+				</table>
+				<br>
+				<p>Click on the each link in the table above and follow the instructions on each web page to install the module. </p>
+				
+				<br>
+
+				 <div class="dark-green-title">Locating your API key</div>
+				 <p>You can access your API key using the top right menu on this page. When you logon, you will see your user name on the top right menu (see the red box in the image below).  Click on this menu and select the "My Account"  menu. Then select the "My API Key" menu on the left. </p>
+					<br>
+					<div style="text-align: center;">
+						<img src="resources/images/myfavorites-api.png" alt="" style="height: 100%;">
+					</div>
+					<br><br>
+					<p>You can click on the <i class="fas fa-eye-slash"></i> symbol in the edit box above to display the API key. Click on the “Copy” link to copy the API key to the clipboard. 
+						</p>
+
+						<br>
+
+                 <div class="dark-green-title">Contact Us</div>
+                 <p>If you cannot login, please check your email as the login credentials should have been sent to you from an account at "sarus.com". If  you still have problems, please click the “Support” option from the “Contact us” menu at the top of this page.</p>
+
+				 <br>
+
+	 
+	              	<div style="text-align: center;">
+				
+   					<img src="resources/images/contact-menu.png" alt=""  width="500"  >	
+				
+				     </div>	
+	
+                 <p> When contacting us don't forget to send your contact details and, if you have a support question, please also send your User Reference Number, API key, Python version number, any relevant screenshots and a description of the issue. </p>
+                    <br>
+
+
+                 <div class="dark-green-title">Installing the Python module</div>
+                 <p>The Python module can be downloaded by registered users by clicking on the dDownload button
+                    below. You will need your API key to authenticate the download. If you do not have
+                    your API key available, see the “Locating your API key” section above for help. </p>
+ 
+                 <br>
+                 
+ 
+        
+
+		 <div style="text-align: center;"><button class="dwnld" id="install-p-btn"> <span><i class="fa fa-download" aria-hidden="true"></i></span>&nbsp;&nbsp; Download the Python Module</button></div>
+         
+         <br>
+ 
+         <div class="btnDialog notVisible">
+             <div class="closeDialog"><i class="fas fa-times"></i></div>
+             <div class="blue-title auth-title"> Authentication Required</div>
+         
+             <form action="">
+             <label for="api-key" style="margin-top: 15px;font-weight: 400;">Please enter your API Key</label>
+             <div><input type="text" id="api-key" style="margin-top: 15px" autocomplete="off" autofocus ></div>
+             
+             
+             <div id="errorText" class="notVisible"></div>
+             <div id="submitCont" style="margin-top: 15px;">
+                 <div style=" margin-top: 10px; ">
+                 <input type="checkbox" id="mailCheck">
+             Send email with the download link</div>
+             <a id="dwnld_link" download=""><input type="submit" id="submitApi"  value="OK" ></a>
+             </div>
+         </form>
+ 
+         </div>
+         
+ 
+         <p>Save the package in a location that is easily accessible to Python (see the “Python Paths” section below). </p>
+
+
+         <br>
+
+
+
+                 <div class="dark-green-title" >Python Paths</div>
+                 <p>Python needs to import these modules and so needs to be able to find them. It does this
+                    by checking a predefined search path. You can see the Python search path that using the command: </p>
+                    <p id="Python-Paths"><span>>>></span> &nbsp;&nbsp; <span style="color: rgb(26, 101, 187);">import </span>sys  <br>
+                    <span>>>></span>&nbsp;&nbsp; sys.path</p>
+                    <br>
+
+				<div class="dark-green-title">Testing the package</div>
+				<p>Once the packages mentioned above have been installed you are ready to begin testing.</p>
+
+
+				<p>To begin you need to import and initilise the “idmmonitor” module, store your API key and get a
+                session token from the remote API server. You will need to type five commands (in black text)
+                below in the Python console to get a session token. In the example below, commands are in black
+                text, comments in green and results from the server in blue.  </p>
+
+				<br>
+
+				<div id="text_under_testing-package">
+
+                    <div>
+                        <p class="green"># from class_source.idata_client import IData<br>
+                            <span style="color: black;">>>> from idmmonitor import IData</span>
+                              </p>
+                    </div>
+
+                    <br>
+
+                    <div>
+                        <p class="green"># Initialise the class <br>
+                            <span style="color: black;">>>> idata = IData()</span>
+                              </p>
+                    </div>
+
+                    <br>
+
+                    <div>
+                        <p class="green"># Turn on extra console information <br>
+                            <span style="color: black;">>>>idata.setverbose(True) </span>
+                              </p>
+                    </div>
+
+                    <br>
+
+                    <div>
+                        <p class="green"># Store your API key in the module (replace XXXXX-XXXXX-XXXXX-XXXXX with your own API key) <br>
+                            <span style="color: black;">>>> idata.set_api_key("XXXXX-XXXXX-XXXXX-XXXXX")  </span><br>   
+                        <span class="blue-para">Stored the new API key XXXXX-XXXXX-XXXXX-XXXXX. 
+                        </span></p>
+                    </div>
+
+					
+					<br>
+					
+                    <div>
+                        <p class="green"># Get a session token <br>
+                            <span style="color: black;">>>> idata.get_session_token() </span><br>   
+                        <span class="blue-para">[INFO] Retrieving session token using: XXXXX-XXXXX-XXXXX-XXXXX<br>
+                            [INFO] API call to: http://api.sarus.com/GetSessionToken?APIKey= XXXXX-XXXXX-XXXXX-XXXXX <br>
+                            [INFO] Session token retrieved: 12ba9c13a8c9f270e71bb2526f0532ad
+                        </span></p>
+                    </div>
+					<br>
+					   <div class="dark-green-title">Check for errors </div>
+                    <p>If you get an error after the line “from idmmonitor import IData”, it is likely that the module idmmonitor.py
+                        cannot be found by Python. See the “Python Paths” section above. </p>
+                    <p>If you get an error after the line “>>> idata.get_session_token()” then it is likely that your API key is invalid,
+                        or inactive. The server response in the blue text will help identify the issue. See the “Locating your API key”
+                        section above</p>
+                    <p>If you still have a problem please look at the section “Testing the connection in a browser” below. </p>
+                    <p>If contacting us regarding either of these errors, please read the "Contact Us" section above for details of the information that we need from you.
+                        </p>
+                    </div>
+
+                        <br>
+
+                        <div class="dark-green-title">More Testing </div>
+					<p>Once you have successfully entered the commands above you can use the commands below to further test access the server </p>
+
+                    <div>
+                        <p class="green"># Check the session token remaining life<br>
+                            <span style="color: black;">>idata.query_session_token()</span><br>   
+                        <span class="blue-para">[1] 1792000  
+                        </span></p>
+                    </div>
+
+                    <br>
+
+                    <div>
+                        <p class="green"># Get the server address the API is using <br>
+                            <span style="color: black;">> idata.get_api_address()</span><br>   
+                        <span class="blue-para">The API server is set to <a href="https://api.sarus.com/">https://api.sarus.com/</a>  
+                        </span></p>
+                    </div>
+
+					
+					
+				<br>
+
+				<div class="dark-green-title">Testing the connection in a browser</div>
+				<p> You can quickly check that the connection to the Monitor+ API server is working. Open your
+                    browser and enter the url <a href="https://api.sarus.com/">https://api.sarus.com/</a>  and press enter. Your browser should show
+                    a simple web page with one line of text similar to ”Monitor+ Web API Version: X.X”.  </p>
+				<p>If you do not see this (or you see an error page), you may have a proxy or firewall issue that is
+                    blocking the connection. Please contact your IT colleagues and ask them to replicate the test above
+                    and so enable access to the Monitor+ API server for you. </p>
+				<p>You should also try to connect to the web site where the API help files are stored. Open your
+                    browser and enter the url <a href="https://www.sarus,.com/api-docs">https://www.sarus.com/api-docs/</a> and press enter. If you do not see the IDM
+                    web site, please contact your IT colleagues and ask them to replicate the test above. They should be able to quickly resolve the issue. 
+                    </p>
+				<br>
+
+				<div class="dark-green-title">And Finally</div>
+				<p> For any other problems or questions, please see the “Contact Us” section above.</p>
+     
+			</div>
+		</section>
+
+		<div id="dialogWindow">
+			<span id="dialogWindowContent"></span>
+		</div>
+        
+		<div include-html="footer.html" id="footer_file"></div>
+		
+			<div class="text-center footertxt">
+				<p class="sub-logo"> Copyright © 2018-2022 Sarus Systems Limited - Market Data Solutions </p>
+			</div>
+		</div>
+		
+	</div>
+
+	<script src="resources/js/include-html.js"></script>
+	<script>
+		
+	const body=document.querySelector("body");
+		const navbar_default=document.querySelector(".navbar-default");
+		window.addEventListener("load",()=>{
+			body.style.background="#ececec";
+			
+		})
+
+
+
+		const dwnldBtn=document.querySelector(".dwnld");
+		const closedialog=document.querySelector(".closeDialog");
+		const btnDialog=document.querySelector(".btnDialog");
+		const api_key=document.querySelector("#api-key");
+		const submitApiBtn=document.querySelector("#submitApi");
+		const errorServer=document.querySelector(".errorServer");
+		const enter_key=document.querySelector(".btnDialog").lastElementChild;
+		const dwnld_link=document.querySelector("#dwnld_link");
+		const errorText=document.querySelector("#errorText");
+
+		
+		const form=document.querySelector("form");
+		const mailCheck=document.querySelector("#mailCheck");
+
+		
+    		tabArr=[api_key,submitApiBtn];
+			let focusIndex=0;
+
+
+		dwnldBtn.addEventListener("click",()=>{
+			btnDialog.classList.remove("notVisible");
+			api_key.focus();
+			closedialog.addEventListener("click",()=>{
+				btnDialog.classList.add("notVisible");
+				api_key.value="";
+				errorText.classList.add("notVisible");
+				
+				
+			})
+
+			document.addEventListener("keydown",(e)=>{
+				
+					if(e.key=="Escape"){
+						btnDialog.classList.add("notVisible");
+						api_key.value="";
+					}	
+
+					else if(e.key=="Tab"){
+						e.preventDefault();
+						
+						tabArr[focusIndex].focus();
+						focusIndex++;
+						errorText.classList.add("notVisible");
+						if(focusIndex==2){
+							focusIndex=0;
+						}
+					}
+
+					
+					
+					
+			})
+
+
+		})
+
+		submitApiBtn.addEventListener("click",()=>{
+			
+			let xhr=new XMLHttpRequest();
+			xhr.open("GET",`https://api.sarus,com/GetSessionToken?APIKey=${api_key.value} `,true);
+			xhr.addEventListener("load",()=>{
+				if(xhr.status==200){
+					errorText.classList.add("notVisible");
+					let data=JSON.parse(xhr.responseText);
+					console.log(data.Result.SessionToken)
+					
+					
+
+					let data1;
+					btnDialog.classList.add("notVisible");
+
+
+					if(mailCheck.checked){
+						let xhr1=new XMLHttpRequest();
+						xhr1.open('GET',`https://api.sarus.com/ReturnFileURL?SessionToken=${data.Result.SessionToken}&SendEmail=true&FileName=idm-python-module`);
+						xhr1.addEventListener("load",()=>{
+							data1=JSON.parse(xhr1.responseText);
+
+							window.location.href=`${data1.Result}`
+
+							
+								// dwnld_link.setAttribute("href",`${data1.Result}`);
+								// dwnld_link.setAttribute("download","");
+							
+
+							
+						})
+						xhr1.send();
+					}
+				
+					else{
+						let xhr1=new XMLHttpRequest();
+						xhr1.open('GET',`https://api.sarus.com/ReturnFileURL?SessionToken=${data.Result.SessionToken}&SendEmail=false&FileName=idm-python-module`);
+						xhr1.addEventListener("load",()=>{
+							data1=JSON.parse(xhr1.responseText);
+							window.location.href=`${data1.Result}`
+
+						})
+						xhr1.send();
+			
+				}}
+				else{
+					console.log(xhr.responseText);
+					// errorText.innerHTML=typeof(JSON.parse(xhr.responseText));
+					let data=JSON.parse(xhr.responseText);
+					console.log(data.Errors[0].Status)
+					errorText.innerHTML= `Status: ${data.Errors[0].Status} , ${data.Errors[0].Details} `
+					errorText.classList.remove("notVisible");
+						
+				}
+				
+			})
+			xhr.send();
+
+			
+
+		})
+
+		api_key.addEventListener("mousedown",()=>{
+			errorText.classList.add("notVisible");
+		})
+
+		
+
+		form.addEventListener("submit",(e)=>{
+			e.preventDefault();
+		})
+		
+		
+		
+	</script>
+
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+

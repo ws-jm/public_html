@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+
+<head>
+	<title>Databases</title>
+
+	<script src="resources/idm-service/resources/js/jquery-1.12.3.js"></script>
+	<script src="resources/js/jquery-3.6.0.min.js"></script>
+	<script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+	<script src="resources/idm-service/resources/js/bootstrap-dropdown.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="resources/idm-service/resources/js/height.js"></script>
+	<script src="dev/api/config/config.js"></script>
+	<script src="dev/api/authentication.js"></script>
+	<script src="resources/js/jquery-ui.js"></script>
+
+	<script src="dist/jstree.min.js"></script>
+
+	<script src="resources/jqwidgets/jqxcore.js"></script>
+	<script src="resources/jqwidgets/jqxwindow.js" async></script>
+	<script src="resources/jqwidgets/jqxsplitter.js" async></script>
+	<script src="resources/jqwidgets/jqxpopover.js" async></script>
+	<script src="resources/jqwidgets/jqxbuttons.js" async></script>
+	<script src="resources/jqwidgets/jqxscrollbar.js" async></script>
+	<script src="resources/jqwidgets/jqxinput.js" async></script>
+    <script src="resources/jqwidgets/jqxlistbox.js" async></script>
+    <script src="resources/jqwidgets/jqxdropdownlist.js" async></script>
+	<script src="resources/jqwidgets/jqxmenu.js" async></script>
+	<script src="resources/jqwidgets/jqxcheckbox.js" async></script>
+
+	<script src="resources/js/jquery.event.drag-2.3.0.js"></script>
+	<script src="resources/js/slick.core.js"></script>
+	<script src="resources/js/slick.formatters.js" async></script>
+	<script src="resources/js/slick.editors.js"> async</script>
+	<script src="resources/js/slick.rowselectionmodel.js" async></script>
+	<script src="resources/js/slick.grid.js" async></script>
+	<script src="resources/js/slick.dataview.js" async></script>
+	<script src="resources/js/slick.cellrangeselector.js" async></script>
+	<script src="resources/js/slick.cellselectionmodel.js" async></script>
+	<script src="resources/js/slick.rowmovemanager.js" async></script>
+  	<script src="resources/js/slick.checkboxselectcolumn.js" async></script>
+
+
+	<script src="dev/api/utils/utils.js"></script>
+	<script src="resources/js/jquery.ihavecookies.min.js"></script>
+	<script src="resources/js/bootstrap.bundle.min.js"></script>
+	<script src="resources/js/marquee.js"></script>
+	<link rel="icon" type="image/x-icon" href="resources/database_favicon.png">
+
+
+	<!-- css files -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i,800,800i"
+		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,500i,600,600i,700,700i,800"
+		rel="stylesheet">
+	<link href="resources/idm-service/resources/css/font-awesome.min.css" rel="stylesheet" />
+
+	<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
+	<link href="resources/idm-service/resources/css/bootstrap-navbar.css" rel="stylesheet" />
+
+	<link rel="stylesheet" href="dist/themes/default/style.min.css" />
+
+	<link href="resources/jqwidgets/styles/jqx.base.css" rel="stylesheet">
+	<link href="resources/jqwidgets/styles/jqx.light.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="resources/css/slick.grid.css" type="text/css" />
+	<link rel="stylesheet" href="resources/css/slick.pager.css" type="text/css" />
+	<link rel="stylesheet" href="resources/css/slick.columnpicker.css" type="text/css" />
+
+	<link href="resources/idm-service/resources/css/main.css" rel="stylesheet" />
+	<link href="resources/idm-service/resources/css/responsive.css" rel="stylesheet" />
+	<link href="resources/css/general.css" rel="stylesheet">
+	<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+		integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<link rel="stylesheet" href="resources/css/menu.css">
+	<link rel="stylesheet" href="resources/css/footer.css">
+	<link rel="stylesheet" href="resources/css/databases.css">
+	<link rel="stylesheet" href="resources/css/monitor-gui.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/monitor-ui.css" type="text/css" />
+
+
+	<style>
+		.idm-database-block {
+			background: #FFFFFF !important;
+		}
+
+
+		@media screen and (max-width: 480px) {
+			.idm-box-inner-heading {
+				height: auto;
+			}
+
+			.idm-box-heading span {
+				position: relative;
+				top: auto;
+				left: auto;
+				text-align: left;
+			}
+		}
+
+		html,
+		body {
+			position: relative;
+			height: 100%;
+		}
+
+		body {
+			background: #eee;
+			font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+			font-size: 14px;
+			color: #000;
+			margin: 0;
+			padding: 0;
+		}
+
+		section.main-content {
+			margin-top: 10px;
+			padding: 32px;
+		}
+
+		section.main-content .info-monitor {
+			padding: 20px;
+		}
+
+		section.main-content .info-monitor .blue-title {
+			color: rgb(26, 101, 187);
+			font-size: large;
+		}
+
+		section.main-content .top-logo {
+			display: flex;
+			justify-content: flex-end;
+			align-items: flex-end;
+			margin-bottom: 20px;
+			padding: 20px;
+		}
+
+		section.main-content .top-logo .image-top-logo {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: flex-start;
+		}
+
+		section.main-content .top-logo .image-top-logo img {
+			margin: 5px;
+		}
+
+		section.main-content .top-logo .image-top-logo p {
+			margin: 5px;
+		}
+
+		.big-blue-title {
+			color: rgb(26, 101, 187);
+			font-size: x-large;
+		}
+
+		.four-table {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+			padding: 10px;
+		}
+
+		.four-table .function-list {
+			text-align: left;
+		}
+	</style>
+
+</head>
+
+<body style="margin:0px;">
+	<div class="fixpage" style="min-height: 100vh;">
+		<nav class="navbar navbar-default navbar-fixed-top" include-html="menu.html" id="menu_file"></nav>
+
+
+
+
+		<section class="breadcrumb-section">
+			<div class="container">
+				<div class="breadcrumb-wrapper">
+					<h2>Databases</h2>
+
+				</div>
+			</div>
+		</section>
+
+
+		<!-- Database paragraph area -->
+		<section class="database-para-section">
+			<div class="container">
+				<div class="database-para-wrapper">
+					<br>
+					<p>Our time series databases offer a broad range of historical reference data from stock exchanges,
+						commodity exchanges, currencies, world indices as well as proprietary data from market data
+						providers and independent pricing agencies.</p>
+
+					<p>Below we have listed some of our popular data categories. If you require information about
+						specific exchanges, contracts, need additional data for a market or datasource not listed below
+						or want to offer your own data to the global market then we will be glad to help.</p>
+
+					<p>Please look at the categories in the list below. Click on a category caption to expand its
+						content then check the box on the caption of each category that interests you. Finally, fill in
+						the contact form with the details of your request and hit the "Send" button. <br><br>We'll be in
+						touch as soon as possible to discuss your request.<br> </p>
+				</div>
+			</div>
+		</section>
+		<br>
+		<!-- accordion-card-area -->
+		<section class="accordion-card-section">
+			<div class="container">
+				<div class="accordion" id="accordionExample">
+					<div class="accordion-item">
+						<h2 class="accordion-header " id="headingOne">
+							<input type="checkbox" class="form-check-input">
+							<button class="accordion-button " type="button" data-bs-toggle="collapse"
+								data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+								<img src="resources/images/stock.svg" alt=""> Stock
+								Market
+							</button>
+						</h2>
+						<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+							data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+								<p>We carry end of day reference data for over 70 global
+									stock exchanges that cover Stocks, Exchange Traded Funds (ETFs)
+									and Mutual Funds. <br>
+									With values from January 2000 (earlier for many
+									US stocks), we provide daily, weekly and monthly raw data as well
+									as adjusted to splits and dividends. <br><br>
+									If you are interested in this category, please check the box in the caption above
+									then fill in the contact form below for more information.<br>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="headingTwo">
+							<input type="checkbox" class="form-check-input">
+							<button class="accordion-button collapsed " type="button" data-bs-toggle="collapse"
+								data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+								<img src="resources/images/commodity.svg" alt="">
+								Futures/Commodities
+							</button>
+						</h2>
+						<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+							data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+								<p>
+									We provide historical data for over 90 global continuous futures contracts covering
+									primarily energy, softs,
+									metals and financials. These contracts cover the vast majority of all
+									futures/contracts
+									that are traded in both the US and Europe. We also supply a large range of contracts
+									to
+									covering the European based derivatives market.
+									<br><br>
+									If you are interested in this category, please check the box in the caption above
+									then fill in the contact form below for more information.<br>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="headingThree">
+							<input type="checkbox" class="form-check-input">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+								data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+								<img src="resources/images/currency.svg" alt="">
+								Currencies/Banks
+							</button>
+						</h2>
+						<div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+							data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+
+								<p>
+									We provide historical data covering more than 30 currencies giving quotes on over
+									900 pairs.
+									We also include central bank currency rates from the Bank of England and the
+									European Central Bank.
+									<br><br>
+									If you are interested in this category, please check the box in the caption above
+									then fill in the contact form below for more information.<br>
+									<br>
+								</p>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="headingThreeA">
+							<input type="checkbox" class="form-check-input">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+								data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+								<img src="resources/images/crypto.svg" alt="">
+								Cryptocurencies
+							</button>
+						</h2>
+						<div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+							data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+								<p>
+									We provide historical data covering thousands of cryptocurrencies against the US
+									dollar.<br><br>
+									If you are interested in this category, please check the box in the caption above
+									then fill in the contact form below for more information.<br>
+								</p>
+							</div>
+						</div>
+					</div>
+
+
+
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="headingFour">
+							<input type="checkbox" class="form-check-input">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+								data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+								<img src="resources/images/performance.svg" alt="">
+								Global Indices
+							</button>
+						</h2>
+						<div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+							data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+								<p>We provide historical data for over 700 world indices.<br><br>
+									If you are interested in this category, please check the box in the caption above
+									then fill in the contact form below for more information.<br>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="headingFive">
+							<input type="checkbox" class="form-check-input">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+								data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+								<img src="resources/images/proprietery.svg" alt="">
+								Proprietary Data (3rd Party)
+							</button>
+						</h2>
+						<div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+							data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+
+
+								<p>If you have a subscription with a data vendor and would like to integrate
+									its data with the Monitor+ API then we can help. <br><br>
+									We can download this data onto our server (or to a dedicated
+									private server if contractually required) and make it available as
+									a private datasource for you.<br><br>
+									If you are interested in this category, please check the box in the caption above
+									then fill in the contact form below for more information.<br>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="headingSix">
+							<input type="checkbox" class="form-check-input">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+								data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+								<img src="resources/images/support.svg" alt=""> Customers Own Data
+							</button>
+						</h2>
+						<div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+							data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+								<p>If you have your own market data that you'd like to use to open a new channel to
+									market then we can help.
+									We can get your market data added to our Monitor+ API so it can be available to your
+									own clients or you can sell it to the world.
+									<br><br>
+									Please check the box in the caption above then fill in the contact form below to
+									request more information.<br>
+								</p>
+
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="headingSeven">
+							<input type="checkbox" class="form-check-input">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+								data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+								<img src="resources/images/idea.svg" alt=""> Other Data
+							</button>
+						</h2>
+						<div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
+							data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+								<p>We have access to other datasources that are currently not published publicly on this
+									page. <br><br>
+									If you need bonds, fundamental or other market data or data from a particular vendor
+									or exchange then please let us know what data it is that you need.
+
+									If you already subscribe to market data from another source and would like it added
+									to the Monitor+ service then we can help.
+
+									<br><br>
+									Please check the box in the caption above then fill in the contact form below to
+									request more information.<br>
+								</p>
+
+
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<!-- start working area -->
+		<section class="start-working-area">
+			<div class="container ">
+				<div class="working-title-wrapper">
+					<h2>Let's talk data</h2>
+					<hr>
+					<p>If you're looking for additional reference market data then just let us know what you need (and
+						if you're already a subscriber).</p>
+
+					<p> Please fill in the form below, click the 'Send' button and we'll be in touch.</p>
+				</div>
+				<br>
+				<div class="message-and-img-wrapper">
+					<div class="message-area">
+						<form action="">
+							<div class="name">
+								<i class="las la-pen"></i>
+
+								<input type="text" placeholder="Your Full Name" id="name" required>
+								<p class="error-text name-error"><i class="fas fa-exclamation-circle error-icon"></i>The
+									name must be longer than 3 characters.</p>
+							</div>
+							<div class="company">
+								<i class="las la-globe"></i>
+								<input type="text" placeholder="Company Name" id="CompanyName" required>
+								<p class="error-text CompanyName-error"><i
+										class="fas fa-exclamation-circle error-icon"></i>The company name must be longer
+									than 3 characters.</p>
+							</div>
+							<div class="email">
+								<i class="las la-envelope"></i>
+								<input type="email" placeholder="Your Email" required id="email">
+							</div>
+							<div>
+
+
+
+								<div class="dropdown">
+									<button class="btn btn-secondary " type="button" id="dropdownMenuButton"
+										data-bs-toggle="dropdown" aria-expanded="false">
+										Interested Option
+									</button>
+
+									<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+										<li><label class="dropdown-item" for="value1"><input id="value1"
+													type="checkbox">Stock Market</label></li>
+										<li><label class="dropdown-item" for="value2"><input id="value2"
+													type="checkbox">Commodity Futures</label></li>
+										<li><label class="dropdown-item" for="value3"><input id="value3"
+													type="checkbox">Currencies</label></li>
+										<li><label class="dropdown-item" for="value4"><input id="value4"
+													type="checkbox">Indices</label></li>
+										<li><label class="dropdown-item" for="value5"><input id="value5"
+													type="checkbox">Proprietary Data</label></li>
+										<li><label class="dropdown-item" for="value6"><input id="value6"
+													type="checkbox">Customers Own Data</label></li>
+										<li><label class="dropdown-item" for="value7"><input id="value7"
+													type="checkbox">Other Request</label></li>
+									</ul>
+									<p class="error-text select-error"><i
+											class="fas fa-exclamation-circle error-icon"></i>One option must be
+										Selected.</p>
+								</div>
+							</div>
+
+
+							<div class="message">
+								<i class="las la-sms"></i>
+								<textarea id="message" cols="30" rows="10" placeholder="Your Message"
+									required></textarea>
+								<p class="error-text textarea-error"><i
+										class="fas fa-exclamation-circle error-icon"></i>Comment must be longer than 10
+									characters.</p>
+							</div>
+
+							<div class="term">
+								<input type="checkbox" id="check">
+								<label for="check" style="font-weight: 100;">Agree with our <a
+										href="https://www.sarus.com/terms-and-conditions">Terms &
+										Conditions</a></label>
+
+							</div>
+							<p class="error-text check-error"><i class="fas fa-exclamation-circle error-icon"></i>You
+								must accept our terms and conditions.</p>
+							<button class="btn">Send</button>
+						</form>
+					</div>
+
+
+					<div class="image-area">
+						<img src="resources/images/Email capture-amico.svg" alt="">
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+
+
+		<div class="marquee-wrapper">
+			<div class="marquee">
+				<img src="resources/images/exchanges/nymex.png" alt="NYMEX" />
+				<img src="resources/images/exchanges/ice.png" alt="ICE" />
+				<img src="resources/images/exchanges/cme.png" alt="CME" />
+				<img src="resources/images/exchanges/eurex.png" alt="EUREX" />
+				<img src="resources/images/exchanges/cftc.png" alt="CFTC" />
+				<img src="resources/images/exchanges/jodi.png" alt="JODI" />
+				<img src="resources/images/exchanges/lme.png" alt="LME" />
+				<img src="resources/images/exchanges/crypto.png" alt="CRYPTO" />
+				<img src="resources/images/exchanges/fx.png" alt="FX" />
+				<img src="resources/images/exchanges/ecb.png" alt="ECB" />
+				<img src="resources/images/exchanges/indices.png" alt="INDICES" />
+				<img src="resources/images/exchanges/amsterdam.png" alt="Amsterdam" />
+				<img src="resources/images/exchanges/argentina.png" alt="Argentina" />
+				<img src="resources/images/exchanges/athens.png" alt="Athens" />
+				<img src="resources/images/exchanges/B3-brazil.png" alt="Brazil" />
+				<img src="resources/images/exchanges/borse-berlin.png" alt="Berlin" />
+				<img src="resources/images/exchanges/bombay.png" alt="Bombay" />
+				<img src="resources/images/exchanges/borsa-italiana.png" alt="Borsa-Italiana" />
+				<img src="resources/images/exchanges/brussels.png" alt="Brussels" />
+				<img src="resources/images/exchanges/budapest.png" alt="Budapest" />
+
+				<img src="resources/images/exchanges/cftc.png" alt="CFTC" />
+				<img src="resources/images/exchanges/cme.png" alt="CME" />
+				<img src="resources/images/exchanges/copenhagen.png" alt="Copenhagen">
+				<img src="resources/images/exchanges/crypto.png" alt="CRYPTO" />
+				<img src="resources/images/exchanges/dusseldorf.png" alt="Dusseldorf" />
+				<img src="resources/images/exchanges/dusx.jpg" alt="DUSX" />
+				<img src="resources/images/exchanges/ecb.png" alt="ECB" />
+				<img src="resources/images/exchanges/eurex.png" alt="EUREX" />
+				<img src="resources/images/exchanges/frax.png" alt="FRAX" />
+				<img src="resources/images/exchanges/fx.png" alt="FX" />
+				<img src="resources/images/exchanges/hamx.jpg" alt="HAMX" />
+				<img src="resources/images/exchanges/hanoi.png" alt="Hanoi" />
+				<img src="resources/images/exchanges/hong-kong.png" alt="HongKong" />
+				<img src="resources/images/exchanges/ice.png" alt="ICE" />
+				<img src="resources/images/exchanges/indonesia.png" alt="Indonesia" />
+				<img src="resources/images/exchanges/irish.png" alt="Ireland" />
+
+				<img src="resources/images/exchanges/jodi.png" alt="JODI" />
+				<img src="resources/images/exchanges/jse.png" alt="JSE" />
+				<img src="resources/images/exchanges/korea.png" alt="Korea" />
+				<img src="resources/images/exchanges/kosdaq.png" alt="Kosdaq" />
+				<img src="resources/images/exchanges/lisbon.png" alt="Lisbon" />
+				<img src="resources/images/exchanges/lme.png" alt="LME" />
+				<img src="resources/images/exchanges/lse.png" alt="LSE" />
+				<img src="resources/images/exchanges/luxx.jpg" alt="LUXX" />
+				<img src="resources/images/exchanges/madrid.png" alt="Madrid" />
+				<img src="resources/images/exchanges/mexico.png" alt="Mexico" />
+				<img src="resources/images/exchanges/munich.png" alt="Munich" />
+
+				<img src="resources/images/exchanges/berx.jpg" alt="Baltic" />
+				<img src="resources/images/exchanges/nikkei.png" alt="nikkei" />
+				<img src="resources/images/exchanges/nymex.png" alt="NYMEX" />
+				<img src="resources/images/exchanges/nse.png" alt="NSE" />
+				<img src="resources/images/exchanges/opec.png" alt="OPEC" />
+				<img src="resources/images/exchanges/oslo.png" alt="Oslo" />
+				<img src="resources/images/exchanges/pakistan.png" alt="Pakistan" />
+				<img src="resources/images/exchanges/paris.png" alt="Paris" />
+				<img src="resources/images/exchanges/philippines.png" alt="Philippines" />
+				<img src="resources/images/exchanges/poland.png" alt="Poland" />
+
+				<img src="resources/images/exchanges/santiago.png" alt="Santiago" />
+				<img src="resources/images/exchanges/saudi-arabia.png" alt="SaudiArabia" />
+				<img src="resources/images/exchanges/shanghai.png" alt="Shanghai" />
+				<img src="resources/images/exchanges/shenzhen.png" alt="Shenzhen" />
+				<img src="resources/images/exchanges/singapore.png" alt="Singapore" />
+				<img src="resources/images/exchanges/six-swiss.png" alt="Swiss" />
+				<img src="resources/images/exchanges/stux.png" alt="STUX" />
+				<img src="resources/images/exchanges/taipei.png" alt="Taipei" />
+				<img src="resources/images/exchanges/tel-aviv.png" alt="TelAviv" />
+				<img src="resources/images/exchanges/thailand.png" alt="Thailand" />
+				<img src="resources/images/exchanges/tokyo.png" alt="Tokyo" />
+				<img src="resources/images/exchanges/toronto.png" alt="Toronto" />
+				<img src="resources/images/exchanges/tsxx.jpg" alt="TSXX" />
+				<img src="resources/images/exchanges/twse.png" alt="TWSE" />
+				<img src="resources/images/exchanges/vienna.png" alt="Vienna" />
+				<img src="resources/images/exchanges/xetra.png" alt="XETRA" />
+				<img src="resources/images/exchanges/xhan.png" alt="XHAN" />
+
+			</div>
+		</div>
+
+
+		<div include-html="footer.html" id="footer_file" style="z-index: 1;"></div>
+		<div class="text-center footertxt">
+			<p class="sub-logo"> Copyright © 2018-2022 Sarus Systems Limited - Market Data Solutions </p>
+		</div>
+
+
+	</div>
+
+
+	<script src="resources/js/include-html.js"></script>
+	<script src="resources/js/databases.js"></script>
+	<script>
+		$(document).ready(function () {
+			$("#navbar-external").load("navbar_external.html");
+			$("#footer-external").load("footer_external.html");
+		});
+	</script>
+
+	<script>
+		//
+		$(document).ready(function () {
+			//equalheight('.idm-box-inner-heading');
+			equalheight('.idm-box');
+
+		});
+
+		function toggleChevron(e) {
+			$(e.target).prev('.panel-heading').find("i.indicator").toggleClass(
+				'glyphicon-triangle-bottom glyphicon-triangle-right');
+		}
+		$('#accordion').on('hidden.bs.collapse', toggleChevron);
+		$('#accordion').on('shown.bs.collapse', toggleChevron);
+
+		$('.accordion').on(
+			'show',
+			function (e) {
+				$(e.target).prev('.accordion-heading')
+					.find('.accordion-toggle').addClass('active');
+			});
+
+		$(document).ready(function () {
+			$('.panel-collapse').on('show.bs.collapse', function () {
+				$(this).siblings('.panel-heading').addClass('active');
+			});
+
+			$('.panel-collapse').on('hide.bs.collapse', function () {
+				$(this).siblings('.panel-heading').removeClass('active');
+			});
+		});
+
+		function colorPremium() {
+			var boxes = document.getElementsByClassName("idm-box-inner");
+
+			for (var i = 0; i < boxes.length; i++) {
+				if (boxes[i].innerHTML.indexOf("top-right-ribbon") != -1) {
+					boxes[i].style.backgroundColor = "#FFFFEA";
+				} else {
+					boxes[i].style.backgroundColor = "#F5F5F5";
+				}
+			}
+		}
+
+		colorPremium();
+	</script>
+
+	<script>
+		const body = document.querySelector("body");
+		const navbar_default = document.querySelector(".navbar-default");
+		window.addEventListener("load", () => {
+			body.style.background = "#ececec";
+
+		})
+	</script>
+
+
+
+</body>
+
+</html>

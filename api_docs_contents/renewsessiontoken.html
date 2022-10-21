@@ -1,0 +1,418 @@
+<div>
+	<div class="api-right-txt">
+		<h3 class="doc-sec-title">
+			<span class="title-text" style="display:inline-block">2.2. &nbsp;&nbsp;
+				Renew an existing Session Token.</span>
+		</h3>
+		<h2><b><span class="spanColor" style="color: #339966;">GET</span>
+				RenewSessionToken</b>
+		</h2>
+		<p><strong>Description:</strong>&nbsp;&nbsp;Renew an existing session token to its full life.
+			A session token has a default life of 30 minutes but this value can be set when creating the token.</p>
+		<p><strong>Usage:</strong>&nbsp;&nbsp;Used to restore a session token to its full life (defined when the token was created).</p>
+		<div class="api-article-main-example">
+				<br>
+				<h4><b style="color: RGB(54, 96,146);"><span
+					style="color: #008000;">GET</span>
+				Sample Request:</b></h4>
+
+				<pre><span class="spanColor">GET</span> https://[server]/RenewSessionToken?SessionToken=YOUR_SESSION_TOKEN</pre>
+		</div>
+		<p> </p>
+		<p> </p>
+		<br>
+		<div class="api-article-table">
+
+			<h3>Request Parameters</h3>
+			<table class="table table-bordered" style="height: 95px;" width="662">
+				<thead>
+					<tr>
+						<th>Parameter</th>
+						<th>Type</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>SessionToken</td>
+						<td>String</td>
+						<td>A session token returned from
+							the <em>GetSessionToken</em> endpoint.
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<br>		
+		
+		
+		<div class="api-article-table"></div>
+		<p> </p>
+		<div class="api-article-table">
+			<div class="api-article-table">
+				<div class="api-article-table">
+					<div class="api-article-table">
+						<div class="api-article-table">
+							<h3>Response Parameters</h3>
+							<table class="table table-bordered"
+								style="height: 206px;" width="765">
+								<thead>
+									<tr>
+										<th></th>
+										<th>Parameter</th>
+										<th>Type</th>
+										<th>Mandatory</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><span style="color: #000000;">1</span>
+										</td>
+										<td><span
+												style="color: #000000;">ServerDateTime</span>
+										</td>
+										<td><span
+												style="color: #000000;">String</span>
+										</td>
+										<td style="text-align: center;">
+											<span style="color: #000000;">Yes</span>
+										</td>
+										<td><span style="color: #000000;">The
+												server UTC date and time as
+												an ISO 8601 string.</span>
+										</td>
+									</tr>
+									<tr>
+										<td><span style="color: #000000;">2</span>
+										</td>
+										<td><span
+												style="color: #000000;">TimeStamp</span>
+										</td>
+										<td><span
+												style="color: #000000;">Float</span>
+										</td>
+										<td style="text-align: center;">
+											<span style="color: #000000;">Yes</span>
+										</td>
+										<td><span style="color: #000000;">The
+												server date and time as a
+												Julian date.</span></td>
+									</tr>
+									<tr>
+										<td><span style="color: #000000;">3</span>
+										</td>
+										<td><span
+												style="color: #000000;">ExecutionTime</span>
+										</td>
+										<td><span
+												style="color: #000000;">Float</span>
+										</td>
+										<td style="text-align: center;">
+											<span style="color: #000000;">Yes</span>
+										</td>
+										<td><span style="color: #000000;">The
+												number of milliseconds to
+												process the request.</span>
+										</td>
+									</tr>
+									<tr>
+										<td><span style="color: #808080;">4</span>
+										</td>
+										<td><span
+												style="color: #808080;">Result</span>
+										</td>
+										<td><span
+												style="color: #808080;">[Object]</span>
+										</td>
+										<td style="text-align: center;">
+											<span style="color: #808080;">No*</span>
+										</td>
+										<td><span style="color: #808080;">If
+												the request is a
+												success,
+												a <em>Result</em>
+												object is returned.<br>
+												See the ‘<em>Result
+													Object</em>‘ table
+												below for details.</span>
+										</td>
+									</tr>
+									<tr>
+										<td><span style="color: #808080;">5</span>
+										</td>
+										<td><span
+												style="color: #808080;">Errors</span>
+										</td>
+										<td><span
+												style="color: #808080;">[Object]</span>
+										</td>
+										<td style="text-align: center;">
+											<span style="color: #808080;">No*</span>
+										</td>
+										<td><span style="color: #808080;">If
+												the request fails, an
+												'<em>Errors</em>' object is
+												returned.<br>
+												See the
+												‘<em>Errors Object</em>‘
+												table below for
+												details.</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="single-notes notes-indent">
+					<div>Note</div>
+					<p>A successful API response will return a <em>Result</em>
+						object with the requested payload <strong>or</strong> an
+						'<em>Errors</em>' object detailing the issue that caused
+						the error.
+					</p>
+				</div>
+			</div>
+		</div>
+		<p> </p>
+		<blockquote class="api-article-main-tip">
+			<p>Tips:</p>
+			<ul>
+				<li>A session token will also automatically renew to full
+					life when used successfully in any API endpoint excluding
+					'<em>QuerySessionToken</em>'.
+				</li>
+				<li>Check the remaining life for a session token with
+					the <em>QuerySessionToken</em>endpoint.</li>
+			</ul>
+		</blockquote>
+		<div class="api-article-table">
+			<h3></h3>
+		</div>
+		<p> </p>
+		<div class="api-article-table">
+			<div class="api-article-table">
+				<h3>Result Object</h3>
+				<table class="table table-bordered" style="height: 157px;"
+					width="774">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Parameter</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="optional">
+							<td>1</td>
+							<td>LastActive</td>
+							<td>String</td>
+							<td>The date and time the API key was last used
+								as an ISO 8601 string.<br>
+								E.g. 2017-10-17T15:44:50Z.</td>
+						</tr>
+						<tr class="optional">
+							<td>1</td>
+							<td>SessionToken</td>
+							<td>String</td>
+							<td>A valid session token returned from
+								the <em>GetSessionToken</em> endpoint.
+							</td>
+						</tr>
+						<tr class="optional">
+							<td>3</td>
+							<td>Remaining</td>
+							<td>Long</td>
+							<td>The remaining token life in milliseconds.
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="api-article-table"></div>
+		<div class="api-article-table">
+			<div class="api-article-table">
+				<h3></h3>
+				<h3>Errors Object</h3>
+				<table class="table table-bordered">
+					<thead>
+						<tr class="optional">
+							<th></th>
+							<th>Parameter</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="optional">
+							<td>1</td>
+							<td>Status</td>
+							<td>Integer</td>
+							<td>HTTP status code.</td>
+						</tr>
+						<tr class="optional">
+							<td>2</td>
+							<td>Detail</td>
+							<td>String</td>
+							<td>Description of the status code.</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="api-article-table">
+			<h3></h3>
+			<h4 style="padding-left: 30px;">Possible Status codes in the
+				'<em>Errors </em>'object
+			</h4>
+		</div>
+		<div class="api-article-table" style="padding-left: 30px;">
+			<table class="table table-bordered">
+				<thead>
+					<tr class="optional">
+						<th>Code</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="optional">
+						<td>400</td>
+						<td>Missing Session Token.</td>
+					</tr>
+					<tr class="optional">
+						<td>404</td>
+						<td>Invalid session token.</td>
+					</tr>
+					<tr class="optional">
+						<td>410</td>
+						<td>Session Token expired.</td>
+					</tr>
+					<tr class="optional">
+						<td>500</td>
+						<td>Server may be down for maintenance.</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div class="single-notes notes-indent">
+				<div> Note</div>
+				<p>This is not an
+					exhaustive list and additional error codes may be
+					returned. The <em>Errors Detail</em> field will return
+					request specific error information.</p>
+			</div>
+		</div>
+		<h3></h3>
+		<h3>Possible HTTP response codes</h3>
+		<p style="line-height:30px !important ;"><span class="spanColor">This
+				endpoint returns 200 for
+				success. <br>
+				You can get HTTP client network errors or server
+				errors from any API request. You should check
+				with your network or IT colleagues in case the issue is a
+				local one.<br>
+				All server generated errors will return an '<em>Errors</em>'
+				object that will give specific details about the error.<br>
+				A full list of HTTP codes and their meanings is available <a
+					href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">here</a>,</span>
+		</p>
+		<div class="api-article-table">
+			<div class="api-article-table" style="padding-left: 30px;">
+			</div>
+		</div>
+		<p> </p>
+		<div class="api-article-table">
+			<p> </p>
+		</div>
+		<h3></h3>
+		<h3>Success and fail examples</h3>
+		<p>The sample renews a session token using the session token string
+			as a parameter.</p>
+		<div class="api-article-main-example">
+			<h4><b style="color: RGB(54, 96,146);">Sample Request:</b></h4>
+			<pre>GET https://[server]/RenewSessionToken?SessionToken=YOUR_SESSION_TOKEN</pre>
+		</div>
+		<div class="api-article-main-blockExample">
+			<h4><strong>R</strong><strong>esponse body on success:</strong>
+			</h4>
+
+			<div id="RSST_Success"></div>
+		</div>
+		<div class="api-article-main-blockExample">
+			<h4></h4>
+			<h4><strong>R</strong><strong>esponse body on fail:</strong>
+			</h4>
+
+			<div id="RSST_Fail"></div>
+		</div>
+		<div class="last-date">
+			<div class="date">Last updated on June 3, 2021</div>
+		</div>
+		<br>
+	</div>
+	<div class="dis-block clearfix">
+		<a href="javascript:move_section('#sessiontoken')" class="doc-prev"><i class="fas fa-chevron-circle-left"></i> Get a new Session Token</a>
+		<a href="javascript:move_section('#revokesessiontoken')" class="doc-next">Revoke a Session Token<i class="fas fa-chevron-circle-right"></i></a>
+	</div>
+</div>
+
+<script>
+	
+
+	// **************Responses(Success and Fail)***************
+
+	// ***AUTHENTICATION***
+	// Renew a Session Token (RSST)
+
+	var RSST_Success_Obj = {};
+	var jsonViewer_RSST_Success = new JSONViewer();
+	document.querySelector("#RSST_Success").appendChild(jsonViewer_RSST_Success.getContainer());
+
+
+	RSST_Success = JSON.stringify({
+		"ServerDateTime": "2017-11-30T19:38:15Z",
+		"ExecutionTime": 2458088.3182292,
+
+		"Result":
+		{
+			"SessionToken": "YOUR_SESSION_TOKEN",
+			"LastActive": "2017-11-30T19:38:15Z",
+			"TimeLeftMs": 600042
+		}
+	}
+	);
+
+
+
+	var RSST_Fail_Obj = {};
+	var jsonViewer_RSST_Fail = new JSONViewer();
+	document.querySelector("#RSST_Fail").appendChild(jsonViewer_RSST_Fail.getContainer());
+
+	RSST_Fail = JSON.stringify({
+		"ServerDateTime": "2017-11-30T19:38:15Z",
+		"TimeStamp": 2458088.3182292,
+		"ExecutionTime": 0.000,
+		"Errors": [
+			{
+				"Status": "404",
+				"Details": "Unknown Session token",
+			}
+		]
+	}
+	);
+
+	var setJSON = function () {
+
+		RSST_Success_Obj = JSON.parse(RSST_Success);
+		RSST_Fail_Obj = JSON.parse(RSST_Fail);
+	}
+
+
+	setJSON();
+	jsonViewer_RSST_Success.showJSON(RSST_Success_Obj);
+	jsonViewer_RSST_Fail.showJSON(RSST_Fail_Obj);
+
+</script>

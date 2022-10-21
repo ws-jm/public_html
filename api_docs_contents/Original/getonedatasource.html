@@ -1,0 +1,1685 @@
+<div>
+	<div class="api-right-txt">
+		<h3 class="doc-sec-title"> <span class="doc-sec-count"
+				style="display:inline-block">3.1.</span><span
+				class="title-text">&nbsp;&nbsp; Return the metadata for one
+				datasource.</span> 
+		</h3>
+		<div class="doc-sec-content">
+			<h2><b><span style="color: #339966;"><span
+							style="color: #008000;">Get</span> </span></b><b>and
+				</b><b><span style="color: #339966;"><span
+							style="color: #008000;">POST
+						</span></span></b><b>GetDatasource</b>
+			</h2>
+			<p><strong>Description:</strong>&nbsp;&nbsp; Return the metadata for
+				<u>one</u> named
+				datasource.</p>
+			<div class="api-article-main-example">
+				<div class="api-article-table">
+					<div class="api-article-table">
+						<div class="api-article-table">
+							<div class="api-article-main-example">
+								<h4><b style="color: RGB(54, 96,146);"><span
+											style="color: #008000;">GET</span>
+										Sample Request:</b></h4>
+							</div>
+							<p><span class="spanColor"
+									style="font-family: Consolas, Monaco, monospace;">GET</span><span
+									style="font-family: Consolas, Monaco, monospace;">
+									https://[server]/GetDatasource?SessionToken=YOUR_SESSION_TOKEN&amp;Datasource=ECBFX</span>
+							</p>
+						</div>
+					</div>
+						<h4><b style="color: RGB(54, 96,146);"><span
+										style="color: #008000;">POST</span>
+									Sample Request:</b></h4>												
+
+						<pre style="padding-left: 60px;">POST https://[server]/GetDatasource
+						{
+							"SessionToken":"YOUR_SESSION_TOKEN",
+							"Datasource":"IEO-COMM",
+							"ReturnCategoryList":false, 
+							"DateFormat":"YY-MM-DD",
+							"ReturnCategoryTree":false,
+							"ReturnAccess": true
+						}
+					</pre>
+				</div>
+			</div>
+			<div class="api-article-table">
+				<p> </p>
+				<br>
+				<h4>Request Parameters</h4>
+			</div>
+			<table class="table table-bordered" style="height: 140px;" width="904">
+				<thead>
+					<tr>
+						<th style="text-align: right;"></th>
+						<th style="text-align: left;">Parameter</th>
+						<th style="text-align: left;">Type</th>
+						<th style="text-align: center;">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="text-align: right;">1</td>
+						<td style="text-align: left;">SessionToken</td>
+						<td>String</td>
+						<td>A session token from
+							the <em>GetSessionToken</em> endpoint.
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: right;">2</td>
+						<td style="text-align: left;">Datasource</td>
+						<td>String</td>
+						<td>The datasource ID.</td>
+					</tr>
+				</tbody>
+			</table>
+			<p> </p>
+
+			<h4>Optional Request parameters</h4>
+			
+			<table class="table table-bordered" style="height: 272px;" width="994">
+				<thead>
+					<tr>
+						<th style="text-align: right;"></th>
+						<th style="text-align: left;">Parameter</th>
+						<th style="text-align: center;">Type</th>
+						<th style="text-align: left;">Default</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #999999;">3</span></td>
+						<td style="text-align: left;"><span
+								style="color: #808080;">ReturnCategoryList</span>
+						</td>
+						<td style="text-align: center;"><span
+								style="color: #808080;">Boolean</span></td>
+						<td style="text-align: center;"><span
+								style="color: #808080;">True</span></td>
+						<td><span style="color: #808080;">If true (and available
+								for the datasource), returns a list of all
+								available data categories in each
+								datasource. See the <span
+									style="font-family: inherit; font-size: inherit;">
+									‘</span><em
+									style="font-family: inherit; font-size: inherit;">Details
+									Object’</em><span
+									style="font-family: inherit; font-size: inherit;">
+									and ‘</span><em
+									style="font-family: inherit; font-size: inherit;">DetailsDS
+									Object’ </em><span
+									style="font-family: inherit; font-size: inherit;">tables
+								</span>below for details.</span></td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #808080;">4</span></td>
+						<td style="text-align: left;"><span
+								style="color: #808080;">ReturnCategoryTree</span>
+						</td>
+						<td style="text-align: center;"><span
+								style="color: #808080;">Boolean</span></td>
+						<td style="text-align: center;"><span
+								style="color: #808080;">True</span></td>
+						<td><span style="color: #808080;">If true (and available
+								for the datasource), returns a hierarchical data
+								tree of available data categories in
+								each datasource. Some <u>non</u> CategoryDS
+								datasources may return a “Category” style tree
+								that can be used to organise the data using
+								symbol lists or wildcard symbols.</span><br>
+							<span style="color: #808080;">See the<span
+									style="font-family: inherit; font-size: inherit;">
+									“Notes
+									on CategoryDS datasources” below and
+									‘</span><em
+									style="font-family: inherit; font-size: inherit;">Details
+									Object’</em><span
+									style="font-family: inherit; font-size: inherit;">
+									and ‘</span><em
+									style="font-family: inherit; font-size: inherit;">DetailsDS
+									Object’ </em><span
+									style="font-family: inherit; font-size: inherit;">tables
+								</span>for details.</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #808080;">5</span></td>
+						<td style="text-align: left;"><span
+								style="color: #808080;">ReturnUserCategoryList</span>
+						</td>
+						<td style="text-align: center;"><span
+								style="color: #808080;">Boolean</span></td>
+						<td style="text-align: center;"><span
+								style="color: #808080;">True</span></td>
+						<td><span style="color: #808080;"><span
+									style="font-family: inherit; font-size: inherit;"><span
+										style="font-size: 14px;">Note: For CategoryDS
+										datasources only (see notes below).<br>
+										R</span></span>eturns in the
+								<em>DetailsDS</em> object a list of data
+								categories and date ranges that the user can
+								access. This parameter also controls if
+								the result
+								parameter <em>UserCategoryCount</em> is
+								returned.<br>
+								<span
+									style="font-family: inherit; font-size: inherit;">See
+									the “CategoryDS datasources” below
+									and the </span><em
+									style="font-family: inherit; font-size: inherit;">DetailsDS
+								</em><span
+									style="font-family: inherit; font-size: inherit;">table
+									below for details.</span></span></td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #808080;">6</span></td>
+						<td style="text-align: left;"><span
+								style="color: #808080;">ReturnAccess</span></td>
+						<td style="text-align: center;"><span
+								style="color: #808080;">Boolean</span></td>
+						<td style="text-align: center;"><span
+								style="color: #808080;">False</span></td>
+						<td><span style="color: #808080;">If true, returns
+								subscription information about
+								the datasources (or data categories in<span
+									style="font-family: inherit; font-size: inherit;">
+									a CategoryDS
+									datasource</span>) that the user can
+								access. The access information
+								is returned as a <em>Subscription</em>
+								string and a<span
+									style="font-family: inherit; font-size: inherit;">
+									<em>UserAccess</em>
+									object.</span></span>
+							<p></p>
+							<p><span style="color: #808080;">In<span
+										style="font-family: inherit; font-size: inherit;">
+										a CategoryDS
+										datasource, the <i>access
+										</i>information is located in
+										the <em>UserCategoryList</em>
+										object (in the
+										result <em>DetailsDS</em>
+										object). This requires that the
+										request parameter
+										<em>ReturnUserCategoryList </em> be
+										set to true. </span></span><span
+									style="color: #808080;"><span
+										style="font-family: inherit; font-size: inherit;"><br>
+									</span></span><span
+									style="color: #808080;"><span
+										style="font-family: inherit; font-size: inherit;">In
+										a non CategoryDS datasource, the
+										<em>UserAccess</em> object is located
+										in the
+										<em>Details</em> object.</span></span>
+							</p>
+							<p><span style="color: #808080;"><span
+										style="font-family: inherit; font-size: inherit;">See
+										the <em>UserAccess</em> parameter
+										in the ‘</span><em
+										style="font-family: inherit; font-size: inherit;">Details
+										Object’</em><span
+										style="font-family: inherit; font-size: inherit;">
+										and ‘</span><em
+										style="font-family: inherit; font-size: inherit;">DetailsDS
+										Object’ </em><span
+										style="font-family: inherit; font-size: inherit;">tables
+										below.<br>
+									</span></span></p>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #808080;">7</span></td>
+						<td><span style="color: #808080;"> DateFormat</span>
+						</td>
+						<td style="text-align: left;"><span
+								style="color: #808080;">String</span></td>
+						<td style="text-align: center;"><span
+								style="color: #808080;">“YYYY-MM-DD”</span></td>
+						<td><span style="color: #808080;">The date format to use
+								in the request and the result. See the
+								‘<em>DateFormat Parameter</em>‘ section
+								below for details.</span></td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- <p><strong><br>
+				CategoryDS datasources:</strong></p> -->
+			<div class="api-article-main-example">
+				<div class="api-article-table">
+					<div class="api-article-table">
+						<div class="api-article-table">
+							<div class="single-notes notes-indent">
+								<div>CategoryDS datasources</div>
+								<br>
+								<ul>
+									<li>A CategoryDS is a datasource whose datasets
+										are grouped in data categories. The user
+										must be authorised to access individual
+										data categories.</li>
+									<li>A CategoryDS is identified when
+										the result
+										parameter <em>IsCategoryDS</em>
+										is set to true.</li>
+									<li>The category name must be used in all data
+										requests to a CategoryDS datasource.</li>
+											
+								</ul>
+							</div>
+						</div>
+						<div class="api-article-table">
+							<h3></h3>
+							<h3></h3>
+							<h3 style="padding-left: 30px;">DateFormat Parameter
+							</h3>
+						</div>
+						<p style="padding-left: 30px;">You can control the
+							format of dates that are used in the request and
+							returned in the result.</p>
+						<p style="padding-left: 30px;">If used, the date
+							separator is the character between the day, month
+							and year values and can be one of 4 characters:</p>
+						<p style="padding-left: 60px;">“<strong>-” –
+								hyphen or dash</strong><br>
+							“/” – forward slash<br>
+							“.” – dot or full stop<br>
+							” ” – space</p>
+						<div class="api-article-table">
+							<div class="api-article-table">
+								<div class="api-article-table">
+									<div class="api-article-table">
+										<div class="api-article-table"
+											style="padding-left: 0px;">
+											<table class="table table-bordered"
+												style="margin-left: 60px;">
+												<thead>
+													<tr>
+														<th
+															style="text-align: left;">
+															Format</th>
+														<th
+															style="text-align: left;">
+															Result Dates</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td><strong> “YYYY-MM-DD”
+															</strong>
+														</td>
+														<td>Formatted as
+															2018-01-22.
+															(default).</td>
+													</tr>
+													<tr>
+														<td> “YYYY-DD-MM”
+														</td>
+														<td>Formatted as
+															2018-22-01.</td>
+													</tr>
+													<tr>
+														<td> “YYYYMMDD”
+														</td>
+														<td>Formatted as
+															20180122.</td>
+													</tr>
+													<tr>
+														<td> “YYYYDDMM”
+														</td>
+														<td>Formatted as
+															20182201.</td>
+													</tr>
+													<tr>
+														<td> “MM-DD-YYYY”
+														</td>
+														<td>Formatted as
+															01-22-2018.</td>
+													</tr>
+													<tr>
+														<td> “DD-MM-YYYY”
+														</td>
+														<td>Formatted as
+															22-01-2018.</td>
+													</tr>
+													<tr>
+														<td> “EXCEL”</td>
+														<td>Formatted
+															as numbers
+															where 1/1/1976 =
+															27760.</td>
+													</tr>
+													<tr>
+														<td> “JULIAN”</td>
+														<td>Formatted as the
+															number of days since
+															’12h Jan 1, 4713
+															BC’.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<div class="api-article-table">
+										<div class="api-article-table"
+											style="padding-left: 60px;">
+											<div class="api-article-table">
+												<div class="api-article-table">
+													<div class="api-article-table">
+														<div
+															class="api-article-table">
+															<div
+																class="api-article-table">
+																<div
+																	class="api-article-table ">
+
+																	<div
+																		class="single-notes notes-indent">
+																		<div> Note
+																		</div>
+
+																		<p>
+
+																			In the
+																			examples
+																			above we
+																			use the
+																			“-” date
+																			separator
+																			character.
+																			You can
+																			replace
+																			this  character 
+																			with any
+																			of the
+																			other
+																			three
+																			separators
+																			characters.  
+																			If you
+																			require
+																			2
+																			character
+																			years,
+																			replace
+																			“YYYY”
+																			with
+																			“YY”
+																			in the
+																			formats
+																			above.
+																		</p>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<p> </p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p> </p>
+			<div class="api-article-table">
+				<div class="api-article-table">
+					<div class="api-article-table">
+						<h3></h3>
+						<h3>Response Parameters</h3>
+						<table class="table table-bordered" style="height: 183px;"
+							width="701">
+							<thead>
+								<tr>
+									<th></th>
+									<th>Parameter</th>
+									<th>Type</th>
+									<th>Mandatory</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><span style="color: #000000;">1</span>
+									</td>
+									<td><span
+											style="color: #000000;">ServerDateTime</span>
+									</td>
+									<td><span style="color: #000000;">String</span>
+									</td>
+									<td style="text-align: center;"><span
+											style="color: #000000;">Yes</span>
+									</td>
+									<td><span style="color: #000000;">The server
+											UTC date and time as an ISO 8601
+											string.</span></td>
+								</tr>
+								<tr>
+									<td><span style="color: #000000;">2</span>
+									</td>
+									<td><span
+											style="color: #000000;">TimeStamp</span>
+									</td>
+									<td><span style="color: #000000;">Float</span>
+									</td>
+									<td style="text-align: center;"><span
+											style="color: #000000;">Yes</span>
+									</td>
+									<td><span style="color: #000000;">The server
+											date and time as a Julian
+											date.</span></td>
+								</tr>
+								<tr>
+									<td><span style="color: #333333;">3</span>
+									</td>
+									<td><span
+											style="color: #333333;">ExecutionTime</span>
+									</td>
+									<td><span style="color: #333333;">Float</span>
+									</td>
+									<td style="text-align: center;"><span
+											style="color: #333333;">Yes</span>
+									</td>
+									<td><span style="color: #333333;">The number
+											of milliseconds to process the
+											request.</span></td>
+								</tr>
+								<tr>
+									<td><span style="color: #808080;">4</span>
+									</td>
+									<td><span style="color: #808080;">Result</span>
+									</td>
+									<td><span
+											style="color: #808080;">[Object]</span>
+									</td>
+									<td style="text-align: center;"><span
+											style="color: #808080;">No*</span>
+									</td>
+									<td><span style="color: #808080;">A
+											<em>Result</em> object as described
+											in table below.</span></td>
+								</tr>
+								<tr>
+									<td><span style="color: #808080;">5</span>
+									</td>
+									<td><span style="color: #808080;">Errors</span>
+									</td>
+									<td><span
+											style="color: #808080;">[Object]</span>
+									</td>
+									<td style="text-align: center;"><span
+											style="color: #808080;">No*</span>
+									</td>
+									<td><span style="color: #808080;">An
+											'<em>Errors</em>' object as
+											described in table below.</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="single-notes notes-indent">
+						<div> Note</div>
+						<p>A successful API response will return a '<em>Result</em>'
+							object with the requested payload <strong>or</strong> an
+							'<em>Errors</em>' object detailing the issue that caused
+							the error.
+						</p>
+					</div>
+				</div>
+			</div>
+			<h3></h3>
+			<div class="api-article-table">
+				<h3 style="padding-left: 30px;">Result Object</h3>
+				<p style="padding-left: 30px;">Contains a number of objects,
+					each one describing a datasource.</p>
+			</div>
+			<table style="height: 616px; margin-left: 30px;" width="902">
+				<tbody style="padding-left: 30px;">
+					<tr style="padding-left: 30px;">
+						<td style="text-align: right;" width="16"></td>
+						<td width="100"><strong>Parameter</strong></td>
+						<td width="70"><strong>Type</strong></td>
+						<td style="text-align: center;" width="80">
+							<strong>Mandatory</strong>
+						</td>
+						<td width="255"><strong>Description</strong></td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #000000;">1</span></td>
+						<td><span style="color: #000000;">Datasource</span></td>
+						<td><span style="color: #000000;">String</span></td>
+						<td style="text-align: center;"><span
+								style="color: #000000;">Yes</span></td>
+						<td><span style="color: #000000;">The datasource
+								ID.</span></td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #000000;">2</span></td>
+						<td><span style="color: #000000;">Name</span></td>
+						<td><span style="color: #000000;">String</span></td>
+						<td style="text-align: center;"><span
+								style="color: #000000;">Yes</span></td>
+						<td><span style="color: #000000;">A text string that
+								describes the datasource.</span></td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #000000;">3</span></td>
+						<td><span style="color: #000000;">LastUpdated</span>
+						</td>
+						<td><span style="color: #000000;">Datetime</span></td>
+						<td style="text-align: center;"><span
+								style="color: #000000;">Yes</span></td>
+						<td><span style="color: #000000;">The UTC date and time
+								that the datasource was updated on the
+								server.</span><br>
+							<span style="color: #000000;">Returned as an ISO
+								8601 string.</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #000000;">4</span></td>
+						<td><span style="color: #000000;">Premium</span></td>
+						<td><span style="color: #000000;">Boolean</span></td>
+						<td style="text-align: center;"><span
+								style="color: #000000;">Yes</span></td>
+						<td><span style="color: #000000;">If true, this is a
+								premium subscription datasource that is not
+								included gratis as part of a service.</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #000000;">5</span></td>
+						<td><span style="color: #000000;">HasDataTree</span>
+						</td>
+						<td><span style="color: #000000;">Boolean</span></td>
+						<td style="text-align: center;"><span
+								style="color: #000000;">Yes</span></td>
+						<td><span style="color: #000000;">If true, the
+								datasource has an additional JSON tree that can
+								be used to structure and filter its
+								datasets.</span></td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #000000;">6</span></td>
+						<td><span style="color: #000000;">IsCategoryDS</span>
+						</td>
+						<td><span style="color: #000000;">Boolean</span></td>
+						<td style="text-align: center;"><span
+								style="color: #000000;">Yes</span></td>
+						<td><span style="color: #000000;">If true the datasource
+								is a CategoryDS datasource. A CategoryDS
+								is a datasource whose datasets are grouped in
+								data categories. The user must be authorised to
+								access individual data categories.</span><br>
+							<span style="color: #000000;">See “CategoryDS datasources” above.</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #808080;">7</span></td>
+						<td><span style="color: #808080;">Details</span></td>
+						<td><span style="color: #808080;">[Object]</span></td>
+						<td style="text-align: center;"><span
+								style="color: #808080;">No<strong>*</strong></span>
+						</td>
+						<td> <span style="color: #808080;">Available only
+								if this<em> is </em><strong>not </strong>a
+								CategoryDS datasource (see parameter
+								<em>IsCategoryDS </em>above). It returns
+								details about the datasets in the
+								datasource.<br>
+								See the ‘Details Object’ table below for more
+								details.</span></td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #808080;">8</span></td>
+						<td><span style="color: #808080;">DetailsDS</span></td>
+						<td><span style="color: #808080;">[Object]</span></td>
+						<td style="text-align: center;"><span
+								style="color: #808080;">No<strong>*</strong></span>
+						</td>
+						<td><span style="color: #808080;">Available only if this
+								<strong><em>is </em></strong>a CategoryDS
+								datasource (if parameter <em>IsCategoryDS
+								</em>is true). It returns details
+								about the datasets in the datasource.<br>
+								See the ‘DetailsDS Object’ table below for more
+								details.</span></td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #000000;">9</span></td>
+						<td><span style="color: #000000;">Logo</span></td>
+						<td><span style="color: #000000;">String</span></td>
+						<td style="text-align: center;"><span
+								style="color: #000000;">Yes</span></td>
+						<td><span style="color: #000000;">Link to a logo
+								image for the datasource.</span></td>
+					</tr>
+					<tr>
+						<td style="text-align: right;"><span
+								style="color: #000000;">10</span></td>
+						<td><span style="color: #000000;">Description</span>
+						</td>
+						<td><span style="color: #000000;"> String</span>
+						</td>
+						<td style="text-align: center;"><span
+								style="color: #000000;"> Yes</span></td>
+						<td><span style="color: #000000;">Additional data
+								describing the datasource in more
+								detail.</span></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="single-notes notes-indent" style="margin-left: 48px;">
+
+				<div> Note</div>
+				<p> If the result
+					parameter <em>IsCategoryDS </em>is<span style="color: #333333;">
+						set to </span>true, the
+					result will contain a <em>DetailsDS </em>object otherwise,
+					it will contain a <i>Details </i>object.</p>
+			</div>
+			<h3 style="padding-left: 30px;"></h3>
+			<p> </p>
+			<div class="api-article-table">
+				<div class="api-article-table" style="padding-left: 30px;">
+					<h3 style="text-align: left; padding-left: 60px;">Details
+						Object</h3>
+					<div class="single-notes notes-indent"
+						style="margin-left: 70px;">
+						<div> Note</div>
+						<p>The
+							<em>Details</em> object is returned if the
+							datasource <strong><em>is not </em></strong>a
+							CategoryDS datasource (if result
+							parameter <em>IsCategoryDS</em> is false).
+						</p>
+					</div>
+				</div>
+				<div class="api-article-table"
+					style="padding-left: 60px; margin-top: 25px;">
+					<table class="table table-bordered"
+						style="height: 505px; margin-left: 30px;" width="1252">
+						<thead style="padding-left: 30px;">
+							<tr style="padding-left: 30px;">
+								<th></th>
+								<th>Parameter</th>
+								<th style="text-align: left;">Type</th>
+								<th style="text-align: center;">Mandatory</th>
+								<th><strong>Description</strong></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #000000;">1</span></td>
+								<td><span style="color: #000000;">SeriesCount</span>
+								</td>
+								<td style="text-align: left;"><span
+										style="color: #000000;">Long</span></td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes</span></td>
+								<td><span style="color: #000000;">The number of
+										symbols in the datasource.</span></td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #000000;">2</span></td>
+								<td><span style="color: #000000;">StartDate</span>
+								</td>
+								<td style="text-align: left;"><span
+										style="color: #000000;">String</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes</span></td>
+								<td><span style="color: #000000;">The first
+										available date for any dataset.</span>
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #000000;">3</span></td>
+								<td><span style="color: #000000;">EndDate</span>
+								</td>
+								<td style="text-align: left;"><span
+										style="color: #000000;">String</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes</span></td>
+								<td><span style="color: #000000;">The last
+										available date for any dataset.</span>
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #808080;">4</span></td>
+								<td><span
+										style="color: #808080;">CategoryTree</span>
+								</td>
+								<td style="text-align: left;"><span
+										style="color: #808080;">[Object]</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #808080;">No</span></td>
+								<td><span style="color: #808080;">The
+										<em>CategoryTree</em>
+										object can only returned when the
+										request parameter
+										<em>ReturnCategoryTree </em>is set
+										to true.<br>
+										If available, it returns a
+										hierarchical JSON tree of both
+										category groups and items.
+									</span><br>
+									<span style="color: #808080;">Data
+										categories are used to organise data
+										series – often by region, market,
+										product type or instrument class.
+									</span><br>
+									<span style="color: #808080;">In a non
+										CategoryDS datasource, categories are
+										virtual and user access to datasets is
+										not restricted by data category.<br>
+										Please </span><span
+										style="color: #808080;">see
+										the <em>CategoryTree </em>
+										parameter in the <em>DetailsDS</em>
+										table below.</span>
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #808080;">5</span></td>
+								<td><span
+										style="color: #808080;">CategoryList</span>
+								</td>
+								<td style="text-align: left;"><span
+										style="color: #808080;">[Object]</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #808080;">No</span></td>
+								<td><span style="color: #808080;">The
+										<em>CategoryList</em>
+										object can only returned when the
+										request parameter
+										<em>ReturnCategoryList </em>is
+										set to true.<br>
+										If available, it returns
+										a list of <em>CategoryItem</em>
+										objects, each one describing a
+										category from the datasource.
+									</span><br>
+									<span style="color: #808080;">See the
+										<em>CategoryTree</em> parameter above
+										and the ‘<em>CategoryItem Object</em>‘
+										table below for details.</span>
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #808080;">6</span></td>
+								<td><span
+										style="color: #808080;">Subscription</span>
+								</td>
+								<td style="text-align: left;"><span
+										style="color: #808080;">String</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #808080;">No</span></td>
+								<td><span style="color: #808080;">The
+										<em>Subscription</em> parameter is only
+										returned when the request parameter
+										<em>ReturnAccess </em>is set to
+										true.<br>
+										It returns the type of datasource access
+										available with the current
+										subscription.<br>
+										There are 4 options: “None”, “Active”,
+										“Inactive” and “Simulated”.</span><br>
+									<span style="color: #808080;">Please note
+										that the “Simulated” option means that
+										the values are fictional and <u>are
+											generated for demonstration purposes
+											only</u>.</span>
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #808080;">7</span></td>
+								<td><span style="color: #808080;">UserAccess</span>
+								</td>
+								<td style="text-align: left;"><span
+										style="color: #808080;">[Object]</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #808080;">No</span></td>
+								<td><span style="color: #808080;">The details
+										of the access allowed to the datasource
+										with the current
+										subscription.</span><br>
+									<span style="color: #808080;">The <em
+											style="font-family: inherit; font-size: inherit;">UserAccess</em><span
+											style="font-family: inherit; font-size: inherit;">
+											object is only returned when the
+											request parameter </span><em
+											style="font-family: inherit; font-size: inherit;">ReturnAccess
+										</em><span
+											style="font-family: inherit; font-size: inherit;">is
+											set to true and </span><em
+											style="font-family: inherit; font-size: inherit;">Subscription</em><span
+											style="font-family: inherit; font-size: inherit;">
+											is not equal to “None”.
+											S</span></span><span
+										style="color: #808080;">ee the request
+										parameter <em>ReturnAccess </em>
+										above and the “<em>UserAccess
+											Object</em>” table below for more
+										details.</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="api-article-table" style="padding-left: 60px;">
+				<h3></h3>
+				<h3 style="text-align: left; padding-left: 30px;">DetailsDS
+					Object</h3>
+				<div class="api-article-table">
+					<div class="single-notes notes-indent"
+						style="margin-left: 48px;">
+						<div> Note</div>
+						<p>The
+							<em>DetailsDS</em> object is returned only if the
+							datasource <em><strong>is </strong></em>a
+							CategoryDS datasource (if result
+							parameter <em>IsCategoryDS</em> <span
+								style="color: #333333;"> is set to
+								t</span>rue).
+						</p>
+					</div>
+				</div>
+				<div class="api-article-table" style="margin-top: 25px;">
+					<table class="table table-bordered"
+						style="height: 294px; margin-left: 30px;" width="1107">
+						<thead>
+							<tr>
+								<th style="text-align: right;"></th>
+								<th>Parameter</th>
+								<th>Type</th>
+								<th style="text-align: center;">Mandatory</th>
+								<th><strong>Description</strong></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><span style="color: #000000;">1</span></td>
+								<td><span style="color: #000000;">SeriesCount</span>
+								</td>
+								<td><span style="color: #000000;">Long</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes</span></td>
+								<td><span style="color: #000000;">The number of
+										symbols in the datasource</span></td>
+							</tr>
+							<tr>
+								<td><span style="color: #000000;">2</span></td>
+								<td><span
+										style="color: #000000;">CategoryCount</span>
+								</td>
+								<td><span style="color: #000000;">Integer</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes</span></td>
+								<td><span style="color: #000000;">The number of
+										data categories in the
+										datasource.</span></td>
+							</tr>
+							<tr>
+								<td><span style="color: #999999;">3</span></td>
+								<td><span
+										style="color: #808080;">CategoryTree</span>
+								</td>
+								<td><span style="color: #808080;">[Object]</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #808080;">No</span></td>
+								<td><span style="color: #808080;"><span
+											style="color: #808080;">The <em
+												style="font-family: inherit; font-size: inherit;">CategoryTree</em><span
+												style="font-family: inherit; font-size: inherit;">
+												object can only returned
+												when the request parameter
+											</span><em
+												style="font-family: inherit; font-size: inherit;">ReturnCategoryTree
+											</em><span
+												style="font-family: inherit; font-size: inherit;">is
+												set to true.<br>
+											</span>If available, it returns a
+											hierarchical JSON tree of both
+											category groups and category
+											items. Data categories
+											are used to organise data
+											series, often by region,
+											market, product type or instrument
+											class. With a CategoryDS
+											datasource, user access may be
+											restricted to individual data
+											categories. Each category item
+											in the tree contains a name and the
+											category ID. Each category
+											group has a name and ‘Filter’
+											property containing a list
+											of all the categories that are
+											in the category
+											group.</span></span><span
+										style="color: #808080;"><strong>JSON
+											Example:</strong><br>
+									</span>
+									<p></p>
+									<div>
+										<div>
+											<p><span style="color: #808080;">
+													{</span>
+											</p>
+											<p><span
+													style="color: #808080; font-family: inherit; font-size: inherit;">
+
+													“Group”:
+													“Energy”,</span></p>
+										</div>
+										<div>
+											<div><span style="color: #808080;">
+													“Items”: [</span>
+											</div>
+											<div><span style="color: #808080;">
+													{</span>
+											</div>
+											<div><span style="color: #808080;">
+													“Name”: “Crude
+													Oil”,</span></div>
+											<div><span style="color: #808080;">
+													“Category”: “C-OIL”</span>
+											</div>
+											<div><span style="color: #808080;">
+													},</span>
+											</div>
+											<div><span style="color: #808080;">
+													{</span>
+											</div>
+											<div><span style="color: #808080;">
+													“Name”: “Natural
+													Gas”,</span></div>
+											<div><span style="color: #808080;">
+													“Category”: “NGAS”</span>
+											</div>
+											<div><span style="color: #808080;">
+													}</span><br>
+												<span
+													style="color: #808080;">],</span>
+											</div>
+											<div>
+												<div>
+													<div><span
+															style="color: #808080;">
+
+
+
+
+															“Filter”: “C-OIL,
+															NGAS”</span></div>
+												</div>
+											</div>
+										</div>
+										<div><span style="color: #808080;">
+												},<br>
+											</span></div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td><span style="color: #808080;">4</span></td>
+								<td><span
+										style="color: #808080;">CategoryList</span>
+								</td>
+								<td><span style="color: #808080;">[Object]</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #808080;">No</span></td>
+								<td><span style="color: #808080;">The
+										<em>CategoryList</em>
+										object can only returned when the
+										request parameter
+										<em>ReturnCategoryList </em>is
+										set to true.<br>
+										If available, it returns
+										a list of <em>CategoryItem</em>
+										objects, each one describing a
+										category from the datasource.
+										See the ‘<em>CategoryItem
+											object</em>‘ table below.</span>
+								</td>
+							</tr>
+							<tr>
+								<td><span style="color: #808080;">5</span></td>
+								<td><span
+										style="color: #808080;">UserCategoryCount</span>
+								</td>
+								<td><span style="color: #808080;">Integer</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #808080;">No</span></td>
+								<td><span style="color: #808080;">The
+										<em>UserCategoryCount</em> parameter is
+										returned only if the request
+										parameter <em>ReturnUserCategoryList </em>
+										is set to
+										true. </span><span
+										style="color: #808080;">It returns the
+										number of data categories that can be
+										accessed with the current subscription.
+										If it returns zero then
+										the <em>UserCategoryList</em>
+										object will not be present in the
+										result.</span></td>
+							</tr>
+							<tr>
+								<td><span style="color: #808080;">6</span></td>
+								<td><span
+										style="color: #808080;">UserCategoryList</span>
+								</td>
+								<td><span style="color: #808080;">[Object]</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #808080;">No</span></td>
+								<td><span style="color: #808080;">The
+										<em>UserCategoryList</em> object
+										is only present if the
+										<em>UserCategoryCount </em> parameter
+										above is greater than zero
+										and the
+										<em>ReturnUserCategoryList</em> request
+										parameter is set to true.</span>
+									<p></p>
+									<p>It returns a list of
+										<em>UserCategoryItem</em> objects (see
+										the ‘<em>UserCategoryList Object</em>‘
+										table below) that the user has (or
+										had) access to. Each
+										<em>UserCategoryItem</em> object
+										describes the data category and the
+										available access with the current
+										subscription.<br>
+										<span style="color: #808080;">The
+											<em>UserAccess </em> object is
+											located in the <em
+												style="font-family: inherit; font-size: inherit;">UserCategoryList</em><span
+												style="font-family: inherit; font-size: inherit;">
+												object and is only returned
+												when the request parameter
+												<em>ReturnAccess </em>is
+												set to true.</span></span>
+									</p>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="api-article-table">
+						<div class="api-article-table">
+							<div class="api-article-table"></div>
+						</div>
+					</div>
+					<div></div>
+				</div>
+			</div>
+			<div class="api-article-table">
+				<div class="api-article-table">
+					<h3 style="padding-left: 60px;">CategoryItem Object</h3>
+				</div>
+				<div class="api-article-table" style="padding-left: 30px;">
+					<table class="table table-bordered" style="margin-left: 30px;">
+						<thead style="padding-left: 60px;">
+							<tr style="padding-left: 60px;">
+								<th style="text-align: right;"></th>
+								<th>Parameter</th>
+								<th>Type</th>
+								<th style="text-align: left;">
+									<strong>Description</strong>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td style="text-align: right;">1</td>
+								<td>Name</td>
+								<td>String</td>
+								<td>A short text identifier for the data
+									category.</td>
+							</tr>
+							<tr>
+								<td style="text-align: right;">2</td>
+								<td>Description</td>
+								<td>String</td>
+								<td>A description of the data category.</td>
+							</tr>
+							<tr>
+								<td style="text-align: right;">3</td>
+								<td>StartDate</td>
+								<td>String</td>
+								<td>The first available data to subscriber for
+									any dataset.</td>
+							</tr>
+							<tr>
+								<td style="text-align: right;">4</td>
+								<td>EndDate</td>
+								<td>String</td>
+								<td>The latest available data to subscriber
+									for any dataset.</td>
+							</tr>
+							<tr>
+								<td style="text-align: right;">5</td>
+								<td>SeriesCount</td>
+								<td>Integer</td>
+								<td>The number of series (datasets) in the data
+									category.</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="api-article-table" style="padding-left: 30px;">
+				<div class="api-article-table" style="padding-left: 30px;">
+					<h3 style="padding-left: 30px;"></h3>
+					<h3 style="text-align: left; padding-left: 30px;">
+						UserCategoryList Object</h3>
+				</div>
+				<div class="api-article-table" style="padding-left: 30px;">
+					<table class="table table-bordered" style="margin-left: 30px;">
+						<thead style="padding-left: 60px;">
+							<tr style="padding-left: 60px;">
+								<th style="text-align: right;"></th>
+								<th>Parameter</th>
+								<th style="text-align: left;">Type</th>
+								<th style="text-align: center;">Mandatory</th>
+								<th><strong>Description</strong></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #000000;">1</span></td>
+								<td><span style="color: #000000;">Name</span>
+								</td>
+								<td><span style="color: #000000;">String</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes</span></td>
+								<td><span style="color: #000000;">A short text
+										identifier for the data category.</span>
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #000000;">2</span></td>
+								<td><span style="color: #000000;">Description</span>
+								</td>
+								<td><span style="color: #000000;">String</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes</span></td>
+								<td><span style="color: #000000;">A description
+										of the data category.</span></td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #000000;">3</span></td>
+								<td><span style="color: #000000;">StartDate</span>
+								</td>
+								<td><span style="color: #000000;">String</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes</span></td>
+								<td><span style="color: #000000;">The first
+										available data for any dataset.</span>
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #000000;">4</span></td>
+								<td><span style="color: #000000;">EndDate</span>
+								</td>
+								<td><span style="color: #000000;">String</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes</span></td>
+								<td><span style="color: #000000;">The
+										latest available data for any
+										dataset.</span></td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #000000;">5</span></td>
+								<td><span style="color: #000000;">SeriesCount</span>
+								</td>
+								<td><span style="color: #000000;">Integer</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes</span></td>
+								<td><span style="color: #000000;">The number of
+										series (datasets) in the data
+										category.</span></td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #808080;">6</span></td>
+								<td><span
+										style="color: #808080;">Subscription</span>
+								</td>
+								<td><span style="color: #808080;">String</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #808080;">No</span></td>
+								<td><span style="color: #808080;">The
+										<em>Subscription</em> parameter is only
+										returned if the request parameter
+										<em>ReturnAccess </em>is set to
+										true.<br>
+										It returns the type of subscription
+										access available to the datasource.<br>
+										There are 4 options: “None”, “Active”,
+										“Inactive” and “Simulated”.<br>
+										Please note that the option “Simulated”
+										means that the values are fictional and
+										<u>are generated for demonstration
+											purposes only</u>.</span></td>
+							</tr>
+							<tr>
+								<td style="text-align: right;"><span
+										style="color: #808080;">7</span></td>
+								<td><span style="color: #808080;">UserAccess</span>
+								</td>
+								<td><span style="color: #808080;">[Object]</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #808080;">No</span></td>
+								<td><span style="color: #808080;">The
+										<em>UserAccess</em> object is only
+										returned when the request parameter
+										<em>ReturnAccess </em>is set to
+										true.<br>
+										It contains details of the access
+										allowed to the datasource with the
+										current subscription.<br>
+										If <em>Subscription</em> is returned
+										as “None”
+										the <em>UserAccess</em> object will
+										not be present in the result.</span><br>
+									<span style="color: #808080;">See the
+										‘<em>UserAccess Object’</em> table
+										below for details.</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+
+			<div class="api-article-table">
+				<div class="api-article-table">
+							<div class="api-article-table">
+										<h3
+								style="text-align: left; padding-left: 120px;">
+								UserAccess Object</h3>
+							<div class="api-article-table">
+								<p
+									style="padding-left: 120px;">
+									If the user has (or
+									had) a subscription
+									to the datasource
+									(or data category),
+									the
+									<em>UserAccess</em>
+									object reports on
+									the range allowed
+									for the dataset with
+									the current
+									subscription.<br>
+									The <em>Starts</em>
+									and
+									<em>Ends </em>parameters
+									show the date range that the user can access. <span
+									style="color: #000000;"><br>
+								</span>
+							</p>
+						</div>
+						</div>
+						<div class="api-article-table">
+							<table
+								class="table table-bordered"
+								style="margin-left: 120px;">
+								<thead>
+									<tr>
+										<th>Parameter
+										</th>
+										<th
+											style="text-align: left;">
+											Type</th>
+										<th><strong>Description</strong>
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Starts</td>
+										<td
+											style="text-align: left;">
+											String</td>
+										<td>Date of the
+											earliest
+											available
+											data for the
+											current
+											subscription.
+										</td>
+									</tr>
+									<tr>
+										<td>Ends</td>
+										<td
+											style="text-align: left;">
+											String</td>
+										<td>Date of the
+											latest
+											available
+											data for the
+											current
+											subscription.
+										</td>
+									</tr>
+								</tbody>
+							</table>
+												</div>
+						</div>
+				<div>
+							<div class="api-article-table "
+								style="padding-left: 80px;">
+								<div class="single-notes notes-indent"
+									style="margin-left: 55px;">
+									<div> Notes</div>
+									<p style="padding:0px 10px 10px 15px">
+									
+									<ul>
+										<li>There may be a greater range available in
+											the datasource than the user has permission to access.</li>
+																															
+											<li><span style="color: #000000;">The
+											</span><em
+												style="color: #000000;">UserAccess</em><span
+												style="color: #000000;"> object
+												is
+												present only
+												if request parameter
+											</span><em
+												style="color: #000000;">ReturnAccess
+											</em><span
+												style="color: #000000;">is set
+												to true
+												and </span><em
+												style="color: #000000;">Subscription</em><span
+												style="color: #000000;"> is not
+												equal to “None”.</span></li>
+											
+											<li>The request
+												parameter <em>DateFormat
+												</em>controls
+												the format of the result in the
+												<em>Starts</em> and
+												<em>Ends</em> parameters.</li>
+									
+									</ul>
+									</p>
+								</div>
+
+							</div>
+				</div>
+			</div>
+			<div class="api-article-table" style="padding-left: 30px;">
+				<div class="api-article-table" style="padding-left: 30px;">
+					<div style="padding-left: 30px;">
+						<div class="api-article-table" style="padding-left: 30px;">
+						</div>
+					</div>
+				</div>
+			</div>
+			<p> </p>
+			<div class="api-article-table">
+				<h3></h3>
+				<h3 style="padding-left: 30px;">Errors Object</h3>
+			</div>
+			<div class="api-article-table">
+				<table class="table table-bordered" style="margin-left: 30px;">
+					<thead>
+						<tr>
+							<th style="text-align: right;"></th>
+							<th>Parameter</th>
+							<th>Type</th>
+							<th><strong>Description</strong></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td style="text-align: right;">1</td>
+							<td>Status</td>
+							<td>Integer</td>
+							<td>HTTP status code.</td>
+						</tr>
+						<tr>
+							<td style="text-align: right;">2</td>
+							<td>Detail</td>
+							<td>String</td>
+							<td>Description of the status code above.</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="api-article-table" style="padding-left: 60px;">
+				<h4>Possible Status codes in the '<em>Errors</em>' object</h4>
+			</div>
+			<div class="api-article-table" style="padding-left: 60px;">
+				<table class="table table-bordered">
+					<thead style="padding-left: 60px;">
+						<tr style="padding-left: 60px;">
+							<th>Code</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody style="padding-left: 30px;">
+						<tr style="padding-left: 30px;">
+							<td>400</td>
+							<td>Bad request or missing session parameter.</td>
+						</tr>
+						<tr>
+							<td>401</td>
+							<td>User is inactive.</td>
+						</tr>
+						<tr>
+							<td>404</td>
+							<td>Unknown session token.</td>
+						</tr>
+						<tr>
+							<td>405</td>
+							<td>Method [request] not allowed.</td>
+						</tr>
+						<tr>
+							<td>500</td>
+							<td>Server may be down for maintenance.</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="single-notes notes-indent" style="margin-left: 78px;">
+				<div> Note</div>
+				<p>This is not an
+					exhaustive list and additional error codes may be
+					returned. The <em>Errors Detail</em> field will return
+					request specific error information.</p>
+			</div>
+			<h3></h3>
+			<h3 style="padding-left: 30px;">Possible HTTP response codes</h3>
+			<p style="line-height:30px !important ;padding-left: 30px;"><span
+					class="spanColor">This endpoint
+					returns 200 for success. <br> If an '<em>Errors</em>' object is
+					returned, the HTTP result is likely to be the same as the
+					one set in the '<em>Errors</em>' object. <br>
+					You can get HTTP client network errors or server
+					errors from any API request. You should check
+					with your network or IT colleagues in case the issue is a
+					local one. <br>
+					All server generated errors will return an '<em>Errors</em>'
+					object that will give specific details about the error. <br>
+					A full list of HTTP codes and their meanings is available <a
+						href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">here</a>,<br>
+				</span></p>
+			<div class="api-article-table" style="padding-left: 90px;">
+				<p style="padding-left: 90px;">
+				</p>
+			</div>
+			<h3></h3>
+			<h2 style="padding-left: 30px;">Success and fail examples</h2>
+			<p style="padding-left: 30px;">The sample below requests the metadata
+				for datasource "BOE".</p>
+			<div class="api-article-main-example" style="padding-left: 30px;">
+				<h4><b style="color: RGB(54, 96,146);">Sample Request:</b></h4>
+				<pre style="padding-left: 30px;">
+				GET https://[server]/GetDatasource?SessionToken=YOUR_SESSION_TOKEN&amp;Datasource=BOE
+			</pre>
+			</div>
+			<div class="api-article-main-blockExample">
+				<h4 style="padding-left: 30px;"><strong>Response body on
+						success:</strong></h4>
+
+				<div id="GMOD_Success"></div>
+				<p style="padding-left: 30px;">
+				</p>
+			</div>
+			<div class="api-article-main-blockExample" style="padding-left: 30px;">
+				<h4><strong>Response body on
+						fail:</strong></h4>
+
+				<div id="GMOD_Fail"></div>
+			</div>
+		</div>
+		<div class="last-date">
+			<div class="date">Last updated on April 29, 2021
+			</div>
+		</div>
+		<br>
+	</div>
+	<div class="dis-block clearfix">
+		<a href="javascript:move_section('#datasource')" class="doc-prev"><i class="fas fa-chevron-circle-left"></i>Datasources</a>
+		<a href="javascript:move_section('#getalldatasource')" class="doc-next">Get Metadata for all Datasources<i class="fas fa-chevron-circle-right"></i></a>
+	</div>
+</div>
+
+<script>
+	
+
+	// **************Responses(Success and Fail)***************
+
+	// ***AUTHENTICATION***
+
+	// ***DATASOURCES***
+	// Get Metadata of one database
+	var GMOD_Success_Obj = {};
+	var jsonViewer_GMOD_Success = new JSONViewer();
+	document.querySelector("#GMOD_Success").appendChild(jsonViewer_GMOD_Success.getContainer());
+
+
+	GMOD_Success = JSON.stringify({
+
+		"ServerDateTime": "2020-02-06T11:13:04Z",
+		"TimeStamp": 2458885.96741,
+		"ExecutionTime": 0.07,
+		"Result": [
+			{
+				"Datasource": "BOE",
+				"Name": "Bank of England Official Statistics",
+				"LastUpdated": "2019-01-23T03:10:31Z",
+				"Premium": false,
+				"HasDataTree": false,
+				"IsCategoryDS": false,
+				"Details": {
+					"SeriesCount": 14032,
+					"StartDate": "1963-03-31",
+					"EndDate": "2019-01-21",
+					"Subscription": "Active",
+					"UserAccess": {
+						"AccessStartDate": "1976-01-01",
+						"AccessEndDate": "2022-09-01",
+						"InactiveAccess": true
+					}
+				},
+				"Icon": "http://intdatamedia.com/datasources/BOE.gif",
+				"Description": `Current and historical exchange rates, interest rates on secured loans and time deposits, Euro-commercial paper rates,
+and yields on government securities.`
+			}
+
+		]
+	}
+	);
+
+
+
+	var GMOD_Fail_Obj = {};
+	var jsonViewer_GMOD_Fail = new JSONViewer();
+	document.querySelector("#GMOD_Fail").appendChild(jsonViewer_GMOD_Fail.getContainer());
+
+	GMOD_Fail = JSON.stringify({
+		"ServerDateTime": "2020-02-06T11:17:03Z",
+		"TimeStamp": 2458885.97017,
+		"ExecutionTime": 0.011,
+		"Errors": {
+			"Status": 401,
+			"Details": "Unknown session token"
+		}
+	}
+	);
+
+
+	var setJSON = function () {
+
+		GMOD_Success_Obj = JSON.parse(GMOD_Success);
+		GMOD_Fail_Obj = JSON.parse(GMOD_Fail);
+	}
+
+
+	setJSON();
+	jsonViewer_GMOD_Success.showJSON(GMOD_Success_Obj);
+	jsonViewer_GMOD_Fail.showJSON(GMOD_Fail_Obj);
+	
+</script>

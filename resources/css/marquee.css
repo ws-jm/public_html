@@ -1,0 +1,43 @@
+.marquee-wrapper {
+    overflow: hidden;
+    display: flex;
+    position: relative;
+    transition: .4s;
+}
+
+.marquee {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    -moz-animation: marquee 170s linear infinite;
+    -webkit-animation: marquee 170s linear infinite;
+    animation: marquee 170s linear infinite;
+    /* I set the marquee animation here for 170 seconds (170s).
+    You can increase and decrease it to control the speed of the marquee. 
+    Increase it to slow down the marquee.
+    Decrease it to speed up the marquee.*/
+}
+
+.marquee img {
+    height: 50px;
+    margin-right: 20px;
+    display: inline;
+
+}
+
+@keyframes marquee {
+    0% {
+        margin-left: 100%;
+    }
+
+    100% {
+        margin-left: 0%;
+        transform: translateX(-100%)
+    }
+
+}
+
+.mrqstop {
+    animation-play-state: paused;
+    /*the animation will be stop on click*/
+}

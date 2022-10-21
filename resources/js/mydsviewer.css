@@ -1,0 +1,666 @@
+html,
+body {
+    height: 100%;
+    margin: 0px;
+    overflow: hidden;
+}
+
+.fixpage {
+    height: auto;
+    min-height: 100%;
+    overflow: hidden;
+}
+
+.fixpage nav.navbar {
+    border-radius: 0px;
+}
+
+.fullscreen {
+    max-width: 100% !important;
+    max-height: 100% !important;
+}
+
+.dropdown-toggle {
+    padding-top: 0px;
+}
+
+section .wrap {
+    padding: 0px;
+}
+
+#title-panel {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#database-title {
+    font-size: 22px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-family: "Open Sans", Roboto, sans-serif;
+}
+
+#searchBox {
+    margin-right: 10px;
+}
+
+#searchBox+img {
+    margin-right: 5px;
+    margin-top: 5px;
+    float: right
+}
+
+.dropdown-menu {
+    width: 220px;
+}
+
+.dropdown img {
+    margin-bottom: 4px;
+}
+
+#jqxWidget {
+    font-size: 13px !important;
+}
+
+#category {
+    width: 100%;
+    height: 37px;
+    background-color: #f0f0f0;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#f8f8f8), to(#eaeaea));
+    text-align: center;
+    font-size: 14px;
+    padding-top: 10px;
+    color: #333;
+    display: none;
+}
+
+#jqxCategoriesMenu,
+#jqxgridMenu,
+#categoryAddDialogWindow,
+#exportDialogWindow {
+    visibility: hidden;
+}
+
+.table-icon {
+    float: left;
+    margin-right: 5px;
+}
+
+table,
+td,
+th {
+    padding: 0px;
+    border: none;
+}
+
+.correction-cell {
+    background-color: #fcdadc;
+    color: black;
+}
+
+.correction-cell:not(.jqx-grid-cell-hover):not(.jqx-grid-cell-selected),
+.jqx-widget .correction-cell:not(.jqx-grid-cell-hover):not(.jqx-grid-cell-selected) {
+    background-color: #fcdadc;
+}
+
+.toolbar-table td {
+    background-color: transparent !important;
+}
+
+.wBottomControlsPanel {
+    width: 100%;
+    height: 50px;
+    background-color: #EDEDED;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+}
+
+.window-title {
+    font-size: 14px;
+}
+
+.window-properties {
+    font-size: 14px;
+}
+
+.btn-success-white:ACTIVE {
+    background: white;
+    color: black;
+}
+
+.btn-success-green {
+    background: #1e9943;
+    color: #ffffff;
+}
+
+.btn-success-green:HOVER {
+    background: #1e9943;
+    color: #ffffff;
+}
+
+.btn-success-green:ACTIVE {
+    background: #1e9943;
+    color: #ffffff;
+}
+
+.btn-success-red {
+    background: #F10017;
+    color: #ffffff;
+}
+
+.btn-success-red:HOVER {
+    background: #F10017;
+    color: #ffffff;
+}
+
+.btn-success-red:ACTIVE {
+    background: #F10017;
+    color: #ffffff;
+}
+
+.wTableDescription {
+    width: 100%;
+    background-color: #E8F1FF !important;
+}
+
+.wTableDescription tbody {
+    border: 10px solid transparent;
+}
+
+.wTableDescription td {
+    padding: 5px;
+    background-color: transparent !important;
+}
+
+.jqx-window-content {
+    padding: 0px !important;
+}
+
+.window-controls {
+    font-weight: bold;
+    font-family: "Open Sans", Roboto, sans-serif;
+    font-size: 13px !important;
+}
+
+#dialogWindow {
+    display: none;
+}
+
+#exportDialog {
+    overflow: hidden;
+    height: 100%;
+    font-family: "Open Sans", Roboto, sans-serif;
+    padding: 10 5px !important;
+}
+
+#formExportSeries {
+    padding: 20px;
+}
+
+#exportDialofControlsPanel {
+    width: 100%;
+    text-align: right;
+    padding: 10px;
+    position: absolute;
+    bottom: 0px;
+    border-top: 1px solid #ccc;
+}
+
+#exportSeriesBtn {
+    margin-right: 5px;
+}
+
+input#exportSeriesBtn:active,
+input#cancelExportDialog:active {
+    background: #038bff;
+    color: #fff;
+}
+
+#exportSeriesBtn,
+#cancelExportDialog {
+    border: 1px solid #b9b9b9;
+    background: #f6f6f6;
+    color: #000;
+    font-weight: normal;
+}
+
+#searchBox:focus {
+    border: 1px solid #298bbc;
+}
+
+.appriseOverlay {
+    z-index: 9999;
+}
+
+.jqx-tree-dropdown {
+    padding-left: 35px;
+}
+
+#dataPageNymber {
+    width: 32px;
+    height: 20px;
+    text-align: center;
+    border: 1px solid #aaa;
+    border-radius: 2px;
+    outline: 0;
+    color: #000;
+    font-size: 13px;
+    font-family: Calibri;
+}
+
+#pageButtonToFirst,
+#leftPageButton,
+#rightPageButton,
+#pageButtonToLast {
+    padding: 0px;
+    box-shadow: unset;
+    border: 0;
+    background: transparent;
+    margin-top: 1px;
+}
+
+#pageButtonToFirst div,
+#leftPageButton div,
+#rightPageButton div,
+#pageButtonToLast div {
+    width: 16px;
+    height: 16px;
+}
+
+#loadingData {
+    display: none;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0
+}
+
+#loadingData .load-data {
+    z-index: 99999;
+    margin-left: -66px;
+    left: 50%;
+    top: 50%;
+    margin-top: -24px;
+    position: relative;
+    width: 153px;
+    height: 33px;
+    padding: 5px;
+    font-family: verdana;
+    font-size: 12px;
+    color: #767676;
+    border-color: #898989;
+    border-width: 1px;
+    border-style: solid;
+    background: #f6f6f6;
+    border-collapse: collapse;
+}
+
+.load-data .load-content {
+    float: left;
+}
+
+.load-data .load-content>div {
+    float: left;
+    overflow: hidden;
+    width: 32px;
+    height: 32px;
+}
+
+.load-data .load-content>span {
+    margin-top: 10px;
+    float: left;
+    display: block;
+    margin-left: 5px;
+}
+
+#vCenter {
+    margin-top: 7px;
+}
+
+.jqx-grid-cell-selected {
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-color: #003399;
+    background-repeat: repeat-x;
+    border-color: #316293 #316293 #29547E !important;
+    background: #356aa0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+#cancelCategoryButton {
+    float: right;
+}
+
+#addCategoryButton {
+    float: right;
+    margin-right: 10px;
+}
+
+#categoryAdd {
+    overflow: hidden;
+    height: 100%;
+    font-family: "Open Sans", Roboto, sans-serif;
+}
+
+#windowTitle {
+    width: 50px;
+    height: 55px;
+    vertical-align: top;
+    padding-top: 10px;
+}
+
+#windowValue {
+    height: 55px;
+    vertical-align: top;
+    padding-top: 10px;
+}
+
+#dialogForm {
+    margin: 30px;
+}
+
+#export-one {
+    margin-bottom: 20px;
+}
+
+#export-all {
+    margin-bottom: 15px;
+}
+
+#categoryDropdownList {
+    margin: 10 40px;
+}
+
+#addCategory {
+    margin: 30px 20px
+}
+
+#addCategory span {
+    margin-bottom: 10px;
+}
+
+#seriesStartIcon {
+    margin-top: 7px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#cate-renderer {
+    margin-top: 7px;
+}
+
+#pageRender {
+    margin-right: 5px;
+    margin-top: 7px;
+}
+
+#databaseRenderImg {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+#table-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#btnExportSeries,
+#btnHideAdditInfo,
+#btnAutosize,
+#btnHideShowEmptyRecords,
+#btnCopySeriesToFavorite {
+    margin-left: 5px;
+}
+
+/* #fullWidth1 {
+    right: 5px;
+} */
+#table-container-toolbar {
+    width: 100%;
+    padding: 3px 5px;
+    height: 100%;
+}
+
+#pagerender-element {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+#pagerender-last-element {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#pageNumberStyle {
+    margin: 0px 5px;
+    font-family: Calibri;
+}
+
+#page-lable1 {
+    margin-right: 5px;
+}
+
+#page-lable2 {
+    padding: 0px;
+    margin: 0px 3px;
+}
+
+#columnRender {
+    margin-top: 8px;
+}
+
+.helpIcon {
+    background: url(../../../icons/Help_16-Grey.png) no-repeat center;
+    height: 16px;
+    width: 16px;
+    padding: 0 10px;
+    border: 0;
+    outline: 0;
+    display: inline;
+}
+
+#searchBtn {
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: -1px 0 5px rgb(0 0 0 / 25%);
+    border-radius: 4px;
+    margin: 1px 10px 0 -5px;
+    padding: 0px 3px 0px 3px;
+}
+
+#searchBtn:hover {
+    border-color: #ddd !important;
+}
+
+
+.HelpMessage {
+    height: 200px;
+    width: 400px;
+    display: none;
+}
+
+.HelpMessage .content {
+    font-size: 13px;
+}
+
+.HelpMessage .jqx-icon-close {
+    background-size: 12px;
+}
+
+.HelpMessage .content .underline {
+    text-decoration: underline;
+}
+
+.helpIcon:hover {
+    cursor: pointer;
+}
+
+#btnRefreshSeries {
+    margin-left: 5px;
+}
+
+.jqx-tabs-content-element {
+    overflow: hidden !important;
+}
+
+#userCategory {
+    padding: 4px 0;
+    margin-left: 10px;
+    display: none;
+    margin-top: -30px;
+}
+
+.jqx-tabs-content-element {
+    overflow: hidden;
+    height: calc(100% - 2px);
+}
+
+#listBoxContentinnerListBoxjqxPageDropDownList .jqx-fill-state-pressed {
+    background-color: #f8f8f8;
+    border-color: #ddd;
+    color: #000;
+}
+
+.jqx-grid-cell-selected a {
+    color: #fff !important;
+}
+
+.jqx-widget-header td {
+    background-color: unset !important;
+}
+
+.jqx-tabs-header {
+    background: #f8f8f8;
+}
+
+.jqx-tabs-title-hover-top-light {
+    border-color: transparent;
+    background-color: unset;
+}
+
+/* #btnExportSeries,
+#btnRefreshSeries,
+#btnAutosize,
+#btnHideAdditInfo,
+#btnHideShowEmptyRecords,
+#fullWidth1,
+#btnCopySeriesToFavorite {
+    position: absolute !important;
+} */
+#btnExportSeries:active,
+#btnRefreshSeries:active,
+#btnAutosize:active,
+#btnHideAdditInfo:active,
+#btnHideShowEmptyRecords:active,
+#fullWidth1:active,
+#btnCopySeriesToFavorite:active {
+    margin-top: 2px;
+}
+
+/* #btnExportSeries {
+    left: 135px;
+}
+#btnRefreshSeries {
+    left: 167px;
+}
+#btnAutosize {
+    right: 97px;
+}
+#btnHideAdditInfo {
+    right: 67px;
+}
+#btnHideShowEmptyRecords {
+    right: 37px;
+} */
+#jqxTabs {
+    visibility: hidden;
+}
+
+.wait {
+    opacity: 0;
+}
+
+
+
+
+/* toolbar area */
+table#table-container-toolbar {
+    margin: 0;
+    overflow-x: auto;
+    display: block;
+}
+
+#table-container .toolbar-table tbody {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow-x: auto;
+}
+
+#table-container .toolbar-table tbody::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 6px;
+}
+
+
+#table-container .toolbar-table tbody::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+    background: #e6e6e6;
+    border-radius: 7px;
+}
+
+
+/* pager area */
+div#pager>div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+    overflow-x: auto;
+    width: 100%;
+    padding: 5px 10px;
+    height: 35px;
+}
+div#pager>div::-webkit-scrollbar {
+    /* width: 10px; */
+    height: 5px;
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+div#pager>div::-webkit-scrollbar-thumb{
+    background: #c1c1c1;
+    border-radius: 5px;
+}
+
+
+
+/* js tree categories list  */
+div#jstreeCategoriesList {
+    height: calc(100% - 37px) !important;
+}
+
+
+
+
+
+/* responsive area */
+@media screen and (max-width:660px) {
+    input#searchBox {
+        width: 100px !important;
+    }
+}

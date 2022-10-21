@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="390" viewBox="0 0 512 390">
+  <g id="menu" transform="translate(0 -61)">
+    <g id="Group_181" data-name="Group 181">
+      <g id="Group_180" data-name="Group 180">
+        <path id="Path_136" data-name="Path 136" d="M467,61H165a45,45,0,0,0,0,90H467a45,45,0,0,0,0-90Z" fill="#3a6996"/>
+      </g>
+    </g>
+    <g id="Group_183" data-name="Group 183">
+      <g id="Group_182" data-name="Group 182">
+        <path id="Path_137" data-name="Path 137" d="M467,211H165a45,45,0,0,0,0,90H467a45,45,0,0,0,0-90Z" fill="#3a6996"/>
+      </g>
+    </g>
+    <g id="Group_185" data-name="Group 185">
+      <g id="Group_184" data-name="Group 184">
+        <path id="Path_138" data-name="Path 138" d="M467,361H165a45,45,0,0,0,0,90H467a45,45,0,0,0,0-90Z" fill="#3a6996"/>
+      </g>
+    </g>
+    <g id="Group_187" data-name="Group 187">
+      <g id="Group_186" data-name="Group 186">
+        <path id="Path_139" data-name="Path 139" d="M45,61a45,45,0,1,0,45,45A45.049,45.049,0,0,0,45,61Z" fill="#3a6996"/>
+      </g>
+    </g>
+    <g id="Group_189" data-name="Group 189">
+      <g id="Group_188" data-name="Group 188">
+        <path id="Path_140" data-name="Path 140" d="M45,211a45,45,0,1,0,45,45A45.049,45.049,0,0,0,45,211Z" fill="#3a6996"/>
+      </g>
+    </g>
+    <g id="Group_191" data-name="Group 191">
+      <g id="Group_190" data-name="Group 190">
+        <path id="Path_141" data-name="Path 141" d="M45,361a45,45,0,1,0,45,45A45.049,45.049,0,0,0,45,361Z" fill="#3a6996"/>
+      </g>
+    </g>
+  </g>
+</svg>

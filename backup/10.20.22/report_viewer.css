@@ -1,0 +1,130 @@
+html,
+body,
+.fixpage,
+.seriesviewer .main-content,
+.seriesviewer .main-content #mainSplitter {
+  overflow: hidden;
+}
+div#overwriteWeekend div:first-child,
+#weekendDate_averages div:first-child {
+  margin-left: 0;
+}
+div#frequency-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+#frequency-buttons .update-Values-wrapper {
+  color: #666;
+  height: min-content;
+  display: flex;
+  align-items: center;
+  padding-left: 0;
+}
+#updateValues-help-div2 {
+  margin-top: 0px;
+}
+#frequency-buttons #frequency-buttons {
+  margin-top: 0;
+  float: none;
+}
+#frequency-buttons table {
+  margin-bottom: 0px;
+  height: min-content;
+  width: min-content;
+}
+
+#frequency-buttons table tr td {
+  vertical-align: top;
+  padding-right: 8px;
+  width: 40px;
+  border-color: rgb(192, 192, 192) !important;
+}
+.update-Values-wrapper #updateValues-help-div2,
+.update-Values-wrapper #updateValues-help-div2,
+.update-Values-wrapper #updateValues-help-div2 {
+  float: none;
+  margin-top: 0;
+}
+.update-Values-wrapper #updateToJson_frequency .jqx-checkbox-default {
+  margin-top: 0 !important;
+}
+
+.update-Values-wrapper #updateToJson_frequency {
+  margin-top: 0px;
+  float: none;
+  display: flex;
+  align-items: center;
+}
+
+div#average_panel * {
+  color: #000 !important;
+}
+div#average_panel .comments-text{
+  color: rgb(145, 145, 145) !important;
+}
+div#average_panel.disable * {
+  user-select: none;
+  color: RGB(145, 145, 145) !important;
+}
+
+#overwriteWeekend.hidden {
+  visibility: hidden;
+}
+#weekends_hint {
+  height: 50px;
+}
+.comments-text {
+  color: rgb(145, 145, 145) !important;
+}
+div#fill-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+div#fullWidth1 {
+  margin-right: 0;
+}
+
+.qs-mark {
+  float: none;
+  margin-top: 0;
+  background: transparent;
+  border-radius: 50%;
+}
+.qs-mark img {
+  height: 20px;
+  width: 20px;
+}
+
+.qs-mark:hover {
+  box-shadow: 0px 0px 5px rgb(0 0 0 / 45%);
+}
+div#dateRange-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 34px;
+}
+div#fq_m_periods:hover,
+div#fq_m_periods_to:hover,
+#dr_periods:hover {
+  box-shadow: 0px 0px 5px rgb(0 0 0 / 30%) !important;
+}
+.disable div#fq_m_periods:hover,
+.disable div#fq_m_periods_to:hover {
+  box-shadow: none !important ;
+}
+#startDate_btnCalendar img:hover,
+#endDate_btnCalendar img:hover {
+  box-shadow: none !important;
+}
+.input-enabled:hover {
+  box-shadow: 0px 0px 5px rgb(0 0 0 / 30%) !important;
+}
+.main-content {
+  margin-top: 99px;
+}

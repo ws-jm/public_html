@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Meta -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+	<!-- Title -->
+	<title>Sarus API</title>
+
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+		integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<!-- CSS Files -->
+	<link rel="icon" type="image/x-icon" href="./resources/favicon.png">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i,800,800i"
+		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,500i,600,600i,700,700i,800"
+		rel="stylesheet">
+	<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
+	<link href="./resources/idm-service/resources/css/font-awesome.min.css" rel="stylesheet">
+	<link href="./resources/idm-service/resources/css/bootstrap-navbar.css" rel="stylesheet">
+	<link href="./resources/idm-service/resources/css/responsive.css" rel="stylesheet">
+	<link href="./resources/css/login.css" rel="stylesheet">
+	<link href="./resources/css/style-api-new.css" rel="stylesheet">
+    <link rel="stylesheet" href="resources/css/menu.css">
+    <link rel="stylesheet" href="resources/css/footer.css">
+	<link rel="stylesheet" href="./resources/css/api-docs.css">
+
+	<link href="resources/jqwidgets/styles/jqx.base.css" rel="stylesheet">
+	<link href="resources/jqwidgets/styles/jqx.light.css" rel="stylesheet">
+	<link href="resources/idm-service/resources/css/main.css" rel="stylesheet">
+	<link href="./resources/css/main.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="resources/css/slick.grid.css" type="text/css" />
+	<link rel="stylesheet" href="resources/css/slick.pager.css" type="text/css" />
+	<link rel="stylesheet" href="resources/css/slick.columnpicker.css" type="text/css" />
+
+	<link rel="stylesheet" href="dist/themes/default/style.min.css" />
+	<link rel="stylesheet" href="resources/css/monitor-gui.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/monitor-ui.css" type="text/css" />
+
+	<!-- JS Files -->
+	<script src="resources/idm-service/resources/js/jquery-1.12.3.js"></script>
+	<script src="resources/js/jquery-3.6.0.min.js"></script>
+	<!-- <script src="resources/idm-service/resources/js/jquery-1.11.1.js"></script> -->
+	<script src="resources/idm-service/resources/js/bootstrap.min.js"></script>
+	<script src="resources/idm-service/resources/js/bootstrap-dropdown.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+	<script src="resources/js/jquery-ui.js"></script>
+
+	<script src="dist/jstree.min.js"></script>
+	
+	<!-- Jqwidgets Js files-->
+	<script src="resources/jqwidgets/jqxcore.js"></script>
+	<script src="resources/jqwidgets/jqxbuttons.js"></script>
+	<script src="resources/jqwidgets/jqxsplitter.js"></script>
+	<script src="resources/jqwidgets/jqxpopover.js" async></script>
+	<script src="resources/jqwidgets/jqxwindow.js" async></script>
+	<script src="resources/jqwidgets/jqxinput.js" async></script>
+    <script src="resources/jqwidgets/jqxbuttons.js" async></script>
+	<script src="resources/jqwidgets/jqxlistbox.js" async></script>
+    <script src="resources/jqwidgets/jqxdropdownlist.js" async></script>
+	<script src="resources/jqwidgets/jqxmenu.js" async></script>
+	<script src="resources/jqwidgets/jqxcheckbox.js" async></script>
+
+	<script src="resources/js/jquery.event.drag-2.3.0.js"></script>
+	<script src="resources/js/slick.core.js"></script>
+	<script src="resources/js/slick.formatters.js" async></script>
+	<script src="resources/js/slick.editors.js"> async</script>
+	<script src="resources/js/slick.rowselectionmodel.js" async></script>
+	<script src="resources/js/slick.grid.js" async></script>
+	<script src="resources/js/slick.dataview.js" async></script>
+	<script src="resources/js/slick.cellrangeselector.js" async></script>
+	<script src="resources/js/slick.cellselectionmodel.js" async></script>
+	<script src="resources/js/slick.rowmovemanager.js" async></script>
+  	<script src="resources/js/slick.checkboxselectcolumn.js" async></script>
+
+	<script type="text/javascript" src="./json-viewer-master/src/json-viewer.js"></script>
+	<link rel="stylesheet" type="text/css" href="./json-viewer-master/src/json-viewer.css">
+
+	<script src="dev/api/config/config.js"></script>
+	<script src="dev/api/authentication.js"></script>
+	<script src="dev/api/user_favorites.js"></script>
+	<script src="resources/js/api-xml.js"></script>
+	<script src="resources/js/top-menu.js"></script>
+	<!-- <script src="resources/js/home.js"></script> -->
+
+	<style>
+		html,
+		body {
+			height: 100vh;
+			overflow: hidden;
+		}
+		table, th, td {
+			border: 1px solid rgba(0, 0, 0, 0.1) !important;
+			border-top-width: 1px;
+			border-right-width: 1px;
+			border-bottom-width: 1px;
+			border-left-width: 1px;
+		}
+		th,td{
+			padding: 8px !important;
+		}
+		.documentor-default .doc-menu {
+			width: 0px;
+		}
+
+		.documentor-default .doc-sec-container {
+			width: 100% !important;
+		}
+
+		.documentor-default .doc-sec-title {
+			font-size: 24px;
+		}
+
+		.documentor-default .doc-sec-count {
+			margin-right: 15px;
+		}
+
+		.documentor-default .doc-isrc {
+			display: block;
+		}
+
+		#footer {
+			display: none;
+		}
+
+		.jqx-widget-content {
+			border-color: white !important;
+		}
+
+		.vertical-var {
+			min-width: 3px;
+			background-color: lightgrey;
+			margin-left: 289px;
+		}
+
+		.jqx-fill-state-normal td,
+		.jqx-fill-state-hover td,
+		.jqx-fill-state-pressed td,
+		.jqx-fill-state-disabled td,
+		.jqx-fill-state-focus td,
+		.jqx-widget td,
+		.jqx-widget-content td,
+		.jqx-widget-header td {
+			background-color: white !important;
+		}
+	</style>
+
+
+	<style>
+		pre {
+			background-color: ghostwhite;
+			border: 1px solid silver;
+			padding: 10px 20px;
+			word-break: break-word;
+		}
+
+		.json-key {
+			color: brown;
+		}
+
+		.json-value {
+			color: navy;
+		}
+
+		.json-string {
+			color: olive;
+		}
+
+		.pre {
+			white-space: pre !important;
+			overflow: auto;
+		}
+	</style>
+
+	<!-- footer -->
+	<style>
+		div #main-footer {
+			margin-left: auto;
+			margin-right: auto;
+			height: 47px;
+			text-align: center;
+			display: grid;
+			align-items: center;
+		}
+
+		.footer,
+		.footer wrap,
+		.foot {
+
+			height: 47px;
+		}
+
+		.foot ul {
+			margin-top: 5px;
+
+		}
+	</style>
+
+</head>
+
+<script>
+	$(document).ready(function () {
+
+		var wrap_width = document.querySelector(".wrap").clientWidth;
+		wrap_width = wrap_width - 30;
+		$("#jqxSplitter").jqxSplitter({
+			width: '102%',
+			panels: [{
+				size: '396px',
+				collapsible: true
+			}, {
+				size: '67%'
+			}]
+		});
+
+		setTimeout(function () {
+			$("#left_section").show();
+		}, 200);
+
+		var left_menu = document.querySelector(".api-left-col");
+		var left_section = document.querySelector("#left_section");
+		var left_real = left_section.style.width;
+		//var left_r_val = left_real.slice(0, left_real.length - 1);
+		var left_r_val = left_real.slice(0, left_real.length - 2);
+		// left_menu.style.width = left_r_val * wrap_width / 100 + "px";
+		left_menu.style.width = left_r_val - 5 + "px";
+
+
+		var right_menu = document.querySelector(".api-right-col");
+		var right_section = document.querySelector("#right_section");
+		var right_real = right_section.style.width;
+		var right_r_val = right_real.slice(0, right_real.length - 1);
+		right_menu.style.width = (right_r_val) * wrap_width / 100 + "px";
+
+		var view_text = document.querySelector("#view_text").clientHeight;
+		var jqxSplitter = document.querySelector("#jqxSplitter");
+		jqxSplitter.style.height = (parseInt(view_text) + 200) + "px";
+
+		var url_piece = window.location.href.split("#");
+		if (url_piece.length > 1) {
+			var target = url_piece[url_piece.length - 1];
+			$("#view_text").load("./api_docs_contents/" + target + ".html");
+			var $target = $("#" + target);
+			$('.api-left-links> ol> li').removeClass('active');
+			$('.api-left-links> ol> li >ol> li').removeClass('active');
+
+			$('a[href="#' + target + '"]').parent('li').addClass('active');
+
+			//$(target).show();
+			$('html,body').animate({
+				scrollTop: 0
+			}, 'slow');
+
+		} else {
+			$("#view_text").load("./api_docs_contents/overview.html");
+			$('html,body').animate({
+				scrollTop: 0
+			}, 'slow');
+		}
+
+
+		$('a[href^="#"]').on('click', function (target) {
+			var target = this.hash;
+			$('.api-left-links> ol> li').removeClass('active');
+			$('.api-left-links> ol> li >ol> li').removeClass('active');
+			$(this).parent('li').addClass('active');
+			$("#view_text").load("./api_docs_contents/" + target.substr(1) + ".html");
+			$('html,body').animate({
+				scrollTop: 0
+			}, 'slow');
+
+		});
+
+		$('#jqxSplitter').on('resize',
+			function (event) {
+				$('.api-left-col').css('min-width', '0px');
+
+				var jqx_splitter = document.querySelector(".jqx-splitter-splitbar-vertical");
+				var left_menu = document.querySelector(".api-left-col");
+				var left_section = document.querySelector("#left_section");
+				left_section.style.width = jqx_splitter.style.left;
+				var left_real = left_section.style.width;
+				var left_r_val = left_real.slice(0, left_real.length - 2);
+				left_menu.style.width = (left_r_val - 5) + "px";
+
+				var right_menu = document.querySelector(".api-right-col");
+				var right_section = document.querySelector("#right_section");
+				var right_real = right_section.style.width;
+				var right_r_val = right_real.slice(0, right_real.length - 1);
+				right_menu.style.width = (right_r_val) * wrap_width / 100 + "px";
+			});
+
+		const full_screen = document.querySelector(".full_screen");
+		const fixpage = document.querySelector(".fixpage");
+		const wrap1 = document.querySelector(".main-content").firstElementChild;
+		const right_col = document.querySelector(".api-right-col");
+		var left_menu = document.querySelector(".api-left-col");
+		var left_section = document.querySelector("#left_section");
+		var wrap_element = document.getElementById("wrap");
+		var mainfooter = document.getElementById("footer_file");
+
+
+	});
+
+	$(window).resize(function () {
+		var wrap_width = document.querySelector(".wrap").clientWidth;
+		wrap_width = wrap_width - 30;
+		$('.api-left-col').css('min-width', '0px');
+		var left_menu = document.querySelector(".api-left-col");
+		var left_section = document.querySelector("#left_section");
+		var left_real = left_section.style.width;
+		var left_r_val = left_real.slice(0, left_real.length - 1);
+		left_menu.style.width = (left_r_val) * wrap_width / 100 + "px";
+
+		var right_menu = document.querySelector(".api-right-col");
+		var right_section = document.querySelector("#right_section");
+		var right_real = right_section.style.width;
+		var right_r_val = right_real.slice(0, right_real.length - 1);
+		right_menu.style.width = (right_r_val) * wrap_width / 100 + "px";
+	});
+
+	function move_section(target) {
+		$('.api-left-links> ol> li').removeClass('active');
+		$('.api-left-links> ol> li >ol> li').removeClass('active');
+		$('a[href="' + target + '"]').parent('li').addClass('active');
+		$("#view_text").load("./api_docs_contents/" + target.substr(1) + ".html");
+		$('html,body').animate({
+			scrollTop: 0
+		}, 'slow');
+	}
+</script>
+
+<body>
+	<div class="fixpage">
+		<nav include-html="menu.html" id="menu_file" class="navbar navbar-default navbar-fixed-top  "></nav>
+
+		<div class="main-content dis-block clearfix footer-space ">
+			<!-- <div id="mySidenav" class="sidenav full_screen">
+					<span>Full Screen</span> 
+				</div> -->
+			<div id="wrap" class="wrap" style="margin-right:20px;">
+				<div class="dis-block clearfix api-page" style="position: relative;">
+					<div id='jqxSplitter' style="min-height: 2400px; margin-top: -10px; overflow: unset;">
+						<div class="col-md-6" id="left_section" style="display:none">
+							<div class="api-left-col">
+								<img id="monitor_plus_tag" src="resources/images/Monitor_Plus_Tag.png" alt="">
+
+								<div class="api-left-links" style="display: inline-block;">
+									<ol>
+
+										<li class="active">
+
+											<a class="next" href="#overview">Overview</a>
+										</li>
+
+										<li>
+											<i class="fas  fa-chevron-right"></i>
+											<a class="next parent_menu" href="#authentcation"> Authentication</a>
+											<ol>
+												<li><a class="next child" href="#sessiontoken">Get a Session
+														Token</a> </li>
+												<li><a class="next child" href="#renewsessiontoken">Renew a Session
+														Token</a>
+												</li>
+												<li><a class="next child" href="#revokesessiontoken">Revoke a
+														Session
+														Token</a></li>
+												<li><a class="next child" href="#querysessiontoken">Query a Session
+														Token</a>
+												</li>
+											</ol>
+										</li>
+										<li>
+											<i class="fas  fa-chevron-right"></i>
+											<a class="next parent_menu" href="#datasource">Datasource Metadata</a>
+											<ol>
+												<li><a class="next" href="#getonedatasource">Get Metadata for one
+														Datasource</a></li>
+												<li><a class="next" href="#getalldatasource">Get Metadata for all
+														Datasources</a></li>
+												<li><a class="next" href="#userdatasource">Get Metadata for the User
+														Datasources</a>
+												</li>
+											</ol>
+										</li>
+										<li>
+											<i class="fas  fa-chevron-right"></i>
+											<a class="next parent_menu" href="#datasets">Dataset Metadata</a>
+											<ol>
+												<li><a class="next" href="#datasetsonesource">Get Datasets from one
+														Datasource</a> </li>
+												<li><a class="next" href="#datasetsmultiplesources">Get Datasets from
+														multiple Datasources</a>
+												</li>
+											</ol>
+										</li>
+										<li>
+
+											<i class="fas  fa-chevron-right"></i>
+											<a class="next parent_menu" href="#favoritesuser">Manage User Favorite
+												Datasets</a>
+											<ol>
+												<li><a class="next" href="#favoritestatus">Get Favorites Status</a></li>
+												<li> <a class="next" href="#favoritesmetadata">Get Favorites
+														Metadata</a> </li>
+												<li> <a class="next" href="#adddatasetstofavorites">Add Dataset(s) to
+														Favorites</a> </li>
+												<li> <a class="next" href="#removedatasetfromfavorites">Remove
+														Dataset(s) from Favorites</a> </li>
+												<li> <a class="next" href="#deletedfavorites">Get Deleted Favorites</a>
+												</li>
+												<li> <a class="next" href="#erasedeletedfavorites">Erase Deleted
+														Favorites</a></li>
+											</ol>
+										</li>
+
+										<li>
+											<i class="fas  fa-chevron-right"></i>
+											<a class="next parent_menu" href="#marketdata">Dataset Values</a>
+											<ol>
+												<li><a class="next" href="#getdatasetvalues">Get Dataset Values</a></li>
+												<li><a class="next" href="#getdatasetvaluesrc">Get Dataset ValuesRC</a>
+												</li>
+												<li> <a class="next" href="#getdatasetvaluesforadate">Get Dataset Values
+														for one Date</a>
+												</li>
+											</ol>
+										</li>
+										<li>
+											<i class="fas  fa-chevron-right"></i>
+											<a class="next parent_menu" href="#myaccount">My Account</a>
+											<ol>
+												<li><a class="next" href="#getmyaccountdetails">Get My Account
+														Details</a></li>
+												<li><a class="next" href="#newapikey">Request a new API Key</a></li>
+												<li><a class="next" href="#newapikeyemail">Request a new API Key via
+														email</a></li>
+												<li><a class="next" href="#resetpassword">Reset the Account
+														Passwords</a>
+												</li>
+											</ol>
+										</li>
+										<li>
+											<i class="fas  fa-chevron-right"></i>
+											<a class="next parent_menu" href="#additional">Additional Options</a>
+											<ol>
+												<li><a class="next" href="#apiversion">Get the Version number for the
+														current API</a></li>
+											</ol>
+										</li>
+									</ol>
+								</div>
+							</div>
+						</div>
+						<div id="right_section" style="margin-left:12px;">
+							<div id="view_text" class="api-right-col site-main">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- <div include-html="footer.html" id="footer_file" class="navbar navbar-default" style="z-index: 1;"></div> -->
+		<div class="text-center footertxt">
+			<p class="sub-logo"> Copyright © 2018-2022 Sarus Systems Limited - Market Data Solutions </p>
+		</div>
+		<div include-html="footer.html" id="footer_file"></div>
+	</div>
+
+
+
+
+	<script src="resources/js/api-docs.js"></script>
+	<script src="resources/js/include-html.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,4705 @@
+<div>
+	<div class="doc-sec-container" id="documentor_seccontainer">
+		<div class="doc-sectionwrap" id="getdatasetvaluesrc_wrap">
+			<div class="documentor-section  section-308" id="getdatasetvaluesrc1"
+				data-section-id="308">
+				<h3 class="doc-sec-title"> <span class="doc-sec-count"
+						style="display:inline-block">6.2.</span><span
+						class="title-text">&nbsp;&nbsp;Get historical time series
+						values formatted
+						row by column</span>
+				</h3>
+				<div class="doc-sec-content">
+					<h2><b><span style="color: #339966;"><span
+									style="color: #008000;">GET
+								</span></span></b><b>and </b><b><span
+								style="color: #339966;"><span
+									style="color: #008000;">POST</span>
+							</span></b><b>GetValuesRC</b>
+					</h2>
+					<p><strong>Usage:</strong>&nbsp;&nbsp;Get datasets in one or more datasource
+						that are
+						formatted in a row by column layout.</p>
+
+					<h4><b style="color: RGB(54, 96,146);"><span
+								style="color: #008000;">GET</span>
+							Sample Request:</b></h4>
+					<div class="api-article-main-example">
+						<pre><span class="spanColor">GET</span> https://[server]/GetValuesRC?SessionToken=YOUR_SESSION_TOKEN&amp;Frequency=m&amp;StartDate=2017-10-01&amp;Series[]=ECBFX/EURUSD&amp;Series[]=ECBFX/EURGBP
+	
+					<b>Hint: </b>Objects (shown in green text) can be accessed using the format: Frequency=chm<span style="color: #008000;">&amp;FrequencyOptions=StartDay=1;EndDay=2;StartDay2=16;EndDay=28</span>&amp;fill=true
+					</pre>
+					</div>
+					<div class="api-article-table">
+						<div class="api-article-main-example">
+							<h4><b style="color: RGB(54, 96,146);"><span
+										style="color: #008000;">POST</span>
+									Sample Request:</b></h4>
+							<pre>POST https://[server]/GetValuesRC?SessionToken=YOUR_SESSION_TOKEN
+	
+						{ 
+							"SessionToken":"YOUR_SESSION_TOKEN", 
+							"Series": [
+								{"Datasource":"ECBFX", "Symbol":"EURUSD", "BateIndex":[0]},
+								{"Datasource":"ECBFX", "Symbol":"EURGBP", "BateIndex":[0]}
+							],
+							"StartDate":"2017-10-01",
+							"EndDate":"2018-12-01",
+							"Frequency":"m",
+							"Sparse":true,
+							"SparseOptions": {
+									"Values":true
+								},
+							"Dateformat":"YYYY-MM-DD"
+						}
+						</pre>
+						</div>
+					</div>
+					<div></div>
+					<div>
+						<div class="api-article-table"></div>
+					</div>
+
+					<h3>Request Parameters</h3>
+					<table style="height: 114px;" width="963">
+						<tbody>
+							<tr>
+								<td style="text-align: left;"></td>
+								<td style="text-align: left;">
+									<strong>Parameter</strong>
+								</td>
+								<td style="text-align: left;"><strong>Type</strong>
+								</td>
+								<td style="text-align: left;">
+									<strong>Description</strong>
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: left;"><span
+										style="color: #000000;">1</span></td>
+								<td><span style="color: #000000;">
+										SessionToken</span>
+								</td>
+								<td><span style="color: #000000;">String</span></td>
+								<td><span style="color: #000000;">A session token
+										from
+										the <em>GetSessionToken</em>
+										endpoint.</span>
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: left;"><span
+										style="color: #000000;">2</span></td>
+								<td style="text-align: left;"><span
+										style="color: #000000;">Series</span></td>
+								<td style="text-align: left;"><span
+										style="color: #000000;">[Object]</span></td>
+								<td style="text-align: left;"><span
+										style="color: #000000;">A list of
+										<em>Datasource</em> [,<em>Datacategory</em>]
+										and
+										<em>Symbol </em>objects with optional
+										parameters.<br>
+										See the ‘<em>Series Object</em>‘ table below
+										for
+										details.</span></td>
+							</tr>
+						</tbody>
+					</table>
+					<p><strong> </strong><strong> </strong></p>
+					<h3>Optional request
+						parameters</h3>
+
+					<div class="api-article-table">
+						<div class="api-article-table">
+							<div class="api-article-table">
+								<div class="api-article-table">
+									<table style="height: 1017px;" width="1562">
+										<tbody>
+											<tr>
+												<td style="text-align: right;"></td>
+												<td><span
+														style="color: #808080;"><strong>Parameter</strong></span>
+												</td>
+												<td style="text-align: left;"><span
+														style="color: #808080;"><strong>Type</strong></span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #808080;"><strong>Default
+														</strong></span>
+												</td>
+												<td><span
+														style="color: #808080;"><strong>Description</strong></span>
+												</td>
+											</tr>
+											<tr>
+												<td style="text-align: right;"><span
+														style="color: #808080;">3</span>
+												</td>
+												<td><span style="color: #808080;">
+														StartDate</span>
+												</td>
+												<td><span
+														style="color: #808080;">String</span>
+												</td>
+												<td style="text-align: center;">
+													<span style="color: #808080;">
+														“Earliest”</span>
+												</td>
+												<td><span
+														style="color: #808080;">The
+														earliest date to return (use
+														the
+														word “Earliest” to return
+														the
+														first available
+														date).</span><br>
+													<span
+														style="color: #808080;">See
+														the <em>DateFormat </em>
+														and <em>Periods</em>
+														parameters below. Use the
+														<em>CommonStart</em>
+														parameter
+														to select a common start
+														date
+														for all the series in the
+														result.</span>
+												</td>
+											</tr>
+											<tr>
+												<td style="text-align: right;"><span
+														style="color: #808080;">4</span>
+												</td>
+												<td><span style="color: #808080;">
+														EndDate</span>
+												</td>
+												<td style="text-align: left;"><span
+														style="color: #808080;">String</span>
+												</td>
+												<td style="text-align: center;">
+													<span style="color: #808080;">
+														“Latest”</span>
+												</td>
+												<td><span
+														style="color: #808080;">The
+														latest date to return (use
+														the word “Latest” to return
+														the
+														most recent
+														date).</span><br>
+													<span
+														style="color: #808080;">See
+														the <em>DateFormat </em>
+														and <em>Periods</em>
+														parameters below. Use
+														the <em>CommonEnd </em>
+														parameter to select a common
+														end
+														date for all the series in
+														the
+														result.</span>
+												</td>
+											</tr>
+											<tr>
+												<td style="text-align: right;"><span
+														style="color: #808080;">5</span>
+												</td>
+												<td><span style="color: #808080;">
+														Periods</span>
+												</td>
+												<td style="text-align: left;"><span
+														style="color: #808080;">Integer</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #808080;">0</span>
+												</td>
+												<td><span
+														style="color: #808080;">Instead
+														of <em>StartDate</em>,
+														<em>Periods</em> returns a
+														requested number of most
+														recent
+														values (in the selected
+														frequency) prior to the
+														<em>EndDate</em>.</span><br>
+													<span
+														style="color: #808080;">Can
+														be
+														used to create ‘rolling’
+														reports
+														where the the
+														<em>EndDate</em>
+														can change but the row count
+														remains constant.</span>
+												</td>
+											</tr>
+											<tr>
+												<td style="text-align: right;"><span
+														style="color: #808080;">6</span>
+												</td>
+												<td><span style="color: #808080;">
+														CommonStart</span>
+												</td>
+												<td style="text-align: left;"><span
+														style="color: #808080;">Boolean</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #808080;">False</span>
+												</td>
+												<td><span style="color: #808080;">If
+														true, all returned datasets
+														will
+														have the latest common start
+														date.</span></td>
+											</tr>
+											<tr>
+												<td style="text-align: right;"><span
+														style="color: #808080;">7</span>
+												</td>
+												<td><span style="color: #808080;">
+														CommonEnd</span>
+												</td>
+												<td style="text-align: left;"><span
+														style="color: #808080;">Boolean</span>
+												</td>
+												<td style="text-align: center;">
+													<span style="color: #808080;">
+														False</span>
+												</td>
+												<td><span style="color: #808080;">If
+														true, all returned datasets
+														will
+														have the latest common end
+														date.</span></td>
+											</tr>
+											<tr>
+												<td style="text-align: right;"><span
+														style="color: #808080;">8</span>
+												</td>
+												<td><span style="color: #808080;">
+														CommonUA</span>
+												</td>
+												<td style="text-align: left;"><span
+														style="color: #808080;">Boolean</span>
+												</td>
+												<td style="text-align: center;">
+													<span style="color: #808080;">
+														True</span>
+												</td>
+												<td><span style="color: #808080;">If
+														true, the
+														<em>CommonStart </em> and
+														<em>ComonEnd</em> parameters
+														above use the user
+														permissioned
+														access dates as the earliest
+														and
+														latest dates available.<br>
+														If false, the dataset start
+														and
+														end dates are used – which
+														may
+														cause no access values to be
+														returned for dates where no
+														access is allowed to the
+														user.<br>
+														See the <em>NAValue</em>
+														parameter below and the
+														‘<em>“NA” (no
+															access)
+															values</em>‘ section
+														below
+														for more
+														information. </span></td>
+											</tr>
+											<tr>
+												<td style="text-align: right;"><span
+														style="color: #808080;">9</span>
+												</td>
+												<td><span style="color: #808080;">
+														DateFormat</span>
+												</td>
+												<td style="text-align: left;"><span
+														style="color: #808080;">String</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #808080;">“YYYY-MM-DD”</span>
+												</td>
+												<td><span
+														style="color: #808080;">The
+														date format to use in the
+														request and result. See
+														the ‘<em>DateFormat
+															Parameter</em>‘ section
+														below for details.</span>
+												</td>
+											</tr>
+											<tr>
+												<td style="text-align: right;"><span
+														style="color: #808080;">10</span>
+												</td>
+												<td><span style="color: #808080;">
+														DateOrder</span>
+												</td>
+												<td style="text-align: left;"><span
+														style="color: #808080;">String</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #808080;">“asc”</span>
+												</td>
+												<td><span
+														style="color: #808080;">The
+														date order for the result
+														rows.
+														There are 2 options,
+														“<strong>asc</strong>” for
+														ascending (the default)
+														and “desc” for
+														descending<em>.</em></span>
+												</td>
+											</tr>
+											<tr>
+												<td style="text-align: right;"><span
+														style="color: #808080;">11</span>
+												</td>
+												<td><span style="color: #808080;">
+														Prefill</span>
+												</td>
+												<td style="text-align: left;"><span
+														style="color: #808080;">Boolean</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #808080;">False</span>
+												</td>
+												<td><span
+														style="color: #808080;">Fills
+														missing values with the
+														previous
+														value or calculated fill
+														value.
+														Prefill is calculated
+														<strong>before </strong>the
+														<em>HandleWeekends
+														</em>parameter
+														in
+														<em>FrequencyOptions</em><em>.</em></span><br>
+													<span
+														style="color: #808080;">See
+														also the <em>Fill and
+															PostFill </em>parameters
+														below. See the
+														<em>PrefillOptions </em>
+														parameter below for
+														information
+														on the available fill
+														options. </span>
+												</td>
+											</tr>
+											<tr>
+												<td style="text-align: right;"><span
+														style="color: #808080;">12</span>
+												</td>
+												<td><span style="color: #808080;">
+														PrefillOptions</span>
+												</td>
+												<td style="text-align: left;"><span
+														style="color: #808080;">[Object]</span>
+												</td>
+												<td style="text-align: center;">
+												</td>
+												<td><span
+														style="color: #808080;">Fill
+														options that affects result
+														rows
+														containing <u>only</u> null
+														or <u>only</u> “NA”
+														values.<br>
+														See the ‘<em>Fill
+															Options</em>‘ table
+														below
+														for details on the available
+														settings. Also, refer to
+														the <em>‘Series object’</em>
+														table below for fill options
+														for
+														individual series.</span>
+												</td>
+											</tr>
+											<tr>
+												<td style="text-align: right;"><span
+														style="color: #808080;">13</span>
+												</td>
+												<td><span style="color: #808080;">
+														Fill</span>
+												</td>
+												<td style="text-align: left;"><span
+														style="color: #808080;">Boolean</span>
+												</td>
+												<td style="text-align: center;">
+													<span style="color: #808080;">
+														False</span>
+												</td>
+												<td><span
+														style="color: #808080;">Fills
+														missing values with the
+														previous
+														value or a calculated fill
+														value. Fill is calculated
+														<strong>after </strong>the
+														<em>HandleWeekends
+														</em>parameter
+														in
+														<em>FrequencyOptions</em><em>.<br>
+														</em>See the
+														<em>FillOptions
+														</em>parameter
+														s below for more
+														details.<em> </em></span>
+												</td>
+											</tr>
+											<tr>
+												<td style="text-align: right;"><span
+														style="color: #808080;">14</span>
+												</td>
+												<td><span style="color: #808080;">
+														FillOptions</span>
+												</td>
+												<td style="text-align: left;"><span
+														style="color: #808080;">[Object]</span>
+												</td>
+												<td style="text-align: center;">
+												</td>
+												<td><span
+														style="color: #808080;">Fill
+														options that affects result
+														rows
+														containing <u>only</u> null
+														or <u>only</u> “NA”
+														values.<br>
+														See the ‘<em>Fill
+															Options</em>‘ table
+														below
+														for details on the available
+														settings. Also, refer to
+														the <em>‘Series object’</em>
+														table below for fill options
+														for
+														individual series.</span>
+												</td>
+											</tr>
+											<tr>
+												<td style="text-align: right;"><span
+														style="color: #808080;">15</span>
+												</td>
+												<td><span style="color: #808080;">
+														Frequency</span>
+												</td>
+												<td style="text-align: left;"><span
+														style="color: #808080;">String</span>
+												</td>
+												<td style="text-align: center;">
+													<span style="color: #808080;">
+														“d”</span>
+												</td>
+												<td><span
+														style="color: #808080;">Calculate
+														any average from day to
+														year. See the
+														<em>FrequencyOptions</em>
+														parameter below for
+														details<em>.</em><em><br>
+														</em></span></td>
+											</tr>
+											<tr>
+												<td style="text-align: right;"><span
+														style="color: #808080;">16</span>
+												</td>
+												<td><span style="color: #808080;">
+														FrequencyOptions</span>
+												</td>
+												<td style="text-align: left;"><span
+														style="color: #808080;">[Object]</span>
+												</td>
+												<td style="text-align: center;">
+												</td>
+												<td><span
+														style="color: #808080;">Control
+														how frequency averages are
+														calculated. See
+														the
+														‘<em>FrequencyOptions</em>‘
+														table below for
+														more details .</span></td>
+											</tr>
+											<tr>
+												<td style="text-align: right;"><span
+														style="color: #808080;">17</span>
+												</td>
+												<td><span style="color: #808080;">
+														PostFill</span>
+												</td>
+												<td style="text-align: left;"><span
+														style="color: #808080;">Boolean</span>
+												</td>
+												<td style="text-align: center;">
+													<span style="color: #808080;">
+														False</span>
+												</td>
+												<td><span
+														style="color: #808080;">Identical
+														to the
+														<em>Prefill </em> and
+														<em>Fill </em>parameters
+														above
+														but calculated <strong>after
+														</strong>the <em>Frequency
+														</em>parameter<em>.<br>
+														</em>See the <em>Fill</em>
+														and<em> Prefill
+														</em>parameters
+														above for more details.<br>
+													</span></td>
+											</tr>
+											<tr>
+												<td style="text-align: right;"><span
+														style="color: #808080;">18</span>
+												</td>
+												<td><span style="color: #808080;">
+														PostFillOptions</span>
+												</td>
+												<td style="text-align: left;"><span
+														style="color: #808080;">[Object]</span>
+												</td>
+												<td style="text-align: center;">
+												</td>
+												<td><span
+														style="color: #808080;">Fill
+														options that affects result
+														rows
+														containing <u>only</u> null
+														or <u>only</u> “NA”
+														values.<br>
+														See the ‘<em>Fill
+															Options</em>‘ table
+														below
+														for details on the available
+														settings. Also, refer to
+														the <em>‘Series object’</em>
+														table below for fill options
+														for
+														individual series.</span>
+												</td>
+											</tr>
+											<tr>
+												<td style="text-align: right;"><span
+														style="color: #808080;">19</span>
+												</td>
+												<td><span style="color: #808080;">
+														Sparse</span>
+												</td>
+												<td style="text-align: left;"><span
+														style="color: #808080;">Boolean</span>
+												</td>
+												<td style="text-align: center;">
+												</td>
+												<td><span
+														style="color: #808080;">Allows
+														the removal of result rows
+														that
+														contain <u>only</u> null
+														values (removing only “NA”
+														rows is optional).<br>
+														See the
+														<em>SparseOptions
+														</em>parameter
+														below for more
+														details<em>.</em></span>
+												</td>
+											</tr>
+											<tr>
+												<td style="text-align: right;"><span
+														style="color: #808080;">20</span>
+												</td>
+												<td style="text-align: left;"><span
+														style="color: #808080;">SparseOptions</span>
+												</td>
+												<td style="text-align: left;"><span
+														style="color: #808080;">[Object]</span>
+												</td>
+												<td></td>
+												<td><span
+														style="color: #808080;">Allows
+														the removal of result rows
+														that
+														contain <u>only</u> null
+														values. You can also convert
+														“NA” (no access) rows to
+														nulls
+														or remove “NA” only
+														rows.</span><br>
+													<span
+														style="color: #808080;">See
+														the ‘<em>Sparse
+															Options’ </em>table
+														below for <span
+															style="color: #999999;">more
+														</span>details. </span>
+												</td>
+											</tr>
+											<tr>
+												<td style="text-align: right;"><span
+														style="color: #808080;">21</span>
+												</td>
+												<td><span
+														style="color: #808080;">Rounding</span>
+												</td>
+												<td style="text-align: left;"><span
+														style="color: #808080;">String</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #808080;">“auto”</span>
+												</td>
+												<td><span
+														style="color: #808080;">How
+														to
+														return decimal values in the
+														result. Rounding also
+														affects spark values and
+														corrections. </span><br>
+													<span
+														style="color: #808080;">Result
+														values are numbers and
+														cannot
+														contain trailing zeros. See
+														the
+														‘<em>Rounding
+															Parameter</em>‘ table
+														below
+														for more details.</span>
+												</td>
+											</tr>
+											<tr>
+												<td style="text-align: right;"><span
+														style="color: #808080;">22</span>
+												</td>
+												<td>NAValue</td>
+												<td style="text-align: left;"><span
+														style="color: #808080;">Various</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #808080;">null</span>
+												</td>
+												<td><span style="color: #808080;">
+														Set
+														the value to use for “NA”
+														(no
+														access) records. Can be
+														null, a number or a
+														string. </span><span
+														style="color: #808080;">See
+														the
+														‘<em>“NA” (no
+															access)
+															values</em>‘ section
+														below
+														for more details.</span>
+												</td>
+											</tr>
+											<tr>
+												<td style="text-align: right;"><span
+														style="color: #808080;">23</span>
+												</td>
+												<td><span
+														style="color: #808080;">ReturnMetadata</span>
+												</td>
+												<td style="text-align: left;"><span
+														style="color: #808080;">Boolean</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #808080;">False</span>
+												</td>
+												<td><span
+														style="color: #808080;">Return
+														in the result the full
+														dataset
+														metadata. See the
+														result ‘<em>Metadata
+															Object</em>‘ table below
+														for
+														details.</span></td>
+											</tr>
+											<tr>
+												<td style="text-align: right;"><span
+														style="color: #808080;">24</span>
+												</td>
+												<td><span
+														style="color: #808080;">ReturnAccess</span>
+												</td>
+												<td style="text-align: left;"><span
+														style="color: #808080;">Boolean</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #808080;">False</span>
+												</td>
+												<td><span style="color: #808080;">If
+														true, a <em>UserAccess</em>
+														object with the
+														available range for each
+														dataset
+														is returned (in the <span
+															style="font-family: inherit; font-size: inherit;"><em>Details</em>
+														</span>object).<br>
+														If the result
+														<em>Metadata</em>
+														parameter <em>Subscription
+														</em> is
+														not present or set to
+														“None”,
+														the <em>UserAccess</em>
+														object
+														is <strong>not</strong>
+														returned
+														as no subscription
+														exists.<span
+															style="font-family: inherit; font-size: inherit;"><br>
+															<span
+																style="color: #808080; font-family: inherit; font-size: inherit;">In</span>
+															a CategoryDS
+															datasource, the <em
+																style="font-family: inherit; font-size: inherit;">UserAccess</em>
+															object is located in
+															the
+															<em>UserCategoryList</em>
+															object which is in the
+															<em>DetailsDS</em>
+															object.<br>
+															<span
+																style="font-family: inherit; font-size: inherit; color: #808080;">See
+																the </span><em
+																style="font-family: inherit; font-size: inherit; color: #808080;">‘User
+																Access
+																Object’</em><span
+																style="font-family: inherit; font-size: inherit; color: #808080;">
+																table below for more
+																information.<br>
+															</span></span></span>
+												</td>
+											</tr>
+											<tr>
+												<td style="text-align: right;"><span
+														style="color: #808080;">25</span>
+												</td>
+												<td><span
+														style="color: #808080;">ReturnParameters</span>
+												</td>
+												<td style="text-align: left;"><span
+														style="color: #808080;">Boolean</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #808080;">True</span>
+												</td>
+												<td><span style="color: #808080;">If
+														true, a <em>Parameters</em>
+														object is returned in the
+														<em>Result</em> object. It
+														contains any </span><span
+														style="color: #808080;">request
+														parameters (and default
+														settings
+														used).</span></td>
+											</tr>
+										</tbody>
+									</table>
+
+									<div class="single-notes notes-indent">
+										<div> Notes</div>
+										<ul>
+											<li>Order of calculation
+												is: <em>Prefill</em>,
+												<em>HandleWeekends</em>,
+												<em>Fill</em>,
+												<em>Frequency</em> average,
+												<em>PostFill</em> and
+												<em>Sparse</em>.
+											</li>
+											<li>Add weekends to ‘5 day week’ daily
+												values in the result by setting
+												<em>HandleWeekends</em> to ‘7’ or
+												‘7F’. See the
+												‘<em>HandleWeekends Paramete</em>r’
+												table below.
+												<div class="api-article-table">
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="api-article-table">
+						<div class="api-article-table">
+							<div>
+								<div class="api-article-table">
+									<div class="api-article-table">
+										<div class="api-article-table">
+											<div class="api-article-table">
+												<div
+													class="single-notes notes-indent">
+													<div> Missing values
+													</div>
+
+													<p><span
+															style="color: #333333;">For
+															dates with no published
+															values,
+															missing values are
+															returned as
+														</span><strong>null</strong>
+														<span
+															style="color: #333333;">values
+															e.g:<br>
+															“2017-12-25”: [
+														</span><strong>null</strong><span
+															style="color: #333333;">,
+															62.37, 62.57
+															]</span></p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="api-article-table">
+										<div class="api-article-table">
+											<div class="api-article-table">
+												<div class="api-article-table">
+													<div class="api-article-table">
+
+														<div
+															class="single-notes notes-indent">
+															<div>“NA” (no
+																access) values</div>
+
+															<p>
+																Values that are in
+																the
+																dataset but to which
+																the
+																subscriber has no
+																access
+																are referred to as
+																“NA”
+																(no access)
+																values. By default
+																“NA” values are
+																returned
+																as
+																<strong>null</strong>.<br>
+																This default “NA”
+																value
+																can be changed using
+																the
+																optional request
+																parameter
+																“<em>NAValue</em>”
+																and
+																defining it to
+																return
+																a
+																<strong>null</strong>,
+																a number or a string
+																(text in quotes).
+															</p>
+															<p>
+
+
+																E.g:
+																“NAValue”:
+																<strong>null
+																</strong> or
+																“NAValue”:
+																-9999.99
+																or
+																“NAValue”: “N/A”.
+
+
+																“NA” values use is
+																controlled by the
+																<em>Fill
+																	Options/Type</em>
+																and
+																the
+																<em>SparseOptions</em>
+																parameters.
+															</p>
+														</div>
+
+
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="api-article-table">
+										<div class="single-notes notes-indent">
+											<div>CategoryDS datasources
+											</div>
+											<ul>
+												<li>A CategoryDS is a datasource
+													whose
+													datasets are grouped into data
+													categories. The subscriber must
+													be
+													authorised to access individual
+													data
+													categories.</li>
+												<li>A CategoryDS is identified when
+													the result dataset object
+													parameter <em>IsCategoryDS</em>
+													is set to true.</li>
+												<li>The <em>Datacategory</em>
+													parameter
+													must be used in all data
+													requests to a
+													CategoryDS datasource.</li>
+												<li>In a GET command this takes the
+													form:
+													[DATASOURCE]<strong>/</strong>[DATACATEGORY]<strong>/</strong>[SYMBOL].
+												</li>
+												<li>In a POST command, the data
+													category is
+													inserted between the datasource
+													and symbol e.g. ” {“Datasource”
+													: “AAA”,
+													“Datacategory” : “BBB”, “Symbol”
+													:
+													“CCCC”, ….</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<p> </p>
+						</div>
+					</div>
+					<p> </p>
+					<h3 style="padding-left: 30px;">Series Object</h3>
+					<p style="padding-left: 30px;">The following parameters can be
+						used
+						in the ‘Series’ section of the request for each symbol.<br>
+						Individual series object settings override any default
+						settings
+						or settings made in the main request body.</p>
+					<div class="api-article-table">
+						<table style="margin-left: 30px; height: 559px;"
+							width="1470">
+							<tbody>
+								<tr>
+									<td style="text-align: right;"></td>
+									<td><strong>Parameter</strong></td>
+									<td style="text-align: left;">
+										<strong>Type</strong>
+									</td>
+									<td><strong>Mandatory</strong></td>
+									<td style="text-align: center;">
+										<strong>Default</strong>
+									</td>
+									<td><strong>Description</strong></td>
+								</tr>
+								<tr>
+									<td style="text-align: right;"><span
+											style="color: #000000;">1</span></td>
+									<td><span style="color: #000000;">
+											Datasource</span>
+									</td>
+									<td style="text-align: left;"><span
+											style="color: #000000;">String</span>
+									</td>
+									<td style="text-align: center;"><span
+											style="color: #000000;">Yes</span></td>
+									<td style="text-align: center;"></td>
+									<td><span style="color: #000000;">The datasource
+											ID.</span></td>
+								</tr>
+								<tr>
+									<td style="text-align: right;"><span
+											style="color: #999999;">2</span></td>
+									<td><span style="color: #999999;">
+											Datacategory</span>
+									</td>
+									<td style="text-align: left;"><span
+											style="color: #999999;">String</span>
+									</td>
+									<td style="text-align: center;"><span
+											style="color: #999999;"> No</span>*
+									</td>
+									<td style="text-align: center;"></td>
+									<td><span style="color: #999999;">The datasource
+											category name used in ‘CategoryDS’
+											datasources only. <span
+												style="color: #808080;">See the
+												‘<em>CategoryDS
+													datasources</em>‘ section at the
+												top
+												of this page.</span></span></td>
+								</tr>
+								<tr>
+									<td style="text-align: right;"><span
+											style="color: #000000;">3</span></td>
+									<td><span style="color: #000000;"> Symbol</span>
+									</td>
+									<td style="text-align: left;"><span
+											style="color: #000000;">String</span>
+									</td>
+									<td style="text-align: center;"><span
+											style="color: #000000;">Yes</span></td>
+									<td style="text-align: center;"></td>
+									<td><span style="color: #000000;">The dataset ID
+											(market identifier, symbol or
+											code).</span>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: right;"><span
+											style="color: #808080;">4</span></td>
+									<td><span style="color: #808080;">
+											BateIndex</span>
+									</td>
+									<td style="text-align: left;"><span
+											style="color: #808080;">Array</span>
+									</td>
+									<td style="text-align: center;"><span
+											style="color: #808080;">No</span></td>
+									<td style="text-align: center;"><span
+											style="color: #808080;">All</span></td>
+									<td><span style="color: #808080;">The bate
+											column
+											numbers to be returned in result as an
+											integer array.</span></td>
+								</tr>
+								<tr>
+									<td style="text-align: right;"><span
+											style="color: #808080;">5</span></td>
+									<td><span style="color: #808080;">
+											LeadLag</span>
+									</td>
+									<td style="text-align: left;"><span
+											style="color: #808080;">Integer</span>
+									</td>
+									<td style="text-align: center;"><span
+											style="color: #808080;">No</span></td>
+									<td style="text-align: center;"><span
+											style="color: #808080;">0</span></td>
+									<td><span style="color: #808080;">A simple phase
+											shift adjustment of the datasource
+											values
+											+/- a number of days. For example, a
+											LeadLag of -3 would move all values in
+											the
+											range back 3 days. It is often used to
+											align
+											the values of one dataset with
+											another.</span></td>
+								</tr>
+								<tr>
+									<td style="text-align: right;"><span
+											style="color: #808080;">6</span></td>
+									<td><span style="color: #808080;">
+											Prefill</span>
+									</td>
+									<td style="text-align: left;"><span
+											style="color: #808080;">Boolean</span>
+									</td>
+									<td style="text-align: center;"><span
+											style="color: #808080;">No</span></td>
+									<td style="text-align: center;"><span
+											style="color: #808080;">False</span>
+									</td>
+									<td><span style="color: #808080;">Fills missing
+											values in the result. Prefill is
+											calculated
+											<strong>before </strong>the
+											<em>HandleWeekends </em>parameter
+											in
+											<em>FrequencyOptions</em><em>.</em></span><br>
+										<span style="color: #808080;">See also
+											the <em>Fill and
+												PostFill </em>parameters below. See
+											the <em>PrefillOptions </em> parameter
+											below for information on the available
+											fill
+											options.</span>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: right;"><span
+											style="color: #808080;">7</span></td>
+									<td><span style="color: #808080;">
+											HandleWeekends</span>
+									</td>
+									<td style="text-align: left;"><span
+											style="color: #808080;">String</span>
+									</td>
+									<td style="text-align: center;"><span
+											style="color: #808080;">No</span></td>
+									<td style="text-align: center;"><span
+											style="color: #808080;">“auto”</span>
+									</td>
+									<td><span style="color: #808080;">Control how
+											weekends are handled in the source data.
+											See the ‘<em>HandleWeekends
+												Parameter’</em> table below for
+											details.</span></td>
+								</tr>
+								<tr>
+									<td style="text-align: right;"><span
+											style="color: #808080;">8</span></td>
+									<td><span style="color: #808080;"> Fill</span>
+									</td>
+									<td style="text-align: left;"><span
+											style="color: #808080;">Boolean</span>
+									</td>
+									<td style="text-align: center;"><span
+											style="color: #808080;">No</span></td>
+									<td style="text-align: center;"><span
+											style="color: #808080;">False</span>
+									</td>
+									<td><span style="color: #808080;">Fills missing
+											values in the result. Fill is calculated
+											<strong>after </strong>the
+											<em>HandleWeekends </em>parameter
+											in <em>FrequencyOptions</em><em>.<br>
+											</em>See the
+											<em>FillOptions </em>parameter s below
+											for more details.</span></td>
+								</tr>
+								<tr>
+									<td style="text-align: right;"><span
+											style="color: #808080;">9</span></td>
+									<td><span style="color: #808080;">
+											Rounding</span>
+									</td>
+									<td style="text-align: left;"><span
+											style="color: #808080;">String</span>
+									</td>
+									<td style="text-align: center;"><span
+											style="color: #808080;">No</span></td>
+									<td style="text-align: center;"><span
+											style="color: #808080;">“auto”</span>
+									</td>
+									<td><span style="color: #808080;">How numeric
+											values
+											are formatted in the result. Refer to
+											the <em>Rounding</em> request parameter
+											above for details.</span></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="api-article-table">
+
+						<div class="single-notes notes-indent"
+							style="margin-left: 48px;">
+							<div>CategoryDS datasources</div>
+							<ul>
+								<li style="list-style-type: none;">
+									<ul style="margin-left: 0px;">
+										<li style="list-style-type: none;">
+											<ul style="margin-left: 0px;">
+												<li>A CategoryDS is a datasource
+													whose
+													datasets are subdivided into
+													data
+													categories. See the <span
+														style="color: #000000;">‘<em>Notes
+															on CategoryDS
+															datasources’</em></span>
+													section
+													above for details.</li>
+												<li>Order of calculation is:
+													<em>LeadLag</em>,
+													<em>Prefill</em>,
+													<em>HandleWeekends</em>,
+													<em>Fill</em>,
+													and <em>PostFill. </em>There is
+													no <em>Frequency</em> average
+													or <em>Sparse</em> parameter in
+													the
+													series object.
+												</li>
+												<li>The <em>Prefill</em>,
+													<em>Fill</em> and
+													<em>PostFill</em> are configured
+													using the global request <span
+														style="color: #000000;"><em>PrefillOptions</em>,
+														<em>FillOptions</em>
+														and <em>PostFillOptions
+														</em></span>parameters.
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="api-article-table"></div>
+					<p> </p>
+					<h3 style="padding-left: 30px;">Frequency Parameter</h3>
+					<p style="padding-left: 30px;">Use a code below in the
+						<em>frequency</em> parameter of the request to set the
+						calculated frequency for <strong>ALL</strong> series.
+					</p>
+					<div class="api-article-table">
+						<table class="table table-bordered"
+							style="margin-left: 30px; height: 841px;" width="1269">
+							<thead>
+								<tr>
+									<th style="text-align: center;">#</th>
+									<th>Code</th>
+									<th style="text-align: left;">Frequency</th>
+									<th style="text-align: left;">
+										<strong>Description</strong>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style="text-align: center;"> 1</td>
+									<td style="text-align: center;">
+										“<strong>d”</strong></td>
+									<td style="text-align: left;">
+										<strong>Day</strong>
+									</td>
+									<td>One value per day. A 5 day week is
+										normally used unless any dataset in the
+										request
+										has weekend data.<br>
+										See the request <em>FrequencyOptions</em>
+										parameter <em>HandleWeekends</em> for
+										more detailed information.</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;"> 2</td>
+									<td style="text-align: center;">
+										“w”<strong>*</strong></td>
+									<td>Week</td>
+									<td>By default a week runs from Monday to Sunday
+										(ISO-8601). Many series do not have
+										weekend values and end on Friday.<p></p>
+										<p><strong>*</strong>A “Custom” week can
+											be created by changing the
+											request <em>Frequency</em> parameter to
+											“<strong>cw</strong>” and setting
+											the day the week begins (1 is
+											Monday and 7 is Sunday) using the week
+											<em>FrequencyOptions </em>parameter
+											<em>StartDay</em>. e.g.
+											…&amp;Frequency=cw;StartDay=1.
+										</p>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;"> 3</td>
+									<td style="text-align: center;">
+										“hm”<strong>*</strong></td>
+									<td>Half-month</td>
+									<td>Create two averages per month with the
+										default
+										ranges of days 1-15 and days 16 to 31 (end
+										of
+										month).<p></p>
+										<p><strong>*</strong>A “Custom” half month
+											can
+											be created by changing the
+											request <em>Frequency</em> parameter to
+											“<strong>chm</strong>” and selecting
+											two custom half month ranges using
+											the <em>FrequencyOptions</em>
+											parameters: <em>StartDay, </em>
+											<em>EndDay,
+												StartDay2 </em>and<em> EndDay2.<br>
+											</em>The custom half month ranges can
+											overlap (e.g. 1-16, 14-30).
+											e.g. …&amp;Frequency=chm;
+											StartDay=1; EndDay=16; StartDay2=14;
+											EndDay2=3<em>0.</em></p>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;"> 4</td>
+									<td style="text-align: center;">
+										“m”<strong>*</strong></td>
+									<td>Month</td>
+									<td>A full calendar month.<p></p>
+										<p><strong>*</strong>A “Custom” month can be
+											created by changing the
+											request <em>Frequency</em> parameter to
+											“<strong>cm</strong>” and selecting the
+											days to use in the average
+											using the <em>FrequencyOptions
+											</em>parameters
+											<em>StartDay</em> and
+											<em>EndDay. </em>The range
+											selected can extend to the following
+											(next)
+											month.<br>
+											For example to select the 16th of one
+											month to the 15th of the following month
+											you
+											can select:
+											…&amp;Frequency=cm; StartDay=16;
+											EndDay=15
+										</p>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;"> 5</td>
+									<td style="text-align: center;">
+										“q”<strong>*</strong></td>
+									<td>Quarter</td>
+									<td>Quarterly averages. There are four
+										averages per year using months: 1-3, 4-6,
+										7-9
+										and 10-12.<p></p>
+										<p>*A “Custom” quarterly average can be
+											created by changing the
+											request <em>Frequency</em> parameter to
+											“<strong>cq</strong>” and setting the
+											<em>FrequencyOptions </em>parameters
+											using the custom “Month” settings above.
+										</p>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">6</td>
+									<td style="text-align: center;">
+										“hy”<strong>*</strong></td>
+									<td>Half-year</td>
+									<td>Half year averages. Averages are for months
+										1-6
+										and 7-12.<p></p>
+										<p>*A “Custom” half year average can be
+											created by changing the
+											request <em>Frequency</em> parameter to
+											“<strong>chy</strong>” and setting the
+											<em>FrequencyOptions </em>parameters
+											using the custom “Month” settings above.
+										</p>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;"> 7</td>
+									<td style="text-align: center;">
+										“y”<strong>*</strong></td>
+									<td>Year</td>
+									<td>A full year of months 1-12.<p></p>
+										<p>*A “Custom” year average can be created
+											by changing the
+											request <em>Frequency</em> parameter to
+											“<strong>cy</strong>” and setting the
+											<em>FrequencyOptions </em>parameters
+											using the custom “Month” settings above.
+										</p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<p> </p>
+					<div class="api-article-table" style="padding-left: 30px;">
+						<div></div>
+					</div>
+					<h3 style="padding-left: 30px;">FrequencyOption Parameter</h3>
+					<p style="padding-left: 30px;">The following parameters can be
+						used
+						to adjust the default frequency settings for
+						<strong>ALL</strong> series.
+					</p>
+					<div class="api-article-table">
+						<table style="height: 396px; margin-left: 30px;"
+							width="1225">
+							<tbody>
+								<tr>
+									<td style="text-align: right;"></td>
+									<td><span
+											style="color: #333333;"><strong>Parameter</strong></span>
+									</td>
+									<td><span
+											style="color: #333333;"><strong>Type</strong></span>
+									</td>
+									<td><span
+											style="color: #333333;"><strong>Mandatory</strong></span>
+									</td>
+									<td><span
+											style="color: #333333;"><strong>Default</strong></span>
+									</td>
+									<td><span
+											style="color: #333333;"><strong>Notes</strong></span>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: right;"><span
+											style="color: #808080;">1</span></td>
+									<td><span
+											style="color: #808080;">HandleWeekends</span>
+									</td>
+									<td><span style="color: #808080;">String</span>
+									</td>
+									<td style="text-align: center;"><span
+											style="color: #808080;">No</span></td>
+									<td style="text-align: center;"><span
+											style="color: #808080;"> “auto”</span>
+									</td>
+									<td><span style="color: #808080;">How weekends
+											are
+											handled in the source data. Options
+											are: ‘5’, ‘5w’, ‘7’, ‘7F’ and
+											‘auto’.<br>
+											See the ‘<em>HandleWeekends
+												Parameter</em>‘
+											table below for details on how this can
+											affect the dataset values.</span></td>
+								</tr>
+								<tr>
+									<td style="text-align: right;"><span
+											style="color: #808080;">2</span></td>
+									<td><span
+											style="color: #808080;">AllowWeekends</span>
+									</td>
+									<td><span style="color: #808080;">String</span>
+									</td>
+									<td style="text-align: center;"><span
+											style="color: #808080;">No</span></td>
+									<td style="text-align: center;"><span
+											style="color: #808080;">“auto”</span>
+									</td>
+									<td><span style="color: #808080;">Choose if
+											averages
+											that fall on weekends return weekend
+											dates
+											in the result. Options are: ‘on’, ‘off’,
+											‘auto’.</span><br>
+										<span style="color: #808080;">See the
+											‘<em>AllowWeekends
+												Parameter</em>‘ table
+											below for details.</span>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: right;"><span
+											style="color: #808080;">3</span></td>
+									<td><span
+											style="color: #808080;">StartDay</span>
+									</td>
+									<td><span style="color: #808080;">Integer</span>
+									</td>
+									<td style="text-align: center;"><span
+											style="color: #808080;"> No</span></td>
+									<td style="text-align: center;"><span
+											style="color: #808080;">1</span></td>
+									<td><span style="color: #808080;">For a week the
+											value can be 1-7 (1 =
+											Monday).</span><br>
+										<span style="color: #808080;">For a month
+											it is the first day of the month to be
+											used.</span><br>
+										<span style="color: #808080;">For a
+											half-month it is the first day of the
+											first period. Range is
+											1-31.</span>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: right;"><span
+											style="color: #808080;">4</span></td>
+									<td><span style="color: #808080;">EndDay</span>
+									</td>
+									<td><span style="color: #808080;">Integer</span>
+									</td>
+									<td style="text-align: center;"><span
+											style="color: #808080;"> No</span></td>
+									<td style="text-align: center;"><span
+											style="color: #808080;">
+											31<strong>*</strong></span>
+									</td>
+									<td><span style="color: #808080;">For month and
+											half-month only. For month it defines
+											the last day of the month. For
+											half-month it defines the last day of
+											the <em>first</em> period to use.
+											Range is 1-31. The default is 31 for
+											month and 15 for half month.</span>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: right;"><span
+											style="color: #808080;">5</span></td>
+									<td><span
+											style="color: #808080;">StartDay2</span>
+									</td>
+									<td><span style="color: #808080;">Integer</span>
+									</td>
+									<td style="text-align: center;"><span
+											style="color: #808080;"> No</span></td>
+									<td style="text-align: center;"><span
+											style="color: #808080;">16</span></td>
+									<td><span style="color: #808080;">For custom
+											half-month only. It is the first day of
+											the
+											second period of the calculation.
+											Range is 1-31. The default is
+											16.</span></td>
+								</tr>
+								<tr>
+									<td style="text-align: right;"><span
+											style="color: #808080;">6</span></td>
+									<td><span style="color: #808080;">EndDay2</span>
+									</td>
+									<td><span style="color: #808080;">Integer</span>
+									</td>
+									<td style="text-align: center;"><span
+											style="color: #808080;"> No</span></td>
+									<td style="text-align: center;"><span
+											style="color: #808080;">31</span></td>
+									<td><span style="color: #808080;">For custom
+											half-month only. It is the last day of
+											the
+											second period in the calculation.
+											Range is 1-31. The default is
+											31.</span></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="api-article-table" style="padding-left: 30px;">
+						<div></div>
+						<div class="api-article-table">
+							<div class="api-article-table">
+								<div class="api-article-table">
+									<h3 style="padding-left: 30px;"></h3>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="api-article-table">
+						<h3 style="padding-left: 30px;">DateFormat Parameter</h3>
+					</div>
+					<p style="padding-left: 30px;">You can control the format of
+						dates
+						that are used in the request and returned in the result.</p>
+					<p style="padding-left: 30px;">If used, the date separator is
+						the
+						character between the day, month and year values and can be
+						one
+						of 4 characters:</p>
+					<p style="padding-left: 60px;">“<strong>–</strong>“<strong>
+							– hyphen or dash</strong><br>
+						“/” – forward slash<br>
+						“.” – dot or full stop<br>
+						” ” – space</p>
+					<div class="api-article-table">
+						<div class="api-article-table">
+							<div class="api-article-table">
+								<div class="api-article-table">
+									<div class="api-article-table"
+										style="padding-left: 0px;">
+										<table class="table table-bordered"
+											style="margin-left: 60px;">
+											<thead>
+												<tr>
+													<th style="text-align: left;">
+														Format
+													</th>
+													<th style="text-align: left;">
+														Result
+														Dates</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td><strong> “YYYY-MM-DD”
+														</strong>
+													</td>
+													<td>Formatted as 2018-01-22.
+														(default).</td>
+												</tr>
+												<tr>
+													<td> “YYYY-DD-MM”</td>
+													<td>Formatted as 2018-22-01.
+													</td>
+												</tr>
+												<tr>
+													<td> “YYYYMMDD”</td>
+													<td>Formatted as 20180122.</td>
+												</tr>
+												<tr>
+													<td> “YYYYDDMM”</td>
+													<td>Formatted as 20182201.</td>
+												</tr>
+												<tr>
+													<td> “MM-DD-YYYY”</td>
+													<td>Formatted as 01-22-2018.
+													</td>
+												</tr>
+												<tr>
+													<td> “DD-MM-YYYY”</td>
+													<td>Formatted as 22-01-2018.
+													</td>
+												</tr>
+												<tr>
+													<td> “EXCEL”</td>
+													<td>Formatted as numbers
+														where 1/1/1976 = 27760.</td>
+												</tr>
+												<tr>
+													<td> “JULIAN”</td>
+													<td>Formatted as the number of
+														days
+														since ’12h Jan 1, 4713 BC’.
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="api-article-table">
+									<div class="api-article-table"
+										style="padding-left: 60px;">
+
+										<div class="api-article-table">
+											<div class="api-article-table">
+												<div
+													class="single-notes notes-indent">
+													<div> Note</div>
+														<p>In the examples above we use the	“-” date separator character. You can replace
+															this character with any of the other three separators
+															characters.  If you require 2 character years, replace “YYYY” with “YY” in the formats above.
+														</p>
+
+												</div>
+											</div>
+											<div></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="api-article-table">
+						<h3></h3>
+						<h3></h3>
+						<h3 style="padding-left: 30px;">Fill Options</h3>
+						<p style="padding-left: 30px;">This option works with all
+							three
+							fill options: <em>Prefill</em>, <em>Fill</em> and
+							<em>PostFill</em>.<br>
+							Some datasets in the request range may have leading or
+							trailing rows containing null or “NA” (no access) values. Null
+							values	mean there are no values in that dataset for the
+							corresponding date. An “NA” value means that a value may
+							exist but the subscription does not allow access to it.<br>
+							Please refer to the <em>Sparse</em> parameter and
+							the<em>
+								"SparseOptions Parameter"</em> table below for more
+							how
+							these values can be changed or removed.
+						</p>
+						<p style="padding-left: 30px;">The fill options allow
+							control of
+							how rows containing <strong>only</strong> null/”NA”
+							values are filled.<br>
+							The values to replace are defined in the <em>Style</em>
+							parameter.</p>
+						<p style="padding-left: 30px;">There are 5 fill options:</p>
+						<div class="api-article-table">
+							<table class="table table-bordered"
+								style="margin-left: 30px;">
+								<thead>
+									<tr>
+										<th style="text-align: left;">Option</th>
+										<td><strong>Type</strong></td>
+										<td style="text-align: center;">
+											<strong>Mandatory </strong>
+										</td>
+										<td style="text-align: center;">
+											<strong>Default </strong>
+										</td>
+										<td><strong>Description</strong></td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td style="text-align: left;"><span
+												style="color: #808080;">Leading</span>
+										</td>
+										<td><span style="color: #808080;">
+												Boolean</span>
+										</td>
+										<td style="text-align: center;"><span
+												style="color: #808080;"> No</span>
+										</td>
+										<td style="text-align: center;"><span
+												style="color: #808080;">
+												False</span>
+										</td>
+										<td><span style="color: #808080;">If true,
+												any
+												missing
+												values <u>before</u> the
+												<strong>first</strong> value is
+												filled
+												<u>forwards</u> using the previous
+												valid value and applied using the
+												selected
+												Fill <em>Style</em> and using
+												the <em>Type</em>
+												parameters.</span><br>
+											<span style="color: #808080;">If no
+												previous value exists no leading
+												fill is used.</span>
+										</td>
+									</tr>
+									<tr>
+										<td style="text-align: left;"><span
+												style="color: #808080;">Trailing</span>
+										</td>
+										<td><span style="color: #808080;">
+												Boolean</span>
+										</td>
+										<td style="text-align: center;"><span
+												style="color: #808080;"> No</span>
+										</td>
+										<td style="text-align: center;"><span
+												style="color: #808080;"> True</span>
+										</td>
+										<td><span style="color: #808080;">Missing
+												value
+												rows <u>after</u> the
+												<strong>last</strong> value are
+												filled
+												to the right using the last
+												value and applied using the
+												selected
+												Fill <em>Style</em> (see the
+												<em>Style</em> and <em>Type</em>
+												parameters below).</span><br>
+											<span style="color: #808080;">When the
+												fill
+												<em>Type</em> is
+												‘<em>midpoint</em>‘ or
+												‘<em>interpolate</em>‘, trailing
+												filled
+												values can only be calculated if
+												there
+												is a value available after the last
+												result (necessary to calculate
+												midpoint
+												or interpolate values).</span>
+										</td>
+									</tr>
+									<tr>
+										<td style="text-align: left;"><span
+												style="color: #808080;">Values</span>
+										</td>
+										<td><span style="color: #808080;">
+												Boolean</span>
+										</td>
+										<td style="text-align: center;"><span
+												style="color: #808080;"> No</span>
+										</td>
+										<td style="text-align: center;"><span
+												style="color: #808080;">True</span>
+										</td>
+										<td><span style="color: #808080;">Missing
+												value
+												rows between the first <u>and</u>
+												last rows are filled to the right.
+												Please refer to
+												the <em>Style</em> and
+												<em>Trailing</em> parameters in this
+												table.</span></td>
+									</tr>
+									<tr>
+										<td style="text-align: left;"><span
+												style="color: #808080;">Style</span>
+										</td>
+										<td><span style="color: #808080;">
+												String</span>
+										</td>
+										<td style="text-align: center;"><span
+												style="color: #808080;"> No</span>
+										</td>
+										<td style="text-align: center;"><span
+												style="color: #808080;">“null”</span>
+										</td>
+										<td><span style="color: #808080;">Chose what
+												values are to be filled. See the
+												‘<em>Fill Style’</em> table below
+												for details.</span></td>
+									</tr>
+									<tr>
+										<td style="text-align: left;"><span
+												style="color: #808080;">Type</span>
+										</td>
+										<td><span style="color: #808080;">
+												String</span>
+										</td>
+										<td style="text-align: center;"><span
+												style="color: #808080;"> No</span>
+										</td>
+										<td style="text-align: center;"><span
+												style="color: #808080;"><strong>“</strong>previous<strong>“</strong></span>
+										</td>
+										<td><span style="color: #808080;">The type
+												of
+												fill calculation to be used. See
+												the ‘<em>Fill Type’</em> table below
+												for
+												details.</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="api-article-table">
+						<h3 style="padding-left: 90px;">Fill Style</h3>
+						<p style="padding-left: 90px;">Choose what characters to
+							treat
+							as ‘missing values’ using the fill function. You can
+							choose to fill: null (no values), “NA” (no access
+							allowed) or both null and “NA” values.</p>
+						<div class="api-article-table">
+							<table class="table table-bordered"
+								style="margin-left: 90px;">
+								<thead>
+									<tr>
+										<th style="text-align: left;">Option</th>
+										<th style="text-align: left;">
+											<strong>Description</strong>
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td style="text-align: left;">
+											<strong>“null”</strong>
+										</td>
+										<td>Rows containing only null values are
+											filled.
+											This is the default setting.</td>
+									</tr>
+									<tr>
+										<td style="text-align: left;">“na'”</td>
+										<td>Rows containing only “NA” values are
+											filled.
+										</td>
+									</tr>
+									<tr>
+										<td style="text-align: left;">“both”</td>
+										<td>Rows containing both null and “NA”
+											values are filled.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="api-article-table">
+						<h3 style="padding-left: 90px;">Fill Type</h3>
+						<p style="padding-left: 90px;">Missing values (matching the
+							selected ‘<em>Fill Style</em>‘ above) can be filled in
+							using
+							one of the methods below.<br>
+							Fill type is always “previous” for any leading and
+							trailing
+							fills.</p>
+						<div class="api-article-table">
+							<table class="table table-bordered"
+								style="margin-left: 90px; height: 215px;"
+								width="1065">
+								<thead>
+									<tr>
+										<th style="text-align: left;">Option</th>
+										<th style="text-align: left;">
+											<strong>Description</strong>
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td style="text-align: left;">
+											<strong>“previous”</strong>
+										</td>
+										<td>Missing values are filled by using the
+											<strong>previous </strong>value (from
+											oldest
+											to newest).<br>
+											For example, if we had data values of
+											<strong>10, nul, nul, 13</strong>
+											then after a “previous” fill we would
+											have the values: <strong> 10, 10, 10,
+												13</strong>.
+										</td>
+									</tr>
+									<tr>
+										<td style="text-align: left;">“midpoint”
+										</td>
+										<td>Missing values are replaced with a
+											value mid value between the previous and
+											next valid data points in the
+											dataset.<br>
+											For example, if we had data values
+											of <strong>10, nul, nul,
+												13</strong> then after a
+											“median” fill we would have the
+											values: <strong> 10, 11.5, 11.5,
+												13</strong>.</td>
+									</tr>
+									<tr>
+										<td style="text-align: left;">“interpolate”
+										</td>
+										<td>Linear interpolation is a method of
+											curve
+											fitting using linear polynomials to
+											create
+											new data points in the dataset for
+											missing
+											values.<br>
+											For example, if we had data values
+											of <strong>10, nul, nul,
+												13</strong> then after a
+											“median” fill we would have the
+											values: <strong> 10, 11, 12,
+												13</strong>.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<p> </p>
+					<div class="api-article-table">
+						<h3 style="padding-left: 30px;">Rounding Parameter</h3>
+						<p style="padding-left: 30px;">Used to control how numbers
+							are
+							formatted for values in the result. Rounding can be
+							applied
+							globally or to an individual series.<br>
+							If the <em>Rounding</em> parameter is missing from the
+							request, the default setting of “A” (or “auto”)
+							is used.</p>
+						<div class="api-article-table" style="padding-left: 60px;">
+						</div>
+						<div class="api-article-table" style="padding-left: 60px;">
+							<table class="table table-bordered">
+								<thead style="padding-left: 60px;">
+									<tr style="padding-left: 60px;">
+										<th>Option</th>
+										<th style="text-align: left;">Description
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td style="text-align: center;">
+											<strong>“auto”</strong>
+										</td>
+										<td> A decimal value defined in the
+											datasource metadata is used. If none is
+											present, the ‘off’ option below is
+											used (default). Can be “A” or “auto”.
+										</td>
+									</tr>
+									<tr>
+										<td style="text-align: center;">“off”</td>
+										<td> Values are returned raw (as stored in
+											the database).</td>
+									</tr>
+									<tr>
+										<td style="text-align: center;">Integer</td>
+										<td> An integer <strong>string</strong>
+											value defining the number of decimal
+											places
+											to use in the result. e.g.
+											“Rounding”:”4″.
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<div class="single-notes notes-indent"
+							style="margin-left: 78px;">
+							<div> Note</div>
+							<p> The
+								<em>Rounding</em> option is used to display a
+								formatted
+								value and should not be used on a value that may
+								later be
+								used in a calculation as it may skew the result.
+							</p>
+						</div>
+						<div class="api-article-table"></div>
+					</div>
+					<div class="api-article-table">
+						<h3 style="padding-left: 30px; text-align: left;"></h3>
+						<div class="api-article-table">
+							<h3 style="padding-left: 30px; text-align: left;">
+								SparseOptions Parameter</h3>
+							<p style="padding-left: 30px;">The
+								<em>SparseOptions</em>
+								object allows you to define the missing and/or “NA”
+								(no
+								access) rows to remove from the JSON result.</p>
+							<p style="padding-left: 90px;">A “missing value” row is
+								a result row where there are no values available for
+								the date.</p>
+							<p style="padding-left: 90px;">An “NA” (no access) row
+								is a
+								row where there are values available for the date
+								but
+								your subscription does not allow you access.</p>
+							<ul style="padding-left:60px; line-height:30px;">
+								<li>Sparse is automatically applied to “NA”
+									values. You can however exclude “NA” values by
+									setting the <span
+										style="color: #333333;"><em>IncludeNA </em>
+										parameter below to false. </span>
+								</li>
+								<li>In this <em>GetValuesRC </em> endpoint
+									(where all datasets are returned in a single Row
+									x
+									Column format), sparse applies to all bate
+									columns
+									(from <strong>all</strong> series) in each
+									result
+									row.</li>
+								<li>Due to JSON design limitations, both missing and
+									“NA” values are returned as null. U<span>se
+										the request parameter <em>NAValue</em>
+										parameter to change the returned “NA” value
+										to a
+										null, number or string. See the
+										“<span style="color: #000000;"><em>"NA" (no access) values</em>” section
+											above
+											for more
+											details<strong>.</strong></span></span>
+								</li>
+							</ul>
+						</div>
+						<p style="padding-left: 60px;">The Sparse object has 5
+							options:</p>
+						<div class="api-article-table">
+							<div class="api-article-table">
+								<table class="table table-bordered"
+									style="margin-left: 90px;">
+									<thead>
+										<tr>
+											<th style="text-align: left;">Option
+											</th>
+											<td><strong>Type</strong></td>
+											<td style="text-align: center;">
+												<strong>Default </strong>
+											</td>
+											<td><strong>Description</strong></td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td style="text-align: left;"><span
+													style="color: #333333;">Leading</span>
+											</td>
+											<td><span style="color: #333333;">
+													Boolean</span>
+											</td>
+											<td style="text-align: center;"><span
+													style="color: #333333;">True</span>
+											</td>
+											<td><span style="color: #333333;">
+													Missing
+													value
+													rows <u>before</u> the
+													first value are removed.</span>
+											</td>
+										</tr>
+										<tr>
+											<td style="text-align: left;"><span
+													style="color: #333333;">Trailing</span>
+											</td>
+											<td><span style="color: #333333;">
+													Boolean</span>
+											</td>
+											<td style="text-align: center;"><span
+													style="color: #333333;">True</span>
+											</td>
+											<td><span style="color: #333333;"> Null
+													rows <u>after</u> the last value
+													are
+													removed.</span></td>
+										</tr>
+										<tr>
+											<td style="text-align: left;"><span
+													style="color: #333333;">Values</span>
+											</td>
+											<td><span style="color: #333333;">
+													Boolean</span>
+											</td>
+											<td style="text-align: center;"><span
+													style="color: #333333;">True</span>
+											</td>
+											<td><span style="color: #333333;"> Null
+													rows between the first
+													<u>and</u>
+													last rows are removed.</span>
+											</td>
+										</tr>
+										<tr>
+											<td style="text-align: left;"><span
+													style="color: #333333;">IncludeNA</span>
+											</td>
+											<td><span style="color: #333333;">
+													Boolean</span>
+											</td>
+											<td style="text-align: center;"><span
+													style="color: #333333;">True</span>
+											</td>
+											<td><span style="color: #333333;"> Treat
+													all NA (no access) rows as null
+													value rows.</span></td>
+										</tr>
+										<tr>
+											<td style="text-align: left;"><span
+													style="color: #333333;">NAOnly</span>
+											</td>
+											<td><span style="color: #333333;">
+													Boolean</span>
+											</td>
+											<td style="text-align: center;"><span
+													style="color: #333333;">False</span>
+											</td>
+											<td><span style="color: #333333;"> Only
+													“NA” (no access) rows are
+													removed.
+													See the notes below.</span></td>
+										</tr>
+									</tbody>
+								</table>
+								<p> </p>
+								<p style="padding-left: 60px;"><strong>JSON
+										example:</strong></p>
+								<pre style="padding-left: 150px;margin-left: 58px;">
+							"SparseOptions":  {
+								"Leading":true,
+								"IncludeNA":true,
+								"Trailing":false
+							}</pre>
+							</div>
+						</div>
+
+						<div class="single-notes notes-indent"
+							style="margin-left: 78px;">
+							<div> Notes</div>
+							<br>
+							<ul>
+
+							<li>Select which rows to apply the sparse option to by
+								using the <em>Leading</em>, <em>Trailing</em> and
+								<em>Values</em> parameters above.</li>
+								
+								<li>If parameter <em>IncludeNA</em> is true, the
+								parameter <em>NAOnly </em> is ignored.</li>
+
+								
+								<li>You can check the access that is available with your
+								subscription by using a datasource or user favorites
+								endpoint.</li>
+
+							</ul>
+
+						</div>
+						<p style="padding-left: 60px;">
+						</p>
+					</div>
+					<p> </p>
+					<div class="api-article-table">
+						<div class="api-article-table">
+							<h3 style="padding-left: 30px;">HandleWeekends Parameter
+							</h3>
+							<p style="padding-left: 30px;">How weekends are handled
+								in
+								the datasets when their data is loaded.
+								There are 5 options:</p>
+							<p style="padding-left: 30px; text-align: left;">There
+								are 5
+								options:</p>
+							<div class="api-article-table"
+								style="padding-left: 30px;">
+								<table class="table table-bordered"
+									style=" height: 237px;" width="1348">
+									<thead>
+										<tr>
+											<th style="text-align: center;">Option
+											</th>
+											<th style="text-align: left;">
+												<strong>Description</strong>
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td style="text-align: center;">
+												<strong>“A”</strong>
+											</td>
+											<td> Use weekends only if they are
+												present in any of the result
+												datasets. If there are no weekends
+												in
+												the datasets, a 5 day week is
+												returned.<br>
+												However, if <strong>any</strong>
+												dateset
+												is returned with weekends, ALL
+												datasets
+												are returned with
+												weekends. This is the default
+												setting. Can be “A” or “auto”.</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;">“5”</td>
+											<td>Any weekend values are
+												<strong>deleted.</strong>
+											</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;">“5a”
+											</td>
+											<td>Attempts a 5 day adjusted week by
+												moving
+												a valid (not null) weekend price
+												forward
+												to the Monday but <u>only</u> if
+												the Monday has no value.<br>
+												If present, a valid Sunday value it
+												is
+												moved otherwise a valid Saturday
+												value
+												is moved.</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;">“7”</td>
+											<td> Add weekend dates with null values
+												for weekends.</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;">“7f”
+											</td>
+											<td> Add weekend dates with the
+												previous days valid value – not
+												necessarily the Fridays value as it
+												may
+												be an “NA” also.<br>
+												If no valid previous value is
+												available
+												it remains unchanged.</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="api-article-table">
+							<h3></h3>
+							<div class="api-article-table">
+								<div class="api-article-table">
+									<h3 style="padding-left: 30px;">AllowWeekends
+										Parameter</h3>
+									<p style="padding-left: 30px;">Controls how
+										weekends
+										are returned in the average result.
+										It does not affect the average calculation
+										– only the dates returned.</p>
+									<p style="padding-left: 30px;">If set to “on”,
+										average result dates
+										can <strong>include</strong> weekend dates
+										if any average start date or end date falls
+										on a weekend.<br>
+										If set to “off weekend result dates are
+										adjusted
+										to <strong>exclude</strong> weekends
+										(Monday-Friday only). This normally means
+										that
+										if the period start date is used (See
+										the <em>FrequencyOption</em> parameter
+										<em>AllowWeekends</em>) and it falls on a
+										weekend it is adjusted
+										<strong>forward </strong>to the
+										Monday. Conversely, if the period end date
+										falls on a weekend, it is adjusted
+										backwards to the previous Friday.
+										This keeps the values in the requested
+										range.
+									</p>
+									<p style="padding-left: 30px;">There are 4
+										options:
+									</p>
+								</div>
+								<div class="api-article-table">
+									<div class="api-article-table">
+										<div class="api-article-table">
+											<div class="api-article-table"
+												style="padding-left: 30px;">
+												<div class="api-article-table">
+													<table
+														class="table table-bordered"
+														style="height: 243px;"
+														width="1391">
+														<thead>
+															<tr>
+																<th
+																	style="text-align: left;">
+																	Option</th>
+																<th
+																	style="text-align: left;">
+																	<strong>Description</strong>
+																</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td
+																	style="text-align: center;">
+																	<strong>“A”</strong>
+																</td>
+																<td>Return weekend
+																	dates
+																	<em>if</em>
+																	there
+																	are weekends in
+																	the
+																	dataset average
+																	result. This
+																	is the default
+																	setting. Can
+																	be “A” or
+																	“auto”.
+																</td>
+															</tr>
+															<tr>
+																<td
+																	style="text-align: center;">
+																	“on”</td>
+																<td>When set to
+																	“on”,
+																	average result
+																	dates
+																	<strong>can</strong>
+																	fall
+																	on weekends.
+																	Week averages
+																	are
+																	returned on
+																	Sunday
+																	(ISO-8601) and
+																	month
+																	averages are
+																	returned on the
+																	last
+																	day of the month
+																	(Monday to
+																	Sunday).
+																</td>
+															</tr>
+															<tr>
+																<td
+																	style="text-align: center;">
+																	“off”</td>
+																<td>When set to
+																	“off”‘,
+																	average result
+																	dates
+																	will
+																	<strong>not</strong>
+																	include weekend
+																	dates (Monday to
+																	Friday days
+																	only). Result
+																	dates are
+																	adjusted
+																	to the correct
+																	Friday or
+																	Monday.<br>
+																	Normal week
+																	averages
+																	are returned on
+																	Friday and month
+																	averages return
+																	on
+																	the last working
+																	day
+																	(Monday to
+																	Friday)
+																	of the
+																	month.<br>
+																	For periods with
+																	a
+																	start and end
+																	date
+																	(custom month or
+																	half month for
+																	example),
+																	weekend
+																	start dates
+																	are adjusted
+																	<strong>forward
+																	</strong>to
+																	Monday and
+																	weekend
+																	end dates are
+																	adjusted
+																	<strong>backwards
+																	</strong>to
+																	the Friday.
+																</td>
+															</tr>
+														</tbody>
+													</table>
+													<div class="api-article-table">
+														<div
+															class="api-article-table">
+
+															<div
+																class="single-notes notes-indent">
+																<div> Note</div>
+																<p> For averages
+																	with
+																	<em>AllowWeekends
+																	</em>parameter
+																	set to
+																	“on” or have a
+																	user defined
+																	custom frequency
+																	start and
+																	end date (e.g.
+																	custom month,
+																	half month), the
+																	start date
+																	is adjusted
+																	<strong>forward</strong>
+																	(to
+																	the Sunday) and
+																	the end date
+																	is adjusted
+																	<strong>backwards
+																	</strong>to
+																	the previous
+																	Sunday.
+																</p>
+															</div>
+														</div>
+														<div
+															class="api-article-table">
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="api-article-table">
+							<div class="api-article-table"
+								style="padding-left: 30px;">
+							</div>
+							<div class="api-article-table"
+								style="padding-left: 90px;">
+								<h3></h3>
+							</div>
+						</div>
+					</div>
+					<div class="api-article-table">
+						<div class="api-article-table">
+						<br>
+						<br>
+							<h2>Response from the Server</h2>
+							<div class="api-article-table">
+								<table class="table table-bordered"
+									style="height: 185px;" width="742">
+									<thead>
+										<tr>
+											<th style="text-align: left;">
+												Description
+											</th>
+											<th style="text-align: left;">Type</th>
+											<th style="text-align: center;">
+												Mandatory
+											</th>
+											<th style="text-align: left;">
+												Description
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><span
+													style="color: #000000;">ServerDateTime</span>
+											</td>
+											<td style="text-align: left;"><span
+													style="color: #000000;">String</span>
+											</td>
+											<td style="text-align: center;"><span
+													style="color: #000000;">Yes</span>
+											</td>
+											<td><span style="color: #000000;">The
+													server
+													UTC date and time in ISO 8601
+													format.</span></td>
+										</tr>
+										<tr>
+											<td><span
+													style="color: #000000;">TimeStamp</span>
+											</td>
+											<td style="text-align: left;"><span
+													style="color: #000000;">Float</span>
+											</td>
+											<td style="text-align: center;"><span
+													style="color: #000000;">Yes</span>
+											</td>
+											<td><span style="color: #000000;">The
+													server
+													date and time as a Julian
+													date.</span></td>
+										</tr>
+										<tr>
+											<td><span
+													style="color: #000000;">ExecutionTime</span>
+											</td>
+											<td style="text-align: left;"><span
+													style="color: #000000;">Float</span>
+											</td>
+											<td style="text-align: center;"><span
+													style="color: #000000;">Yes</span>
+											</td>
+											<td><span
+													style="color: #000000;">Milliseconds
+													taken to process the
+													request.</span>
+											</td>
+										</tr>
+										<tr>
+											<td><span
+													style="color: #999999;">Result</span>
+											</td>
+											<td style="text-align: left;"><span
+													style="color: #999999;">[Object]</span>
+											</td>
+											<td style="text-align: center;"><span
+													style="color: #999999;">No*</span>
+											</td>
+											<td><span style="color: #999999;">Result
+													object as described in the
+													‘<em>Result Object</em>‘ table
+													below.</span></td>
+										</tr>
+										<tr>
+											<td><span
+													style="color: #999999;">Errors</span>
+											</td>
+											<td style="text-align: left;"><span
+													style="color: #999999;">[Object]</span>
+											</td>
+											<td style="text-align: center;"><span
+													style="color: #999999;">No*</span>
+											</td>
+											<td><span style="color: #999999;">Errors
+													object as described in the
+													‘<em>Errors Objec</em>t’ table
+													below.</span></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="single-notes notes-indent">
+								<div> Note</div>
+								<p>A successful API response will return a
+									'<em>Result</em>'
+									object with the requested payload
+									<strong>or</strong> an
+									'<em>Errors</em>' object detailing the issue
+									that caused
+									the request to fail.
+								</p>
+							</div>
+						</div>
+					</div>
+					<h3></h3>
+					<h3 style="padding-left: 30px;">Result Object</h3>
+					<table class="table table-bordered"
+						style="margin-left: 30px; height: 232px;" width="1231">
+						<thead style="padding-left: 30px;">
+							<tr style="padding-left: 30px;">
+								<th style="text-align: left;">Parameter</th>
+								<th style="text-align: center;">Type</th>
+								<th style="text-align: center;">Mandatory</th>
+								<th style="text-align: left;">Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><span style="color: #808080;">Parameters</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #808080;">[Object]</span></td>
+								<td style="text-align: center;"><span
+										style="color: #808080;">No</span></td>
+								<td><span style="color: #808080;">If requested,
+										returns
+										the request settings for each series in the
+										request. See the ‘<em>Parameters
+											Object</em>‘ section below for
+										details.</span></td>
+							</tr>
+							<tr>
+								<td><span style="color: #808080;">Metadata</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #808080;">[Object]</span></td>
+								<td style="text-align: center;"><span
+										style="color: #808080;">No</span></td>
+								<td><span style="color: #808080;">If requested,
+										returns
+										information that describes the full dataset
+										and
+										its available values and corrections.</span>
+								</td>
+							</tr>
+							<tr>
+								<td><span style="color: #000000;">Columns</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">[Object]</span></td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes</span></td>
+								<td><span style="color: #000000;">Information on
+										each
+										value column that is useful for creating
+										column
+										headers.</span><br>
+									<span style="color: #000000;">Invalid bates or
+										symbols are listed with a <em>status</em>
+										code
+										not equal to 200 and a <em>detail</em>
+										description.</span>
+								</td>
+							</tr>
+							<tr>
+								<td><span style="color: #000000;">Rows</span></td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">[Object]</span></td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes</span></td>
+								<td><span style="color: #000000;">Date and values
+										records containing one date and a value
+										entry
+										for each column listed in the
+										result <em>Bates</em> or
+										<em>Bateindex</em>.</span></td>
+							</tr>
+							<tr>
+								<td><span style="color: #000000;">Corrections</span>
+								</td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">[Object]</span></td>
+								<td style="text-align: center;"><span
+										style="color: #000000;">Yes</span></td>
+								<td><span style="color: #000000;">Sometimes data
+										vendors
+										(or ourselves) correct published prices.
+										Corrections are listed with the original
+										published date and price plus the datetime
+										the
+										correction was issued.</span></td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="api-article-table" style="padding-left: 30px;">
+						<div class="api-article-table" style="padding-left: 30px;">
+							<h3></h3>
+						</div>
+					</div>
+					<div class="api-article-table">
+						<div class="api-article-table">
+							<div class="api-article-table">
+								<div class="api-article-table">
+									<h3 style="padding-left: 60px;">Parameters
+										Object
+									</h3>
+									<p style="padding-left: 60px;">The parameters
+										object
+										returns the request parameters including an
+										array of all series in the request and any
+										settings defined for each series in the
+										request. Default settings that are not
+										requested are also listed.</p>
+								</div>
+								<h4 style="padding-left: 60px;">
+									<strong>e.g:</strong>
+								</h4>
+								<pre style="margin-left: 60px;">
+							"Parameters": {
+								"Series": [
+									{
+									"Datasource": "ECBFX",
+									"Symbol": "EURRUB",
+									"BateIndex": [0],
+									"Fill": false,
+									"HandleWeekends": "auto"
+									},
+									{ 
+									...
+									...
+									} 
+								],
+								"StartDate": "2017-01-01",
+								"EndDate": "Latest",
+								...
+								...
+								...
+								
+								"Periods": 0,
+								"WeekDays": 5
+							}</pre>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div></div>
+					</div>
+					<p> </p>
+					<div>
+						<div class="api-article-table">
+							<div class="api-article-table"
+								style="padding-left: 0px;">
+								<div class="api-article-table">
+									<div class="api-article-table"
+										style="padding-left: 0px;">
+										<h3 style="padding-left: 60px;">Metadata
+											Object
+										</h3>
+									</div>
+									<div class="api-article-table"
+										style="padding-left: 0px;">
+										<div class="api-article-table"
+											style="padding-left: 0px;">
+											<p style="padding-left: 60px;">The
+												Metadata
+												section describes each dataset in
+												the
+												Series object. Dates are returned
+												in the default format “YYYY-MM-DD”
+												unless requested in a different
+												format.
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div></div>
+					<div>
+						<div>
+							<div class="api-article-table">
+								<div class="api-article-table"
+									style="padding-left: 30px;">
+									<div class="api-article-table"
+										style="padding-left: 30px;">
+										<table>
+											<tbody style="padding-left: 0px;">
+												<tr style="padding-left: 0px;">
+													<td style="text-align: right;">
+													</td>
+													<td style="text-align: left;">
+														<b>Parameter</b>
+													</td>
+													<td style="text-align: center;">
+														<strong>Type</strong>
+													</td>
+													<td style="text-align: center;">
+														<strong>Mandatory</strong>
+													</td>
+													<td><strong>Description</strong>
+													</td>
+												</tr>
+												<tr>
+													<td style="text-align: right;">
+														<span
+															style="color: #000000;">1</span>
+													</td>
+													<td><span
+															style="color: #000000;">Datasource</span>
+													</td>
+													<td><span
+															style="color: #000000;">String</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #000000;">Yes</span>
+													</td>
+													<td><span
+															style="color: #000000;">The
+															datasource ID.</span>
+													</td>
+												</tr>
+												<tr>
+													<td style="text-align: right;">
+														<span
+															style="color: #808080;">2</span>
+													</td>
+													<td><span
+															style="color: #808080;">Datacategory</span>
+													</td>
+													<td><span
+															style="color: #808080;">String</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #808080;">No</span>
+													</td>
+													<td><span
+															style="color: #808080;">Only
+															returned if this is
+															a CategoryDS datasource
+															(result
+															<em>ISCategoryDS</em>
+															is set to true).<br>
+															The
+															<em>Datacategory</em>
+															will contain the data
+															category name.</span>
+													</td>
+												</tr>
+												<tr>
+													<td style="text-align: right;">
+														<span
+															style="color: #000000;">3</span>
+													</td>
+													<td><span
+															style="color: #000000;">Symbol</span>
+													</td>
+													<td><span
+															style="color: #000000;">String</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #000000;">Yes</span>
+													</td>
+													<td><span
+															style="color: #000000;">The
+															unique dataset ID
+															(market
+															identifier, symbol, ID
+															or
+															code).</span></td>
+												</tr>
+												<tr>
+													<td style="text-align: right;">
+														<span
+															style="color: #000000;">4</span>
+													</td>
+													<td><span
+															style="color: #000000;">Name</span>
+													</td>
+													<td><span
+															style="color: #000000;">String</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #000000;">Yes</span>
+													</td>
+													<td><span
+															style="color: #000000;">
+															A
+															short text string
+															describing
+															the dataset.</span></td>
+												</tr>
+												<tr>
+													<td style="text-align: right;">
+														<span
+															style="color: #000000;">5</span>
+													</td>
+													<td><span
+															style="color: #000000;">Description</span>
+													</td>
+													<td><span
+															style="color: #000000;">String</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #000000;">No</span>
+													</td>
+													<td><span
+															style="color: #000000;">If
+															available, additional
+															data
+															describing the
+															dataset.</span></td>
+												</tr>
+												<tr>
+													<td style="text-align: right;">
+														<span
+															style="color: #000000;">6</span>
+													</td>
+													<td><span
+															style="color: #000000;">Frequency</span>
+													</td>
+													<td><span
+															style="color: #000000;">String</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #000000;">Yes</span>
+													</td>
+													<td><span
+															style="color: #000000;">The
+															frequency ( day, week
+															etc.)
+															in which the data is
+															reported.</span></td>
+												</tr>
+												<tr>
+													<td style="text-align: right;">
+														<span
+															style="color: #000000;">7</span>
+													</td>
+													<td><span
+															style="color: #000000;">Currency</span>
+													</td>
+													<td><span
+															style="color: #000000;">String</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #000000;">Yes</span>
+													</td>
+													<td><span
+															style="color: #000000;">The
+															currency a unit the
+															dataset
+															is reported in. ISO
+															three
+															character currency codes
+															are
+															used.</span></td>
+												</tr>
+												<tr>
+													<td style="text-align: right;">
+														<span
+															style="color: #000000;">8</span>
+													</td>
+													<td><span
+															style="color: #000000;">Unit</span>
+													</td>
+													<td><span
+															style="color: #000000;">String</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #000000;">Yes</span>
+													</td>
+													<td><span
+															style="color: #000000;">The
+															unit a dataset it
+															reported (
+															MT, BBL, GALL
+															etc).</span>
+													</td>
+												</tr>
+												<tr>
+													<td style="text-align: right;">
+														<span
+															style="color: #000000;">9</span>
+													</td>
+													<td><span
+															style="color: #000000;">Decimals</span>
+													</td>
+													<td><span
+															style="color: #000000;">Integer</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #000000;">Yes</span>
+													</td>
+													<td><span
+															style="color: #000000;">The
+															recommended number of
+															decimal places to use
+															when
+															displaying the dataset
+															values.</span></td>
+												</tr>
+												<tr>
+													<td style="text-align: right;">
+														<span
+															style="color: #000000;">
+															10</span>
+													</td>
+													<td><span
+															style="color: #000000;">Bates</span>
+													</td>
+													<td><span
+															style="color: #000000;">Array</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #000000;">Yes</span>
+													</td>
+													<td><span
+															style="color: #000000;">An
+															array of price data
+															column
+															‘bate’ names e.g:
+															“Bid”,”Ask”,
+															“High”,”Low”.</span>
+													</td>
+												</tr>
+												<tr>
+													<td style="text-align: right;">
+														<span
+															style="color: #000000;">11</span>
+													</td>
+													<td><span
+															style="color: #000000;">Bateindex</span>
+													</td>
+													<td><span
+															style="color: #000000;">Array</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #000000;">Yes</span>
+													</td>
+													<td><span
+															style="color: #000000;">An
+															array of price data
+															column
+															numbers that correspond
+															to
+															the bates array above
+															e.g:
+															“BateIndex”: [ 0,
+															1, 2 ]</span></td>
+												</tr>
+												<tr>
+													<td style="text-align: right;">
+														<span
+															style="color: #000000;">12</span>
+													</td>
+													<td style="text-align: left;">
+														<span
+															style="color: #000000;">StartDate</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #000000;">String</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #000000;">Yes</span>
+													</td>
+													<td><span
+															style="color: #000000;">The
+															first available date in
+															the
+															dataset with a
+															value.</span>
+													</td>
+												</tr>
+												<tr>
+													<td style="text-align: right;">
+														<span
+															style="color: #000000;">13</span>
+													</td>
+													<td style="text-align: left;">
+														<span
+															style="color: #000000;">EndDate</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #000000;">String</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #000000;">Yes</span>
+													</td>
+													<td><span
+															style="color: #000000;">The
+															last available date date
+															in
+															the dataset with a
+															value.</span></td>
+												</tr>
+												<tr>
+													<td style="text-align: right;">
+														<span
+															style="color: #000000;">14</span>
+													</td>
+													<td style="text-align: left;">
+														<span
+															style="color: #000000;">Values</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #000000;">Integer</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #000000;">Yes</span>
+													</td>
+													<td><span
+															style="color: #000000;">Total
+															number of dataset
+															values in the
+															result.</span>
+													</td>
+												</tr>
+												<tr>
+													<td style="text-align: right;">
+														<span
+															style="color: #000000;">15</span>
+													</td>
+													<td style="text-align: left;">
+														<span
+															style="color: #000000;">Corrections</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #000000;">Integer</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #000000;">Yes</span>
+													</td>
+													<td><span
+															style="color: #000000;">The
+															number of value/price
+															corrections available
+															for
+															the dataset.</span></td>
+												</tr>
+												<tr>
+													<td style="text-align: right;">
+														<span
+															style="color: #000000;">15</span>
+													</td>
+													<td style="text-align: left;">
+														<span
+															style="color: #000000;">Premium</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #000000;">Integer</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #000000;">Yes</span>
+													</td>
+													<td><span
+															style="color: #000000;">If
+															true, this is a premium
+															subscription datasource
+															that
+															is not included gratis
+															as
+															part of a
+															service.</span>
+													</td>
+												</tr>
+												<tr>
+													<td style="text-align: right;">
+														<span
+															style="color: #000000;">16</span>
+													</td>
+													<td style="text-align: left;">
+														<span
+															style="color: #000000;">Favorite</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #000000;">Boolean</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #000000;">Yes</span>
+													</td>
+													<td><span
+															style="color: #000000;">True
+															if this dataset is in
+															the
+															user favorites
+															list.</span>
+													</td>
+												</tr>
+												<tr>
+													<td style="text-align: right;">
+														<span
+															style="color: #000000;">17</span>
+													</td>
+													<td style="text-align: left;">
+														<span
+															style="color: #000000;">IsCategoryDS</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #000000;">Boolean</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #000000;">Yes</span>
+													</td>
+													<td><span
+															style="color: #000000;">True
+															if the dataset is from a
+															“CategoryDS” datasource.
+															See
+															notes below.</span></td>
+												</tr>
+												<tr>
+													<td style="text-align: right;">
+														<span
+															style="color: #808080;">18</span>
+													</td>
+													<td><span
+															style="color: #808080;">Additional</span>
+													</td>
+													<td><span
+															style="color: #808080;">[Object]</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #808080;">No</span>
+													</td>
+													<td><span
+															style="color: #808080;">The
+															<em>Additional</em>
+															object
+															allows more dataset
+															specific
+															information to be
+															provided
+															as additional JSON
+															parameters.</span><br>
+														<span
+															style="color: #808080;">Please
+															refer to the datasource
+															documentation and
+															the raw JSON from
+															the <em>Additional</em>
+															object
+															for more
+															information.</span><br>
+														<span
+															style="color: #808080;">An
+															example of conversion
+															factors in
+															the <em>Additional</em>
+															object is:<br>
+														</span>
+														<p></p>
+														<div>
+															<div>
+																<div>
+																	<div><span
+																			style="color: #808080;">
+																			“Additional”:
+																			{</span>
+																	</div>
+																</div>
+															</div>
+															<div><span
+																	style="color: #808080;">
+																	“Conversions”:
+																	[</span>
+															</div>
+															<div><span
+																	style="color: #808080;">
+																	{</span>
+															</div>
+															<div><span
+																	style="color: #808080;">
+																	“ConvertTo”:
+																	“BBL”,</span>
+															</div>
+															<div><span
+																	style="color: #808080;">
+																	“ConvertOperator”:
+																	“/”,</span>
+															</div>
+															<div><span
+																	style="color: #808080;">
+																	“ConvertValue”:
+																	“7.45”</span>
+															</div>
+															<div><span
+																	style="color: #808080;">
+																	}</span>
+															</div>
+															<div><span
+																	style="color: #808080;">
+																	]</span>
+															</div>
+															<div><span
+																	style="color: #808080; font-family: inherit; font-size: inherit;">}</span>
+															</div>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td style="text-align: right;">
+														<span
+															style="color: #808080;">19</span>
+													</td>
+													<td style="text-align: left;">
+														<span
+															style="color: #808080;">Simulated</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #808080;">Boolean</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #808080;">No</span>
+													</td>
+													<td><span
+															style="color: #808080;">Are
+															the values and
+															corrections
+															are <em>fictional</em>
+															and
+															<u>generated for
+																demonstration
+																purposes
+																only</u>.<br>
+															The <em>Simulated</em>
+															parameter is only
+															returned
+															if it is set to
+															true.</span>
+													</td>
+												</tr>
+												<tr>
+													<td style="text-align: right;">
+														<span
+															style="color: #808080;">20</span>
+													</td>
+													<td style="text-align: left;">
+														<span
+															style="color: #808080;">Subscription</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #808080;">Boolean</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #808080;">No</span>
+													</td>
+													<td><span
+															style="color: #808080;">
+															The
+															<em>Subscription</em>
+															parameter is only
+															returned
+															when the
+															request parameter
+															<em>ReturnAccess </em>is
+															set to true.<br>
+															It returns the type of
+															datasource access
+															available
+															with the current
+															subscription.<br>
+															There are 4 options:
+															“None”,
+															“Active”, “Inactive” and
+															“Simulated”.</span><br>
+														<span
+															style="color: #808080;">Please
+															note that the option
+															“Simulated” means that
+															the
+															values are fictional and
+															<u><span
+																	style="color: #808080;">are
+																	generated for
+																	demonstration
+																	purposes
+																	onl</span>y</u>.</span>
+													</td>
+												</tr>
+												<tr>
+													<td style="text-align: right;">
+														<span
+															style="color: #808080;">21</span>
+													</td>
+													<td style="text-align: left;">
+														<span
+															style="color: #808080;">UserAccess</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #808080;">[Object]</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #808080;">No</span>
+													</td>
+													<td><span
+															style="color: #808080;">If
+															<em>Subscription</em> is
+															not present or equals
+															“None”,
+															the <em>UserAccess</em>
+															object will
+															<strong>not</strong> be
+															returned in the
+															result.<br>
+															<span
+																style="font-family: inherit; font-size: inherit;">If
+																requested and
+																present, the
+															</span><em
+																style="font-family: inherit; font-size: inherit;">UserAccess</em><span
+																style="font-family: inherit; font-size: inherit;">
+																object returns
+																details
+																of the access
+																allowed
+																with the current
+																subscription.</span><br>
+															See the “UserAccess
+															Object”
+															table below for
+															details.</span></td>
+												</tr>
+												<tr>
+													<td style="text-align: right;">
+														<span
+															style="color: #000000;">22</span>
+													</td>
+													<td style="text-align: left;">
+														<span
+															style="color: #000000;">Status</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #000000;">Integer</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #000000;">Yes</span>
+													</td>
+													<td><span
+															style="color: #000000;">HTTP
+															result code from
+															server. A result of
+															200 equals
+															success.</span>
+													</td>
+												</tr>
+												<tr>
+													<td style="text-align: right;">
+														<span
+															style="color: #000000;">23</span>
+													</td>
+													<td style="text-align: left;">
+														<span
+															style="color: #000000;">Detail</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #000000;">String</span>
+													</td>
+													<td style="text-align: center;">
+														<span
+															style="color: #000000;">Yes</span>
+													</td>
+													<td><span
+															style="color: #000000;">A
+															string describing
+															any <em>Status</em>
+															parameter
+															value.</span></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div></div>
+					</div>
+
+					<div class="single-notes notes-indent"
+						style="margin-left: 78px;">
+						<div> Notes</div>
+						<p>The date format in the result can be changed using the
+							request <em>DateFormat</em> parameter.A
+							CategoryDS is a datasource whose datasets are subdivided
+							into
+							data categories. See the ‘<em>CategoryDS
+								datasources</em>‘ section at the top of this page
+							for
+							details.</p>
+
+					</div>
+
+
+					<div class="api-article-table" style="padding-left: 60px;">
+					</div>
+					<div>
+						<div class="api-article-table" style="padding-left: 30px;">
+							<div class="api-article-table"
+								style="padding-left: 30px;">
+								<div class="api-article-table">
+									<div class="api-article-table">
+										<div class="api-article-table">
+											<div class="api-article-table">
+												<div class="api-article-table">
+													<div class="api-article-table">
+														<div
+															class="api-article-table">
+															<div
+																class="api-article-table">
+																<div
+																	class="api-article-table">
+																	<div
+																		class="api-article-table">
+																		<div
+																			class="api-article-table">
+																			<div
+																				class="api-article-table">
+																				<div
+																					class="api-article-table">
+																					<div
+																						class="api-article-table">
+																						<h3>
+																						</h3>
+																						<h3>
+																						</h3>
+																						<h3
+																							style="text-align: left; padding-left: 30px;">
+																							UserAccess
+																							Object
+																						</h3>
+																						<div
+																							class="api-article-table">
+																							<p
+																								style="padding-left: 30px;">
+																								If
+																								the
+																								user
+																								has
+																								(or
+																								had)
+																								a
+																								subscription
+																								to
+																								the
+																								datasource
+																								(or
+																								data
+																								category),
+																								the
+																								<em>UserAccess</em>
+																								object
+																								reports
+																								on
+																								the
+																								range
+																								allowed
+																								for
+																								the
+																								dataset
+																								with
+																								the
+																								current
+																								subscription.<br>
+																								The
+																								<em>Starts</em>
+																								and
+																								<em>Ends
+																								</em>parameters
+																								show
+																								the
+																								date
+																								range
+																								that
+																								the
+																								user
+																								can
+																								access.
+																								<span
+																									style="color: #000000;"><br>
+																								</span>
+																							</p>
+																						</div>
+																					</div>
+																					<div
+																						class="api-article-table">
+																						<table
+																							class="table table-bordered"
+																							style="margin-left: 30px;">
+																							<thead>
+																								<tr>
+																									<th>Parameter
+																									</th>
+																									<th
+																										style="text-align: left;">
+																										Type
+																									</th>
+																									<th><strong>Description</strong>
+																									</th>
+																								</tr>
+																							</thead>
+																							<tbody>
+																								<tr>
+																									<td>Starts
+																									</td>
+																									<td
+																										style="text-align: left;">
+																										String
+																									</td>
+																									<td>Date
+																										of
+																										the
+																										earliest
+																										available
+																										data
+																										for
+																										the
+																										current
+																										subscription.
+																									</td>
+																								</tr>
+																								<tr>
+																									<td>Ends
+																									</td>
+																									<td
+																										style="text-align: left;">
+																										String
+																									</td>
+																									<td>Date
+																										of
+																										the
+																										latest
+																										available
+																										data
+																										for
+																										the
+																										current
+																										subscription.
+																									</td>
+																								</tr>
+																							</tbody>
+																						</table>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div>
+																<div class="single-notes notes-indent"
+																	style="margin-left: 48px;">
+																	<div> Notes
+																	</div>
+																	<p>
+																	<ul>
+																		<li>There may be a greater range available in
+																		the datasource than the user has permission to access. </li>
+																
+																		<li><span style="color: #000000;">The
+																		</span><em
+																			style="color: #000000;">UserAccess</em><span
+																			style="color: #000000;"> object
+																			is
+																			present only
+																			if request parameter
+																		</span><em
+																			style="color: #000000;">ReturnAccess
+																		</em><span
+																			style="color: #000000;">is set
+																			to true
+																			and </span><em
+																			style="color: #000000;">Subscription</em><span
+																			style="color: #000000;"> is not
+																			equal to “None”.</span></li>
+																		
+																		<li>The request
+																			parameter <em>DateFormat
+																			</em>controls
+																			the format of the result in the
+																			<em>Starts</em> and
+																			<em>Ends</em> parameters.</li>
+																
+																</ul>
+
+																		<span
+																			style="color: #333333;">There
+																			may be a
+																			greater
+																			range
+																			available
+																			in the
+																			datasource
+																			that
+																			the user
+																			cannot
+																			access.</span><br>
+																		<span
+																			style="color: #333333;">The
+																			<em>UserAccess</em>
+																			object
+																			is
+																			present
+																			only
+																			if
+																			request
+																			parameter
+																			<em>ReturnAccess
+																			</em>is
+																			set to
+																			true
+																			and
+																			<em>Subscription</em></span><span
+																			style="color: #000000;"><span
+																				style="color: #333333;">
+																				is
+																				not
+																				equal
+																				to
+																				“None”.</span><br>
+																			<span
+																				style="color: #333333;">The
+																				request
+																				parameter
+																				<em>DateFormat
+																				</em>controls
+																				the
+																				format
+																				of
+																				the
+																				result
+																				in
+																				the
+																				<em>Starts</em>
+																				and
+																				<em>Ends</em>
+																				parameters.</span><br>
+																		</span>
+																	</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="api-article-table"
+													style="padding-left: 30px;">
+													<div class="api-article-table"
+														style="padding-left: 30px;">
+														<div
+															style="padding-left: 30px;">
+															<div class="api-article-table"
+																style="padding-left: 30px;">
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="api-article-table" style="padding-left: 30px;">
+						<div class="api-article-table" style="padding-left: 30px;">
+							<div class="api-article-table"
+								style="padding-left: 30px;">
+								<div style="padding-left: 30px;">
+									<h3></h3>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div style="padding-left: 30px;">
+						<h3 style="text-align: left; padding-left: 30px;">The
+							Columns
+							Object</h3>
+						<p style="padding-left: 30px;">Contains metadata information
+							for
+							each value column – useful for creating column
+							headers. Invalid bates or symbols are listed with a
+							<em>status</em> code is not equal to 200 and a
+							<em>Detail</em> description of any status messages.
+						</p>
+					</div>
+					<div class="api-article-table" style="padding-left: 30px;">
+						<div class="api-article-table" style="padding-left: 30px;">
+							<div style="padding-left: 0px;">
+								<div class="api-article-table">
+									<table class="table table-bordered">
+										<thead style="padding-left: 0px;">
+											<tr style="padding-left: 0px;">
+												<th>Parameter</th>
+												<th style="text-align: center;">Type
+												</th>
+												<th style="text-align: center;">
+													Mandatory</th>
+												<th style="text-align: left;">
+													Description</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td><span
+														style="color: #000000;">Datasource</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">String</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">Yes</span>
+												</td>
+												<td><span
+														style="color: #000000;">The
+														datasource ID.</span></td>
+											</tr>
+											<tr>
+												<td><span
+														style="color: #999999;">Datacategory</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #999999;">String</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #999999;">No</span>
+												</td>
+												<td><span
+														style="color: #999999;">The
+														data category name
+														(CategoryDS datasource
+														only).
+														See notes in the
+														‘<em>Metadata
+															Object</em>‘ table
+														above.</span></td>
+											</tr>
+											<tr>
+												<td><span
+														style="color: #000000;">Symbol</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">String</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">Yes</span>
+												</td>
+												<td><span
+														style="color: #000000;">The
+														dataset ID (market
+														identifier,
+														symbol, ID or code).</span>
+												</td>
+											</tr>
+											<tr>
+												<td><span
+														style="color: #000000;">Description</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">String</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">Yes</span>
+												</td>
+												<td><span
+														style="color: #000000;">The
+														dataset description.</span>
+												</td>
+											</tr>
+											<tr>
+												<td><span
+														style="color: #000000;">Bate</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">String</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">Yes</span>
+												</td>
+												<td><span
+														style="color: #000000;">The
+														Bate name or “Unknown” if
+														the bate is not
+														found.</span>
+												</td>
+											</tr>
+											<tr>
+												<td><span
+														style="color: #000000;">BateNumber</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">Integer</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">Yes</span>
+												</td>
+												<td><span
+														style="color: #000000;">Bate
+														number in the bate index
+														array. Bate 0 is
+														first bate. A value of -1 is
+														returned for an invalid
+														bate.</span></td>
+											</tr>
+											<tr>
+												<td><span
+														style="color: #000000;">FirstDate</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">String</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">Yes</span>
+												</td>
+												<td><span
+														style="color: #000000;">The
+														first date returned from
+														the request.</span></td>
+											</tr>
+											<tr>
+												<td><span
+														style="color: #000000;">LastDate</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">String</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">Yes</span>
+												</td>
+												<td><span
+														style="color: #000000;">The
+														last date returned from the
+														request.</span></td>
+											</tr>
+											<tr>
+												<td><span
+														style="color: #000000;">Values</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">Integer</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">Yes</span>
+												</td>
+												<td><span
+														style="color: #000000;">The
+														number of values records
+														returned. </span></td>
+											</tr>
+											<tr>
+												<td><span
+														style="color: #000000;">Corrections</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">Integer</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">Yes</span>
+												</td>
+												<td><span
+														style="color: #000000;">The
+														number of correction records
+														returned. See the
+														<em>‘Corrections
+															Object</em>‘
+														table below.</span></td>
+											</tr>
+											<tr style="padding-left: 0px;">
+												<td style="padding-left: 0px;"><span
+														style="color: #000000;">LeadLag</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">Integer</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">Yes</span>
+												</td>
+												<td><span style="color: #000000;">A
+														simple phase shift
+														adjustment of
+														the datasource values +/- a
+														number of days. For
+														example, a LeadLag of -3
+														would
+														move all values in the range
+														back 3 days. It is normally
+														used
+														to align the values of one
+														dataset with another.</span>
+												</td>
+											</tr>
+											<tr style="padding-left: 30px;">
+												<td><span
+														style="color: #000000;">Prefill</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">Boolean</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">Yes</span>
+												</td>
+												<td><span
+														style="color: #000000;">Missing
+														values can be prefilled
+														with values. See the
+														<em>Prefill</em> parameter
+														in
+														request for
+														details<em>.</em></span>
+												</td>
+											</tr>
+											<tr>
+												<td><span
+														style="color: #000000;">Fill</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">Boolean</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">Yes</span>
+												</td>
+												<td><span
+														style="color: #000000;">Missing
+														values can be filled with
+														values. See the
+														<em>Fill</em> parameter in
+														request for
+														details<em>.</em></span>
+												</td>
+											</tr>
+											<tr>
+												<td><span
+														style="color: #808080;">Simulated</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #808080;">Boolean</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #808080;">No</span>
+												</td>
+												<td><span
+														style="color: #808080;">Are
+														the values and corrections
+														are
+														<em>fictional</em> and
+														<u>generated for
+															demonstration
+															purposes
+															only</u>.</span><br>
+													<span
+														style="color: #808080;">The
+														<em>Simulated</em> parameter
+														is
+														only returned if it is set
+														to
+														true.</span>
+												</td>
+											</tr>
+											<tr>
+												<td><span
+														style="color: #000000;">Status</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">Integer</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">Yes</span>
+												</td>
+												<td><span
+														style="color: #000000;">The
+														HTTP result code from the
+														server. A status of 200
+														equals
+														success.</span></td>
+											</tr>
+											<tr>
+												<td><span
+														style="color: #000000;">Detail</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">String</span>
+												</td>
+												<td style="text-align: center;">
+													<span
+														style="color: #000000;">Yes</span>
+												</td>
+												<td><span style="color: #000000;"> A
+														string describing any error
+														in
+														the <em>Status</em>
+														parameter
+														above.</span></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="api-article-table">
+							<div class="single-notes notes-indent"
+								style="margin-left: 48px;">
+								<div> Note</div>
+								<p>Order of calculation
+									is: <em>LeadLag</em>, <em>Prefill</em>,
+									<em>HandleWeekends</em>, <em>Fill</em>,
+									<em>Frequency</em> average, <em>PostFill</em>
+									and
+									<em>Sparse</em>.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="api-article-table" style="padding-left: 30px;">
+						<div class="api-article-table" style="padding-left: 30px;">
+							<div class="api-article-table">
+								<div class="api-article-table">
+									<div class="api-article-table">
+										<div class="api-article-table"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<p> </p>
+					<div class="api-article-table" style="padding-left: 30px;">
+						<div style="padding-left: 30px;">
+							<h3>Rows Object</h3>
+							<p style="text-align: left;">Contains the dates and
+								values
+								for the datasets and is useful for creating column
+								headers. Invalid bates or symbols are listed with
+								a status code is not equal to 200 and a
+								<em>detail</em> description parameter in the
+								<em>columns</em> object.
+							</p>
+						</div>
+						<div style="padding-left: 30px;">
+							<table class="table table-bordered"
+								style=" height: 94px;" width="810">
+								<thead style="padding-left: 0px;">
+									<tr style="padding-left: 0px;">
+										<th style="text-align: left;">Parameter</th>
+										<th style="text-align: center;">Type</th>
+										<th style="text-align: center;">Mandatory
+										</th>
+										<th style="text-align: left;">Description
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td style="text-align: left;"><span
+												style="color: #000000;">Date</span>
+										</td>
+										<td style="text-align: center;"><span
+												style="color: #000000;">String</span>
+										</td>
+										<td style="text-align: center;"><span
+												style="color: #000000;">Yes</span>
+										</td>
+										<td style="text-align: left;"><span
+												style="color: #000000;">The date
+												associated with the value.</span>
+										</td>
+									</tr>
+									<tr>
+										<td style="text-align: left;"><span
+												style="color: #000000;">Value(s)</span>
+										</td>
+										<td style="text-align: center;"><span
+												style="color: #000000;">double</span>
+										</td>
+										<td style="text-align: center;"><span
+												style="color: #000000;">Yes</span>
+										</td>
+										<td style="text-align: left;"><span
+												style="color: #000000;">One value
+												for
+												each column (can also be
+												null) .</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="api-article-table" style="padding-left: 30px;">
+						<div style="padding-left: 30px;"></div>
+						<div style="padding-left: 30px;"></div>
+					</div>
+					<div style="padding-left: 60px;">
+						<div style="padding-left: 0px;">
+							<h3></h3>
+							<h3>Corrections Object</h3>
+						</div>
+						<div>
+							<p>Will contain any corrections that apply to the values
+								in
+								the result for the date range returned. The metadata
+								parameter <em>CorrectionCount</em> will also be
+								greater than zero.</p>
+						</div>
+						<div>
+							<table class="table table-bordered">
+
+								<thead>
+									<tr>
+										<th style="text-align: left;">Parameter</th>
+										<th style="text-align: left;">Description
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td style="text-align: left;">
+											CorrectionDateTime
+										</td>
+										<td style="text-align: left;">The date that
+											the
+											correction applies to.</td>
+									</tr>
+									<tr>
+										<td style="text-align: left;">IssuedDate
+										</td>
+										<td style="text-align: left;">The data
+											vendor
+											published date (the date the correction
+											was
+											published).</td>
+									</tr>
+									<tr>
+										<td style="text-align: left;">InsertDateTime
+										</td>
+										<td style="text-align: left;">The date and
+											time
+											the correction was inserted into the
+											datasource.</td>
+									</tr>
+									<tr>
+										<td style="text-align: left;">Operation</td>
+										<td style="text-align: left;">“C” for
+											correction
+											or “‘X” for deletion.</td>
+									</tr>
+									<tr>
+										<td style="text-align: left;">From</td>
+										<td style="text-align: left;">The value
+											before
+											the correction.</td>
+									</tr>
+									<tr>
+										<td style="text-align: left;">To</td>
+										<td style="text-align: left;">The (new)
+											corrected price.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<p> </p>
+					<p> </p>
+					<h3 style="padding-left: 30px;">Errors Object</h3>
+					<table class="table table-bordered"
+						style="margin-left: 30px; height: 94px;" width="717">
+						<thead style="padding-left: 60px;">
+							<tr style="padding-left: 0px;">
+								<th style="padding-left: 10px; text-align: right;">
+								</th>
+								<th style="padding-left: 10px;">Parameter</th>
+								<th style="padding-left: 0px; text-align: center;">
+									Type
+								</th>
+								<th style="padding-left: 0px; text-align: center;">
+									Mandatory</th>
+								<th style="text-align: left; padding-left: 10px;">
+									Description</th>
+							</tr>
+						</thead>
+						<tbody style="padding-left: 0px;">
+							<tr style="padding-left: 0px;">
+								<td style="padding-left: 10px; text-align: right;">
+									<span style="color: #000000;">1</span></td>
+								<td style="padding-left: 10px; text-align: left;">
+									<span style="color: #000000;">Status</span></td>
+								<td style="padding-left: 0px; text-align: center;">
+									<span style="color: #000000;">String</span></td>
+								<td style="padding-left: 0px; text-align: center;">
+									<span style="color: #000000;">Yes</span></td>
+								<td style="padding-left: 10px; text-align: left;">
+									<span style="color: #000000;">HTTP status
+										code.</span>
+								</td>
+							</tr>
+							<tr style="padding-left: 0px;">
+								<td style="padding-left: 10px; text-align: right;">
+									<span style="color: #000000;">2</span></td>
+								<td style="padding-left: 10px; text-align: left;">
+									<span style="color: #000000;">Detail</span></td>
+								<td style="padding-left: 0px; text-align: center;">
+									<span style="color: #000000;">String</span></td>
+								<td style="padding-left: 0px; text-align: center;">
+									<span style="color: #000000;">Yes</span></td>
+								<td style="padding-left: 10px; text-align: left;">
+									<span style="color: #000000;">Description of the
+										status code above.</span></td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="api-article-table" style="padding-left: 30px;">
+						<h4 style="padding-left: 60px;">Possible Status codes in the
+							'<em>Errors</em>' object
+						</h4>
+						<table class="table table-bordered"
+							style="margin-left: 60px;">
+							<thead style="padding-left: 60px;">
+								<tr style="padding-left: 30px;">
+									<th
+										style="padding-left: 30px; text-align: left;">
+										Code</th>
+									<th
+										style="text-align: left; padding-left: 30px;">
+										Description</th>
+								</tr>
+							</thead>
+							<tbody style="padding-left: 30px;">
+								<tr style="padding-left: 30px;">
+									<td
+										style="padding-left: 30px; text-align: left;">
+										400</td>
+									<td style="padding-left: 30px;">Datasource,
+										category
+										or symbol field is empty/missing.</td>
+								</tr>
+								<tr style="padding-left: 30px;">
+									<td
+										style="padding-left: 30px; text-align: left;">
+										401</td>
+									<td style="padding-left: 30px;">Invalid session
+										token.</td>
+								</tr>
+								<tr style="padding-left: 30px;">
+									<td
+										style="padding-left: 30px; text-align: left;">
+										402</td>
+									<td style="padding-left: 30px;">Unauthorised.
+									</td>
+								</tr>
+								<tr style="padding-left: 30px;">
+									<td
+										style="padding-left: 30px; text-align: left;">
+										403</td>
+									<td style="padding-left: 30px;">Premium
+										subscription
+										required.</td>
+								</tr>
+								<tr style="padding-left: 30px;">
+									<td
+										style="padding-left: 30px; text-align: left;">
+										404</td>
+									<td style="padding-left: 30px;">Unknown
+										datasource
+										or symbol.</td>
+								</tr>
+								<tr style="padding-left: 30px;">
+									<td
+										style="padding-left: 30px; text-align: left;">
+										410</td>
+									<td style="padding-left: 30px;">Unknown session
+										token.</td>
+								</tr>
+								<tr style="padding-left: 30px;">
+									<td
+										style="padding-left: 30px; text-align: left;">
+										413</td>
+									<td style="padding-left: 30px;">Payload Too
+										Large or
+										over 500 symbols were requested.</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div style="padding-left: 90px;">
+						<div class="single-notes notes-indent">
+							<div> Note</div>
+							<p>This is not an
+								exhaustive list and additional error codes may be
+								returned. The <em>Errors </em>object <em>Detail</em>
+								field
+								will return more result specific error information.
+							</p>
+						</div>
+					</div>
+					<h3 style="padding-left: 0px;"></h3>
+					<h3 style="padding-left: 0px;">Possible HTTP response codes</h3>
+
+					<div class="api-article-table" style="padding-left: 0px;">
+						<p style="line-height: 30px !important;"><span
+								class="spanColor">You can get HTTP client network
+								errors or server errors from any API
+								request. <br> You should check with your network or
+								IT
+								colleagues in case the issue is a local one.<br>
+								All server generated errors will return an
+								'<em>Errors</em>' object <em>Detail</em> field
+								will give specific information about the
+								error.</span>
+
+							<span class="spanColor">A full list of HTTP codes and
+								their
+								meanings is available <a
+									href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">here</a>,</span>
+						</p>
+					</div>
+					<p> </p>
+					<div style="padding-left: 0px;"></div>
+					<div class="api-article-table" style="padding-left: 0px;">
+						<br>
+						<h3>Success and fail examples</h3>
+						<h4><b style="color: RGB(54, 96,146);"><span
+									style="color: #008000;">GET</span>
+								Sample Request:</b></h4>
+						<div class="api-article-main-example"
+							style="padding-left: 0px;">
+							<pre>https://[server]/GetValuesRC?SessionToken=YOUR_SESSION_TOKEN&amp;Series[]=ECBFX/EURUSD
+						</pre>
+						</div>
+						<div>
+							<h4><b style="color: RGB(54, 96,146);"><span
+										style="color: #008000;">POST</span>
+									Sample Request:</b></h4>
+						</div>
+					</div>
+					<pre style="padding-left: 30px;">
+					https://[server]/GetValuesRC
+
+					{
+						"Series":  [
+							{ "Datasource": "ECBFX","Symbol":"EURUSD","BateIndex": [0] },
+							{ "Datasource": "ECBFX","Symbol":"EURGBP","BateIndex": [0] }
+						],
+						"StartDate":"2019-05-23",
+						"EndDate":"Latest", 
+						"Sparse":true,
+						"SparseOptions": { 
+							"ConvertNA":true,
+							"Values":true
+						},
+						"ReturnAccess":false
+					}
+				</pre>
+
+					<div class="api-article-main-blockExample">
+						<h4></h4>
+						<h4>Response body on success:</h4>
+					</div>
+					<div>
+
+						<div id="GDVR_Success"></div>
+					</div>
+					<div class="api-article-table">
+						<div class="api-article-main-blockExample"
+							style="padding-left: 0px;">
+							<h4></h4>
+							<h4><strong>Response body on fail:</strong></h4>
+
+							<div id="GDVR_Fail"></div>
+						</div>
+						<div>
+							<div class="api-article-main-blockExample">
+								<h4></h4>
+								<h4><strong>Example of a correction array
+										:</strong></h4>
+								<div>
+									<pre>
+							"Corrections": {
+								"AAAAAAA": {
+									"2013-09-24": {
+										"High": [
+											{
+												"PublishedDateTime": "2013-09-25",
+												"InsertDateTime": "2015-05-26",
+												"Operation": "C",
+												"From": 125.16,
+												"To": 122.78
+											}
+										]
+									}
+								},
+								...
+								...
+								...
+							}
+
+							<strong>Note:</strong> In the example above "AAAAAAA" is the symbol and "High" is the bate column.</pre>
+									<pre>There can be multiple symbols, bates and dates in the <em>Corrections</em> object.</pre>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div style="padding-left: 0px;"></div>
+					<div class="api-article-table" style="padding-left: 0px;">
+						<div style="padding-left: 0px;"></div>
+					</div>
+				</div>
+				<div class="last-date">
+					<div class="date">Last updated on June 3, 2021
+					</div>
+				</div>
+				<br>
+			</div>
+			<div class="dis-block clearfix">
+				<a href="javascript:move_section('#getdatasetvalues')" class="doc-prev"><i class="fas fa-chevron-circle-left"></i>Get Dataset Values</a>
+				<a href="javascript:move_section('#getdatasetvaluesforadate')" class="doc-next">Get Dataset Values for a Date<i class="fas fa-chevron-circle-right"></i></a>
+			</div>
+		</div>
+		<!--./doc-sectionwrap-->
+	</div>
+</div>
+
+
+<script>
+	
+
+	// **************Responses(Success and Fail)***************
+
+	// ***AUTHENTICATION***
+
+	// ***Market Data***
+	
+	// Get Dataset ValuesRC
+
+	var GDVR_Success_Obj = {};
+	var jsonViewer_GDVR_Success = new JSONViewer();
+	document.querySelector("#GDVR_Success").appendChild(jsonViewer_GDVR_Success.getContainer());
+
+
+	GDVR_Success = JSON.stringify({
+		"ServerDateTime": "2021-02-17T21:46:32Z",
+		"TimeStamp": 2459263.40731,
+		"ExecutionTime": 0.202,
+		"Result": {
+			"Columns": [
+				{
+					"Datasource": "ECBFX",
+					"Symbol": "EURUSD",
+					"Description": "ECB - Euro vs US Dollar",
+
+					"Detail": "OK"
+				},
+				{
+					"Datasource": "ECBFX",
+					"Symbol": "EURGBP",
+					"Description": "ECB - Euro vs Pound Sterling",
+
+					"Detail": "OK"
+				}
+			],
+			"Rows": {
+				"2019-05-23": [1.1139, 0.881],
+				"2019-05-24": [1.1187, 0.88318],
+				"2019-05-27": [1.1198, 0.88225],
+
+				"2021-02-17": [1.206, 0.8696]
+			},
+			"Corrections": {}
+		}
+	}
+
+	);
+
+
+
+	var GDVR_Fail_Obj = {};
+	var jsonViewer_GDVR_Fail = new JSONViewer();
+	document.querySelector("#GDVR_Fail").appendChild(jsonViewer_GDVR_Fail.getContainer());
+
+	GDVR_Fail = JSON.stringify({
+		"ServerDateTime": "2017-11-30T19:38:15Z",
+		"TimeStamp": 2458088.3182292,
+		"ExecutionTime": 0.000,
+		"Errors": [
+			{
+				"Status": "401",
+				"Details": "Invalid token",
+			}
+		]
+	}
+	);
+
+
+	var setJSON = function () {
+
+		GDVR_Success_Obj = JSON.parse(GDVR_Success);
+		GDVR_Fail_Obj = JSON.parse(GDVR_Fail);
+	}
+
+
+	setJSON();
+	jsonViewer_GDVR_Success.showJSON(GDVR_Success_Obj);
+	jsonViewer_GDVR_Fail.showJSON(GDVR_Fail_Obj);
+
+</script>

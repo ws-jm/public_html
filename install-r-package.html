@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Meta -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+	<!-- Title -->
+	<title>Monitor+ API</title>
+
+	<!-- JS Files -->
+
+	<script src="resources/js/jquery-1.12.3.js"></script>
+	<script src="resources/js/jquery-3.6.0.min.js"></script>
+	<script src="resources/js/bootstrap.min.js"></script>
+	<script src="resources/js/bootstrap-dropdown.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+	<script src="resources/js/jquery-ui.js"></script>
+	<script src="dev/api/config/config.js"></script>
+	<script src="dev/api/authentication.js"></script>
+	<script src="resources/js/jquery.ihavecookies.min.js"></script>
+
+	<script src="resources/jqwidgets/jqxcore.js"></script>
+	<script src="resources/jqwidgets/jqxwindow.js" async></script>
+	<script src="resources/jqwidgets/jqxscrollbar.js" async></script>
+	<script src="resources/jqwidgets/jqxbuttons.js" async></script>
+	<script src="resources/jqwidgets/jqxinput.js" async></script>
+    <script src="resources/jqwidgets/jqxlistbox.js" async></script>
+    <script src="resources/jqwidgets/jqxdropdownlist.js" async></script>
+	<script src="resources/jqwidgets/jqxmenu.js" async></script>
+	<script src="resources/jqwidgets/jqxcheckbox.js" async></script>
+
+	<script src="resources/js/jquery.event.drag-2.3.0.js"></script>
+	<script src="resources/js/slick.core.js"></script>
+	<script src="resources/js/slick.formatters.js" async></script>
+	<script src="resources/js/slick.editors.js"> async</script>
+	<script src="resources/js/slick.rowselectionmodel.js" async></script>
+	<script src="resources/js/slick.grid.js" async></script>
+	<script src="resources/js/slick.dataview.js" async></script>
+	<script src="resources/js/slick.cellrangeselector.js" async></script>
+	<script src="resources/js/slick.cellselectionmodel.js" async></script>
+	<script src="resources/js/slick.rowmovemanager.js" async></script>
+  	<script src="resources/js/slick.checkboxselectcolumn.js" async></script>
+
+	<script src="resources/js/top-menu.js"></script>
+	<script src="resources/js/messages.js"></script>
+	<script src="resources/js/common.js"></script>
+	<script src="resources/js/goto_homepage.js"></script>
+
+	<!-- CSS Files -->
+
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,500i,600,600i,700,700i,800" rel="stylesheet">
+	<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
+	<link href="resources/idm-service/resources/css/font-awesome.min.css" rel="stylesheet">
+	<link href="resources/idm-service/resources/css/bootstrap-navbar.css" rel="stylesheet">
+
+	<link href="resources/jqwidgets/styles/jqx.base.css" rel="stylesheet">
+    <link href="resources/jqwidgets/styles/jqx.light.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="resources/css/slick.grid.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/slick.pager.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/slick.columnpicker.css" type="text/css" />
+	
+	<link href="resources/idm-service/resources/css/main.css" rel="stylesheet">
+	<link href="resources/idm-service/resources/css/responsive.css" rel="stylesheet">
+	<link href="resources/css/bootstrap-navbar.css" rel="stylesheet">
+	<!-- <link href="resources/css/main.css" rel="stylesheet"> -->
+	<link href="resources/css/general.css" rel="stylesheet">
+	<link rel="icon" type="image/x-icon" href="resources/api_favicon.png">
+	<link rel="stylesheet" href="resources/css/r-package.css">
+	<link rel="stylesheet" href="resources/css/menu.css">
+    <link rel="stylesheet" href="resources/css/footer.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<link href="resources/jqwidgets/styles/jqx.base.css" rel="stylesheet">
+	<link href="resources/jqwidgets/styles/jqx.light.css" rel="stylesheet">
+	
+	<link rel="stylesheet" href="resources/css/slick.grid.css" type="text/css" />
+	<link rel="stylesheet" href="resources/css/slick.pager.css" type="text/css" />
+	<link rel="stylesheet" href="resources/css/slick.columnpicker.css" type="text/css" />
+	<link rel="stylesheet" href="resources/css/monitor-gui.css" type="text/css" />
+
+	<style>
+		section.main-content {
+			margin-top: 120px;
+			padding: 0 0 32px 0;
+		}
+
+		.info-monitor{
+			padding: 25px 32px;
+		}
+
+		section.main-content .top-logo {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: flex-start;
+			background-color: #f7f7f7;
+			padding: 20px 0 20px 0;
+		}
+
+		section.main-content .top-logo .monitor img {
+			margin-top: 35px;
+		}
+
+		section.main-content .top-logo .monitor .market {
+			margin-left: 129px;
+		}
+
+	</style>
+</head>
+
+<body class="default">
+	<div class="fixpage">
+
+		<nav include-html="menu.html" id="menu_file" class="navbar navbar-default navbar-fixed-top " ></nav>
+		
+		
+
+		<section class="main-content dis-block clearfix">
+		
+	           <div class="top-logo">
+						<img src="resources/images/install_r.png" alt="r-rmonitor-plus"  width="540"  >	
+				</div>	
+
+			<div class="info-monitor">
+				<h2 class="title">Introduction.</h2>
+				<p>The package can be downloaded <b>only</b> by registered users by clicking on the button below. </p>
+				<p>Once you click the download button. you will be asked to enter your API key (you can locate your API key on your 'My Account' page).</p>
+
+				<br>
+				
+
+				<div style="text-align: center;"><button id="install-r-btn" class="dwnld"><span><i class="fa fa-download" aria-hidden="true"></i></span>&nbsp;&nbsp; Download the R Package</button></div>
+		
+        
+        <br>
+
+		<div class="btnDialog notVisible">
+			<div class="closeDialog"><i class="fas fa-times"></i></div>
+			<div class="blue-title auth-title"> Authentication Required</div>
+		
+			<form action="">
+			<label for="api-key" style="margin-top: 15px;font-weight: 400;">Please enter your API Key</label>
+			<div><input type="text" id="api-key" style="margin-top: 15px" autocomplete="off" autofocus ></div>
+			
+			
+			<div id="errorText" class="notVisible"></div>
+			<div id="submitCont" style="margin-top: 15px;">
+				<div style=" margin-top: 10px; ">
+				<input type="checkbox" id="mailCheck">
+			Send email with download link</div>
+			<a id="dwnld_link" download=""><input type="submit" id="submitApi"  value="OK" ></a>
+			</div>
+		</form>
+
+		
+
+
+		</div>
+        
+
+		<p>After entering your API key, please save the downloaded TAR.GZ file to a convenient folder.</p>
+
+		<br>
+		
+
+				<h2 class="title">Installing the package</h2>
+	
+				<p><span style="color: rgb(26, 101, 187);">From R Studio:</span>  <br><br>Select the “Install” option from the packages tab (below), change
+					“Install from” menu option to “Package Archive file” type. Next click on the “Browse” button to
+					select the saved Monitor+ installation and then click the “Install” button to begin.</p>
+				<div id="gp-img">
+					<img src="resources/images/install-r-package.png" alt="" style="height: 420px; Width: 660px; ">
+				</div>
+				<p> <br><h2 class="title"> To manually install: </h2> Launch R to the R command prompt <br>
+					Type: install.packages(<path_to_tar.gz_file>, repos = NULL) <br>
+						E.g: install.packages("C:\idm-r\idmmonitor_0.2.0.tar", repos = NULL)
+				</p>
+				
+				<p> The package is installed from a “tar” file and requires
+					the “HTTR”, “R6” and “JSONLITE” packages to be installed prior to use. The “HTTR” package allows
+					direct communications with the Monitor+ API, the “R6” provides data classes used in the package and
+					JSONLITE allows easy use of the JSON script in “R”.</p><br>
+
+				<br> </p>
+
+				<h2 class="title">Testing the package</h2>
+				<p>Once the four packages have been installed (see above), you are ready to begin testing. You will need
+					your Monitor+ API key to complete this next stage. You should have received your API key from us via
+					email. If you have a problem locating the API key, you can access your API key by logging into
+					https://www.sarus.com and viewing your account.</p>
+
+				<p>To begin you need to enable the ‘idmmonitor’ package, register your API key and get a session token
+					from the remote API server. You need to type the three commands below to achieve this. The commands
+					you must type are in black text below, comments are in green text and results from the server are in
+					blue. </p>
+
+				<br>
+
+				<div id="text_under_testing-package">
+					<p class="green"># Enable the library</p>
+					> library(idmmonitor)
+					<p class="blue-para">Loading required package: R6 <br>
+						Loading required package: jsonlite <br>
+						Loading required package: httr
+					</p>
+					<br>
+
+					<p class="green"># Register your API key with the service</p>
+					> idata.set_api_key("XXXXX-XXXXX-XXXXX-XXXXX")
+					<p class="blue-para">Stored the new API key XXXXX-XXXXX-XXXXX-XXXXX.</p>
+					<br>
+					<p class="green"># Get a session token</p>
+					> idata.get_session_token()
+					<p class="blue-para">A new token 2b4a1038338c9b4234a1a8c5cc01ba3d has been set. <br>
+						<span style="color: black;">></span>
+					</p>
+
+					<p>Once you have successfully entered the commands above and have a “new” session token, you can
+						access the full service. As you can see from the example above, commands to the ‘idmmonitor’
+						package are prefixed with the text “idata.”. </p>
+
+					<p>You can use the commands below test access the server </p>
+
+					<p>>idata.query_session_token() <br>
+
+						<span class="blue-para">[1] 1796000</span>
+					</p>
+
+					<p>> idata.get_api_address() <br>
+						<span class="blue-para">The API server is set to https://api.sarus.com/</span>
+					</p>
+				</div><br>
+
+				<h2 class="title">Testing the connection</h2>
+				<p> You can quickly check that the connection to the Monitor+ API server is working. Open your browser
+					and enter the url <a href="">https://api.sarus.com/</a> and press enter. Your browser should
+					show a simple web page with one line of text similar to ”Monitor+ Web API Version: X.X”. </p>
+				<p>If you do not see this (or you see an error page), you may have a proxy or firewall issue that is
+					blocking the connection. Please contact your IT department and ask them to replicate the test above
+					and so enable access to the Monitor+ API server for you.</p>
+				<p>You should also try to connect to the web site where the API help files are stored. Open your browser
+					and enter the url <a href="">https://www.sarus.com/</a> and press enter. If you do not see the
+					IDM web site, please contact your IT department and ask them to replicate test above. They should be
+					able to quickly resolve the issue.</p>
+				<br>
+
+				<h2 class="title">And Finally</h2>
+				<p> For any other problems, please email <a href="">support@sarus.com</a> with a subject of
+					“Monitor+ R Package Support”. Please send your contact details, User Reference Number, API key, R
+					version number, any relevant screenshots and a description of the issue. We will do our utmost to
+					get a speedy resolution to the problem for you.</p>
+
+
+
+
+			</div>
+		</section>
+        
+		<div include-html="footer.html" id="footer_file"></div>
+		
+			<div class="text-center footertxt">
+				<p class="sub-logo"> Copyright © 2018-2022 Sarus Systems Limited - Market Data Solutions </p>
+			</div>
+		</div>
+	</div>
+
+	<script src="resources/js/include-html.js"></script>
+	<script>
+		
+	const body=document.querySelector("body");
+		const navbar_default=document.querySelector(".navbar-default");
+		window.addEventListener("load",()=>{
+			body.style.background="#ececec";
+			
+		})
+
+
+
+		const dwnldBtn=document.querySelector(".dwnld");
+		const closedialog=document.querySelector(".closeDialog");
+		const btnDialog=document.querySelector(".btnDialog");
+		const api_key=document.querySelector("#api-key");
+		const submitApiBtn=document.querySelector("#submitApi");
+		const errorServer=document.querySelector(".errorServer");
+		const enter_key=document.querySelector(".btnDialog").lastElementChild;
+		const dwnld_link=document.querySelector("#dwnld_link");
+		const errorText=document.querySelector("#errorText");
+
+		
+		const form=document.querySelector("form");
+		const mailCheck=document.querySelector("#mailCheck");
+
+		
+    		tabArr=[api_key,submitApiBtn];
+			let focusIndex=0;
+
+
+		dwnldBtn.addEventListener("click",()=>{
+			btnDialog.classList.remove("notVisible");
+			api_key.focus();
+			closedialog.addEventListener("click",()=>{
+				btnDialog.classList.add("notVisible");
+				api_key.value="";
+				errorText.classList.add("notVisible");
+				
+				
+			})
+
+			document.addEventListener("keydown",(e)=>{
+				
+					if(e.key=="Escape"){
+						btnDialog.classList.add("notVisible");
+						api_key.value="";
+					}	
+
+					else if(e.key=="Tab"){
+						e.preventDefault();
+						
+						tabArr[focusIndex].focus();
+						focusIndex++;
+						errorText.classList.add("notVisible");
+						if(focusIndex==2){
+							focusIndex=0;
+						}
+					}
+
+					
+					
+					
+			})
+
+
+		})
+
+		submitApiBtn.addEventListener("click",()=>{
+			
+			let xhr=new XMLHttpRequest();
+			xhr.open("GET",`https://api.sarus.com/GetSessionToken?APIKey=${api_key.value} `,true);
+			xhr.addEventListener("load",()=>{
+				if(xhr.status==200){
+					errorText.classList.add("notVisible");
+					let data=JSON.parse(xhr.responseText);
+					console.log(data.Result.SessionToken)
+					
+					
+
+					let data1;
+					
+
+
+					if(mailCheck.checked){
+						let xhr1=new XMLHttpRequest();
+						xhr1.open('GET',`https://api.intdatamedia.com/ReturnFileURL?SessionToken=${data.Result.SessionToken}&SendEmail=true&FileName=idm-r-package`);
+						xhr1.addEventListener("load",()=>{
+							data1=JSON.parse(xhr1.responseText);
+
+							window.location.href=`${data1.Result}`
+
+							
+								// dwnld_link.setAttribute("href",`${data1.Result}`);
+								// dwnld_link.setAttribute("download","");
+							
+
+							
+						})
+						xhr1.send();
+					}
+				
+					else{
+						let xhr1=new XMLHttpRequest();
+						xhr1.open('GET',`https://api.sarus.com/ReturnFileURL?SessionToken=${data.Result.SessionToken}&SendEmail=false&FileName=idm-r-package`);
+						xhr1.addEventListener("load",()=>{
+							data1=JSON.parse(xhr1.responseText);
+							window.location.href=`${data1.Result}`
+
+						
+						})
+						xhr1.send();
+			
+				}}
+				else{
+					console.log(xhr.responseText);
+					// errorText.innerHTML=typeof(JSON.parse(xhr.responseText));
+					let data=JSON.parse(xhr.responseText);
+					console.log(data.Errors[0].Status)
+					errorText.innerHTML= `Status: ${data.Errors[0].Status} , ${data.Errors[0].Details} `
+					errorText.classList.remove("notVisible");
+						
+				}
+				
+			})
+			xhr.send();
+
+			
+
+		})
+
+		api_key.addEventListener("mousedown",()=>{
+			errorText.classList.add("notVisible");
+		})
+
+		
+
+		form.addEventListener("submit",(e)=>{
+			e.preventDefault();
+		})
+		
+		
+		
+	</script>
+
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+

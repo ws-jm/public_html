@@ -1,0 +1,171 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    background-color: white;
+    padding: 60px;
+}
+
+.logo{
+    background-image: url(IntDatMedSM274.png);
+    height: 180px;
+    width: 300px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+
+.main-container{
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
+max-width: 55%;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+height: 388.76px;
+text-align: center;
+
+
+}
+
+.main-container h1{
+    text-align: center;
+    font-size: 10em;
+    color: rgb(18, 18, 97);
+    font-weight: 500;
+    position: relative;
+    top: 18px;
+}
+
+.main-container h2{
+    text-align: center;
+    color: rgb(65, 60, 60);
+    font-weight: 600;
+    word-spacing: 10px;
+}
+
+
+
+.main-container p{
+    color: rgb(100 96 96);
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.links{
+    width: 100%;
+    padding: 20px 0px 0px 0px;
+}
+
+.links ul{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+   
+}
+
+.links li{
+    text-align: center;
+    width: 140px;
+  height: 56px;
+  border-radius: 4px;
+  background: #1897f2;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s;
+}
+
+.links li:hover{
+    background-color: #146cac;
+}
+
+.links ul li a{
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: center;
+    border: none;
+    text-decoration: none;
+}
+
+.links li:nth-child(2){
+    margin-left: 50px;
+}
+
+
+
+
+
+
+
+@media screen and (max-width:700px) {
+
+    
+    body{
+        padding: 20px;
+    }
+
+    .logo{
+        height: 150px;
+        width: 270px;
+    }
+    
+    .main-container h1{
+        font-size: 6em;
+    }
+    .main-container .links ul{
+        flex-direction: column;
+        align-items: center;
+        height: 150px;
+        justify-content: space-between;
+    }
+
+    .main-container .links{
+        padding-top: 18px;
+    }
+
+    .main-container h2{
+        word-spacing: 5px;
+    }
+
+    .links li:nth-child(2){
+        margin-left: 0px;
+    }
+
+    
+}
+
+
+@media screen and (max-width:1024px) {
+
+    body{
+        padding: 40px;
+    }
+
+
+    .main-container p{
+        text-align: center;
+    }
+
+    .main-container{
+        margin-top: 40px;
+    }
+
+    .main-container h1{
+        top: 10px;
+    }
+   
+
+}

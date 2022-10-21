@@ -1,0 +1,74 @@
+<nav class="navbar navbar-default" style="border-radius: 0px;">
+	<div class="container-fluid navbar-custom">
+		<div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="/idm-service/">SARUS</a>
+	    </div>
+
+		<sec:authorize access="isAuthenticated()">
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-2">
+				<sec:authorize access="hasAuthority('ADMIN')">
+					<ul class="nav navbar-nav">
+						<li><a href="/idm-service/idm-customer-categories">Data Categories</a></li>
+					</ul>
+					<ul class="nav navbar-nav">
+						<li><a href="/idm-service/databases">Databases</a></li>
+					</ul>
+					<ul class="nav navbar-nav">
+						<li><a href="/idm-service/notifications">Messages <span class="badge"><c:out value="${message_size}"/></span></a></li>
+					</ul>
+					<ul class="nav navbar-nav">
+						<li><a href="/idm-service/admin">Settings</a></li>
+					</ul>
+				</sec:authorize>
+				<sec:authorize access="hasAuthority('USER')">
+					<ul class="nav navbar-nav">
+						<li><a href="/idm-service/databases">Databases</a></li>
+					</ul>
+					<ul class="nav navbar-nav">
+						<li><a href="/idm-service/user-favourites">My Favorites</a></li>
+					</ul>
+					<ul class="nav navbar-nav">
+						<li><a href="http://www.sarus.com/contact-us">Contact us</a></li>
+					</ul>
+				</sec:authorize>
+				
+				<ul class="nav navbar-nav navbar-right">
+					<li id="nav_time" style="margin-top:29px;"></li>
+				</ul>
+				
+				<ul class="nav navbar-nav navbar-right">
+			        <li class="dropdown">
+				        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+				        	<img style="margin-bottom:4px;" src="/idm-service/resources/fonts/man.png"><sec:authentication property="principal.username"/> <span class="caret"></span></a>
+				        <ul class="dropdown-menu" role="menu">
+				        	<li><a href="/idm-service/logout">Logout</a></li>
+				        </ul>
+			        </li>
+		      	</ul>
+			</div>
+		</sec:authorize>
+	</div>
+</nav>
+
+<script>
+	var serverTime = <% out.print(System.currentTimeMillis()); %>;
+	var localTime = Date.now();
+	var timeDiff = serverTime - localTime;
+	setInterval(function () {
+		serverTime = serverTime + 1000;
+		var d = new Date(serverTime),
+	      h = (d.getHours()<10?'0':'') + d.getHours(),
+	      m = (d.getMinutes()<10?'0':'') + d.getMinutes(),
+	      s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+		
+		var time = h + ":" + m + ":" + s;
+		document.getElementById('nav_time').innerHTML = "Server time: " + time;
+	}, 1000);
+</script>

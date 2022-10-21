@@ -1,0 +1,31 @@
+.nav > li.home-menu {
+    display: none;
+}
+.browsers {
+    text-align: center;
+    width: 700px;
+    margin: 50px auto 0;
+}
+.browsers h6 {
+    color: #8c8c8cb3
+}
+.browser {
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+    margin: 30px 15px;
+}
+.browsers p {
+    color: #0156a3;
+}
+.browser img {
+    padding: 0 22px;
+    margin-bottom: 15px;
+}
+
+
+@media screen and (max-width:767px) {
+    .browsers{
+        width: inherit;
+    }
+}

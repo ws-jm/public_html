@@ -1,0 +1,88 @@
+html, body {
+    height: 100%;
+    margin:0px;
+}
+.fixpage {
+    height: auto;
+    min-height: 100%;
+    display: none;
+}
+.nav > li.home-menu {
+    display: none;
+}
+#page-select {
+    display: none;
+}
+.form-group {
+    padding-right:8px;
+}
+#submitButton
+{
+    background-color: #4DAF7C;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 10px 35px;
+    border: 1px solid #fff;
+    float: right;
+    text-transform: none;
+}
+#submitButton:hover
+{
+    background-color: white;
+    border: 1px solid #4DAF7C;
+    color: #4DAF7C;
+}
+.enquriy-box-form .form-group {
+    padding-bottom: 0;
+}
+.sales-enquiry-box div {
+    margin-bottom: 15px;
+}
+.sales-enquiry-box div {
+    color: #7a7a7a;
+    text-align: justify;
+    text-align-last: left;
+    font-size: 16px;
+    line-height: 24px;
+}
+.mandatory {
+    color: #ff2000!important;
+    font-size: 18px!important;
+}
+sup.mandatory {
+    font-weight: bold;
+}
+sup {
+    top: 2px;
+}
+#username-icon {
+    margin-bottom: 4px;
+}
+.contact-banner {
+    margin-top: 115px !important;
+}
+.main-label,
+.sales-enquiry-box h2 {
+    color: #0156a3 !important;
+}
+.jqx-notification-content {
+	color: #fff !important;
+}
+.jqx-notification-container {
+    z-index: 9999;
+}
+.jqx-notification.jqx-widget td {
+    background-color: transparent !important;
+    color: #fff !important;
+}
+.jqx-notification-table {
+	margin: 0;
+    border: 0;
+}
+.jqx-notification.jqx-widget td {
+    border-color: transparent !important;
+    padding: 0;
+}

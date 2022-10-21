@@ -1,0 +1,144 @@
+.main-label {
+    font-size: 14px;
+}
+
+h1 {
+    text-align: left !important;
+    margin: 0 !important;
+}
+
+.d-flex {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.register-banner {
+    margin: 0px;
+    margin-top: 100px !important;
+    padding: 13px 30px 20px;
+    max-width: unset;
+    min-height: unset;
+    
+
+}
+.register-banner .register-banner-content {
+    padding-right: 0;
+}
+
+
+.register-account-col {
+    padding: 0%;
+    width: 40%;
+}
+
+
+.banner-desc {
+    color: white !important;
+    line-height: 32px !important;
+    width: 600px;
+}
+
+.carousel-controler-button {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    padding: 0px 23px;
+}
+
+.carousel-controler-button p {
+    margin-left: auto;
+    margin-bottom: 0px;
+}
+
+.start-carousel {
+    padding: 5px;
+    background: #3A648B;
+    border: 2px solid;
+    border-color: transparent;
+    color: white;
+    width: 80px;
+    height: 40px;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.pause-carousel {
+    padding: 5px;
+    background: transparent;
+    width: 80px;
+    height: 40px;
+    border-radius: 4px;
+    border: 2px solid #3A648B;
+    color: #3A648B;
+    font-size: 18px;
+    font-weight: 600;
+
+}
+
+.footnote {
+    color: #494949;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 40px;
+    display: block;
+}
+
+
+
+@media screen and (max-width:1100px) {
+    .register-heading h2 {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width:991px) {
+    .register-banner {
+        margin-top: 74px !important;
+    }
+}
+@media screen and (max-width:985px) {
+    .register-heading h2 {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .register-heading h2 {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width:810px) {
+    .register-heading h2 {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .register-account-col {
+        padding: 0%;
+        width: 90%;
+        margin: auto;
+    }
+    .register-banner {
+        margin-top: 63px !important;
+    }
+    .banner-desc {
+        width: inherit;
+    }
+    .register-banner {
+        padding: 13px 15px 20px;
+    }
+
+}
+
+@media screen and (max-width:400px) {
+    .register-account-col {
+        padding: 0%;
+        width: 100%;
+
+    }
+}

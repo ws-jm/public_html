@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fav help</title>
+
+    <!-- css links -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i,800,800i"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,500i,600,600i,700,700i,800"
+        rel="stylesheet">
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
+
+    <link href="resources/jqwidgets/styles/jqx.base.css" rel="stylesheet">
+	<link href="resources/jqwidgets/styles/jqx.light.css" rel="stylesheet">
+
+    <link href="resources/idm-service/resources/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css">
+    <link rel="stylesheet" href="resources/idm-service/resources/css/main.css">
+    <link href="resources/css/general.css" rel="stylesheet">
+    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="resources/favorite_icon.jpg">
+    <link rel="stylesheet" href="resources/css/menu.css">
+    <link rel="stylesheet" href="resources/css/footer.css">
+    <link rel="stylesheet" href="resources/css/fav-help.css">
+    <link rel="stylesheet" href="resources/css/monitor-gui.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/monitor-ui.css" type="text/css" />
+
+
+    <script src="resources/js/jquery-1.12.3.js"></script>
+	<script src="resources/js/jquery-3.6.0.min.js"></script>
+	<script src="resources/js/bootstrap.min.js"></script>
+	<script src="resources/js/bootstrap-dropdown.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<!-- <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script> -->
+	<script src="resources/js/jquery-ui.js"></script>
+    
+    <script src="resources/jqwidgets/jqxcore.js"></script>
+	<script src="resources/jqwidgets/jqxwindow.js" async></script>
+	<script src="resources/jqwidgets/jqxbuttons.js" async></script>
+	<script src="resources/jqwidgets/jqxscrollbar.js" async></script>
+	<script src="resources/jqwidgets/jqxinput.js" async></script>
+    <script src="resources/jqwidgets/jqxlistbox.js" async></script>
+    <script src="resources/jqwidgets/jqxdropdownlist.js" async></script>
+	<script src="resources/jqwidgets/jqxmenu.js" async></script>
+	<script src="resources/jqwidgets/jqxcheckbox.js" async></script>
+
+
+    <!-- js links -->
+    <script src="resources/js/bootstrap.bundle.min.js"></script>
+    <script src="resources/js/include-html.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+    <script src="dev/api/config/config.js"></script>
+    <script src="dev/api/authentication.js"></script>
+    <script src="resources/js/jquery.ihavecookies.min.js"></script>
+    <script src="resources/js/top-menu.js"></script>
+    <!-- <script src="resources/js/home.js"></script> -->
+    <script src="resources/js/messages.js"></script>
+    <script src="resources/js/common.js"></script>
+    <script src="resources/js/goto_homepage.js"></script>
+
+    <!-- <script src="resources/js/help.js"></script> -->
+
+    <style>
+        .managing-area {
+            padding-top: 115px;
+        }
+
+        @media screen and (max-width:880px) {
+            .managing-area {
+                padding-top: 85px;
+            }
+        }
+
+        @media screen and (max-width:767px) {}
+    </style>
+</head>
+
+<body>
+    <div class="fixpage">
+        <nav include-html="menu.html" id="menu_file" class="navbar navbar-default navbar-fixed-top "></nav>
+        <div class="managing-area">
+
+            <h4 class="blue-bg-heading">Managing your Favorites List</h4>
+
+            <p>Each user has access to their own list of frequently used time series (datasets) called a 'Favorites 
+                List'. The list is controlled and managed from the 'My Favorites' web page on www.sarus.com. The help page below has three
+                tabs similar to the ones on the 'My Favorites' web page.</p>
+            <br>
+            <p>The three tabs are:
+                <ul>
+                    <li><span class="bold">My Favorites</span> - where users can manage their list and view or remove
+                        series.</li>
+                    <li><span class="bold">My Datasources</span> - where series are added to the Favorites List.</li>
+                    <li><span class="bold">Deleted Series,</span> where previously deleted series are restored to
+                        the Favorites List.</li>
+                </ul>
+                <br><br>
+                <p><span class="bold">Click on one of the three tabs below to see the help for that tab.</b></span>
+                <br><br>
+
+        </div>
+
+        <!-- tab panel area -->
+        <div class="tab-wrapper">
+
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="my-favourite-tab" data-bs-toggle="tab"
+                        data-bs-target="#my-favourite" type="button" role="tab" aria-controls="my-favourite"
+                        aria-selected="true">My Favorites</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="my-datasources-tab" data-bs-toggle="tab"
+                        data-bs-target="#my-datasources" type="button" role="tab" aria-controls="my-datasources"
+                        aria-selected="false">My Datasources
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="removed-series-tab" data-bs-toggle="tab"
+                        data-bs-target="#removed-series" type="button" role="tab" aria-controls="removed-series"
+                        aria-selected="false">Removed Series
+                    </button>
+                </li>
+            </ul>
+
+
+
+            <div class="tab-content" id="myTabContent">
+                <!-- my favourite tabs content -->
+                <div class="tab-pane fade show active" id="my-favourite" role="tabpanel"
+                    aria-labelledby="my-favourite-tab">
+                    <p class="text-left">The My Favorites tab has a Tree Panel on the left, a splitter bar and a
+                        Table Panel on the right. Both panels have toolbars and
+                        popup menus.
+                    </p>
+                    <br>
+                    <img src="resources/images/my-fav-tab.png" alt="">
+                    <div class="row the-tree-panel">
+                        <div class="col-12">
+                            <h4 class="heading-2"><i class="fa-solid fa-angles-right"></i> The Tree Panel</h4>
+                            <p class="text-left">The Tree Panel on the left allows users to create a hierarchical tree
+                                structure to organize their favorite series as folders in the tree.
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="resources/images/my-fav-tree-panel.jpg" alt="">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="middle-text">
+                                <p> Folders and subfolders can be created, moved and deleted (when empty).
+								<br><br>
+                                    Series from the Table Panel can be dragged or pasted to any Tree Panel folder.
+                                    <br><br>
+                                    Click on any Tree Panel folder to display its series in the Table Panel.
+                                    <br><br>
+                                    Click on the 'All Series' folder displays all series in the Favorites List.
+                                    <br><br>
+                                    The popup menu is activated by right clicking in the Tree Panel.
+                                    <br><br>
+                                </p>
+                            </div>
+                        </div>
+  
+                    </div>
+                    <div class="row">
+                        <div class="col-12 ">
+                            <div class="tree-panel-notes">
+                                <h4 class="heading-2 ">Notes</h4>
+                                <ul>
+                                    <li>Each folder name shows the number of series it contains.</li>
+                                    <li>Series from the Table Panel can be duplicated in multiple folders.</li>
+                                    <li>Folders can be nested and contain both series and sub-folders.</li>
+                                    <li>Folder moving (when enabled) allows folders to be reorganized in the Tree Panel.</li>
+										
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="heading-2 the-tab-panel"><i class="fa-solid fa-angles-right"></i>The Table Panel
+                            </h4>
+                            <p>The Table Panel contains the list of favorite series (datasets) that the user has
+                                selected for easy access on a day to day basis.
+                                From here the historical values and metadata for any series can be viewed and charted, series added to a 
+								folder in the Tree Panel or series can be removed from the Favorites List.
+                                See the 'My Datasources' tab above for details on how to add series to the Favorites List.<br></p>
+                            <img src="resources/images/grid-panel.jpg" alt="">
+
+                            <div class="indent-area">
+                                <h4 class="heading-2"><i class="fa-solid fa-angles-right"></i>Filter Series</h4>
+                                <p class="mb-5">Use the toolbar Filter edit box to list in the Table Panel only series containing (or excluding) certain words or phrases.  Phrases are a list of words contained in double quotes. <br><br> To exclude a word or phrase, prefix it with a minus “-“ character.  Filters are NOT case sensitive.
+                                    Click on the small Help button (“?”) that beside the Filter Text box for more
+                                    details  on filters.<br><br>To activate a filter, press the enter key when in the Filter edit box or click the toolbar
+                                    “Apply Filter” button. 
+									Tree folders can be used with a filter and series can be sorted by
+									clicking on a  "Table Panel" column header. </p>
+
+                                <h4 class="heading-2"><i class="fa-solid fa-angles-right"></i>View a Series</h4>
+                                <p class="mb-5">Series values, corrections and metadata can be viewed in a new browser tab by clicking on a symbol in column two, the 'Symbol' column.<br><br>
+                                    On the Series Viewer page, the values of all data columns can be viewed in any average and charted.
+									Empty rows can be hidden, weekends toggled, data exported 
+									and any published data corrections displayed. </p>
+
+                                <h4 class="heading-2"><i class="fa-solid fa-angles-right"></i>Remove Series</h4>
+                                <p class="mb-5">Selected series are removed from the 'Favorites List' using the “Remove” button on the table
+                                    toolbar (or from the popup  menu).
+                                    Removed series are only removed from the favorites list and can be added again (click 
+                                    the 'Removed Series” tab above for details). <br><br>
+									All removed series are automatically removed from any
+                                    Tree Panel folders. Multiple series can be selected and removed at once. </p>
+
+                                <h4 class="heading-2"><i class="fa-solid fa-angles-right"></i>Add Series to a
+                                    Tree Panel folder
+                                </h4>
+                                <p class="mb-5">The Favorites Tree makes it simple to locate series as they can be
+                                    organized into user defined folders. Select one or more series in the Table Panel (multiple series can be 
+									selected using the shift or Ctrl keys) and the selected series can be
+                                    dragged onto any Favorites Tree folder.<br><br> 
+									
+									Alternatively, use the popup menus to copy from the Tree Panel and paste onto a folder in the Tree panel.
+									
+									 The series are added to the selected folder and the folder caption will be updated to show the new series count.</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- my datasources tabs content -->
+                <div class="tab-pane fade" id="my-datasources" role="tabpanel" aria-labelledby="my-datasources-tab">
+                    <p class="text-left">Here series can be added to the Favorites List or  viewed in a new 'Series Viewer' browser tab.
+                    </p>
+                    <img src="resources/images/my-datasources-tab.jpg" alt="">
+                    <p class="text-left mb-5">The tab has a toolbar and popup menu that is opened by right
+                        clicking the mouse in the table.
+                    </p>
+                    <div class="indent-area">
+                        <h4 class="heading-2"><i class="fa-solid fa-angles-right"></i>Data Categories: </h4>
+                        <p class="mb-5">Some datasources have their series divided into data categories. These datasources will
+                            have a Category Panel on the left of the Table Panel containing 
+                            Category Tree and Category List tabs.<br><br>
+                            In the Category Tree tab, categories are  displayed in a vendor supplied tree, Only the categories that
+							the user can have access to are enabled. All other categories are greyed out.
+                            In the Category List, a sorted  list of categories is displayed. Again, only the categories that the user can access are enabled.  Click on the the 'Only My Datasources' checkbox to see only categories that can be accessed. <br><br>
+                            Click on a category name in the tree or list to display the series from the selected data category.
+                        </p>
+
+                        <h4 class="heading-2"><i class="fa-solid fa-angles-right"></i>Select Datasource</h4>
+                        <p>The 'Select Datasource' dropdown is used to select a datasource from those
+                            that are available with the current subscription. Once selected, the Table Panel
+                            will update to display the series the datasource contains. For large datasources, a page
+                            counter will appear below the table where users can set the number of rows per page and navigate directly to any page.
+                        </p>
+                        <img src="resources/images/select-datasources.jpg" alt="">
+
+                        <h4 class="heading-2"><i class="fa-solid fa-angles-right"></i>Filter Series</h4>
+                        <p class="mb-5">
+						
+						Use the toolbar Filter edit box to list in the Table Panel only series containing (or excluding) certain 
+						words or phrases.  Phrases are a list of words contained in double quotes. <br><br> To exclude a word or phrase, 
+						prefix it with a minus “-“ character.  Filters are NOT case sensitive.
+                                    Click on the small Help button (“?”) that beside the Filter Text box for more
+                                    details  on filters.<br><br>To activate a filter, press the enter key when in the Filter 
+									edit box or click the toolbar
+                                    “Apply Filter” button. 
+.</p>
+
+                        <h4 class="heading-2"><i class="fa-solid fa-angles-right"></i>Adding Series</h4>
+                        <p class="mb-5">Select one or more series in the Table Panel (multiple series can be selected 
+						using the shift or Ctrl keys) then click the the “Add to Favorites” toolbar button ( or right click to use the popup menu) to add them to the Favorite List. A yellow star will appear in column two 
+                            beside each of the added series to indicate that the series are now active and have been added to the
+                            bottom of the Favorites List.
+                        </p>
+
+                        <h4 class="heading-2"><i class="fa-solid fa-angles-right"></i>View a Series</h4>
+                        <p class="mb-5">Series values, corrections and metadata can be viewed in a new browser tab by 
+						clicking on a symbol in column two, the 'Symbol' column. <br><br>
+						On the Series Viewer page, the values of all data columns can be viewed in any average and charted. Empty rows can be hidden,
+						weekends toggled, data exported and any published data corrections displayed.</p>
+
+                        <h4 class="heading-2"><i class="fa-solid fa-angles-right"></i>Remove Series</h4>
+                        <p class="mb-5">To remove series from the Favorites List, first select one or more series in the Table Panel (multiple series can be selected 
+						using the shift or Ctrl keys).  Selected series are removed using the 'Remove  from Favorites'  popup menu option.<br><br>
+                            Removed series are only removed from the favorites list and can be added again from the
+                            'Removed Series' tab. <br><br> All removed series are automatically removed from any tree
+                            folders.
+                          
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- removed series tabs content -->
+                <div class="tab-pane fade" id="removed-series" role="tabpanel" aria-labelledby="removed-series-tab">
+                    <p class="text-left">Series that were recently  removed from the Favorites List are displayed here. <br><br>
+					To restore  series to the Favorites List, first select one or more series (multiple series can be selected using the shift or Ctrl keys) 
+					then click the “Restore to Favorites” button. Restored series are removed from the table and added to the bottom of the Favorites List
+					(see the 'My Favorite Series' tab).<br><br> 
+					Series can be deleted from this table by clicking the 'Delete' toolbar button. <br><br>
+					A popup menu with the same functionality is available by right clicking in the table.</p>
+					<br><br>
+                    <img src="resources/images/removed-series.jpg" alt="">
+                </div>
+
+            </div>
+        </div>
+
+        <div class="get-in-touch-area">
+		<br><br>
+            <p>If you have any questions about this page or would like a about our products and services then please get in touch using the button below. 
+			 <br><br>
+				 </p>
+            <a href="contact-us" style="display: block;margin: auto;"><button class="btn get-in-touch-btn">Get in touch
+                    <i class="fas fa-angle-double-right"></i></button></a>
+            <p>
+              Sarus Systems provides low cost premium market data & analytics giving companies greater market insight and competitive advantage.
+            </p>
+        </div>
+        <hr class="bottom-hr">
+        <p class="tradmark-text">(c) 2000-2022 Sarus Systems Ltd. Sarus, Monitor+ and XLerate are trademarks of Sarus Systems Ltd.  All trademarks acknowledged.</p>
+        <br>
+        <br>
+        <br>
+
+
+        <div include-html="footer.html" id="footer_file"></div>
+    </div>
+
+
+
+    <!-- tab panel area -->
+</body>
+
+</html>

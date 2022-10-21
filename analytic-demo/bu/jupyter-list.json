@@ -1,0 +1,56 @@
+[
+    {
+        "report_name": "View My Favorite Datasets - Jupyter Notebook", 
+        "filename": "analytic-demo/jupyter-demos/List My Favorites.ipynb", 
+        "description": "List your Favorite  market data datasets (time series) metadata that you have chosen.  The Favorites list makes it easy to get the datasource and dataset names for use in other analytic reports.
+          You can manage your favorite datasets online by <a href="https://www.sarus.com/profilemain?tab=favorites"> clicking here</a> to log into your Monitor+ Favorites portal.", 
+        "free_enabled": true
+    },
+    {
+        "report_name": "Simple Test Jupyter Notebook", 
+        "filename": "analytic-demo/jupyter-demos/sample.ipynb", 
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", 
+        "free_enabled": true
+    },
+		
+    {
+        "report_name": "Jupyter Preliminary visualization", 
+        "filename": "analytic-demo/jupyter-demos/Preliminary visualization.ipynb", 
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", 
+        "free_enabled": true
+    },
+    {
+        "report_name": "Seasonal Jupyter Notebook", 
+        "filename": "analytic-demo/jupyter-demos/seasonality.ipynb", 
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", 
+        "free_enabled": true
+    },
+
+    {
+        "report_name": "Jupyter - AR model on Time-Series data", 
+        "filename": "analytic-demo/jupyter-demos/AR model on Time-Series data.ipynb", 
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", 
+        "free_enabled": true
+    },
+    {
+        "report_name": "Jupyter ARIMA model", 
+        "filename": "analytic-demo/jupyter-demos/ARIMA.ipynb", 
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", 
+        "free_enabled": true
+    },
+    {
+        "report_name": "Jupyter Correlation report", 
+        "filename": "analytic-demo/jupyter-demos/Auto-correlation and Partial Auto-correlation.ipynb", 
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", 
+        "free_enabled": true
+    },
+    {
+        "report_name": "Jupyter Optimal lag in AR model", 
+        "filename": "analytic-demo/jupyter-demos/Optimal lag in AR model.ipynb", 
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", 
+        "free_enabled": true
+    },
+    {"report_name": "Jupyter product8", "filename": "", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": true},
+    {"report_name": "Jupyter product9", "filename": "", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": true},
+    {"report_name": "Jupyter product10", "filename": "", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, ut at vel cum sequi illo iste fugit accusamus explicabo tempore pariatur maxime ducimus asperiores nesciunt quidem, ex aut totam laudantium.", "free_enabled": true}
+]

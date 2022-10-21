@@ -1,0 +1,195 @@
+<!--<script src="/resources/js/top-menu.js"></script>-->
+<script src="/resources/js/home.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- header area -->
+<div class="brand-logo">
+<!--     <img src="/resources/idm-service/resources/images/IDM-logo-400.png" alt=""> -->
+	<img src="/resources/idm-service/resources/images/SARUS-logo-400.png" alt="Sarus Logo">
+	
+</div>
+<ul class="nav-menu">
+    <div class="close-btn">
+        <span></span>
+        <span></span>
+    </div>
+    <li class="nav-item"><a class="nav-link headerMenu active" href="/" id="menu0" role="/">Home</a></li>
+    <li class="nav-item dropdown-btn dropdown-btn1"><a class="nav-link">Solutions <i class="fas fa-caret-down"></i></a>
+        <ul class="dropdown-item ">
+            <li class="nav-item"><a class="nav-link headerMenu" href="/samples" id="menu1" role="/samples"><img src="/resources/css/icons/analytics.png" alt="">
+                Market Data Analytics</a></li>
+            <li class="nav-item "><a class="nav-link headerMenu" href="/m-api" id="menu2" role="/m-api"><img src="/resources/css/icons/R-16.png">
+                    Monitor+ API</a></li>
+            <li class="nav-item"><a class="nav-link headerMenu" href="/xlerate" id="menu3" role="/xlerate"><img src="/resources/css/icons/xlerate20x16.png" alt="">
+                    XLerate for Excel</a></li>            
+        </ul>
+    </li>
+    <li class="nav-item dropdown-btn dropdown-btn2"><a class="nav-link">Documents <i class="fas fa-caret-down"></i></a>
+        <ul class="dropdown-item">
+            <li class="nav-item"><a class="nav-link headerMenu" href="/r-package" id="menu4" role="/r-package"><img src="/resources/css/icons/R-24.png"
+                        alt="">Using the
+                    'R' Package</a></li>
+            <li class="nav-item"><a class="nav-link headerMenu" href="/python-api" id="menu5" role="/python-api"><img src="/resources/css/icons/Python16.png"
+                        alt="">Using
+                    the Python Package</a></li>
+            <li class="nav-item"><a class="nav-link headerMenu" href="/api-docs" id="menu6" role="/api-docs"><img src="/resources/css/icons/APIDocs16.png"
+                        alt="">API
+                    Documentation</a></li>
+        </ul>
+    </li>
+
+    <li class="nav-item"><a class="nav-link headerMenu" href="/contact-us" id="menu7" role="/contact-us">Contact</a></li>
+    <li class="nav-item register non-login"><a class="nav-link headerMenu" href="/registration" id="menu8" role="/registration">Register</a></li>
+    <li class="nav-item login non-login"><a class="nav-link headerMenu" href="/login" id="menu9" role="/login">Login</a></li>
+    <li class="dropdown-btn profile home-menu"><a class="nav-link"><img src="/resources/css/fonts/man.png" alt=""> <span id="login_name"></span> <i
+                class="fas fa-caret-down"></i> </a>
+        <ul class="dropdown-item">
+            <li><a href="/profile" class="headerMenu" id="menu10" role="/profile"><img src="/resources/css/icons/MyAccount16.png" alt=""> My Account</a></li>
+            <li><a href="/profilemain?tab=favorites" class="headerMenu" id="menu11" role="/profilemain?tab=favorites"><img src="/resources/css/icons/Favorites16.png" alt=""> My Favorites</a></li>
+            <li><a id="logout" href="javascript:void(0)"><img src="/resources/css/icons/Logout.png" alt=""> logout</a>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<div class="bar">
+    <span class="bar1"></span>
+    <span class="bar2"></span>
+    <span class="bar3"></span>
+</div>
+<script>
+    $(document).ready( function () {
+        
+        // var images = document.images;
+        // for(var i=0; i<images.length; i++){
+        //     var image = images[i];
+        //     // var downloadingImage = new Image();
+        //     // downloadingImage.onload = function(){
+        //     //     image.src = this.src;   
+        //     // };
+        //     // downloadingImage.src = image.src;
+        //     console.log(i);
+        //     console.log(image);
+        // }
+
+        var elements = $(".headerMenu");
+        var url = window.location.pathname;
+
+        elements.each(function( index ) {
+            exp_url = url.split("/");
+            if(exp_url[1] == ""){
+                if(index == 0){
+                    $("#menu"+index).attr("href", "#");
+                }
+                else{
+                    $("#menu"+index).attr("href", $("#menu"+index).attr("role"));
+                }
+            }
+            else{
+                if(index == 0){
+                    $("#menu"+index).attr("href", $("#menu"+index).attr("role"));
+                }
+                else{
+                    if(url === $("#menu"+index).attr("role")){
+                        $("#menu"+index).attr("href", "#");
+                    }
+                    else{
+                        $("#menu"+index).attr("href", $("#menu"+index).attr("role"));
+                    }
+                }
+            }
+        });
+        
+        $('.dropdown-btn1').click(function (e) {
+            e.stopPropagation();
+            if ($(this).children('.dropdown-item').hasClass('dropdown-item-shown') == true) {
+                $(this).children('.dropdown-item').removeClass('dropdown-item-shown')
+            } else($(this).children('.dropdown-item').addClass('dropdown-item-shown'))
+            $('.dropdown-btn2').children('.dropdown-item').removeClass('dropdown-item-shown')
+            $('.dropdown-btn3').children('.dropdown-item').removeClass('dropdown-item-shown')
+
+        });
+        $('.dropdown-btn2').click(function (e) {
+            e.stopPropagation();
+            if ($(this).children('.dropdown-item').hasClass('dropdown-item-shown') == true) {
+                $(this).children('.dropdown-item').removeClass('dropdown-item-shown')
+            } else($(this).children('.dropdown-item').addClass('dropdown-item-shown'))
+            $('.dropdown-btn1').children('.dropdown-item').removeClass('dropdown-item-shown');
+            $('.dropdown-btn3').children('.dropdown-item').removeClass('dropdown-item-shown');
+        });
+
+        $('.profile').click(function (e) {
+            e.stopPropagation();
+            if ($(this).children('.dropdown-item').hasClass('dropdown-item-shown') == true) {
+                $(this).children('.dropdown-item').removeClass('dropdown-item-shown')
+            } else($(this).children('.dropdown-item').addClass('dropdown-item-shown'))
+            $('.dropdown-btn1').children('.dropdown-item').removeClass('dropdown-item-shown');
+            $('.dropdown-btn2').children('.dropdown-item').removeClass('dropdown-item-shown')
+            $('.dropdown-btn3').children('.dropdown-item').removeClass('dropdown-item-shown');
+        });
+
+        $(document).on('click', function (e) {
+            if ($(e.target).is(".dropdown-btn") == false && $('.dropdown-item').hasClass(
+                    'dropdown-item-shown')) {
+                console.log("button clicked");
+                $('.dropdown-item').removeClass('dropdown-item-shown');
+
+            }
+        });
+
+        $('.navbar .bar').click(function () {
+            $('.nav-menu').addClass('nav-menu-shown')
+            if ($('.footer-menu').hasClass('nav-menu-shown')) {
+                $('.footer-menu').removeClass('nav-menu-shown')
+            }
+        });
+
+
+        $('.navbar .close-btn').click(function () {
+            $('.nav-menu').removeClass('nav-menu-shown')
+        });
+
+
+        $(window).resize(function () {
+            if ($('.nav-menu').hasClass('nav-menu-shown')) {
+                $('.nav-menu').removeClass('nav-menu-shown')
+            }
+
+        });
+        
+
+        let lastScrollTop = 0;
+        $(window).scroll(function (event) {
+            let st = $(this).scrollTop();
+            
+            if (st > lastScrollTop && lastScrollTop >= 0) {
+                $('.navbar').css({
+                    top: '-110px'
+                });
+                $('.dropdown-item').removeClass('dropdown-item-shown');
+                $('.nav-menu').removeClass('nav-menu-shown');
+                $('.marquee-wrapper').css({
+                    visibility: 'hidden',
+                    opacity: '0'
+
+                });
+
+            } else if(st < lastScrollTop){
+                $('.navbar').css({
+                    top: '0'
+                })
+
+                $('.marquee-wrapper').css({
+                    visibility: 'visible',
+                    opacity: 1
+                })
+
+            }
+            lastScrollTop = st;
+        });
+
+
+    });
+</script>
