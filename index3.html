@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1">
+    <title>Home</title>
+
+    <!-- css links -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,500i,600,600i,700,700i,800" rel="stylesheet">
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
+
+    <link href="resources/idm-service/resources/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link rel="stylesheet" href="resources/idm-service/resources/css/main.css">
+    <link href="resources/css/general.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+
+    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="resources/favorite_icon.png">
+    <link rel="stylesheet" href="resources/css/menu.css">
+    <link rel="stylesheet" href="resources/css/footer.css">
+    <link rel="stylesheet" href="resources/css/pre-loader.css">
+    <link rel="stylesheet" href="resources/css/index.css">
+
+    <link href="resources/jqwidgets/styles/jqx.base.css" rel="stylesheet">
+    <link href="resources/jqwidgets/styles/jqx.light.css" rel="stylesheet">
+    <link href="resources/idm-service/resources/css/main.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="resources/css/slick.grid.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/slick.pager.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/slick.columnpicker.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/monitor-gui.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/monitor-ui.css" type="text/css" />
+
+    <!-- js links -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+    </script> -->
+    <script src="resources/js/jquery-3.6.0.min.js"></script>
+    <script src="resources/js/jquery-ui.js"></script>
+    <!-- <script src="resources/js/bootstrap.min.js"></script> -->
+    <!-- <script src="resources/js/bootstrap-dropdown.js"></script> -->
+    <!-- <script src="resources/js/jquery.ihavecookies.min.js"></script> -->
+    <!-- <script src="/resources/js/data.js"></script> -->
+    <!-- <script src="/resources/js/validator.js"></script> -->
+    <!-- <script src="/resources/js/intlTelInput.js"></script> -->
+    <!-- <script src="/resources/js/bootstrap-formhelpers-countries.js"></script>
+    <script src="/resources/js/bootstrap-formhelpers-selectbox.js"></script>
+    <script src="/resources/js/bootstrap-formhelpers-countries.en_US.js"></script> -->
+    <!-- <script src="resources/js/top-menu.js" defer></script> -->
+    <!-- <script src="resources/js/home.js"></script> -->
+    <!-- <script src="resources/js/messages.js"></script> -->
+    <!-- <script src="resources/js/common.js"></script> -->
+    <!-- <script src="resources/js/goto_homepage.js"></script> -->
+    <script src="resources/js/pre-loader.js" async></script>
+
+    <script src="resources/jqwidgets/jqxcore.js"></script>
+    <script src="resources/jqwidgets/jqxwindow.js" async></script>
+    <script src="resources/jqwidgets/jqxsplitter.js" async></script>
+    <script src="resources/jqwidgets/jqxbuttons.js" async></script>
+    <script src="resources/jqwidgets/jqxinput.js" async></script>
+    <script src="resources/jqwidgets/jqxlistbox.js" async></script>
+    <script src="resources/jqwidgets/jqxdropdownlist.js" async></script>
+    <script src="resources/jqwidgets/jqxmenu.js" async></script>
+    <script src="resources/jqwidgets/jqxcheckbox.js" async></script>
+
+    <script src="resources/js/jquery.event.drag-2.3.0.js"></script>
+    <script src="resources/js/slick.core.js"></script>
+    <script src="resources/js/slick.formatters.js" async></script>
+    <script src="resources/js/slick.editors.js">
+        async
+    </script>
+    <script src="resources/js/slick.rowselectionmodel.js" async></script>
+    <script src="resources/js/slick.grid.js" async></script>
+    <script src="resources/js/slick.dataview.js" async></script>
+    <script src="resources/js/slick.cellrangeselector.js" async></script>
+    <script src="resources/js/slick.cellselectionmodel.js" async></script>
+    <script src="resources/js/slick.rowmovemanager.js" async></script>
+    <script src="resources/js/slick.checkboxselectcolumn.js" async></script>
+
+    <script src="resources/js/include-html.js" async></script>
+    <!-- <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script> -->
+    <!-- <script src="resources/js/jquery-ui.js"></script> -->
+    <script src="dev/api/user_favorites.js"></script>
+    <script src="dev/api/config/config.js"></script>
+    <script src="dev/api/authentication.js"></script>
+
+</head>
+
+<body>
+    <!-- cookie warining area -->
+    <div id="cookie-warning-wrapper">
+        <div class="cookie-content-wrapper">
+            <p>This site uses cookies for registered users only. By continuing to browse the site you are agreeing to our use of cookies. Please see our <a href="cookie_policy.html">Cookies Policy</a> and <a href="privacy-policy.html">Privacy Policy</a>                for more information.</p>
+            <button class="cookie-btn">Dismiss</button>
+        </div>
+    </div>
+
+    <!-- website pre-loader -->
+    <div class="loader-container">
+        <div class="loader-box">
+            <div class="loader-wrapper">
+                <span class="loader-circle"></span>
+                <span class="loader-circle"></span>
+                <span class="loader-circle"></span>
+                <span class="loader-circle"></span>
+                <span class="loader-circle"></span>
+                <span class="loader-circle"></span>
+            </div>
+
+            <div class="loader-wrapper-2">
+                <span class="loader-circle"></span>
+                <span class="loader-circle"></span>
+                <span class="loader-circle"></span>
+                <span class="loader-circle"></span>
+
+            </div>
+
+            <div class="loader-wrapper-3">
+                <span class="loader-circle"></span>
+                <span class="loader-circle"></span>
+                <span class="loader-circle"></span>
+                <span class="loader-circle"></span>
+                <span class="loader-circle"></span>
+            </div>
+
+            <div class="loader-wrapper-4">
+                <span class="loader-circle"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- header area -->
+    <header>
+        <div class="container">
+            <nav include-html="menu.html" id="menu_file" class="navbar navbar-default navbar-fixed-top"></nav>
+
+            <div class="banner-area">
+                <div class="row">
+                    <div class="col">
+                        <div class="title">
+                            <h2 class="large-section-text-header">MARKET DATA & ANALYTICS</h2>
+                        </div>
+                        <!--                         <div class="sub-title">
+                             <h4>Premium market data - the life blood of every trading company </h4>
+                        </div>  -->
+                        <div class="banner-desc">
+                            <p class="">We provide premium market data and analytic solutions to power information and trading systems for businesses of all sizes. We offer reference data from global commodity and stock exchanges, independent data providers, banks, indices, currencies, fundamental data and more.</p>
+								
+							<p class="">Our innovative analytic solutions can help you to embrace data analytics, reduce cost, improve you market understanding, achieve better growth, gain competitive advantage and real actionable insights.</p>
+
+                            <p>For market data vendors, we can present your data to the global market using our premium software solutions. We take care of the infrastructure and technology, letting you focus on providing your services directly to your clients.</p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="banner-img-wrapper">
+                <img class=" banner-image" src="resources/images/illustrations/banner-illustration.png" alt="">
+            </div>
+        </div>
+    </header>
+    <!-- why choose idm area -->
+    <section class="why-choose-idm-section">
+        <div class="container">
+            <div class="row why-choose-idm-wrapper">
+                <div class="col-md-5">
+                    <img class="why-choose-idm-img" src="resources/images/illustrations/why-choose-idm.svg" alt="">
+                </div>
+                <div class="col-md-7 why-idm-area">
+                    <h2 class="large-section-text-header">Why Sarus for market data & ANALYTICS?</h2>
+                    <p class="">
+                        <!--  <br> -->
+                        <b>Market Data:</b> Premium market data is the life blood of every trading company. We provide extremely cost effective access to premium reference market data for any commercial enterprise - large or small. <br><br> We provide
+                        historical reference data suitable for
+                        <span class="gray-bold-text">market analytics, quant research, contract pricing, back testing,
+                            powering
+                            information systems and more. </span> Whatever the reason, we provide the market data solutions you need with low cost flexible licensing and easy access to a huge range of reference market data covering
+                        global markets. <br><br></p>
+                    <p class=""><b>Analytics:</b> We bring the latest data science and analytic solutions to our clients and deliver market data directly to <span class="gray-bold-text">“R” and Python. </span> Using the powerful Monitor+ API, almost any programming language can used to access the market data directly.</p>
+                    <p>We provide easy access to hundreds of analytic functions and reports so any company can create their own market data analysis, comparison and forecasting solutions to help make better informed trading decisions.</p>
+
+                    <p><b>Excel:</b> Our <span class="gray-bold-text">XLerate for Excel</span> solution allows Excel users to create detailed analytic reports and technical analysis charts. With an intuitive 'point and click' interface, it is perfect for both advanced
+                        and less experienced users. XLerate reports can be uploaded as web reports where they can shared, updated and analyzed on-line. Colleagues can access on line Web reports from anywhere 24-7 making it an ideal solution for colleagues who are out of the office. <br>
+                        <span class="dagray-lessbold-text">If you can use Excel, you can use XLerate.</span>
+                    </p>
+                </div>
+                <p class="mt-4">
+                    <p>Our solutions work for companies of any size - from single traders to corporate giants. We help businesses to become more productive, location independent and to drive down data costs using our innovative market data solutions. </p>
+                </p>
+                <p class="gray-bold-text">  If you need cost effective market data and powerful analytic solutions tailored for <i>your</i> business -  you need Monitor+
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- services area -->
+    <section class="services-section">
+        <div class="container">
+            <div class="row service-wrapper">
+                <div class="col-md-4 services">
+                    <div class="row">
+                        <div class="col-md-3 service-image col-2">
+                            <img class="service-img" src="resources/images/target.png" alt="">
+                        </div>
+                        <div class="col-md-9 col-10 service-text">
+                            <h6 class="small-section-text-header">One API - All the data.</h6>
+                            <p>The Monitor+ API provides easy access to dozens of exchanges via a clean well defined interface. Get values for multiple datasets as individual time series, in row by column format or for a single date (with optional sparkline data).
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 services">
+                    <div class="row">
+                        <div class="col-md-3 service-image col-2">
+                            <img class="service-img" src="resources/images/report2.png" alt="">
+                        </div>
+                        <div class="col-md-9 col-10 service-text">
+                            <h6 class="small-section-text-header">The Analytics You Need</h6>
+                            <p>Create the powerful analysis, comparison and forecasting reports that your business needs. Help your traders gain new market insight and provide <i>your own</i> analytic reports to your front, mid and back office. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 services">
+                    <div class="row">
+                        <div class="col-md-3 service-image col-2">
+                            <img class="service-img" src="resources/images/idea.png" alt="">
+                        </div>
+                        <div class="col-md-9 col-10 service-text">
+                            <h6 class="small-section-text-header">Create Your Own Solutions</h6>
+                            <p>Create custom reports and solutions using R, Python, Excel and most development languages. Monitor+ makes it easy with multi-series requests, filters, fills, averages and returns JSON formatted results ready to drop into any report.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 services">
+                    <div class="row">
+                        <div class="col-md-3 service-image col-2">
+                            <img class="service-img" src="resources/images/datacircle.png" alt="">
+                        </div>
+                        <div class="col-md-9 p-0 col-10 service-text">
+                            <h6 class="small-section-text-header">Our Market Data </h6>
+                            <p>Access thousands of premium time series from commodities, currencies, stocks, independent pricing agencies, indices, fundamental data and more. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 services">
+                    <div class="row">
+                        <div class="col-md-3  service-image  col-2">
+                            <img class="service-img" src="resources/images/data.png" alt="">
+                        </div>
+                        <div class="col-md-9 col-10 service-text">
+                            <h6 class="small-section-text-header">Your Own Channel To Market</h6>
+                            <p>Add your own proprietary data to the Monitor+ service to create your own global revenue opportunity.  We take care of the technology and infrastructure, leaving you to focus on your customers.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 services">
+                    <div class="row">
+                        <div class="col-md-3 service-image col-2">
+                            <img class="service-img" src="resources/images/handshake-blue.png" alt="">
+                        </div>
+                        <div class="col-md-9 col-10 service-text">
+                            <h6 class="small-section-text-header">Flexible Terms - Low Cost </h6>
+                            <p>Our simple and relaxed licensing terms can allow commercial use of our data in your company. Our low fees ensure you can reduce your data fees significantly. <span class="astrik">*</span> </p>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center notice"><span class="astrik">*</span> Subject to exchange/vendor regulations and our fair use policy.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- products you need area -->
+    <section class="products-you-need-section">
+        <div class="container enterprises-wrapper">
+            <h2 class="large-section-text-header">the solution you need...</h2>
+            <div class="row">
+                <div class="col-md-6 ">
+                    <img class=" enterprise-img" src="resources/images/illustrations/small-company.png" alt="">
+                </div>
+                <div class="col-md-6">
+                    <h3 class="enterprise-title">For large Enterprises</h3>
+                    <p class="mb-3">Create and implement your own market data solutions using virtually any programming language. We provide native access for “R”, Python and Jupyter developers as well as the flexible, powerful Monitor+ JSON API for other development
+                        languages. </p>
+                    <p class="mb-3">With the powerful Monitor+ API you can easily create applications, quant research, build dashboards, quote pages, power databases, create amazing reports and integrate with other BIS software.</p>
+
+                    <p class="mb-3">As well as having access to our "R", Jupyter and Python reports, you will also have access to our XLerate Excel add-in so that all users can easily access market data reports. With these professional tools you can create, edit, share
+                        and update your market reports - at home and in the office.</p>
+
+                </div>
+
+            </div>
+            <div class="mt-4">
+                <div class=" small-enterprise">
+                    <h3 class="enterprise-title">And Small to Medium Enterprises</h3>
+                    <p class="mb-3">You don’t need a team of data scientists and analysts to create powerful analytics. We provide sample "R" Studio and Python (using Jupyter Notebooks) reports that demonstrate how quickly and easily analytic reports can be created and
+                        managed. These statistical languages are familiar to both data scientists and developers making it easy to create in-house reports or to outsource report development.
+                    </p>
+
+                    <p class="mb-3">Not all companies want to to create in-house solutions. In addition to our ready made sample reports, our XLerate Excel add-in brings the power of Monitor+ to Excel. With just a few mouse clicks, you can create amazing market reports,
+                        charts and analytics – and all without any knowledge of cryptic exchange symbols. </p>
+                    <p>For more information, click on the "Solutions" menu at the top of the window.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- market data integration area -->
+    <section class="data-integration-section">
+        <div class="container data-integration-wrapper">
+            <h2 class="large-section-text-header"> Data Integration</h2>
+            <div class="row data-integration-desc-wrapper">
+                <div class="col-md-7 p-0">
+                    <p class="mb-3">Our market data solutions are designed to integrate into business information & trading systems and provide cost saving, cutting edge solutions for front, mid and back office.
+                    </p>
+
+                    <p class="mb-3">Our data servers take data from dozens of exchanges and markets. The Monitor+ API combines them and provides a standard interface to access all the market data, corrections and metadata. The Monitor+ API is extremely powerful, flexible
+                        and is designed specifically for reference market data.
+
+                        <p class="mb-3">For local data integration, we provide tools that are familiar to both data scientists and analysts - Jupyter, Python, "R" and Excel. All tools come as native libraries and with a variety of working examples that are easy to adapt
+                            for any specific client requirement. </p>
+
+                        <p class="mb-3">XLerate for Excel brings the power of Monitor+ to Excel. It has built in market reports and TA charts making it easy to create, edit and share any report - at work or at home. As it's Excel, you can mix in data from other sources
+                            to create more custom reports.
+                        </p>
+
+                        <p class="">If you'd like to integrate market data from a 3rd party, white label our product or add your own proprietary market data to Monitor+ to create a global sales channel then we can help. Click on the "Work with us" menu at the page
+                            bottom for more information.</p>
+
+
+                </div>
+                <div class="col-md-5 d-flex align-items-center">
+                    <img class="data-integration-img" src="resources/images/illustrations/data-integration-img.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How much does it cost area -->
+    <section class="how-much-cost-section">
+        <div class="container how-much-cost-wrapper">
+            <h2 class="large-section-text-header ">What are the costs?</h2>
+            <p>Cost depends on a number of factors, the data access required, number of users and any vendor fees to access proprietary data. As an example, for a sole trader using XLerate for Excel, prices start from less than $200 per month for an FX/commodities
+                service. </p>
+            <br>
+            <p>The first step is to determine your data requirements and usage needs. We can then discuss all available options and how we expect to make substantial data access savings for you. </p>
+            <br>
+            <p>We can sometimes offer a free short term trial for companies to test how our solutions integrate with existing systems. </p>
+            <br>
+            <p>Why not get in touch with us about our services, solutions and fees?&ensp; We think you'll be pleasantly surprised. </p>
+        </div>
+    </section>
+
+    <!-- Need more  information area -->
+    <section class="need-more-section">
+        <div class="container need-more-warpper">
+            <div class="row need-information-desc-wrapper">
+                <div class="col-md-6 ">
+                    <img class=" need-info-img" src="resources/images/illustrations/question.svg" alt="">
+                </div>
+                <div class="col-md-6 ">
+                    <h2 class="large-section-text-header">Need more information?</h2>
+                    <p class="mb-md-5 mb-3">If you have any questions regarding our market data products, analytics or questions about how our solutions can be integrated into your business then get in touch using the "Contact" menu at the top of the page. </p>
+                    <p>We can help you get the market data solutions that your business needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REGISTER NOW AND GET STARTED area -->
+
+    <section class="register-now-section">
+        <div class="container register-now-wrapper">
+            <div class="row register-now-row">
+                <div class="col-lg-5 col-md-6 register-now-text-wrapper">
+                    <h2 class="large-section-text-header ">REGISTER NOW TO GET STARTED</h2>
+                    <p class="package-text">We've got the perfect data package for you...</p>
+                    <a href="registration"><button class="btn register-now-btn">REGISTER NOW <i
+                                class="fas fa-angle-double-right"></i></button></a>
+                    <p class="register-text">Register your business and request a trial access to the Monitor+ service - absolutely free!
+                        <p></p>
+                    </p>
+                </div>
+                <div class="col-lg-7 col-md-6">
+                    <img src="resources/images/illustrations/register-now.svg" alt="">
+                </div>
+                <br>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="bottom">
+        <div class="container">
+            <div class="bottom-title-wrapper">
+                <img class="idm-logo" src="resources/images/imgpsh_fullsize_anim (1).png" alt="">
+                <h2 class="large-section-text-header">MARKET DATA - MADE EASY</h2>
+            </div>
+            <p class="tradmark-text"> Sarus, Monitor+ and XLerate are trademarks of Sarus Systems Ltd.  All other trademarks acknowledged.</p>
+        </div>
+    </section>
+
+
+    <!-- marquee area -->
+
+    <div class="marquee-wrapper">
+        <div class="marquee">
+            <img src="resources/images/exchanges/nymex.png" alt="NYMEX" />
+            <img src="resources/images/exchanges/ice.png" alt="ICE" />
+            <img src="resources/images/exchanges/cme.png" alt="CME" />
+            <img src="resources/images/exchanges/eurex.png" alt="EUREX" />
+            <img src="resources/images/exchanges/cftc.png" alt="CFTC" />
+            <img src="resources/images/exchanges/jodi.png" alt="JODI" />
+            <img src="resources/images/exchanges/lme.png" alt="LME" />
+            <img src="resources/images/exchanges/crypto.png" alt="CRYPTO" />
+            <img src="resources/images/exchanges/fx.png" alt="FX" />
+            <img src="resources/images/exchanges/ecb.png" alt="ECB" />
+            <img src="resources/images/exchanges/indices.png" alt="INDICES" />
+            <img src="resources/images/exchanges/amsterdam.png" alt="Amsterdam" />
+            <img src="resources/images/exchanges/argentina.png" alt="Argentina" />
+            <img src="resources/images/exchanges/athens.png" alt="Athens" />
+            <img src="resources/images/exchanges/B3-brazil.png" alt="Brazil" />
+            <img src="resources/images/exchanges/borse-berlin.png" alt="Berlin" />
+            <img src="resources/images/exchanges/bombay.png" alt="Bombay" />
+            <img src="resources/images/exchanges/borsa-italiana.png" alt="Borsa-Italiana" />
+            <img src="resources/images/exchanges/brussels.png" alt="Brussels" />
+            <img src="resources/images/exchanges/budapest.png" alt="Budapest" />
+
+            <img src="resources/images/exchanges/cftc.png" alt="CFTC" />
+            <img src="resources/images/exchanges/cme.png" alt="CME" />
+            <img src="resources/images/exchanges/copenhagen.png" alt="Copenhagen">
+            <img src="resources/images/exchanges/crypto.png" alt="CRYPTO" />
+            <img src="resources/images/exchanges/dusseldorf.png" alt="Dusseldorf" />
+            <img src="resources/images/exchanges/dusx.jpg" alt="DUSX" />
+            <img src="resources/images/exchanges/ecb.png" alt="ECB" />
+            <img src="resources/images/exchanges/eurex.png" alt="EUREX" />
+            <img src="resources/images/exchanges/frax.png" alt="FRAX" />
+            <img src="resources/images/exchanges/fx.png" alt="FX" />
+            <img src="resources/images/exchanges/hamx.jpg" alt="HAMX" />
+            <img src="resources/images/exchanges/hanoi.png" alt="Hanoi" />
+            <img src="resources/images/exchanges/hong-kong.png" alt="HongKong" />
+            <img src="resources/images/exchanges/ice.png" alt="ICE" />
+            <img src="resources/images/exchanges/indonesia.png" alt="Indonesia" />
+            <img src="resources/images/exchanges/irish.png" alt="Ireland" />
+
+            <img src="resources/images/exchanges/jodi.png" alt="JODI" />
+            <img src="resources/images/exchanges/jse.png" alt="JSE" />
+            <img src="resources/images/exchanges/korea.png" alt="Korea" />
+            <img src="resources/images/exchanges/kosdaq.png" alt="Kosdaq" />
+            <img src="resources/images/exchanges/lisbon.png" alt="Lisbon" />
+            <img src="resources/images/exchanges/lme.png" alt="LME" />
+            <img src="resources/images/exchanges/lse.png" alt="LSE" />
+            <img src="resources/images/exchanges/luxx.jpg" alt="LUXX" />
+            <img src="resources/images/exchanges/madrid.png" alt="Madrid" />
+            <img src="resources/images/exchanges/mexico.png" alt="Mexico" />
+            <img src="resources/images/exchanges/munich.png" alt="Munich" />
+
+            <img src="resources/images/exchanges/berx.jpg" alt="Baltic" />
+            <img src="resources/images/exchanges/nikkei.png" alt="nikkei" />
+            <img src="resources/images/exchanges/nymex.png" alt="NYMEX" />
+            <img src="resources/images/exchanges/nse.png" alt="NSE" />
+            <img src="resources/images/exchanges/opec.png" alt="OPEC" />
+            <img src="resources/images/exchanges/oslo.png" alt="Oslo" />
+            <img src="resources/images/exchanges/pakistan.png" alt="Pakistan" />
+            <img src="resources/images/exchanges/paris.png" alt="Paris" />
+            <img src="resources/images/exchanges/philippines.png" alt="Philippines" />
+            <img src="resources/images/exchanges/poland.png" alt="Poland" />
+
+            <img src="resources/images/exchanges/santiago.png" alt="Santiago" />
+            <img src="resources/images/exchanges/saudi-arabia.png" alt="SaudiArabia" />
+            <img src="resources/images/exchanges/shanghai.png" alt="Shanghai" />
+            <img src="resources/images/exchanges/shenzhen.png" alt="Shenzhen" />
+            <img src="resources/images/exchanges/singapore.png" alt="Singapore" />
+            <img src="resources/images/exchanges/six-swiss.png" alt="Swiss" />
+            <img src="resources/images/exchanges/stux.png" alt="STUX" />
+            <img src="resources/images/exchanges/taipei.png" alt="Taipei" />
+            <img src="resources/images/exchanges/tel-aviv.png" alt="TelAviv" />
+            <img src="resources/images/exchanges/thailand.png" alt="Thailand" />
+            <img src="resources/images/exchanges/tokyo.png" alt="Tokyo" />
+            <img src="resources/images/exchanges/toronto.png" alt="Toronto" />
+            <img src="resources/images/exchanges/tsxx.jpg" alt="TSXX" />
+            <img src="resources/images/exchanges/twse.png" alt="TWSE" />
+            <img src="resources/images/exchanges/vienna.png" alt="Vienna" />
+            <img src="resources/images/exchanges/xetra.png" alt="XETRA" />
+            <img src="resources/images/exchanges/xhan.png" alt="XHAN" />
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div include-html="footer.html" id="footer_file"></div>
+        </div>
+    </footer>
+
+    <script>
+        function loadScript(src) {
+            var scriptElem = document.createElement('script');
+            scriptElem.setAttribute('src', src);
+            scriptElem.setAttribute('type', 'text/javascript');
+            document.getElementsByTagName('head')[0].appendChild(scriptElem);
+        }
+
+        setTimeout("loadScript('resources/js/index.js');", 50);
+    </script>
+
+</body>
+
+</html>
